@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gini 系数分解 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_gini-decomposition.md.E6iUQEyI.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-27</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 理论与设计拾遗<!--[--> · 单元 分配与福祉<!--]--><!----></p><p class="lesson-progress">第 4 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/econ/congestion-pricing/">拥堵定价</a></p><p class="lesson-next"> 下一课：<a href="/econ/capability-approach/">可行能力方法</a></p><!----></nav><div style="position:relative;"><div><h1 id="gini-系数分解" tabindex="-1">Gini 系数分解 <a class="header-anchor" href="#gini-系数分解" aria-label="Permalink to &quot;Gini 系数分解&quot;">​</a></h1><div class="epigraph"><p>基尼系数是一个数，不是一个诊断：拆成组间、组内与重叠三块，才知道不平等长在哪个关节上。</p><footer>—— 据 Gini (1912)；Dagum 基尼分解 (1997)；Pyatt 三方分解 (1976)</footer></div><p><a href="/econ/congestion-pricing">拥堵定价</a>的公平账要算清分配，本课给分配测量的解剖刀。基尼系数人人会算、少人会拆。缺口是<strong>基尼分解</strong>：把总不平等按子群体（组间/组内）或按收入来源（要素分解）切开，回答「政策该往哪打」。本课只讲基尼族的分解，不进泰尔熵族。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>全国基尼 0.47，城乡拆开后城镇 0.42、农村 0.45、组间 0.18——三个数什么关系？为什么各组基尼之和远小于全国？拆解要回答两件事：各子群体贡献几何；分解是否可加、是否唯一。基尼的分解不完美（有重叠项），这正是要讲清的地方。</p><p><span class="marginnote">术语翻译：组间不平等 = 用各组均值算出的基尼（把组内抹平后剩下的差距）；组内 = 各组内部的基尼按人口加权；重叠（overlap/residual）= 富组里的穷人与穷组里的富人「交错」产生的项——它是基尼分解不为零的根源。</span></p><p><span class="marginnote">数字实例：城镇均值 4 万、农村 2 万，各自基尼 0.42/0.45。组间项（把每组都换成均值）约 0.14，人口加权组内项约 0.30，重叠项约 0.03——三项加总才是 0.47。重叠小（城乡几乎不交叉）时组间项才是主矛盾。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Dagum 三步：把全体按子群体分组，各 group 内排序；两两计算 \(G_{jh}\)——同组配对（组内贡献）与跨组配对（净差距 = 富组赢的配对减穷组赢的配对）；剩下一块就是跨组重叠强度。要素分解（另一条路）：按工资、经营、转移支付等收入来源分别算集中度 \(C_k\)，加权求和即总基尼——<strong>集中度</strong>与<strong>份额</strong>是两个独立的政策旋钮。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：基尼像「全班身高差的平均值翻倍」。按班级拆：班与班的平均身高差（组间）+ 各班内部身高差（组内）+ 高个班里的矮个与矮个班里的高个交叠的部分（重叠）。三块都量出来，才知道是「班与班差太多」还是「班内太参差」。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>基尼可分解性弱于泰尔熵：\(G = G_w + G_b + G_t\)，重叠项 \(G_t\ge 0\) 且只在子群体收入分布交错时存在——城乡几乎分层时 \(G_t\to 0\)，分解近乎完美；教育扩张让城乡分布交叠加大时 \(G_t\) 膨胀，同样总基尼背后结构可以完全不同。要素分解的机制刀更锋利：转移支付的集中度若为负（偏向穷人），它对总基尼是<strong>减项</strong>；某来源集中度上升推高总基尼当且仅当其份额乘（\(C_k-G\)）为正。政策诊断力全在这两个乘积符号上。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：把「各组基尼的加权平均」当总基尼——漏掉组间与重叠项会系统性低估；另一误区是把要素分解与人群分解混着报——前者按收入来源切，后者按人口特征切，切法不同政策含义完全不同。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>基尼对分布中部敏感、尾部钝感——顶端 1% 的变化常被低估，配套要报 top-income 份额或帕累托尾部。分组数越细，组内项越大、组间项越小，跨研究比较必须固定分组口径。转移支付与税收的「再分配效应」要用<strong>市场收入基尼 vs 可支配收入基尼</strong>之差来量，混用总人口与劳动人口口径是文献常见硬伤。与<a href="/econ/capability-approach">可行能力方法</a>的接口：基尼测收入维度，能力法主张多维（教育、健康、发言权）——收入基尼低而能力剥夺高的社会并不罕见。</p><p><span class="marginnote">直觉类比：总基尼像「体检综合分」，分解是分科检查——组间项是「科室之间的差异」，组内项是「科室内部的参差」，重叠项是「两科室病人你中有我」；只看综合分开不出处方。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>基尼分解 = 组内 + 组间 + 重叠；重叠项源于跨组收入交错。</li><li>要素分解看集中度与份额：\(C_k\) 的符号决定某来源是加剧还是缓解。</li><li>基尼钝感尾部、依赖分组口径，配套报 top 份额与再分配两口径。</li><li>出处：Gini 1912；Pyatt 1976；Dagum 1997；World Bank Inequality Database 口径说明。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 理论与设计拾遗<!--[--> · 单元 分配与福祉<!--]--><!----></p><p class="lesson-progress">第 4 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/capability-approach/">可行能力方法</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/econ/congestion-pricing/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">拥堵定价</span><span class="lesson-card-meta">理论与设计拾遗 · 地方公共品与城市<!--[--> · 第 3 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/econ/capability-approach/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">可行能力方法</span><span class="lesson-card-meta">理论与设计拾遗 · 分配与福祉<!--[--> · 第 5 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

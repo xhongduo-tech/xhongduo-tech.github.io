@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>成本与延迟优化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_agent-cost-latency.md.8c97D2ul.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 Agent 工程深入<!--[--> · 单元 质量与生产<!--]--><!----></p><p class="lesson-progress">第 8 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/agent-eval-success-process/">评测：任务成功率与过程</a></p><p class="lesson-next"> 下一课：<a href="/llm/agent-guardrails/">安全围栏</a></p><!----></nav><div style="position:relative;"><div><h1 id="成本与延迟优化" tabindex="-1">成本与延迟优化 <a class="header-anchor" href="#成本与延迟优化" aria-label="Permalink to &quot;成本与延迟优化&quot;">​</a></h1><div class="epigraph"><p>代理的花费不与任务难度成正比，与轨迹形状成正比；最贵的杠杆常常最先被拉——降单价，而它恰恰是最慢的一根。</p><footer>—— 据服务成本模型与代理产品的成本口径整理；token 单价见各厂商定价页</footer></div><p><a href="/llm/agent-eval-success-process">上一课</a>把过程指标量了出来，其中步数与 token 成本在本课定价。单次调用的成本工程（<a href="/llm/cost-per-mtok">百万 token 成本</a>、<a href="/llm/serving-cost-model">服务成本模型</a>）已经是常数账；代理的账多了两个变量：步数由模型行为决定，历史由轨迹累积。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>代理成本结构的第一定律是平方律：n 步任务若每步轨迹增长 s 个 token，总输入约为 \(s \cdot n(n+1)/2\)——步数翻倍，总输入近四倍。第二定律是延迟串行：每步要等「模型生成 + 工具执行 + 观察回填」，n 步的墙钟时间是链条求和，没有并行就线性堆。<span class="marginnote">术语翻译：墙钟时间就是「你拿秒表在旁边实测的等待时间」——用户从点击到看到结果的全部秒数，与 CPU 花了多少计算时间是两回事。用户只感知墙钟，所以串行链条再短的一环也是实打实的等待。</span>工程上最容易犯的错是杠杆排序错误：第一步先去谈更便宜的模型单价，而单价是常数因子；轨迹形状是平方因子，砍错方向优化十倍单价也追不上多出的步数。另一个错是把缓存当免费午餐：缓存命中的前提是前缀逐字节稳定（<a href="/llm/prompt-cache">Prompt Cache</a>），而上一课的压缩策略恰恰改前缀——两者不做协调，省下的 token 钱会以缓存全灭的方式还回去。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>杠杆按弹性排序。<strong>砍步数</strong>：更好的计划与更强的工具各抵几步——一次带过滤条件的查询抵五次翻页；规划质量的钱花在这里回报最高。<strong>砍每步上下文</strong>：<a href="/llm/agent-context-strategies">上下文管理策略</a>的折叠与 JIT 句柄直接减小 s。<strong>吃缓存</strong>：系统提示与工具说明放最前并逐字节稳定；可变内容放尾部；<a href="/llm/multi-turn-prefix">多轮前缀命中</a>让第 k 步只需为增量付费。<strong>降单价</strong>：<a href="/llm/model-cascade-routing">模型路由与级联</a>让简单步（格式化、分类、抽取）走小模型，难步走大模型；级联判据要便宜，否则省的钱花在判据上。<span class="marginnote">直觉类比：级联就像医院分诊——感冒发烧去社区门诊（小模型，快且便宜），疑难杂症才转专家门诊（大模型，贵但强）。分诊护士本身要快（判据便宜），否则排队做分诊比直接看病还慢。</span><strong>并行</strong>：独立子任务并行分派（<a href="/llm/agent-multi-orchestration">多 Agent 编排模式</a>的工人并行）、同一轮的多个独立工具调用并行发起、无依赖的预取提前做。延迟侧另有一套：流式输出改善感知延迟（首 token 延迟见 <a href="/llm/ttft">TTFT</a>，逐 token 体验见 <a href="/llm/tpot-itl">交错延迟 TPOT / ITL</a>），工具并行化打断串行链。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么步数杠杆最大：它作用在平方项上。算例：\(s=2000\)、\(n=20\) 时总输入约 \(2000 \times 210 = 42\) 万 token；步数砍到 10，直接降为 \(2000 \times 55 = 11\) 万，省约 74%——同等努力下降单价或换小模型都拿不到这个比例。缓存与压缩的冲突是同一笔账的分配问题：缓存要求「已发生的不变」，压缩要求「没用的消失」；协调方案是分层摆放加阶段边界压缩（回指上一课），让缓存在阶段内复利、在边界一次性让路。延迟的机制解是打断依赖链：把「必须等上一步结果才能发起」的调用识别出来，其余全部并行或预取；串行链每多一环，尾部延迟就是乘法。</p><p><span class="marginnote">给成本模型留三列非模型支出：工具与沙箱的执行时长、外部 API 费、人工介入的工资折算。只算 token 的成本表会系统性高估自动化的便宜——长尾任务里人工接管才是最大单项。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>成本优化有三条不可越的线。恢复预算不能砍：重试上限、验证器、门禁检查是保险费（<a href="/llm/agent-error-recovery">错误恢复与重试</a>），省掉它们把失败成本后移并放大。质量-延迟是帕累托前沿不是免费午餐（<a href="/llm/latency-throughput-pareto">延迟-吞吐帕累托</a>）：每一次降延迟的选择都要问牺牲了哪个分位数。<span class="marginnote">常见误区：初学者容易以为「命中缓存就是白拿钱」。实际上缓存省的是算前缀的钱，前提是前缀一个字节都不能改——哪怕在系统提示末尾加了句日期，从那以后的所有缓存全部作废，账单反而更贵。</span>压缩太狠省的是 token、赔的是任务成功率——回到<a href="/llm/agent-eval-success-process">评测：任务成功率与过程</a>把「省钱后成功率」测出来，成本优化才有验收标准。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>平方律先于单价：\(n\) 步、每步 \(s\) token，总输入 \(\approx s \cdot n^2/2\)；步数是第一杠杆。</li><li>杠杆顺序：砍步数、砍上下文、吃缓存、降单价、并行；单价是常数因子。</li><li>缓存与压缩协调：稳定段吃缓存复利，压缩只在阶段边界发生。</li><li>延迟优化=打断串行依赖链；感知延迟用流式补。</li><li>成本表要含工具、外部 API 与人工接管，不只算 token。</li><li>出处：成本口径据各家定价与服务成本模型整理；机制结论为本课程各课汇总。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 Agent 工程深入<!--[--> · 单元 质量与生产<!--]--><!----></p><p class="lesson-progress">第 8 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/agent-guardrails/">安全围栏</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/agent-eval-success-process/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">评测：任务成功率与过程</span><span class="lesson-card-meta">Agent 工程深入 · 质量与生产<!--[--> · 第 7 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/agent-guardrails/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">安全围栏</span><span class="lesson-card-meta">Agent 工程深入 · 质量与生产<!--[--> · 第 9 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

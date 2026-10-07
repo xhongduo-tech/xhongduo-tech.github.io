@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MoE 的低精度 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_num-moe-lowprecision.md.C3Ty7xdd.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 低精度数值与训练稳定<!--[--> · 单元 训练中的低精度<!--]--><!----></p><p class="lesson-progress">第 6 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/num-outlier-atlas/">训练中的异常值图谱</a></p><p class="lesson-next"> 下一课：<a href="/llm/num-sparse-training/">稀疏训练的数值基础</a></p><!----></nav><div style="position:relative;"><div><h1 id="moe-的低精度" tabindex="-1">MoE 的低精度 <a class="header-anchor" href="#moe-的低精度" aria-label="Permalink to &quot;MoE 的低精度&quot;">​</a></h1><div class="epigraph"><p>MoE 里最贵的低精度事故不在专家的 GEMM，而在路由：一个 logit 的舍入偏差，掀翻的是整张负载表。</p><footer>—— 据 DeepSeek-AI, DeepSeek-V3 Technical Report, 2024 的 FP8 训练设计整理</footer></div><p><a href="/llm/num-outlier-atlas">上一课</a>的图谱在混合专家上多出一个维度：同一个模型里，激活分布按专家分裂。专家 GEMM 的低精度与稠密模型同类——格式、尺子、舍入三份账照算；MoE 特有的是门控与均衡的数值。负载均衡的机制与无辅助损失的偏置调节分别在 <a href="/llm/moe-load-balance">MoE 负载均衡</a> 与 <a href="/llm/aux-loss-free-balancing">无辅助损失的均衡</a> 写过，本课只写数值面：哪些量必须保宽，专家级缩放怎么做，通信格式怎么签合同。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>路由是 argmax：每个 token 的 top-\(k\) 专家由门控 logits 的排序决定。排序对扰动过敏——两个近邻专家的 logit 差小于量化噪声时，舍入方向决定谁入选。这与前几课的噪声有本质区别：GEMM 的舍入误差是零均值的，单个选择的翻转是<strong>离散事件</strong>，且后果是系统性的——专家负载突变，均衡偏置跟着调节，负载变化又改各专家的 amax 统计，第二课延迟缩放「amax 平滑」的假设在这里被路由亲手打破。闭环是：量化噪声 → 路由翻转 → 负载振荡 → 尺度抖动 → 更大的量化噪声。</p><p><span class="marginnote">「argmax」翻译成白话就是「挑出分数最大的那一个」：路由器给每个专家打分（logit），top-\(k\) 选择把分数最高的 \(k\) 个专家挑出来处理这个 token。它只看名次、不看分差——所以再小的舍入误差，只要改变了名次，选中的专家就整个换掉，这就是「离散翻转」的含义。</span></p><p>第二层困难在统计量：专家按 token 切分后，每个专家在自己的 expert parallel 组里拿到的样本远少于全 batch，per-expert 的 amax 与分位数天然抖；冷门专家的统计更稀。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>分层保精度，把「必须宽」的清单划到专家机制上。路由 logits、softmax 门控与 top-\(k\) 选择保 BF16 或 FP32——这是清单里不可谈判的一项。专家 GEMM 走 FP8，但缩放粒度要细：DeepSeek-V3 的配方是细粒度块缩放（按 128 通道或固定元素数分块），因为不同专家的分布差异大，per-tensor 尺度会被最野的专家绑架。保宽清单还有：共享专家、嵌入、路由器本体、输出头与首尾若干层（首层激活格局未定型，尾层直接接损失）。</p><p><span class="marginnote">直觉类比：per-tensor 缩放像全公司共用一个报销上限——最能花钱的部门一超标，全公司的额度都被迫收紧，其他部门跟着受穷；按 128 通道分块则像每个部门各有各的预算，最「野」的专家再夸张，也只绑架自己那一小块的精度。</span></p><div class="mermaid"></div><p>专家级统计与检查点：amax 按专家分片组归约（第二课的分布式合同加上专家维），scale 与偏置调节量同批存档，否则续训的负载表接不上。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么 argmax 保宽是机械要求而不是保守习惯：softmax 门控的权重由 logit 差决定，翻转改变的不是某个系数的精度，而是<strong>计算图走哪条边</strong>——被换掉的专家输出完全不同，误差不进入「小扰动」框架。这也解释了为什么负载指标必须与损失一起看：路由噪声在损失上可能被平均，在专家负载方差上却先行恶化，等损失可见时闭环已转了几圈。细粒度缩放在 MoE 收益更大的机制在分母：块越小，单点绑架影响的面越小；专家分布的离散差异让 per-tensor 方案的绑架概率按专家数放大。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：看到损失曲线没涨就以为路由数值没问题。这个闭环里，路由噪声最先表现在专家负载方差和均衡偏置的振荡上，要转几圈才传导到损失；只盯损失等于等火烧到门口才看烟感。</span></p><p><span class="marginnote">DeepSeek-V3 报告的 FP8 混合精度框架保留 BF16 的清单包括路由、嵌入、输出头与首尾层，正与「离散事件不进噪声框架」的机制一致；细粒度累加则把 FP8 的精度损失压到与 BF16 训练同量级。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>全 FP8 的 MoE 配方要在小规模上先验两件事：负载指标（专家负载方差、偏置调节量的振荡）与每专家溢出计数，都稳了再放大。通信 FP8 需要全集群对同一缩放约定签字——不同实现混布等于无定义（第九课的跨硬件合同的特例）。专家并行的重构排布会改变统计窗口，压测要按真实并行度做。最后，别把「MoE 低精度」简化成「专家权重 4-bit」：推理侧的专家量化另有一条线，训练态的门控与缩放合同才是本课的地盘。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>路由是 argmax：量化噪声引发离散翻转，经负载与缩放形成正反馈闭环，门控必须保宽。</li><li>专家 GEMM 可 FP8，缩放要细粒度分块，per-tensor 会被最野专家绑架。</li><li>专家级 amax 按分片组归约，scale 与均衡偏置进检查点。</li><li>负载指标先于损失恶化；监控面要看专家负载方差与偏置振荡。</li><li>通信 dtype 全集群签同一合同。</li><li>出处：DeepSeek-AI, DeepSeek-V3 Technical Report, 2024；MoE 负载均衡与无辅助损失均衡的既有口径。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 低精度数值与训练稳定<!--[--> · 单元 训练中的低精度<!--]--><!----></p><p class="lesson-progress">第 6 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/num-sparse-training/">稀疏训练的数值基础</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/num-outlier-atlas/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">训练中的异常值图谱</span><span class="lesson-card-meta">低精度数值与训练稳定 · 训练中的低精度<!--[--> · 第 5 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/num-sparse-training/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">稀疏训练的数值基础</span><span class="lesson-card-meta">低精度数值与训练稳定 · 训练中的低精度<!--[--> · 第 7 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

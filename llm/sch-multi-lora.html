@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多 LoRA 的调度 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_sch-multi-lora.md.BdXi-B7x.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 服务调度与多租户<!--[--> · 单元 高级调度<!--]--><!----></p><p class="lesson-progress">第 7 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/sch-pd-disaggregated/">PD 分离的调度</a></p><p class="lesson-next"> 下一课：<a href="/llm/sch-cache-aware-routing/">缓存感知路由</a></p><!----></nav><div style="position:relative;"><div><h1 id="多-lora-的调度" tabindex="-1">多 LoRA 的调度 <a class="header-anchor" href="#多-lora-的调度" aria-label="Permalink to &quot;多 LoRA 的调度&quot;">​</a></h1><div class="epigraph"><p>一份基座、许多适配器之后，调度器多管一种资源：它的驻留由请求热度决定，它的抖动与 KV 抖动同构。</p><footer>—— 据 Chen et al., MLSys 2024（Punica）与 Sheng et al., MLSys 2024（S-LoRA）整理</footer></div><p><a href="/llm/sch-pd-disaggregated">上一课</a>把阶段拆成池子；本课把「模型」这一维打开：一份常驻基座、几十上千个 LoRA 适配器，请求各带各的 adapter id。服务形态与特制核主干已有（<a href="/llm/multi-lora-serving">多 LoRA 服务</a>、<a href="/llm/slora">S-LoRA 分页适配器</a>、<a href="/llm/lorax-serving">LoRAX</a>）；本课只写调度器视角：驻留集怎么管、批怎么跨适配器混、配额怎么落到适配器粒度。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>适配器是第三种资源：基座权重常驻（人人共享），KV 按请求计费，适配器按<strong>热度</strong>进出显存。<span class="marginnote">术语翻译：LoRA 就是「不重训整个模型，只训两个很小的矩阵，把它们的乘积当成对原权重的微调补丁」——基座权重冻结不动，换一个补丁就像给同一个模型换一种口音或专长。补丁比原模型小几个数量级，所以一份基座能同时挂几百上千个。</span>调度器新增两个决定。第一，驻留集：GPU 上放哪些 \(A\)、\(B\)？冷适配器请求的 TTFT 里含一次加载（主存到显存，最坏是磁盘）；驻留集换得太勤，GPU 在搬矩阵不产 token——与抢占抖动同构的适配器抖动。第二，批的构成：核能否在同一次前向里对多个适配器做 gather 乘法？不能的话，「多租户」退化成同适配器分组批，不同租户的请求无法同批，连续批的收益按租户碎掉。</p><h3 id="驻留当缓存管" tabindex="-1">驻留当缓存管 <a class="header-anchor" href="#驻留当缓存管" aria-label="Permalink to &quot;驻留当缓存管&quot;">​</a></h3><p>驻留集是标准的缓存问题：键是 adapter id，值是权重增量，容量是显存里划给适配器的池。<span class="marginnote">直觉类比：适配器驻留集就像厨房的调料架——台面（显存）有限，常用的盐糖酱油（热适配器）常驻手边，不常用的收进储藏室（主存甚至磁盘）；做菜中途跑一趟储藏室，上菜自然就慢（TTFT 里多出一次加载）。LRU 策略就是「最久没人点的调料先收起来」，但正在锅里用的（批内租约）谁也不许动。</span>策略用带热度计数的 LRU：滑窗请求数决定去留，热的钉住，正在批内的适配器有租约不可换出；可预测的时段流量做预载（早高峰前把办公租户的适配器提上来）。加载是<strong>无损</strong>的：权重增量可再生，回来不需要重算——比 KV 换出便宜在正确性自动恢复，贵在单个体积可能比一条 KV 大。路由按适配器亲和：同 id 的请求导向已驻留的副本；代价与下一课的缓存感知路由完全同构——亲和集中与负载均衡打架。</p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>本课的方法是<strong>同构映射</strong>：把适配器驻留集映射成标准缓存问题——键是 adapter id、值是权重增量、容量是显存池——策略直接取带热度计数的 LRU，加批内租约与可预测时段预载；加载无损，免去重算那本账。第二刀是核能力决定论：gather 核能异构则批可跨租户混，调度自由度由引擎设计给死，不是调参变量。配额与路由分别落到租户粒度与亲和问题，与 KV、抢占课程共用同一套词汇。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>批内异构靠核：Punica 的 SGMV 把不同适配器的低秩乘收进一次访存，S-LoRA 把适配器权重与 KV 放进统一分页池。这两个机制决定调度器的自由度：核支持异构，批就能跨租户混；不支持，调度器只能按适配器分组，碎片化损失是引擎设计决定的，不是调参能救的。配额与隔离落到适配器粒度：租户与适配器一一对应时，每适配器的并发上限、KV 水位、优先级就是租户配额（本课程最后的隔离课把这层收拢）。一条硬边界必须重申：<strong>KV 不可跨适配器复用</strong>——同一段前缀在不同适配器下算出的 K、V 不同（<a href="/llm/multi-lora-serving">多 LoRA 服务</a> 已钉），前缀缓存的命中统计必须按适配器分键，否则统计与正确性双错。<span class="marginnote">常见误区：初学者容易以为共享前缀的 KV 在不同适配器间可以复用，反正前缀一样。不行——补丁改变了每一层的输出，同一段前缀在不同补丁下算出的 K、V 就是不同的数；复用了，正确性悄悄坏掉，而且输出上往往一时看不出来，是最难查的那种错。</span></p><p>为什么一个小补丁就能换风格？看一次前向里的结构：</p><div class="mermaid"></div><p><span class="marginnote">体积账：秩 16、hidden 4096、32 层、QKVO 加 MLP 全目标、fp16，单个适配器约 80 MB。一千个就是 80 GB——比多数 7B 基座本身还大。这正是 S-LoRA 把适配器放进统一分页池、多数驻留主存的原因，也是「数千适配器」的数字总伴着「多数冷备」小字的原因。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>热且稳定的租户可以把适配器合并进基座权重，省一份间接与批内复杂度，但失去秒级下线与更新（<a href="/llm/adapter-hot-swap">适配器热更新</a> 的迭代边界语义）；频繁切换、长尾租户不要合并。调度参数要与 KV 池联调：给适配器多留显存，KV 池就小，decode 并发上限下降——两种资源在同一张卡上争地皮，按租户的 KV 足迹与适配器热度联评定。多秩混合、张量并行下的适配器广播等细节以各自论文与引擎文档为准。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>适配器是按热度进出的第三种资源：驻留集是缓存问题，抖动与抢占抖动同构。</li><li>加载是无损的（可再生、不需重算），单个体积可观；LRU 加租约是默认策略。</li><li>批内跨适配器靠 gather 核；核不支持时多租户退化为分组批。</li><li>路由按 adapter id 亲和，代价结构与缓存感知路由相同。</li><li>KV 不可跨适配器复用，缓存键与统计必须按适配器分。</li><li>出处：Chen et al., Punica, MLSys 2024，arXiv:2310.18547；Sheng et al., S-LoRA, MLSys 2024，arXiv:2311.03285。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 服务调度与多租户<!--[--> · 单元 高级调度<!--]--><!----></p><p class="lesson-progress">第 7 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/sch-cache-aware-routing/">缓存感知路由</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/sch-pd-disaggregated/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">PD 分离的调度</span><span class="lesson-card-meta">服务调度与多租户 · 高级调度<!--[--> · 第 6 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/sch-cache-aware-routing/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">缓存感知路由</span><span class="lesson-card-meta">服务调度与多租户 · 高级调度<!--[--> · 第 8 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

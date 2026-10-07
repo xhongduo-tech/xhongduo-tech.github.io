@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>拍卖的结构估计深入 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_se-auction-deep.md.CwnewW3V.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 结构估计深化<!--[--> · 单元 需求与供给<!--]--><!----></p><p class="lesson-progress">第 4 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/econ/se-production-deep/">生产函数估计的深化</a></p><p class="lesson-next"> 下一课：<a href="/econ/se-bayesian-structural/">贝叶斯结构估计</a></p><!----></nav><div style="position:relative;"><div><h1 id="拍卖的结构估计深入" tabindex="-1">拍卖的结构估计深入 <a class="header-anchor" href="#拍卖的结构估计深入" aria-label="Permalink to &quot;拍卖的结构估计深入&quot;">​</a></h1><div class="epigraph"><p>一阶条件只在私人价值、风险中性、人数外生时把出价反演成估值；三个前提动一个，反演公式就得跟着动，否则估出来的是策略的影子，不是需求的来源。</p><footer>—— 据 Guerre, Perrigne and Vuong, Econometrica 2000；Haile and Tamer, JPE 2003 整理</footer></div><p><a href="/econ/se-production-deep">上一课</a>把技术边的反演推到动态矩与加成。本课回到博弈场。<a href="/econ/auction-structural-estimation">主干的拍卖课</a>在一阶条件 \(v=b+G(b)/[(n-1)g(b)]\) 上把 IPV 第一价格估完，但那道反演有四个旋钮：风险态度、不可观测异质、参与内生、信息结构。本课逐个拧。储备价与采购招标的反事实在最后一步重解。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>四个缺口各有出处。风险厌恶：出价抬高可以来自估值高，也可以来自怕输——反演公式少一个效用曲率参数，估值分布 \(F\) 与风险态度纠缠。异质性：标的地基、许可范围这些拍卖层面观测不到的变量进估值，边缘密度 \(g\) 是混合，直接核估把异质当成了策略。参与：\(n\) 对储备价与预期利润有反应，把 \(n\) 当外生，反事实储备价系统性错。信息结构：<a href="/econ/winner-curse">共同价值</a>下出价还要过滤「赢得意味着别人也觉得值」，IPV 公式把诅咒写进了估值。</p><p><span class="marginnote">术语翻译：「反演」就是倒着用均衡公式：理论说「估值越高出价越狠」，于是观测到出价分布后往回推估值分布。前提是公式里的其他量（人数、风险态度、信息结构）都已知；少一个已知量，倒推就是欠定的，估出来的东西没有唯一定义。</span></p><h3 id="逐个修的反演" tabindex="-1">逐个修的反演 <a class="header-anchor" href="#逐个修的反演" aria-label="Permalink to &quot;逐个修的反演&quot;">​</a></h3><p>风险厌恶：一阶条件多出 \(u&#39;\) 的比率，Guerre–Perrigne–Vuong 2009 用不同 \(n\) 的场次把它与 \(F\) 分开——人数变，策略变的方式识别曲率。异质：若 \(v=u\cdot e\)（共同乘数加独立噪声），观测密度是卷积，用反卷积把共同成分拆出来。参与：进入成本进估值，\(n\) 的分布对政策变量的反应变成矩的一部分。共同价值与不对称：识别弱得多，Athey–Haile 2002 列出哪些结构在哪些数据下可识别、哪些只能定界。</p><p><span class="marginnote">Haile–Tamer 2003 的出路是部分识别：不假设英式拍卖行为精确最优，只假设出价不超过估值、不会输给愿意付更高价的对手，由此给估值分布与最优储备价定上下界。假设不齐时，界比点更诚实。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>估计流程：先验数据类型——单次出价、入场记录、成交价。IPV 风险中性时直接 GPV 反演（主干课）；加风险曲率时用「不同 \(n\)」的变异；有共同乘数嫌疑时反卷积；\(n\) 内生时联合估进入。所有路径的下游一致：得到 \(F\)（或它的界）后，储备价、合谋、准入的反事实在均衡上重解。<a href="/econ/collusion-cartel">合谋</a>不是废物数据：轮流压价与让标模式在策略上可检验，硬当竞争反演会把合谋报价读成低估值。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制还是「策略与分布的耦合」。\(g\) 在反演公式的分母：出价在边界堆积或双峰，多半不是估值如此，而是 \(n\) 混了样本或策略在边界拐弯。人数变异是最贵的识别资产——\(n\) 变，策略的整条曲线按公式预测地动；动得对，IPV 与风险中性才立得住，动不对，先怀疑信息结构与进入。这与<a href="/econ/se-production-deep">上一课</a>的退出同构：参与本身是选择，反演前先把选择层钉住。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：同样观察到 0.80 元的出价，若出价者风险中性，反演出估值约 0.85；若他因怕输而把出价抬高了一成，真估值可能只有 0.77。风险曲率不确定时，同一份出价分布能倒推出两套方向相反的估值——这就是「估出的是策略的影子」的具体含义。</span></p><p>部分识别的逻辑与主干<a href="/econ/iv-weak-instruments">弱工具</a>课的诚实原则同源：假设供给不足时，报告「数据排除掉什么」比硬给点估计更可信。界可以窄到足以否掉某个储备价方案，这已经够用。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重推<a href="/econ/revenue-equivalence">收入等价</a>，也不给采购市场的数字。荷式与英式的按钮模型差异不在本课调和。石油租约的共同价值结构只指路<a href="/econ/winner-curse">赢家诅咒</a>课，不展开估。秘密储备、再转售与事后谈判都改反演，遇到要先改模型再估。</p><p><span class="marginnote">常见误区：初学者容易把出价分布的双峰当成「人群天然有两类估值」。更常见的真相是样本里混了不同人数 \(n\) 的场次，或出价在储备价边界堆积。先查数据是怎么构造的，再谈异质性。</span></p><p>后课默认：拍卖反演前先过四道前提检查，过了才用主干公式；过不了就走定界。下一课换估计原则：目标函数不光滑、不动点嵌套时，贝叶斯与模拟估计进场。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>风险厌恶、不可观测异质、内生参与、共同价值，逐一改变反演公式。</li><li>\(n\) 的跨场变异同时检验 IPV 并识别风险曲率。</li><li>合谋报价不能当竞争策略反演；假设不足时部分识别优于硬点估。</li><li>反事实储备价在修好的 \(F\)（或界）上重解。</li><li>出处：Guerre, Perrigne and Vuong, <em>Econometrica</em> 2000 与 2009；Haile and Tamer, <em>JPE</em> 2003；Athey and Haile, <em>Econometrica</em> 2002；Krasnokutskaya, <em>REStud</em> 2011。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 结构估计深化<!--[--> · 单元 需求与供给<!--]--><!----></p><p class="lesson-progress">第 4 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/se-bayesian-structural/">贝叶斯结构估计</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/econ/se-production-deep/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">生产函数估计的深化</span><span class="lesson-card-meta">结构估计深化 · 需求与供给<!--[--> · 第 3 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/econ/se-bayesian-structural/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">贝叶斯结构估计</span><span class="lesson-card-meta">结构估计深化 · 方法<!--[--> · 第 5 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

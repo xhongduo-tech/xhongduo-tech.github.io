@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>指数展期的策略执行 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_ft-index-roll-strategy.md.Zc1o1fo0.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 期货与展期深化<!--[--> · 单元 策略<!--]--><!----></p><p class="lesson-progress">第 5 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/quant/ft-roll-inventory-revisit/">展期与库存再探</a></p><p class="lesson-next"> 下一课：<a href="/quant/ft-calendar-arb-deep/">跨期套利深化</a></p><!----></nav><div style="position:relative;"><div><h1 id="指数展期的策略执行" tabindex="-1">指数展期的策略执行 <a class="header-anchor" href="#指数展期的策略执行" aria-label="Permalink to &quot;指数展期的策略执行&quot;">​</a></h1><div class="epigraph"><p>指数的滚法是公开答案；围绕这条答案，每个账户在对齐与偏离之间定价自己的约束——聪明滚仓挣的不是新 alpha，是不做别人被迫做的那笔流量。</p><footer>—— Mou, 2011；Bessembinder, Carrion, Tuttle and Venkataraman, JFE, 2016；展期与商品指数收益的分解见 Erb and Harvey, FAJ, 2006</footer></div><p><a href="/quant/ft-roll-inventory-revisit">上一课</a>把库存状态注进日历、成本与执行，机制单元收束。本课进入策略单元，第一站是指数展期：当持仓的目的不是交易斜率，而是复制或对冲一条指数时，展期从主动决策变成约束下的执行问题。主干已从收益端写过<a href="/quant/commodity-roll-alpha">商品展期 alpha</a>——那是跨品种选择谁该持有；本课写同一品种内、围绕指数基准的滚仓策略，对象是复制盘、对冲盘与增强盘。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>三类账户的自由度不同。复制盘必须贴官方滚仓日历，否则跟踪误差先罚；可选项只剩执行细节——何时开始、分几日、用不用价差单。对冲盘没有官方日历，但有对冲成本账：展期直接进对冲成本，深贴水市场里机械滚近月要多付年化贴水加冲击，<a href="/quant/cn-stockindex-basis">股指期货与贴水</a>给了比较口径。增强盘自由度最大，也最容易把「躲拥挤」做成「追逐流动性差的远月」。错在哪：复制盘为省冲击偏离官方日，跟踪误差罚金超过省下的成本；对冲盘照抄指数日历，白付拥挤费；增强盘用远月薄深度换一点斜率，样本外被滑点吃光。</p><p><span class="marginnote">术语翻译：复制盘是拿着指数资金、必须贴官方滚仓日历走的账户；对冲盘是用期货顶替现货敞口的账户；增强盘是允许偏离基准、去赚执行与斜率钱的账户。自由度依次变宽，罚则也从「跟踪误差罚金」依次换成「对冲成本」和「滑点」。</span></p><h3 id="约束下的滚仓优化" tabindex="-1">约束下的滚仓优化 <a class="header-anchor" href="#约束下的滚仓优化" aria-label="Permalink to &quot;约束下的滚仓优化&quot;">​</a></h3><p>把三类账户写进同一个框架：最小化预测展期成本，约束是各自的可选集。复制盘的可选集窄：合约固定为指数规定的那张，时间固定在官方窗，优化变量只剩参与率与摊薄日数。对冲盘可选月份与日期，约束是基差敞口上限与换月后对冲比率的重算。增强盘可选月份、日期与提前量，约束是最低深度与<a href="/quant/roll-volume-oi">展期成交量与持仓</a>的窗口证据——避开被抢跑前移的拥挤段。三者都对照基准滚法度量：年化节省多少基点，承担了什么敞口。</p><p><span class="marginnote">「聪明滚仓」的收益有一块是转移支付：Mou 记录过指数官方窗前的抢跑使部分展期从被动者流向提前者。这块收益的容量以被动名义为上限，抢跑者拥挤时它自己衰减——它不是仓储新溢价。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>第一步，锁定基准滚法的定义：指数方法论文件的合约与日期，或对冲惯例的近月加固定提前天数——没有基准，「优化」无从对账。第二步，列可选集与约束；每项偏离写成对账表一行：偏离了什么、省了多少、多了什么敞口。第三步，用上一课状态化的成本表预测各方案成本，选预期成本最低且约束可行者。第四步，事后分解：实现的展期与基准滚法逐期对比，把节省归因到日期选择、月份选择与执行细节三栏——归因不清的「节省」会在下一次滚仓里还回去。</p><p><span class="marginnote">数字实例：设某股指期货年化贴水 5%，对冲盘若机械照抄指数官方日，拥挤日每次换月多付 3 个基点冲击；改成错峰分五天滚、冲击降到 1 个基点，一年四次换月就省下约 8 个基点——这就是对账表「偏离了什么、省了多少」一栏要填的具体数。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>偏离有空间的机制是流量的可预测性：被动滚仓方向公开，流动性供给者愿意在非官方日提供更好的价格引你过来——Bessembinder 等人证明可预测流量周围供给会组织起来，市场质量取决于供给弹性。偏离有限度的机制是约束的真实成本：跟踪误差罚金、审计解释成本、基差限额都是定价过的；优化是在真约束下省真钱，不是绕过约束。抢跑衰减的机制是策略容量：提前滚的收益以「还有多少被动名义没滚」为上限；提前者多了，价格在官方日之前走到头，Mou 记录的前移正是证据。</p><div class="mermaid"></div><p><span class="marginnote">为什么重要：对冲盘换月后月份变了，DV01 或 beta 敞口随之变；不重算对冲比率，一期利率或市场的波动就能把全年省下的展期费吞回去——「节省」必须连同敞口一起入账。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>指数方法论会修订：滚仓日、合约选择、纳入品种一改，历史「节省」的分布作废，优化要重估。对冲盘换月后的对冲比率必须重算——月份变了，DV01 或 beta 敞口随之变，省下的展期可能被对冲偏差吞掉。增强盘的容量按远月深度打折，不是按指数名义外推。别把本课与<a href="/quant/commodity-roll-alpha">商品展期 alpha</a>混同：那里选品种承担曲线溢价，这里在给定的指数暴露下省执行成本，收益来源与风险都不相同。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>三类账户同一框架：最小化预测展期成本，约束是各自的可选集——复制窄、增强宽、对冲居中。</li><li>没有基准滚法就没有优化：官方日历或惯例滚法是对账的起点。</li><li>偏离的收益是流量转移（Mou 的抢跑证据），容量以被动名义为上限，拥挤后衰减。</li><li>每期对账：日期、月份、执行三栏归因；对冲盘换月后重算对冲比率。</li><li>出处：Mou, 2011；Bessembinder, Carrion, Tuttle and Venkataraman, <em>JFE</em>, 2016；Erb and Harvey, <em>FAJ</em>, 2006。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 期货与展期深化<!--[--> · 单元 策略<!--]--><!----></p><p class="lesson-progress">第 5 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/ft-calendar-arb-deep/">跨期套利深化</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/ft-roll-inventory-revisit/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">展期与库存再探</span><span class="lesson-card-meta">期货与展期深化 · 机制<!--[--> · 第 4 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/ft-calendar-arb-deep/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">跨期套利深化</span><span class="lesson-card-meta">期货与展期深化 · 策略<!--[--> · 第 6 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

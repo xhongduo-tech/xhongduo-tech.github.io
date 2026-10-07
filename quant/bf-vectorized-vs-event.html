@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>向量化与事件驱动的取舍 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_bf-vectorized-vs-event.md.BolbQ4-J.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 回测框架设计<!--[--> · 单元 架构<!--]--><!----></p><p class="lesson-progress">第 2 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/bf-event-driven-anatomy/">事件驱动框架的解剖</a></p><p class="lesson-next"> 下一课：<a href="/quant/bf-fill-simulation-deep/">成交模拟的深化</a></p><!----></nav><div style="position:relative;"><div><h1 id="向量化与事件驱动的取舍" tabindex="-1">向量化与事件驱动的取舍 <a class="header-anchor" href="#向量化与事件驱动的取舍" aria-label="Permalink to &quot;向量化与事件驱动的取舍&quot;">​</a></h1><div class="epigraph"><p>向量化回答「信号有没有」，事件驱动回答「这笔交易做不做得成」；把两问混进同一条净值曲线，两边的答案都失真。</p><footer>—— 据 López de Prado, Advances in Financial Machine Learning, 2018 对回测结构与路径依赖的论述；对照 Pardo 的仿真分层实践整理</footer></div><p><a href="/quant/bf-event-driven-anatomy">上一课</a>把框架拆成七个器官，其中撮合器与账本只在事件侧存在。缺口随之而来：研究要扫几千个候选，事件引擎每个候选慢几个数量级，全塞进事件侧算不起，全留在向量化侧又丢掉成交的路径依赖。本课写这条边界的画法：什么问题必须事件侧回答，什么问题允许向量化近似，两层如何对拍、差异归给谁。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>向量化的本质是把「当时能否成交」压缩成一组解析假设：下一根开盘价或中点加价差、无条件成交、现金无限。日频、满仓、低换手的因子研究里这组假设误差小、速度快一个数量级以上；但<a href="/quant/backtest-vectorization">回测向量化</a>已经指出，A 股 T+1 与涨跌停能让单列持仓矩阵直接非法，<a href="/quant/halt-limit-backtest">停牌与涨跌停对回测</a>里「在不可交易的 bar 上成交」是向量化最常造假的位置。取舍错的症状有两种：在向量化的漂亮夏普上晋级，实盘完成率远低于一；反过来，把还在筛选期的信号全灌进事件引擎，算力花在两周后就会被丢弃的候选上。</p><h3 id="判据与分工" tabindex="-1">判据与分工 <a class="header-anchor" href="#判据与分工" aria-label="Permalink to &quot;判据与分工&quot;">​</a></h3><p>判据一条：损益是否路径依赖。持仓转移成本、部分成交、拒单、限额、日内时序影响净值，就必须事件侧；信号统计本身（IC、分层收益、候选排序）允许向量化。分工因此是两层：研究层向量化粗筛并解析扣费，候选集合冻结后整批进事件层定案；冻结之前事件层不算任何信号，否则算力诱惑会重新打开「看一眼结果再改」的循环。</p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对拍是两层之间的协议：同一份数据、同一版本信号，向量化在自报的成交假设下与事件引擎各跑一遍，净值差应能被假设逐项解释——价差多大、错过多少涨跌停、拒单多少笔。解释不了的残差才是引擎缺陷，修的是引擎或状态机，不是把信号朝事件层的结果方向调：那是把事件层当第三重交叉验证用，<a href="/quant/research-sim-prod">研究、模拟、实盘隔离</a>的警告原样适用。</p><p>成本参数的流向是单向的：事件层的实测（完成率、滑点分布）回写研究层的解析成本，让下一轮粗筛更接近真相；研究层不许因为向量化曲线好看而去「修」事件层。试验次数记在两层之和上，候选集合冻结后进事件层的那一批才算有效样本外。</p><p><span class="marginnote">算一笔数量级账：十年日频的向量化回测在笔记本上是毫秒级，事件引擎同一任务常以秒到分计，差距千倍上下。粗筛与定案分层不是风格偏好，是算力预算下的必然分工。</span></p><p><span class="marginnote">对拍的账要逐项算：两层净值差 \(0.8\%\)，其中价差假设差贡献 \(0.5\%\)、错过两个涨跌停贡献 \(0.25\%\)、拒单贡献 \(0.03\%\)，剩下的残差才轮到「查引擎」。跳过归因直接调参数，等于把缺陷当成了校准目标。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>两层能共存的前提是成交假设被显式化。向量化的成本函数与事件层的撮合器档位必须写成同一套参数（价差、冲击系数、拒单率），一层升级另一层随之校准；参数没有共享口径，差异既不能解释也不能收敛。事件层不是「更准的向量化」：它保留的是向量化没有的状态——在途订单、现金约束、会话边界——这些状态在低换手日频下多数时间不激活，这正是向量化的近似在那一域成立的原因。</p><div class="mermaid"></div><p><span class="marginnote">术语翻译：「在途订单」就是已经发给柜台、但还没收到成交或拒绝回报的委托。向量化里不存在这个状态——它默认下单即成交；事件层必须记着它，否则同一份现金可能被下两单。两层差距在高换手策略上放大的根源就在这里。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不宣布向量化低人一等：中低频、无杠杆约束、成交假设不敏感的策略，向量化终身够用，事件层只在晋级关卡请出来。也不要把对拍做成常态校准——每轮都对到分毫不差，说明事件层被调得迁就假设，保真度反而在退化。混合策略（日频信号、日内执行）要求两层共享信号定义与时间戳语义，聚合口径必须版本化，见<a href="/quant/late-data-recon">时钟、迟到数据与对账</a>。</p><p><span class="marginnote">初学者容易把「两层对拍到分毫不差」当成工程质量高。方向恰恰反了：事件层若被调得迁就向量化假设，保真度正在退化——它存在的意义就是说出「这笔交易做不成」，偶尔对不上才是它在正常工作。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>判据一条：损益路径依赖必须事件侧；信号统计允许向量化粗筛。</li><li>分层流程：向量化粗筛、冻结候选与 \(N\)、事件层整批定案；事件层不做筛选期工作。</li><li>对拍差异逐项归因给成交假设；解释不了的残差是引擎缺陷，不是调信号的依据。</li><li>成本参数单向回写：事件层实测校准研究层假设，方向不可逆。</li><li>出处：López de Prado, <em>Advances in Financial Machine Learning</em>, Wiley, 2018；Pardo, <em>The Evaluation and Optimization of Trading Strategies</em>, 2007；站内<a href="/quant/backtest-vectorization">回测向量化</a>、<a href="/quant/halt-limit-backtest">停牌与涨跌停对回测</a>各课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 回测框架设计<!--[--> · 单元 架构<!--]--><!----></p><p class="lesson-progress">第 2 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/bf-fill-simulation-deep/">成交模拟的深化</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/bf-event-driven-anatomy/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">事件驱动框架的解剖</span><span class="lesson-card-meta">回测框架设计 · 架构<!--[--> · 第 1 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/bf-fill-simulation-deep/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">成交模拟的深化</span><span class="lesson-card-meta">回测框架设计 · 架构<!--[--> · 第 3 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

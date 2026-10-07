@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>噪声修正估计量 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_hfs-noise-corrected.md.6NbTCi2w.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 高频统计深化<!--[--> · 单元 估计<!--]--><!----></p><p class="lesson-progress">第 2 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/quant/hfs-realized-variance-family/">已实现方差的族谱</a></p><p class="lesson-next"> 下一课：<a href="/quant/hfs-jump-detection/">跳跃的检测与处理</a></p><!----></nav><div style="position:relative;"><div><h1 id="噪声修正估计量" tabindex="-1">噪声修正估计量 <a class="header-anchor" href="#噪声修正估计量" aria-label="Permalink to &quot;噪声修正估计量&quot;">​</a></h1><div class="epigraph"><p>噪声修正不是把坏数据变好，而是把 $2n\sigma_\varepsilon^2$ 这一项从估计量里精确地减掉；减法的代价写在收敛率、带宽与噪声假设里。</p><footer>—— 据 Zhang, Mykland and Aït-Sahalia, JASA 2005；Aït-Sahalia, Mykland and Zhang, Review of Financial Studies 2005 整理</footer></div><p><a href="/quant/hfs-realized-variance-family">上一课</a>把族谱立成两根轴，并留下噪声修正这条支路：噪声在场时如何恢复积分波动。<a href="/quant/tsrv">两尺度估计</a>、<a href="/quant/pre-averaging">预平均</a>与<a href="/quant/realized-kernel">已实现核</a>各写过单点，<a href="/quant/noise-variance-estimate">噪声方差估计</a>写过诊断输入；本课把这条支路收成一页对照：四家共用的机制是什么，调参落在哪，噪声假设被违反时谁先坏、怎么选。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>观测是 \(Y=X+\varepsilon\)：有效价格 \(X\) 是半鞅，噪声方差 \(\sigma_\varepsilon^2\)。朴素 RV 的期望被 \(2n\sigma_\varepsilon^2\) 量级的加项带偏——平方把噪声的二次变差按采样次数加了进来。修正估计量的共同目标是把这个加项去掉，去掉的方式决定三件事：收敛率掉多少、要调几个参数、对「噪声 i.i.d. 且与价格独立」这条假设的依赖多深。缺口不是再发明第五种估计量，而是<strong>选择判据</strong>：给一个标的、一段数据，用哪家、怎么调、何时换。</p><h3 id="四个代表-一个机制" tabindex="-1">四个代表，一个机制 <a class="header-anchor" href="#四个代表-一个机制" aria-label="Permalink to &quot;四个代表，一个机制&quot;">​</a></h3><p><strong>两尺度（TSRV）</strong>：全网格 RV 识别 \(2n\sigma_\varepsilon^2\)，多个错开的稀疏网格平均出受污染较小的 RV，联立两式解出 \(IV\)（Zhang、Mykland 与 Aït-Sahalia，JASA 2005），收敛率 \(n^{1/4}\)，稀疏子格条数是主要调参。<strong>多尺度（MSRV）</strong>：把两尺度推广成多尺度加权组合，速率推到任意接近 \(n^{1/2}\)（Zhang，JBES 2006），代价是多一组权重。<strong>已实现核</strong>：把噪声诱发的负一阶自协方差加权加回（Barndorff-Nielsen、Hansen、Lunde 与 Shephard，Econometrica 2008），带宽是主要调参。<strong>预平均</strong>：先用局部线性窗滤掉噪声再平方加总（Jacod、Li、Mykland、Podolskij 与 Vetter，2009），窗口长度是主要调参。<strong>拟极大似然</strong>（Aït-Sahalia、Mykland 与 Zhang，RFS 2005 及其相关噪声扩展）把噪声写进似然：模型对则效率高，模型错则偏差有结构。</p><p><span class="marginnote">数字实例：一天 \(n=20000\) 个 tick、\(\sigma_\varepsilon^2=0.05\) 时，朴素 RV 要多出 \(2\times20000\times0.05=2000\)，而真实日 \(IV\) 可能只有 1 上下；稀疏平均把有效观测降到几百，加项立刻掉一个数量级——「减法」的第一步其实是先让噪声项变小，第二步才是联立把残项解干净。</span></p><p><span class="marginnote">弹跳噪声让相邻收益出现约 \(-\sigma_\varepsilon^2\) 的负一阶自协方差——核估计量加回的正是这一项。该加多少不靠信仰，靠<a href="/quant/microstructure-noise">Roll 弹跳</a>在该标的当天的强度。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>选择按三问走。**第一问：噪声结构。**签名图上翘且反转明显，说明弹跳主导、噪声接近 i.i.d.，四家都能用；若噪声显示序列相关或与价格相关，优先选假设最弱的核与预平均家族，或用相关噪声下的 QMLE 扩展——两尺度在此会减过头或减不够。**第二问：调参预算。**带宽、窗口、子格数都要按数据定，且要有准则（最小化渐近方差、或跨错开格的稳定性），不许全年固定一个数。**第三问：下游要什么。**进 HAR 预报的日度 \(IV\) 序列要低方差与稳定，核加预平均的组合常见；盘中定位与高频对冲要日内路径与速率，多尺度或核更合身。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么减法可行：噪声与有效价格独立时，它对 RV 的贡献是加性的、可识别的——全网格上以 \(2n\sigma_\varepsilon^2\) 的速度线性生长，而信号部分不随 \(n\) 生长。两个尺度对同一个 \(IV\) 给出两条方程，噪声项变成可解的未知数。核的机制等价：噪声的二阶结构全表现在短滞后自协方差里，用核函数吸收之后，加权和收敛到 \(IV\)。预平均把噪声方差在滤波里除以窗口，平方之后噪声项变成高阶小量。三家殊途同归：<strong>噪声的二阶结构是它的软肋</strong>。一旦噪声序列相关，「负一阶自协方差」不再讲完整个故事，减法开始失准——这正是先诊断后选择的机制理由，也是假设最弱者最耐用的原因。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：两尺度像用两杯不同浓度的盐水推盐量——全网格那杯「盐」多（噪声项按 \(n\) 涨），稀疏平均那杯「盐」少，两杯相减，纯噪声的信息就被榨出来，信号（真实波动）随之解出。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>四家都不修隔夜、都不修跳：隔夜方差按口径单列，跳由下一课处理。修正估计量对清洗极其敏感：坏 tick 表现为巨大的假噪声，带宽与子格数全部失真——先清洗，后修正。速率是渐近量：一天的 \(n\) 在几千到几万之间，速率差距要靠有限样本实验核实，不能拿渐近速率当实测精度。噪声方差本身随日变动（下一单元实证），今天的带宽不是明天的带宽。</p><p><span class="marginnote">常见误区：「TSRV 收敛率 \(n^{1/4}\) 比 \(n^{1/2}\) 慢，所以是落后的方法。」速率是渐近语言，实际一天的样本量下差距多大要靠有限样本实验核实；TSRV 结构简单、假设清楚，至今仍是许多日度流程的默认起点，不是「慢」就要淘汰。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>共同机制：噪声的二阶结构可识别、可减除——两尺度解联立，核加权自协方差，预平均先滤波。</li><li>速率排序：TSRV 在 \(n^{1/4}\)，MSRV 推到任意接近 \(n^{1/2}\)；核与预平均以调参在同一方向竞争。</li><li>假设最弱者最耐用：相关或内生噪声下优先核与预平均，i.i.d. 减法会失准。</li><li>调参须有准则并随日更新；全年固定带宽是把渐近公式当常数用。</li><li>修正不修隔夜与跳，对清洗敏感；次序是先清洗、再修正、后检验。</li><li>出处：Zhang, Mykland and Aït-Sahalia, <em>JASA</em>, 2005；Zhang, <em>JBES</em>, 2006；Aït-Sahalia, Mykland and Zhang, <em>RFS</em>, 2005；Barndorff-Nielsen, Hansen, Lunde and Shephard, <em>Econometrica</em>, 2008；Jacod, Li, Mykland, Podolskij and Vetter, 2009。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 高频统计深化<!--[--> · 单元 估计<!--]--><!----></p><p class="lesson-progress">第 2 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/hfs-jump-detection/">跳跃的检测与处理</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/hfs-realized-variance-family/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">已实现方差的族谱</span><span class="lesson-card-meta">高频统计深化 · 估计<!--[--> · 第 1 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/hfs-jump-detection/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">跳跃的检测与处理</span><span class="lesson-card-meta">高频统计深化 · 估计<!--[--> · 第 3 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

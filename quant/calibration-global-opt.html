@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>全局优化在校准 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_calibration-global-opt.md.B5y61NCR.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 奇异期权与非股权衍生<!--[--> · 单元 希腊与模型风险<!--]--><!--[--> · 课序 敏感度怎么算<!--]--></p><p class="lesson-progress">第 22 / 34 课</p><p class="lesson-prereq"> 先修：<a href="/quant/calibration-regularization/">校准正则化</a></p><p class="lesson-next"> 下一课：<a href="/quant/quoting-conventions/">报价惯例</a></p><!----></nav><div style="position:relative;"><div><h1 id="全局优化在校准" tabindex="-1">全局优化在校准 <a class="header-anchor" href="#全局优化在校准" aria-label="Permalink to &quot;全局优化在校准&quot;">​</a></h1><div class="epigraph"><p>Heston 与 SABR 的误差曲面有多个局部谷；从昨日参数出发的局部牛顿，可能停在错误的谷里还自以为拟合良好。</p><footer>—— 对照 Heston 与 SABR 校准实践；全局搜索见 Differential Evolution 等在参数校准中的应用</footer></div><p><a href="/quant/calibration-regularization">上一课</a>加了罚项，目标函数仍可能<strong>非凸</strong>。本课缺口是优化器：局部 Gauss–Newton / Levenberg–Marquardt 依赖初值；Heston 的 \(Feller\) 边界、SABR 的 \(\rho,\nu\) 会造出多峰。后课报价惯例把校准输入的坐标系换掉；这里先写搜索策略，不把全局优化写成万能。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>同一张香草，从两组初值出发得到两组 \((\kappa,\theta,\nu,\rho,v_0)\)，价格 RMSE 都可接受，但远期微笑与 cliquet 价格不同。这是模型风险在校准算法里的实现：你连「官方 \(\theta\)」都没选唯一。问题是把全局搜索当<strong>日频的粗定位</strong>，把带正则的局部牛顿当<strong>盘中的精炼</strong>，并拒绝「RMSE 更小 0.1 个波动点」但参数跳到另一谷的解——除非隔日罚允许。</p><div class="mermaid"></div><p>Feller 条件 \(2\kappa\theta\gt \nu^2\) 在 <a href="/quant/heston-feller">Heston–Feller</a> 已写。优化器若穿过边界，特征函数数值与矩都会变，看起来像又一个局部谷，其实是数值坏点。约束应硬编码，不是靠罚一点了事。</p><p><span class="marginnote">Feller 边界的数字实例：\(\kappa=3\)、\(\theta=0.04\)、\(\nu=0.5\) 时，左边 \(2\times3\times0.04=0.24\)、右边 \(\nu^2=0.25\)，恰好越界——特征函数开始出 NaN，优化器却把它当成「又一个谷」继续优化。硬约束的作用就是在搜索空间里先挖掉这种数值坏点。</span></p><h3 id="全局不等于随机碰运气" tabindex="-1">全局不等于随机碰运气 <a class="header-anchor" href="#全局不等于随机碰运气" aria-label="Permalink to &quot;全局不等于随机碰运气&quot;">​</a></h3><p>Differential Evolution、粒子群、多起点牛顿，都要把随机种子、种群、预算记进校准日志。不可复现的「今天搜到更优」不能进生产。预算应花在：多起点覆盖参数盒、用 AAD 加速每个起点的局部精炼，而不是无限代进化。</p><p><span class="marginnote">校准的目标是稳定对冲，不是学术上的全局最小。全局最小若在翼部过拟合，正则化课已经要求丢掉它。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>参数盒：来自昨日、来自历史分位、来自无套利（\(\nu\gt 0\)，\(|\rho|\lt 1\)）。多起点：昨日解 + 盒上的拉丁超立方。每个起点做带 \(\lambda R\) 的 LM。若多个谷的目标值在价差容差内，选隔日距离最小者。真正的大跳（体制切换）用人工确认或第二模型对照，不要让 DE 在夜盘安静改写官方参数。</p><p><span class="marginnote">多起点的直觉类比：局部牛顿像一张只能在自己附近收口的渔网，网撒在哪（初值）决定捞到哪个谷里的鱼。全局预算该花在「多撒几张网、盖住整片参数盒」，而不是把一张网织到无限精致——精致的网也出不了它所在的谷。</span></p><p>SABR 按到期分别校准再插值，比一个全局 SABR 扫所有期限更少多峰，但会失去期限一致，见 <a href="/quant/ssvi-term-consistency">SSVI 期限</a>。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>似然/误差作为 \(\theta\) 的函数，因价格对参数非线性而多峰。特征函数振荡、积分截断又叠加数值多峰。全局搜索探索的是这条粗糙曲面；局部牛顿在二次近似成立的谷底才快。生产把两者分层，是承认计算预算与稳定性，而不是承认「市场有多个真实参数」。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>维度一高（混合局部-随机波动、LMM 的整条 vol 曲线），全局搜索指数爆炸，应降维：先校准边际再校准相关，或用 PCA 因子当参数。全局最优的统计误差条本身就宽，报告应带「等价谷」列表。不要用无法复现的黑盒优化器当审计对象。</p><p><span class="marginnote">为什么维度一高就爆炸的数字实例：5 个参数、每个分 10 个格点是 \(10^5=10\) 万次评估，还能跑；10 个参数就是 100 亿次，一夜也跑不完。出路是降维（先边际后相关、PCA 参数化），不是换更强的机器。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>随机波动校准非凸；RMSE 接近的谷可以对冲比完全不同。</li><li>多起点 + 隔日选择，全局搜索只做粗定位且必须可复现。</li><li>硬约束挡住数值坏点；全局最小仍要过正则化关。</li><li>出处：Heston, <em>RFS</em>, 1993；Hagan et al., SABR, <em>Wilmott</em>, 2002；差分进化见 Storn and Price, <em>Journal of Global Optimization</em>, 1997。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 奇异期权与非股权衍生<!--[--> · 单元 希腊与模型风险<!--]--><!--[--> · 课序 敏感度怎么算<!--]--></p><p class="lesson-progress">第 22 / 34 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/quoting-conventions/">报价惯例</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/calibration-regularization/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">校准正则化</span><span class="lesson-card-meta">奇异期权与非股权衍生 · 希腊与模型风险 · 敏感度怎么算<!--[--> · 第 21 / 34 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/quoting-conventions/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">报价惯例</span><span class="lesson-card-meta">奇异期权与非股权衍生 · 希腊与模型风险 · 敏感度怎么算<!--[--> · 第 23 / 34 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

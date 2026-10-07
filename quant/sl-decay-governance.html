@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>衰减治理 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_sl-decay-governance.md.SMwaWt9t.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 策略生命周期治理<!--[--> · 单元 台账与流程<!--]--><!----></p><p class="lesson-progress">第 4 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/sl-capacity-governance/">容量治理</a></p><p class="lesson-next"> 下一课：<a href="/quant/sl-compliance-review/">合规审查</a></p><!----></nav><div style="position:relative;"><div><h1 id="衰减治理" tabindex="-1">衰减治理 <a class="header-anchor" href="#衰减治理" aria-label="Permalink to &quot;衰减治理&quot;">​</a></h1><div class="epigraph"><p>异象被写成论文之后，收益平均要缩水一截：可预测性被套利资本消耗，也被「公开」这件事本身消耗。</p><footer>—— 据 McLean 与 Pontiff, Journal of Finance, 2016 整理</footer></div><p><a href="/quant/sl-capacity-governance">上一课</a>把容量变成治理对象，管的是自己吃掉信号的速度；本课管别人吃掉它的速度。衰减的实证与容量账在<a href="/quant/strategy-capacity-decay">策略容量与衰减</a>，监测侧「怎么听」——原假设带预扣预算的顺序检验——在<a href="/quant/live-drift-monitor">实盘漂移监测</a>。本课写衰减进了台账之后的治理：预算怎么立、三档动作怎么触发、确认衰减之后的去向。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>衰减治理最常见的两种死法，是把两种「坏」混为一谈。把回撤当衰减，会在系统性坏年停掉仍然有效的风险溢价；把衰减当回撤，会在信号真死的时候硬扛到预算外。两者都源于同一缺失：<strong>衰减预算不写在批准记录里</strong>。原假设若默认「IC 永远等于回测」，McLean–Pontiff 一类的发表后缩水会让所有公开来源的信号迟早报警，报警失去信息量。第二层缺口在动作侧：穿带之后去留靠临时开会，结论由会议室里的职位分布决定，而不是由判据决定——监测的统计纪律到此断线。</p><p><span class="marginnote">直觉类比：回撤像天气不好——庄稼还在，等季节过去就有收成；衰减像土壤退化——再等也长不出来。区分二者不能靠感觉，要靠上线前就写死的衰减预算带：坏年落在带内是天气，持续穿带才是退化。</span></p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>台账衰减字段在上线时就定死三样。<strong>预期衰减带</strong>：发表折扣或拥挤折扣后的预期均值，加减冻结期标准误的若干倍，或一条允许随时间缓降的斜坡；斜坡的斜率本身是假设，复审时重新校准。<strong>复审节奏</strong>：月度读数、季度重校，复审次数进 \(N\) 的账——允许无限次「再看一眼」，就会在噪声里找到继续持有的理由，这与<a href="/quant/backtest-overfitting">回测过拟合</a>是同一道算术在时间上的重演。<strong>耗尽判据</strong>：预指定统计量穿带且持续 \(k\) 期，由<a href="/quant/cusum-mosum">顺序检验</a>给出受控的错误率，看图做不到。</p><p>三档动作与带的位置绑定。带内只记录；带边缘降杠杆，走辅助线的预授权；穿带确认则停机、进研究账户——但停机不等于退役，下一步是死因鉴别：alpha 漂移、执行漂移还是拥挤漂移，<a href="/quant/live-monitoring-handoff">监控闭环</a>已把这条分诊线预写好。可修的改动即新版本重走台阶；确认不可修的，移交退出机制，那是后面专门的一课。</p><p><span class="marginnote">数字实例：假设每次复审有 5% 的概率在噪声里「找到继续持有的理由」，一年 12 次月度复审，至少中招一次的概率约 \(1-0.95^{12}\approx 46\%\)。把复审次数计进 \(N\)、禁止无限次「再看一眼」，压的正是这个数——它与回测里的反复试优是同一道算术。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>衰减要预扣而不能事后再议，根本原因是顺序检验的错误率只在「原假设含衰减预算」时受控：预算带就是原假设的形状，事后改带等于移动球门。预扣还改变了组织行为——衰减写成数字后，去留之争变成「读数在带内的哪一格」，而不是「谁更相信这个策略」。拥挤与衰减在机制上耦合：别人吃掉信号的过程会先表现在拥挤相关上，所以衰减治理直接读<a href="/quant/sl-capacity-governance">容量课的同一条预算带</a>，但容量课看的是规模该多大，本课看的是信号还剩多少，两线共用读数、分开动作。</p><p><span class="marginnote">McLean–Pontiff 的样本里，异象收益在样本外约缩水 26%，正式发表后缩水更深；衰减预算若按零衰减设，监测迟早全部误报——预算带是原假设，不是乐观预测。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>衰减预算不是自我实现的预言：预算定的缩水率本身是假设，季度重校可能把它调宽也可能调窄，调带本身要留痕并计一次复审。本课的口径只适用于有对手方的 alpha 信号；纯风险溢价类持仓的「衰减」是风险价格随周期波动，不适用同一套停机逻辑，混用会导致在折价最深处清仓溢价。检验细节——统计量选型、带宽计算、\(k\) 的选择——不在此重复，见<a href="/quant/live-drift-monitor">漂移监测</a>与<a href="/quant/cusum-mosum">CUSUM/MOSUM</a>。确认衰减后的清仓怎么走，属于退出机制课。</p><p><span class="marginnote">为什么重要：把风险溢价当 alpha 衰减来停机，会在折价最深处清仓——恰是预期收益最高的时候；把 alpha 衰减当风险溢价硬扛，则会在信号死后继续交学费。两套逻辑混用的结果，是两种错误轮着犯，台账里却找不到是哪一条判据出的错。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>衰减预算写进批准记录：预期带、复审节奏、耗尽判据三者缺一不可。</li><li>原假设必须含预扣衰减，顺序检验的错误率才有意义；复审次数计进 \(N\)。</li><li>三档动作绑定带的位置：记录、预授权降杠杆、停机鉴别，去留不进会议室。</li><li>停机不等于退役：死因分诊在前，可修即新版本，不可修才移交退出。</li><li>出处：McLean–Pontiff, <em>JF</em>, 2016；顺序检验见 Brown–Durbin–Evans, <em>JRSS-B</em>, 1975 与<a href="/quant/cusum-mosum">CUSUM/MOSUM</a>；衰减与容量的耦合见<a href="/quant/strategy-capacity-decay">策略容量与衰减</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 策略生命周期治理<!--[--> · 单元 台账与流程<!--]--><!----></p><p class="lesson-progress">第 4 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/sl-compliance-review/">合规审查</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/sl-capacity-governance/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">容量治理</span><span class="lesson-card-meta">策略生命周期治理 · 台账与流程<!--[--> · 第 3 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/sl-compliance-review/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">合规审查</span><span class="lesson-card-meta">策略生命周期治理 · 退出与沉淀<!--[--> · 第 5 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

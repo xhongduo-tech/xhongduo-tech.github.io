@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>高频相关的估计 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_hfs-highfreq-correlation.md.2PfwftOZ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 高频统计深化<!--[--> · 单元 应用<!--]--><!----></p><p class="lesson-progress">第 6 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/quant/hfs-micro-noise-empirics/">微观结构噪声的实证</a></p><p class="lesson-next"> 下一课：<a href="/quant/hfs-frequency-choice/">数据的频率选择</a></p><!----></nav><div style="position:relative;"><div><h1 id="高频相关的估计" tabindex="-1">高频相关的估计 <a class="header-anchor" href="#高频相关的估计" aria-label="Permalink to &quot;高频相关的估计&quot;">​</a></h1><div class="epigraph"><p>方差是单变量的估计问题，相关是先对齐再估计的问题；错步一分钟，共同运动就掉进残差里。</p><footer>—— 据 Hayashi and Yoshida, Bernoulli 2005；Barndorff-Nielsen, Hansen, Lunde and Shephard, Journal of Econometrics 2011 整理</footer></div><p><a href="/quant/hfs-micro-noise-empirics">上一课</a>把噪声的实证规律收拢成带宽与采样上限的输入，单标的的账齐了，多元接踵。总图在<a href="/quant/realized-covariance">多元已实现协方差</a>写过，对齐的两个端点在<a href="/quant/epps-effect">Epps 效应</a>与<a href="/quant/hayashi-yoshida">Hayashi–Yoshida 相关</a>写过；本课写应用侧的整套流程：对齐方案怎么选、噪声怎么进多元、半正定性怎么保、维度大了怎么办。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>已实现协方差要把 \(N\) 只资产放上同一张收益网格，三个麻烦同时到场。<strong>对齐</strong>：previous-tick 插值把陈旧价写成零收益格子，共同变差被压向零——Epps 机制；资产间流动性差越大，压得越狠。<strong>噪声</strong>：降噪在多元里不能逐只独立做了——单只的核是干净的，拼起来的矩阵却未必合理。<strong>维度</strong>：\(N\) 大于日内网格数 \(n\) 时样本协方差退化，特征值结构坏掉，直接进优化器会爆。缺口是一条从 tick 到可用协方差矩阵的完整流程，每一站有明确的取舍。</p><p><span class="marginnote">直觉类比：估两只股票的相关像录双人舞——两台摄像机快门不同步，回放对不上帧，看起来就像两人各跳各的。对齐方案的任务是把帧对上，而不是怀疑舞者不配合。</span></p><h3 id="对齐方案的谱系" tabindex="-1">对齐方案的谱系 <a class="header-anchor" href="#对齐方案的谱系" aria-label="Permalink to &quot;对齐方案的谱系&quot;">​</a></h3><p><strong>刷新时间</strong>：取每只资产都有新价的第一批时刻作网格，同步且无插值，代价是慢腿拖着全队——流动性强弱悬殊时，网格被最慢的资产抽稀。<strong>HY 相交增量</strong>：不对齐，只把时间上相交的增量相乘，成对场景的信息利用最好（Hayashi 与 Yoshida，Bernoulli 2005），但输出不是网格矩阵。<strong>刷新加核</strong>：先刷新再上多元已实现核（Barndorff-Nielsen、Hansen、Lunde 与 Shephard，J. Econometrics 2011），同时收拾残余噪声，半正定由构造保证。<strong>多元预平均</strong>：先滤波再叉乘，同样是外积之和，天然半正定。</p><p><span class="marginnote">数字实例（维度麻烦）：给 500 只股票估日内协方差，一天的五分钟刷新网格只有约 48 个格子，\(n=48\lt N=500\)——样本协方差秩至多 47，一大片特征值为零，直接交给组合优化器必然病态爆炸。这不是软件不行，是数据本身撑不起满秩估计，必须走因子结构或收缩。</span></p><p><span class="marginnote">刷新时间的隐性税：日均成交三百笔的慢股与五万笔的快股配对，刷新后网格由三百笔决定——快腿九成九的观测被丢弃，这是买同步付出的价。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>选择按组合形态走。<strong>成对或小 \(N\)</strong>（对冲、统计套利）：HY 分子配同族核分母，对冲比在与持有期匹配的频率上定义，接<a href="/quant/hfs-highfreq-beta">高频 Beta</a> 的口径。<strong>中 \(N\)、要矩阵</strong>（风险模型、组合优化）：刷新时间加多元核，或多元预平均——半正定由构造保证，不靠事后特征值裁剪；事后裁剪既破坏估计量的性质，又把降噪偷换成任意的正则化。<strong>大 \(N\)</strong>：先降噪、再降维——已实现协方差当一日样本进收缩或因子结构约束，日间滚动；日内 \(n\) 支撑不了 \(N\gt n\) 的满秩估计，这是数据极限不是软件问题。领先滞后不靠对齐吸收：确有领先关系时，对齐只是把它藏进残差，要显式建模或用互协方差检查。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么「先对齐后降噪」是主流次序：噪声与异步把矩阵从两个方向拉坏——异步把非对角压小（相关被低估），噪声把对角抬高（方差被高估），两者一起让相关矩阵系统性向单位阵收缩。刷新时间消灭「零收益格子」这个主要误差源，核再处理残余噪声的短滞后结构，两步各司其职。半正定由构造保证的机制在于估计量写成外积或外积加权和之和：合适的权重下，和自动落在半正定锥内——这是核与预平均相对「插值后叉乘」的结构优势。跳进多元时叉乘会把共同跳记进协方差，跳日标记要从单标的课延伸到矩阵层面。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：看到「高频估出的相关性普遍比日频低」，就总结成「短线投资者不看共同因子」之类的宏观叙事。很多时候那只是异步加噪声把矩阵拉向单位阵的测量假象——把对齐和降噪做对，相关往往会「回来」一截。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课的流程假设观测是价格事件；队列与订单流的联合动力学不在其内（单点见<a href="/quant/obd-hf-vol-noise">高频波动率与微观噪声</a>）。刷新时间的信息税在高频对冲里可能不可接受：快腿被慢腿拖着走的场景，成对的 HY 更合适——没有免费的对齐。隔夜、涨跌停与集合竞价按<a href="/quant/hayashi-yoshida">Hayashi–Yoshida 相关</a>课的口径单独处理，不进同一张矩阵。相关估计的下游是优化器：矩阵的病态会被杠杆放大，正则化的选择要与组合侧的约束一起定，本课程不替组合课做决定。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>三个麻烦一起到场：对齐压相关、噪声抬方差、维度坏特征值；流程逐站处理。</li><li>对齐谱系：刷新时间买同步付信息税，HY 用相交增量保信息，都优于 previous-tick 插值。</li><li>半正定靠构造：外积和的估计量天然落在锥内，事后特征值裁剪是下策。</li><li>大 \(N\) 是数据极限：\(N\gt n\) 不可能满秩，降噪、降维、日间滚动。</li><li>领先滞后不能靠对齐吸收；隔夜与特殊时段单列。</li><li>出处：Hayashi and Yoshida, <em>Bernoulli</em>, 2005；Barndorff-Nielsen, Hansen, Lunde and Shephard, <em>Journal of Econometrics</em>, 2011；Epps, <em>JASA</em>, 1979。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 高频统计深化<!--[--> · 单元 应用<!--]--><!----></p><p class="lesson-progress">第 6 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/hfs-frequency-choice/">数据的频率选择</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/hfs-micro-noise-empirics/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">微观结构噪声的实证</span><span class="lesson-card-meta">高频统计深化 · 应用<!--[--> · 第 5 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/hfs-frequency-choice/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">数据的频率选择</span><span class="lesson-card-meta">高频统计深化 · 应用<!--[--> · 第 7 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

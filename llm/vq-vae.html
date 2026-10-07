@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VQ-VAE | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_vq-vae.md.DaSUOMId.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 多模态生成与统一模型<!--[--> · 单元 视觉 tokenizer 与理解<!--]--><!--[--> · 课序 像素怎么进模型<!--]--></p><p class="lesson-progress">第 1 / 30 课</p><p class="lesson-prereq"> 先修：<a href="/llm/expert-granularity-law/">专家粒度与数量律</a></p><p class="lesson-next"> 下一课：<a href="/llm/vqgan/">VQGAN</a></p><!----></nav><div style="position:relative;"><div><h1 id="vq-vae" tabindex="-1">VQ-VAE <a class="header-anchor" href="#vq-vae" aria-label="Permalink to &quot;VQ-VAE&quot;">​</a></h1><div class="epigraph"><p>把连续隐变量换成码本里最近的向量，编码器输出就变成可当 token 的下标。生成模型于是可以在离散序列上做似然。</p><footer>—— van den Oord, Vinyals, Kavukcuoglu, VQ-VAE</footer></div><p><a href="/llm/expert-granularity-law">上一课</a>以专家粒度给「架构进阶」收尾：同样的激活预算下，FFN 专家切到通信-计算比与路由抖动允许的最细处为止。架构问完，本课程问像素如何进（生成式）模型。主干 <a href="/llm/vit-as-encoder">ViT</a> 给出连续 patch；生成还常要离散码，才能接自回归 LM。本课写 VQ-VAE。缺口是向量量化这一层，不是再讲卷积。后课 VQGAN 默认码本已经能重构，但不够锐。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>像素上直接 softmax 不可行：\(H\times W\times 3\) 的连续空间没有可枚举的类别。连续 VAE 的 \(z\) 好解码、不好当词表——对 \(z\) 做 CE 仍要先离散化，绕回原问题。van den Oord 等人把编码器输出 \(z_e(x)\) 量化到码本 \(\{e_k\}\) 中最近项 \(z_q\)，解码器只看 \(z_q\)，下标 \(k\) 就是视觉 token。训练要同时学编码器、码本、解码器，并防止码本崩溃（只用少数项）。三项损失各管一个对象：</p> \[\mathcal L=\|x-D(z_q)\|^2+\|\mathrm{sg}(z_e)-z_q\|^2+\beta\,\|z_e-\mathrm{sg}(z_q)\|^2 \]<p>stop-grad 两侧各放一次、方向不同，这不是随手写的。码本项把梯度挡在 \(z_e\) 外、只动码字：码字是聚心，应当追随编码器输出的分布，分配由最近邻裁决；若两侧梯度都通，编码器与码字互相追着跑，最近邻分配不停翻转，训练震荡。承诺项把梯度挡在 \(z_q\) 外、只动编码器，\(\beta\)（原论文取 \(0.25\)）压低它的权重：编码器不必为迁就离散格点牺牲重构，但要被拉住不每步换胞腔——没有它，同一区域前后两步映到不同下标，下游 LM 看到的标签序列不稳定，等于在噪声标签上做语言建模。</p><p>与检索嵌入不同：这里的离散化是为了生成与似然，不是为了余弦近邻。</p><p><span class="marginnote">直觉类比：最近邻量化就像只用一盒 16 色蜡笔临摹照片——每种真实颜色都被强制换成蜡笔盒里最接近的那支（码字），记录的不再是颜色本身而是「用了第几支蜡笔」（下标）。蜡笔越多临摹越像，但每支被用到的次数也越少；如果一半蜡笔从没被碰过，盒子的有效色数就在悄悄缩水。</span></p><p><span class="marginnote">直通估计器让 \(z_q\) 的梯度抄到 \(z_e\)。码本用指数滑动平均或损失项更新。崩溃时重构还行、词表有效大小接近 1，后接 LM 会学到无信息序列。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>最近邻 argmin 没有梯度，量化层对编码器不可导，码本与编码器的联动有两条路线。路线一是损失项加直通：上面的码本项把码字拉向分配到它的 \(z_e\)，直通估计器把解码器损失对 \(z_q\) 的梯度原样抄给 \(z_e\)，把量化当恒等——有偏但简单，小码本下够用。路线二是指数滑动平均：不给码本写损失，按批内分配把每个码字向「分配到它的 \(z_e\) 的均值」做 EMA，附 Laplace 平滑防止久未选中的码字漂死；码本更新不受编码器梯度尺度影响，大码本上更稳，代价是多一组与编码器学习率耦合的动量与平滑超参，配不平仍会崩。</p><p>验收写成两道闸门而不是一个分：重构 FID/PSNR 判码里留了多少信息，码本使用率（熵、死码比例）判离散化有没有退化。崩溃是正反馈：少数码字被选中就更靠近数据、更易再被选中，死码拿不到梯度，有效词表缩到接近 \(1\)；先修量化（重置死码到批内编码器输出）再训上游 LM，否则 LM 在无信息序列上白训。下采样倍数决定 token 数：压得越狠，空间细节越少、序列越短。</p><p><span class="marginnote">数字实例：\(256 \times 256\) 的图按 8 倍下采样得到 \(32 \times 32 = 1024\) 个位置，配 \(8192\) 大小的码本，就是一篇「1024 个词、词表 8k」的视觉文档——长度是同样分辨率文本 token 的几十倍。压到 16 倍则只剩 256 个 token，序列短了，但每个 token 要负责 \(16 \times 16\) 像素的细节，预测更难、重构更糊。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>量化把连续空间按最近邻划成 Voronoi 胞腔，胞腔中心是码字。生成时 LM 只建模胞腔下标的联合分布，胞腔内的细节交给解码器凭码字与上下文补——「语义在码、纹理在解码器」的分工从这里开始。码本大小的两难由此可算：码本太小，胞腔过大，脸与文字糊；太大则每个下标的样本被摊薄、预测更难，还添死码风险，序列长度却分文不减。下采样倍数是另一根轴：同样码本大小，压得狠则每个 token 摊的像素多、单 token 更难预测。这是后课连续对离散的主轴。</p><p>码本崩溃不是外因事故，而是量化规则自带的正反馈：被选中的码字随数据移动、更容易再被选中，没被选中的码字拿不到梯度、原地漂死，形成一条自我强化的回路；常用的急救手段是在每个 batch 后把死码重置到该批的编码器输出上。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：初学者容易以为「码本开大点总没错」。实际上码本从 8k 涨到 64k，token 序列长度一个不少，每个下标的训练样本却被摊薄 8 倍，LM 更难预测，死码比例还可能飙升——有效词表可能远小于名义大小。判断标准是使用率熵，不是 \(K\) 的数值。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>VQ-VAE 重构偏糊，因为损失是像素级、没有感知对抗：\(\ell_2\) 在多个统计相似的纹理解上取平均，高频被抹平。下一课 VQGAN 用 GAN 与感知损失改解码器，码本才够当高质量图像 tokenizer。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>VQ-VAE 用最近码字把图像变成离散下标，供似然模型使用。</li><li>码本损失与承诺损失各挡一侧梯度，分别只动码字与编码器。</li><li>码本更新走 STE 损失或 EMA 两条路线；必须盯使用率，防止崩溃。</li><li>像素损失导致模糊，交给 VQGAN。</li><li>出处：van den Oord 等 VQ-VAE。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 多模态生成与统一模型<!--[--> · 单元 视觉 tokenizer 与理解<!--]--><!--[--> · 课序 像素怎么进模型<!--]--></p><p class="lesson-progress">第 1 / 30 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/vqgan/">VQGAN</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/expert-granularity-law/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">专家粒度与数量律</span><span class="lesson-card-meta">编码器、状态空间与专家 · MoE 进阶 · 路由与专家<!--[--> · 第 46 / 46 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/vqgan/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">VQGAN</span><span class="lesson-card-meta">多模态生成与统一模型 · 视觉 tokenizer 与理解 · 像素怎么进模型<!--[--> · 第 2 / 30 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

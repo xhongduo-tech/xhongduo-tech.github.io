@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SARSA 与 Q 学习 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_sarsa-q-learning.md.DFGs5chB.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 强化学习基础<!--[--> · 单元 无模型学习<!--]--><!--[--> · 课序 预测与控制<!--]--></p><p class="lesson-progress">第 9 / 22 课</p><p class="lesson-prereq"> 先修：<a href="/llm/td-zero-bootstrapping/">TD(0) 与自举</a></p><p class="lesson-next"> 下一课：<a href="/llm/off-policy-importance-rl/">离策略与重要性采样</a></p><!----></nav><div style="position:relative;"><div><h1 id="sarsa-与-q-学习" tabindex="-1">SARSA 与 Q 学习 <a class="header-anchor" href="#sarsa-与-q-学习" aria-label="Permalink to &quot;SARSA 与 Q 学习&quot;">​</a></h1><div class="epigraph"><p>同策略先承认「我接下来大概会乱走」，离策略直接假设「下一步必然最优」；max 的乐观会把估计误差记成价值。</p><footer>—— 据 Sutton &amp; Barto, 2018, 第 6 章；Watkins, Learning from Delayed Rewards, 1989 整理</footer></div><p><a href="/llm/td-zero-bootstrapping">上一课</a>把学习信号写成 TD 误差，但评估的对象仍是给定策略的 \(v_\pi\)；评估只是控制的一半，另一半是改进——按价值给动作排序需要 \(q_\pi\)（定义见<a href="/llm/return-discounting">回报、折扣与价值函数</a>），改进的探索端由 <a href="/llm/exploration-epsilon">ε-贪婪与乐观初始化</a>供给。缺口在于：把自举搬到 \((s,a)\) 上时，目标里的「下一个动作」取谁，会把算法劈成两族。本课写 SARSA 与 Q 学习，以及 max 算子带来的系统性过估计。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>TD 思想平移到 \((s,a)\)：状态的后继是状态，状态-动作对的后继是「下一状态加下一动作」。SARSA 取行为策略<strong>实际会选</strong>的 \(a&#39;\)：目标 \(r_{t+1}+\gamma Q(s_{t+1},a_{t+1})\)，名字来自五元组 State-Action-Reward-State-Action。Q 学习（Watkins 1989）取「无论实际做什么，都假设下一步最优」：目标 \(r_{t+1}+\gamma\max_{a&#39;}Q(s_{t+1},a&#39;)\)。一个对 \(q_\pi\) 自举、评估的就是那个含探索的自己（同策略）；一个对 \(q_*\) 自举、行为与目标脱钩（离策略）。差别浓缩成目标里的一个算子：\(Q(s&#39;,a&#39;)\) 还是 \(\max_{a&#39;}Q(s&#39;,\cdot)\)。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>SARSA 更新：</p> \[Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha\big[r_{t+1}+\gamma Q(s_{t+1},a_{t+1})-Q(s_t,a_t)\big] \]<p>\(a_{t+1}\) 必须真的按当前 ε-贪婪策略采出来再进公式——学到的价值因此含探索的代价。Q 学习把目标里的 \(Q(s_{t+1},a_{t+1})\) 换成 \(\max_{a&#39;}Q(s_{t+1},a&#39;)\)：行为策略可以随便探索，学习目标始终贪心。两者的收敛账都在表格、覆盖与衰减步长下成立：Q 学习收敛到 \(q_*\)（Watkins &amp; Dayan 1992），SARSA 配合 ε 递减到最优。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>max 的代价是一条不等式：对任意带噪声的估计，\(\mathbb{E}[\max_a X_a]\ge\max_a\mathbb{E}[X_a]\)——挑最大时总把误差的最大份也挑了进去，高估是系统性的，动作越多挑得越狠；转移与奖励的噪声越大越重。Double Q 学习（van Hasselt 2010）把「挑」与「评」拆到两套表格上，一套选、另一套评，是这条病的直接修法。同策略那一侧不是缺陷而是如实记账：Sutton &amp; Barto §6.5 的 Cliff Walking（ε=0.1）里，Q 学习学出贴崖最短路，执行时 ε 一抖就坠崖，期均回报反而差；SARSA 学出绕开悬崖的安全路——它知道自己会乱走。<span class="marginnote">数字实例：两个动作真值都是 0，估计各带 ±1 的对称噪声。max 之后期望变成 0.5（3/4 的概率挑到 +1 那条）——尽管两个动作实际一样好。真值相同的候选越多，max 挑出的正偏差越大，这就是那条不等式的具体样子。</span></p><div class="mermaid"></div><p><span class="marginnote">Cliff Walking 的口径：起点到终点之间一条紧贴悬崖的捷径，每步奖励 −1，坠崖 −100 并送回起点。ε=0.1 时 SARSA 的安全路是「含探索代价的最优」，不是胆小。</span></p><p>对 LLM 埋两条线。其一，<a href="/llm/llm-decision-view">语言生成作为 MDP</a> 已指出动作是几万到几十万的词表：表格 \(Q\) 写不下，逐动作 \(\max\) 也扫不动，函数逼近不可回避——它将在致命三要素处回来。其二，Q 学习的「离策略」只到目标为止，数据仍由自己生成；当数据干脆来自别的策略（旧版本模型的 rollout、重放池），分布差要重要性采样校正——下一课。<span class="marginnote">「离策略」可理解成「拿别人的错题本学习」：要学的目标（那套贪心标准）不变，数据可以来自旧版本模型或重放池；SARSA 则是「自己边走边学」，走姿（含探索的 ε）本身写进了账本。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>过估计在小而确定的网格上几乎看不见，要在实验课里专门加噪声才能复现——「没见过高估」不等于「max 无罪」。SARSA 的安全相对执行策略而言：换成更贪心的执行，账本作废。两者的收敛都要求每对 \((s,a)\) 被无限次访问：离策略不豁免探索。Q 学习对 \(q_*\) 自举，等于把「最优性」假设写进目标；当真实环境的最优不是你想要的最优（奖励有洞），它学得比谁都快。<span class="marginnote">常见误区：以为「Q 学习学出最短路」就一定更好。那是最优路径、无探索执行下的好；实际执行每步都有 ε 概率乱动，贴崖路径一抖就坠崖。比较两种算法前要先钉死执行时的探索水平，否则比较的是执行策略不是学习算法。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>SARSA 对实际执行的下一动作自举（同策略）；Q 学习对 \(\max_{a&#39;}Q\) 自举（离策略）。</li><li>差别浓缩为目标里的一个算子：\(Q(s&#39;,a&#39;)\) 还是 \(\max_{a&#39;}Q(s&#39;,\cdot)\)。</li><li>max 在噪声下系统性过估计，动作越多越重；Double Q 把挑与评拆开。</li><li>同策略学到的价值含探索代价；执行策略一换，账本作废。</li><li>词表尺度的动作空间逼出函数逼近，外来数据逼出重要性采样——两条线都在后课。</li><li>出处：Watkins 1989；Watkins &amp; Dayan 1992；van Hasselt 2010；Sutton &amp; Barto 2018 第 6 章。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 强化学习基础<!--[--> · 单元 无模型学习<!--]--><!--[--> · 课序 预测与控制<!--]--></p><p class="lesson-progress">第 9 / 22 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/off-policy-importance-rl/">离策略与重要性采样</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/td-zero-bootstrapping/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">TD(0) 与自举</span><span class="lesson-card-meta">强化学习基础 · 无模型学习 · 预测与控制<!--[--> · 第 8 / 22 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/off-policy-importance-rl/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">离策略与重要性采样</span><span class="lesson-card-meta">强化学习基础 · 无模型学习 · 预测与控制<!--[--> · 第 10 / 22 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

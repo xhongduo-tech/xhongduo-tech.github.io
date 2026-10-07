@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>跨时钟域 FIFO | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_async-fifo-cdc.md.IBo_kv8Z.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数字系统与接口<!--[--> · 单元 HDL 与实现<!--]--><!--[--> · 课序 从代码到芯片<!--]--></p><p class="lesson-progress">第 19 / 69 课</p><p class="lesson-prereq"> 先修：<a href="/cs/reset-strategy/">复位策略</a></p><p class="lesson-next"> 下一课：<a href="/cs/fpga-lut-clb/">FPGA LUT 与 CLB</a></p><!----></nav><div style="position:relative;"><div><h1 id="跨时钟域-fifo" tabindex="-1">跨时钟域 FIFO <a class="header-anchor" href="#跨时钟域-fifo" aria-label="Permalink to &quot;跨时钟域 FIFO&quot;">​</a></h1><div class="epigraph"><p>两个无关时钟之间不能直接采样多比特总线；用格雷码指针的异步 FIFO，让空满比较只过同步器，数据停在 RAM 里。</p><footer>—— 据 Cummings, Simulation and Synthesis Techniques for Asynchronous FIFO Design, SNUG 2002；Harris and Harris, Digital Design and Computer Architecture 整理</footer></div><p><a href="/cs/reset-strategy">上一课</a>要求每域各自同步复位。组成课的<a href="/cs/clock-domain">时钟域</a>已禁止直接跨域打多比特。<a href="/cs/reset-strategy">复位</a>只解决控制初值。缺口是<strong>数据</strong>：生产者时钟写、消费者时钟读，如何不丢、不重复、不亚稳。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>单比特过两级同步器。总线的各位亚稳窗口不同，会采到从未出现过的组合值。异步 FIFO：双端口 RAM，写指针在写时钟域递增，读指针在读时钟域递增。把指针编成<a href="/cs/gray-code">格雷码</a>再同步到对域，空/满在对域比较。缺口不是再定义亚稳，而是这套指针协议。</p><p><span class="marginnote">「亚稳」就是「触发器在时钟沿附近赶上信号变化太快，输出卡在不高不低的中间电平，过一小段时间才随机倒向某一边」。两个时钟互不相干，谁也说不准对方何时跳，任何直接采样都可能赶上这一瞬——同步器的全部工作就是把这种风险压缩到工程可忽略。</span></p><p>深度与几乎满/几乎空阈值是实现参数。本课钉格雷指针 + 同步，不把每家 IP 的参数表抄来。</p><h3 id="fifo-不是「加几个-ff-打一拍」" tabindex="-1">FIFO 不是「加几个 FF 打一拍」 <a class="header-anchor" href="#fifo-不是「加几个-ff-打一拍」" aria-label="Permalink to &quot;FIFO 不是「加几个 FF 打一拍」&quot;">​</a></h3><p>打一拍只在<strong>同一时钟</strong>下是流水线。跨域打一拍仍是非法多比特采样。把 CDC 理解成「插入寄存器就能过 STA」，STA 若把跨域当同步路径还会误报/漏报。应用 <code>set_clock_groups -asynchronous</code> 一类约束，功能正确靠 FIFO 结构。</p><p><span class="marginnote">Cummings SNUG 2002 异步 FIFO 是经典参考。Gray 码保证相邻指针只变 1 比特，同步后要么旧值要么新值，不会跳成第三种计数。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>写域：二进制写指针转格雷，写入指针寄存器，同步到读域。读域对称。满：同步过来的读指针与本地写指针比较（需多 1 位区分满空）。RAM 地址用二进制指针。复位：两域都回到空，且<a href="/cs/reset-strategy">同步释放</a>之后才能开始比指针。</p><div class="mermaid"></div><p>握手（valid/ready 加同步器）适合稀疏控制；突发数据用 FIFO 更合适。</p><p><span class="marginnote">数字实例：空/满比较为什么要多 1 位指针——4 位指针能数 16 个槽位，指针绕圈后「两指针相等」会出现两次含义：追平是空、赶上也是「相等」。最高那一多出来的位就是用来区分「落后一整圈」与「追到对面身后」的。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>后课 FPGA 有专用异步 FIFO 原语；ASIC 用库 RAM + 本课指针。形式验证可用断言：不满则写、不空则读、数据序保持。那是验证课的用例。DFT 扫描不要把跨域伪路径当成扫描移位违例——约束再次必须匹配。</p><p>指针为什么非要换成格雷码才准过同步器：</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不解决相位已知的同源分频（可用同步 FIFO 或使能）。不讲 SerDes 弹性缓冲的全部 PCS。不把网络 socket 缓冲当成 CDC。</p><p><span class="marginnote">常见误区：初学者容易以为「跨域信号多打两拍就安全了」。两级同步器只能救单比特；多位总线各位走线延迟不一，同拍采样可能拼出任意组合——总线级的安全靠格雷指针或握手协议这类结构，不是靠多加寄存器。</span></p><p>后课默认：无关时钟之间的多比特数据走过格雷指针异步 FIFO；单比特才直接两级同步。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>跨域总线禁止直接采样；FIFO 把数据留在 RAM。</li><li>格雷指针只变 1 比特，可安全同步后比空满。</li><li>STA 约束异步组；功能靠结构。</li><li>出处：Cummings, SNUG 2002；Harris and Harris；Gray 码先修。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数字系统与接口<!--[--> · 单元 HDL 与实现<!--]--><!--[--> · 课序 从代码到芯片<!--]--></p><p class="lesson-progress">第 19 / 69 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/fpga-lut-clb/">FPGA LUT 与 CLB</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/reset-strategy/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">复位策略</span><span class="lesson-card-meta">数字系统与接口 · HDL 与实现 · 从代码到芯片<!--[--> · 第 18 / 69 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/fpga-lut-clb/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">FPGA LUT 与 CLB</span><span class="lesson-card-meta">数字系统与接口 · HDL 与实现 · 从代码到芯片<!--[--> · 第 20 / 69 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>内核实践收束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_osk-map.md.CwKA7sOd.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 操作系统内核实践<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 7 / 7 课</p><p class="lesson-prereq"> 先修：<a href="/cs/osk-kernel-debugging/">内核调试的方法</a></p><p class="lesson-next"> 下一课：<a href="/cs/npk-rx-path/">收包路径的解剖</a></p><!----></nav><div style="position:relative;"><div><h1 id="内核实践收束" tabindex="-1">内核实践收束 <a class="header-anchor" href="#内核实践收束" aria-label="Permalink to &quot;内核实践收束&quot;">​</a></h1><div class="epigraph"><p>内核的全部复杂度长在同一句承诺上：上层看见的是对象与调用，底下兑现它的是栈、表与队列。</p><footer>—— 据 Tanenbaum and Bos, Modern Operating Systems；Arpaci-Dusseau, OSTEP 整理</footer></div><p><a href="/cs/osk-kernel-debugging">上一课</a>把出错之后的三条路补齐。本课程到此收束：本课把六课收成一条装配主线与几条不变量，交代哪些部分刻意留给了主干课。本课程回答的始终是实现面——策略与语义在主干课（调度、置换、文件、接口各有专课），本课程给的是把那些零件总装起来的骨架；两者合起来，「操作系统」才从名词变成可读、可改、可查的机器。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>收束要回答的问题是：六课合起来，你获得了主干课没给的什么？答案不是多认了几个结构体名，而是一张总装图：一次缺页、一个 write、一条中断、一次上下文切换进来，内核里各自发生什么、在哪个对象上留下什么状态、从哪两个入口进来。只会背零件图的人，改动一处就不知道会断在哪里——这不只是初学者的困境，主干课留下的正是这个缺口：零件各有专课，装配无人认领。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>六课折成一条主线。<strong>进程与调度</strong>立「执行流」：控制块挂一切，切换只换页表基址与内核栈；<strong>虚拟内存</strong>立「地址」：区间声明、页表现挂、反向映射连回物理页；<strong>文件系统</strong>立「数据」：VFS 对象解耦盘上布局，页缓存与日志分守两层一致性；<strong>系统调用</strong>立「同步入口」：五步固定序；<strong>中断与驱动</strong>立「异步入口」：probe 注册一切、顶半部只做最少；<strong>调试</strong>立「失效面」：事后、在线、重现三路。贯穿的不变量四条：进入内核必经两个入口之一；跨边界的数据必须显式拷贝；执行上下文决定能调用什么（能睡的才许调度，顶半部不许睡）；一切注册皆有对称拆除。</p><p><span class="marginnote">术语翻译：上下文切换「只换页表基址与内核栈」——页表基址是一个寄存器，它决定整套地址翻译（换进程等于换一张地图）；内核栈是进程进内核干活时的工作台（换进程连桌子一起换）。控制块上挂着这两样的指针，切换就是照单换装。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>四条不变量各堵一个已知失效。只认两个入口，堵「绕过校验直进内核」的捷径——任何绕路都意味着绕过五步里的检查；显式拷贝堵内核态裸解引用与检查-使用之间的竞态；上下文定可调用集堵「中断里睡眠」的挂死——它不能被调度出去，因为它不在调度器的任何队列里；对称拆除堵卸载后的悬空注册——还在表里的回调指向已释放的代码，下一次中断就是一次任意跳转。四条合起来是同一件事：让实现错误在装配点当场暴露，而不是埋进时序里等偶发复现。主干与深钻的分界也在此收口：再往下走就是源码本身——本课程给的是读源码时手里那张总装图，不是源码的替代品。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：注册像在门卫室留了「快递放我家」的条子，对称拆除就是搬走时撕掉条子。忘了撕，房子拆了条子还在——下一个快递员（中断）照条子把包裹塞进已拆的房址，等于把货交给了一块随机内存。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课程刻意不覆盖的三块都在紧邻位置：性能调优与观测体系是观测课的对象；具体设备与总线协议是接口课的对象；虚拟化与容器在主干隔离单元。最后一点要说诚实：总装图不等于可维护性——内核代码库的复杂度大头在并发、历史包袱与跨架构抽象，六课的骨架帮你读得懂路径，读不透全部权衡；把骨架当成「内核就是这么简单」是本课程能造成的最大误读。骨架的价值在方向：知道每段代码在装配图上的位置，才知道去哪查、改哪会断。</p><p><span class="marginnote">常见误区：读完骨架容易产生「内核不过如此」的错觉。真正的复杂度大头在并发交错、几十年的历史包袱与跨架构抽象里；骨架给你的是地图，不是地形本身——知道改哪会断，不等于知道每处为什么这样设计。</span></p><p><span class="marginnote">自检一题足够：沿一次完整的 write 写出它经过的每一层——陷入、分派、VFS 操作表、页缓存、回写、日志、bio、驱动、中断完成。能在十分钟内不查资料画全这条链，本课程的目的就达到了。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>六课一条装配主线：执行流、地址、数据、同步入口、异步入口、失效面。</li><li>四条不变量：两个入口、显式拷贝、上下文定可调用集、注册必对称拆除。</li><li>主干给零件图，本课程给总装图；每条不变量都堵一个已知的装配失效。</li><li>总装图不等于内核的全部复杂度；它的价值是给源码阅读定位方向。</li><li>本课程到此收束；出处：Tanenbaum and Bos, <em>Modern Operating Systems</em>；Arpaci-Dusseau, <em>OSTEP</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 操作系统内核实践<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 7 / 7 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/npk-rx-path/">收包路径的解剖</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/osk-kernel-debugging/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">内核调试的方法</span><span class="lesson-card-meta">操作系统内核实践 · 工程<!--[--> · 第 6 / 7 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/npk-rx-path/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">收包路径的解剖</span><span class="lesson-card-meta">网络协议栈实践 · 收发路径<!--[--> · 第 1 / 6 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

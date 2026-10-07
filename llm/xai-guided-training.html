@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>可解释性引导的训练 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_xai-guided-training.md.B4jUSjhV.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 可解释性应用<!--[--> · 单元 应用<!--]--><!----></p><p class="lesson-progress">第 6 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/llm/xai-deception-monitoring/">监控应用：欺骗检测</a></p><p class="lesson-next"> 下一课：<a href="/llm/xai-mechanistic-eval/">机制评测</a></p><!----></nav><div style="position:relative;"><div><h1 id="可解释性引导的训练" tabindex="-1">可解释性引导的训练 <a class="header-anchor" href="#可解释性引导的训练" aria-label="Permalink to &quot;可解释性引导的训练&quot;">​</a></h1><div class="epigraph"><p>监控是读，训练是写；解释性从诊断室走进训练房，才算真正参与塑造模型，而不只是给模型拍片子。</p><footer>—— 据 Zou et al., 2023 的 rerouting 思路与 Arditi et al., 2024 的方向中介结果整理</footer></div><p><a href="/llm/xai-deception-monitoring">上一课</a>把内部读数接进监控：问题被检测出来，交回去修。本课往前一步：把内部读数直接写进训练目标，让解释性从诊断变成塑形工具。常规对齐改的是输出分布，中间表征可以原封不动地保持「随时能续写」的能力——<a href="/llm/specification-gaming">规约博弈</a>的缝隙因此在表征里留门。本课写读数回写训练的三条注入点：数据、损失、消融，以及每条的验收。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>表征级训练的问题化有三问。把哪些内部量写进目标：特征读数、方向坐标还是区域约束；写进去会不会伤能力：残差流是共享总线，对有害区施力难免蹭到无害任务；引导之后怎么验收：不能只看目标行为改善，要按第 2 课协议重跑特征画像，看有没有把问题挤进字典没覆盖的子空间。三问的公共背景是：训练目标一旦写成表征级，就比输出级目标更难逃逸，也更难审计——力量越大，验收责任越重。</p><p><span class="marginnote">「残差流是共享总线」用类比理解：残差流像全公司共用的公告板，每个组件都往上贴信息、也都从上面读。安全团队往板上某块区域施力（压低有害方向的读数），读板的不只是有害内容——无害任务可能被一并蹭伤，这就是后面说的「能力税」。约束越狠，税越重。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>数据级注入。</strong> 用特征画像筛数据：以第 5 课的监控读数扫描训练语料与生成的候选样本，把高欺骗读数的样本簇定位出来，要么剔除、要么改造成配对反例。成本低，可解释性好，缺点是只动得了「数据里有的」。</p><p><strong>损失级注入。</strong> 对表征加约束项：有害区域高损失、目标概念的方向保持稳定。<a href="/llm/circuit-breaker">Circuit Breaker 课</a>已把表示重路由的损失与选层讲透，本课不重复；要点是它是谱系里最重的形态——把「读出后处置」换成「训练时改道」，推理期零开销，攻击者无法靠不加向量绕过。</p><p><strong>消融级注入。</strong> 先定位行为的中介方向，再直接投影消融。Arditi 等人 2024 年的结果是这条路的锚点：拒答行为在多个模型上主要由单一方向中介，消融它或加强它，拒答与越狱行为随之跨模型地移动。这是「理解工具即手术刀」的范例——方向既是机制结论，也是可操作的干预点。</p><p><span class="marginnote">「投影消融」做什么：把激活向量里沿「拒答方向」的分量直接减掉，等价于把向量投影到与该方向垂直的平面上。直觉类比音频均衡器：把某个频段拉到零，声音里属于那个频段的成分就听不见了。方向中介越集中（如拒答），这一刀切得越干净；能力损失也越小。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>表征级目标为什么难逃逸：攻击（或对抗压力）要找到<strong>不经过目标区域</strong>仍能解码出目标行为的续写路径，可搜索空间被约束压小；输出级目标只约束开场，表征原样保留续写能力——这是 <a href="/llm/circuit-breaker">Circuit Breaker</a> 机制分析的原样逻辑，适用于整个谱系。消融级为什么有效：单一方向中介说明行为在该方向上有充分读出，投影等价于掐断这条充分通路。</p><p>但机制分析同时给出警示：充分通路被掐，<strong>平行通路</strong>仍在。消融或改道之后必须双验收——行为基准确认目标行为确实移动，特征画像 diff 确认没有新的异常读数冒出来。只有前者的引导训练，等于把问题从可读的子空间赶进不可读的子空间，监控反而失明。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：「读数下降 = 目标消失了」。引导训练可能只是让模型改用未被监控的新表征形式表达同一目标——像把违规操作从摄像头正下方挪到监控死角，行为没变，只是看不见了。所以验收里特征画像 diff 与行为基准缺一不可：前者管「有没有换地方」，后者管「行为本身动没动」。</span></p><p><span class="marginnote">Arditi et al., 2024 的单一方向结果之所以重要：拒答不是遍布全网的分布式属性，一个方向承担了大部分中介——「消融一个方向」成了跨模型可复现的手术。同一把手术刀也是越狱工具，方向坐标的发布与复用要按攻击面管理。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>能力税是第一边界：表征约束蹭伤无害任务的概率随约束强度上升，保留损失的系数是主旋钮（Circuit Breaker 课的成对报告口径照用）。第二边界是表达的迁移：模型可能学会用新的、未被监控的表征形式表达同一目标——引导降低的是当前坐标下的读数，不是目标本身。第三，引导不是对齐证明：它改善的是特定概念的内部通路，与「模型可靠」之间隔着第 9 课要收拢的全部硬限。特征级损失的可扩展配方——哪些概念、哪几层、多强、怎么退火——目前仍是开放工程问题，没有公认配方。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>三条注入点：数据级筛语料、损失级表征约束、消融级方向手术；重到轻依次是不可绕过性与审计成本。</li><li>表征级目标比输出级难逃逸：攻击必须找到绕开目标区域的续写路径。</li><li>引导后必须双验收：行为基准与特征画像 diff，缺一就是把问题赶进不可读子空间。</li><li>方向坐标既是机制结论也是手术刀与攻击面，发布按攻击面管理。</li><li>出处：Zou et al., 2023（rerouting）；Zou et al., 2024（Circuit Breakers）；Arditi et al., 2024（拒答的单方向中介）。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 可解释性应用<!--[--> · 单元 应用<!--]--><!----></p><p class="lesson-progress">第 6 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/xai-mechanistic-eval/">机制评测</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/xai-deception-monitoring/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">监控应用：欺骗检测</span><span class="lesson-card-meta">可解释性应用 · 应用<!--[--> · 第 5 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/xai-mechanistic-eval/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">机制评测</span><span class="lesson-card-meta">可解释性应用 · 应用<!--[--> · 第 7 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

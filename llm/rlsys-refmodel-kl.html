@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>引用模型与 KL 的管理 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rlsys-refmodel-kl.md.C5rr6yxC.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 RL 训练系统<!--[--> · 单元 架构<!--]--><!----></p><p class="lesson-progress">第 3 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rlsys-reward-serving/">奖励模型的服务化</a></p><p class="lesson-next"> 下一课：<a href="/llm/rlsys-replay-batching/">经验回放与批处理</a></p><!----></nav><div style="position:relative;"><div><h1 id="引用模型与-kl-的管理" tabindex="-1">引用模型与 KL 的管理 <a class="header-anchor" href="#引用模型与-kl-的管理" aria-label="Permalink to &quot;引用模型与 KL 的管理&quot;">​</a></h1><div class="epigraph"><p>引用模型是训练里唯一不许变的那块权重：它不产生梯度，却定义了整个跑道的边界。</p><footer>—— 据 Schulman 等 2017（PPO）的 KL 惩罚设计与 Schulman 2016 的 KL 近似笔记整理</footer></div><p><a href="/llm/rlsys-reward-serving">上一课</a>把打分做成服务，经验三件套齐了：序列、行为 logprob、奖励。本课补训练相最安静的角色——引用模型：冻结的初始策略，给出 KL 的参照分布。它不学一个参数，却占一份显存、付一份前向，还要回答一个算法问题：KL 到底挂在奖励里、挂在损失里，还是根本不挂。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>KL 正则把当前策略 \(\pi_\theta\) 拉向 \(\pi_{\mathrm{ref}}\)，防止它离开数据支撑太远——这是<a href="/llm/ppo-kl-value">KL 惩罚与价值函数</a>的算法面。系统面的问题是同一件事的三种挂法各有不同的账单。折进奖励（InstructGPT 式的 \(r_t \gets r_t - \beta\,\mathrm{KL}_t\)）：引用前向必须发生在 rollout 相，每个样本多一遍 teacher forcing 前向。折进训练损失：引用前向挪到训练相，与梯度计算分时共享卡。完全不挂（<a href="/llm/kl-free-rl">无 KL 的 RL</a>）：引用模型整块不加载，显存立省一份，但漂移只剩 clip 与早停拦着。选哪种不只是算法口味，而是显存与吞吐预算的分配——这正是它进「架构」单元的原因。</p><p><span class="marginnote">「引用模型」\(\pi_{\mathrm{ref}}\) 就是出发点的快照：通常是 SFT 刚结束时的那份权重，整个训练期间冻结不动。它唯一的职责是当参照物——每步回答「现在的策略离出发时偏了多远」，这个偏离量就是 KL。它自己一个参数也不更新。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>无论挂哪，估计用低方差的那支。对采样自 \(\pi_\theta\) 的 token，取比值 \(r = \pi_{\mathrm{ref}}/\pi_\theta\)，用 \(k_3 = r - \log r - 1\)：其期望恰为 \(\mathrm{KL}(\pi_\theta \,\|\, \pi_{\mathrm{ref}})\)，且逐点非负、方差远小于直接平均 \(\log r\)；方向别接反，分母是行为侧。工程要点三条。第一，引用前向只需在已采样的 token 上取 logprob——不生成、不扫词表，成本是一次 teacher forcing 前向，可与 rollout 相共享批处理。第二，引用 logprob 与行为 logprob 同样要缓存并带版本：复用旧样本做离策略修正时，KL 的分子要用打分当时的 \(\pi_\theta\)，不是最新版。第三，显存管理：引用模型可常驻、可 offload 到 CPU 按需搬入、可在无 KL 配置下整个不加载；共置布局里它是第三个模型，与训练器、rollout 引擎抢峰值显存。</p><p><span class="marginnote">数字实例看 \(k_3\) 的非负性：取 \(r=2\)（参考概率是行为概率的两倍），\(k_3=2-\log 2-1\approx0.31\)；取 \(r=0.5\)，\(k_3=0.5-\log 0.5-1\approx0.19\)。比值无论大于还是小于 1，结果都不为负——这是它能当 KL 估计量的好处之一；直接平均 \(\log r\) 则正负不定、方差大。</span></p><p><span class="marginnote">\(k_3 = r - \log r - 1\) 的期望等于 KL，靠的是 \(\mathbb{E}_{\pi_\theta}[r] = 1\) 这条性质；换一个 token 分布（例如在温度缩放后的分布上取比值），期望就不再是 KL，而是一个不知名的量。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>KL 挂在哪里，决定它是「奖励的一部分」还是「约束的一部分」，监控语义随之不同。折进奖励时，KL 是代理奖励的组成部分，优化器会主动权衡它——调小 \(\beta\) 等于放宽跑道，<a href="/llm/reward-overoptimization-theory">奖励过优化的理论视角</a>里它正是压力旋钮；折进损失时它更像信赖域的软实现，两种挂法的曲线要分开解读。两条路都要求把每步 KL 统计量记进监控：均值突跳通常是策略在大规模偏离（可能是 hack，也可能是崩溃前兆），缓缓爬升是正常探索。无 KL 配置下这根仪表没了，漂移监控改由评测与熵承担——省下的显存买走了一根最重要的仪表，这笔交易要显式记账。</p><p><span class="marginnote">直觉类比：KL 惩罚像风筝线——线放得长（\(\beta\) 小），风筝飞得高、探索得远；线收得太紧，风筝贴地打转什么也采不到；完全剪断（无 KL）飞得最爽，但一头栽下来时没有任何东西拦着。三种挂法（折进奖励 / 折进损失 / 不挂）只是把「收线的手」装在不同位置。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>引用模型管理不提供对齐保证：KL 小只代表离起点近，不代表好；KL 的支撑性质保证不了内容质量。\(\pi_{\mathrm{ref}}\) 选哪个快照（SFT 末、某轮 RL 前）本身是超参，换参照点等价于换跑道，跨实验比较时必须同参照。多轮迭代里「上一轮产物当下轮参照」会让参照本身漂移，跑道随训练移动，这个边界条件要写进配方而不是留在实现里。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>引用模型是冻结权重，只付前向不付梯度；三种挂法（奖励/损失/无）对应三份显存与吞吐账单。</li><li>KL 估计用 \(k_3 = r - \log r - 1\)：期望即 KL、逐点非负、低方差；方向是 \(\pi_{\mathrm{ref}}/\pi_\theta\)。</li><li>引用 logprob 只在采样 token 上取，需缓存并带版本；复用旧样本时分母取打分当时版本。</li><li>KL 曲线是核心仪表：突跳查 hack 或崩溃，缓升是探索；无 KL 配置拿掉它要换仪表。</li><li>出处：Schulman 等 2017（PPO）；Schulman 2016（KL 近似笔记）；据 InstructGPT 与开源框架实现整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 RL 训练系统<!--[--> · 单元 架构<!--]--><!----></p><p class="lesson-progress">第 3 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rlsys-replay-batching/">经验回放与批处理</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/rlsys-reward-serving/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">奖励模型的服务化</span><span class="lesson-card-meta">RL 训练系统 · 架构<!--[--> · 第 2 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/rlsys-replay-batching/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">经验回放与批处理</span><span class="lesson-card-meta">RL 训练系统 · 工程<!--[--> · 第 4 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

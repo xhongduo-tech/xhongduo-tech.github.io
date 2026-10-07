@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>B+ 树的实现细节 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_st-btree-implementation.md.BfJTR9lX.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 存储系统深入<!--[--> · 单元 结构<!--]--><!----></p><p class="lesson-progress">第 2 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/st-lsm-deep/">LSM 的深入</a></p><p class="lesson-next"> 下一课：<a href="/cs/st-ssd-ftl/">SSD 与 FTL</a></p><!----></nav><div style="position:relative;"><div><h1 id="b-树的实现细节" tabindex="-1">B+ 树的实现细节 <a class="header-anchor" href="#b-树的实现细节" aria-label="Permalink to &quot;B+ 树的实现细节&quot;">​</a></h1><div class="epigraph"><p>教科书只保证 B+ 树是平衡的；实现者真正签字的地方是页多大、分隔键留多长、叶子填多满——同一棵树，签错一处随机写吞吐差几倍。</p><footer>—— 据 Comer, The Ubiquitous B-Tree, 1979；Graefe, Modern B-Tree Techniques, 2010；InnoDB 与 PostgreSQL 文档整理</footer></div><p><a href="/cs/st-lsm-deep">上一课</a>把 LSM 的三本放大账立了起来：写放大要做预算、停顿是流控、排序是有成本的决策。本课转到另一族结构。主干已钉过 <a href="/cs/btree-external">B 树与外存</a>的高扇出压高度、<a href="/cs/bplus-as-ds">B+ 树作为结构</a>的叶链布局、<a href="/cs/bplus-split">B+ 分裂与合并</a>的维护机制与祖先写放大、<a href="/cs/latch-crabbing">latch crabbing</a> 的并发耦合。本课不重讲正确性，写的是实现者真正签字的四份合同：页大小怎么选、变长键怎么放、填充率怎么定、装载怎么走。后课默认：B+ 的实现差异足以让同一种结构在不同负载下差出数倍。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>同样的 B+，换一种实现随机写吞吐能差数倍，缺口在四处。其一，页大小：16 KiB 与 8 KiB 的盘型适配、缓存粒度、单页写放大互相牵制，没有免费的选项。其二，变长键：内节点的分隔键其实不必是任何真实键，只要足以分路——留整键是浪费扇出。其三，填充率：顺序递增键全部落在最右叶，页反复分裂再回填；随机键让每页半满，空间翻倍。其四，装载：逐条插入一棵空树，分裂把占用率钉在六七成；自底向上建树可以近满。这四处的共同点是：结构课的正确性对它们都沉默。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>页大小的预算账：扇出 \(f\) 约等于页大小 \(P\) 除以键加指针的平均字节数 \(s\)。16 KiB 页、每项约 16 B 时扇出上千，三层可指称十亿行量级，根与内层常驻缓存后，点查只剩一次叶页读。<span class="marginnote">数字实例：16 KiB 页、每项约 16 B，扇出约 1000。三层树根下有 1000 个中层节点、中层共有约 100 万个叶页、叶层覆盖约 10 亿行。根与中层常驻缓存后，一次点查只需读 1 个叶页——树高每降一层，省的就是一次随机盘读。</span>页加大树更矮，但每次页写携带更多无关键，页级写放大随之上涨——闪存介质对这一项另有一份收费，下一课细算。</p><p>分隔键的截断：孩子之间的真实边界是右孩子的最小键，内节点只需存任一落在区间内的值。把分隔键截到足以区分左右的最短前缀，内节点容量上升、扇出上升、树更矮。变长键场景下，前缀压缩再省一遍。判定只依赖比较，不依赖键值本身，这是截断合法的全部理由。<span class="marginnote">常见误区：初学者容易以为内节点必须存完整的真实键。实际上分隔键只要落在左右孩子的键值区间之间即可，截成最短前缀不改变任何查找结果——比较只问「走左还是走右」，不问这个值是否真的存在。</span></p><p>填充率与分裂点的选择：分裂不必永远对半。递增键写最右叶时，实现可以整页写满、新页几乎空着，顺序装载的占用率接近百分之百；随机键对半裂，占用率一半，是「给未来插入留白」的定价。主键选了随机 UUID 再抱怨写散页满，是索引组织表课已经警告过的错。空库装载走排序后自底向上：叶层近满、内节点一次写就，I/O 是顺序的——导入用建索引代替逐行插入，是这个原理的工程形式。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>四处细节是同一机制的四张脸：B+ 树把磁盘收费单位（页）当作一切决策的原子，实现是在「每页带多少无关键」与「未来写要付多少分裂」之间定价。页大，扇出高、读路径短，但页内无关键陪写、缓存粒度变粗；分隔键短，扇出再高一层，但查找语义完全不变；填充率是空间换未来写 I/O：满叶立刻分裂，半满叶给每次插入预留了未来。非唯一二级索引还可以把「页不在池里」的插入先记进 change buffer，读到此页再合并——把随机读推迟，与上一课 LSM 把随机写改顺序是同一个思路在不同结构里的落点。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：半满分裂像停车场留白——每排只停一半车，新车随到随停；排排停满，每来一辆就得把整排拆成两排。多占的空间买的是未来插入的免折腾，随机键负载里这笔租金常常是值的。</span></p><p><span class="marginnote">易错点：用自增主键跑出漂亮的顺序装载曲线，再换 UUID 复用同一份容量规划——占用率从近满掉到一半，空间与缓存预算双双翻倍，优化器统计却未必同步。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重讲分裂与合并的正确性（<a href="/cs/bplus-split">B+ 分裂与合并</a>已钉）、不进 latch 协议（<a href="/cs/latch-crabbing">latch crabbing</a> 与 <a href="/cs/bw-tree">Bw-tree</a> 各有专课）、不做缓存无关布局（另有 <a href="/cs/cache-oblivious">缓存无关结构</a>）。页内变长记录的槽位管理是页布局课的对象。后课默认：B+ 的页就是 I/O 单元，「页可原地覆盖读写」是这份合同成立的前提。下一课去问介质：这个前提在闪存上要收多少税。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>页大小是三方预算：扇出与树高、页级写放大、缓存粒度，没有全赢的选项。</li><li>内节点只需最短分隔键，截断合法因为查找只做比较；扇出白捡。</li><li>分裂点按插入序定价：递增键近满叶，随机键半满叶，容量规划要跟着变。</li><li>装载走排序加自底向上建树；change buffer 把非唯一二级索引的随机读推迟。</li><li>出处：Comer, <em>CSUR</em> 1979；Graefe, <em>Modern B-Tree Techniques</em>, 2010；InnoDB、PostgreSQL 存储文档。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 存储系统深入<!--[--> · 单元 结构<!--]--><!----></p><p class="lesson-progress">第 2 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/st-ssd-ftl/">SSD 与 FTL</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/st-lsm-deep/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">LSM 的深入</span><span class="lesson-card-meta">存储系统深入 · 结构<!--[--> · 第 1 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/st-ssd-ftl/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">SSD 与 FTL</span><span class="lesson-card-meta">存储系统深入 · 结构<!--[--> · 第 3 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Schedule-Free 优化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_schedule-free-optimizer.md.D3HCnJRI.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-27</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 工程与训练拾遗<!--[--> · 单元 训练细节拾遗<!--]--><!----></p><p class="lesson-progress">第 2 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/llm/wsd-schedule/">WSD 学习率调度</a></p><p class="lesson-next"> 下一课：<a href="/llm/qk-clip/">QK-Clip 梯度裁剪</a></p><!----></nav><div style="position:relative;"><div><h1 id="schedule-free-优化" tabindex="-1">Schedule-Free 优化 <a class="header-anchor" href="#schedule-free-优化" aria-label="Permalink to &quot;Schedule-Free 优化&quot;">​</a></h1><div class="epigraph"><p>学习率调度的活儿交给优化器自己：平均点做评估、迭代点做探索，训练中途随时停、随时最优——日程表进了优化器内部。</p><footer>—— 据 Defazio et al.「The Road Less Scheduled」(2024)；Primal Averaging 与 Polyak–Ruppert 平均</footer></div><p><a href="/llm/wsd-schedule">WSD 调度</a>把退火长度压到 10%，但仍要人工选退火点。缺口是<strong>Schedule-Free 优化器</strong>：把「探索序列」与「收敛序列」拆成两个点的轨迹，评估用平均点、更新用插值点，学习率可以恒定不退——调度被内化成优化器的两点结构。本课不进加速理论的严格证明。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>经典真理：Polyak–Ruppert 平均对凸问题免费提收敛率，但平均点更新不了参数（平均点不是迭代点）。AdamW 一步到位、单点轨迹，于是必须用外挂调度把「探索」与「收敛」压进同一条线。缺口：能不能让迭代点保持 AdamW 的探索力、同时平均点保有退火后的收敛性——两个点各干各的。</p><p><span class="marginnote">术语翻译：Schedule-Free = Defazio et al. 2024 提出的优化器族，核心是 primal averaging 的变体：维护迭代序列 \(z\)（探索）与平均序列 \(x\)（评估），每步以动量权重 γ 在两点间插值；评估永远用 \(x\)，checkpoint 只存 \(x, z, y\) 三组参数。</span></p><p><span class="marginnote">数字实例：同 10T token 预算，AdamW+cosine 需在开训前定 \(T\)；Schedule-Free 全程恒定 \(\eta\)，训练 5T 时停下评估——平均点已处「相当于退火完」的状态；想继续就接着跑，无需改任何超参。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>迭代三行代码：\(y_t=(1-\gamma)z_t+\gamma x_t\)（插值点，进梯度计算）；\(z_{t+1}=z_t-\eta\nabla f(y_t)\)（探索点，纯 SGD 步）；\(x_{t+1}=(1-\frac1{t+1})x_t+\frac1{t+1}z_{t+1}\)（平均点，评估用）。工程上与 AdamW 的加权版本组合（把 SGD 步换成 Adam 更新），momentum 参数由 γ 承担。超参面只剩 \(\eta\) 与 γ（常用 0.9）——调度超参整族消失。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：像探险队兵分两路——\(z\) 是先锋（永远大步探路，不怕回头的代价），\(x\) 是按所有足迹重心的「决策参谋」（位置平滑、随时可汇报）。调度型优化器只有一支队伍，探索时汇报不了、汇报时探不了路。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>收敛机制来自<strong>在线学习与凸优化的等价性</strong>：primal averaging 在凸光滑情形自动获得与「最好调度」匹配的收敛率——不是「调度效果差」，而是「平均轨迹把调度的效果免费实现」。与 WSD 的噪声视角对照：WSD 靠降 η 压梯度噪声，Schedule-Free 靠平均压参数噪声——两个噪声源各治其一，故实践中两者还可叠加（Schedule-Free + 平台末退火）再赚一点。LLM 训练的实证：MLP/Transformer 语言模型上与 cosine 持平或略优，且「中途最优」是 cosine 永远给不了的。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：拿 \(z\)（迭代点）去评测——迭代点带探索噪声，永远比 \(x\) 差；另一误区是照搬 AdamW 的 β₁/β₂——Schedule-Free 的动量由 γ 承担，β₁ 常设 0.9 会出现双重动量，官方推荐 β₁=0.9 配 γ=0.9 或直接 β₁=0。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>成本：每步多存两组参数（显存 +2 倍参数量），7B 模型按 fp32 计多 56 GB——用 ZeRO 分片摊薄，但推理侧无碍（部署 \(x\)）。非凸理论仍不完整，Transformer 上的实证优势在 0–2% 区间浮动，胜负取决于调参投入——cosine 生态成熟是它的真实护城河。与微调的适配：小步数下平均点尚「没攒够」，短程微调仍建议经典调度。与 <a href="/llm/qk-clip">QK-Clip</a> 的分工：那是在注意力内部做稳定性手术，本课是全局节奏的重构——一层细节一层骨架，互不替代。</p><p><span class="marginnote">直觉类比：传统调度像做一桌菜必须按菜谱从头炖到尾，中途端上桌是半生不熟；Schedule-Free 像火锅——锅里的「平均态」随时可以夹出来吃，想继续煮就继续煮，火候由锅（优化器）自己管。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>两点结构：迭代点 \(z\) 探索、平均点 \(x\) 评估，调度内化为动量插值。</li><li>超参面缩小到 η 与 γ；中途任意点停都是收敛态。</li><li>显存 +2 参数组是真成本；短程任务收益有限。</li><li>出处：Defazio et al.「The Road Less Scheduled」2024；Polyak–Ruppert 平均；Meta 开源实现。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 工程与训练拾遗<!--[--> · 单元 训练细节拾遗<!--]--><!----></p><p class="lesson-progress">第 2 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/qk-clip/">QK-Clip 梯度裁剪</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/wsd-schedule/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">WSD 学习率调度</span><span class="lesson-card-meta">工程与训练拾遗 · 训练细节拾遗<!--[--> · 第 1 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/qk-clip/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">QK-Clip 梯度裁剪</span><span class="lesson-card-meta">工程与训练拾遗 · 训练细节拾遗<!--[--> · 第 3 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>浮点格式谱系：FP32/BF16/FP16 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_num-float-formats.md.DsPBcvnG.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 低精度数值与训练稳定<!--[--> · 单元 格式<!--]--><!----></p><p class="lesson-progress">第 1 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/sch-map/">调度收束</a></p><p class="lesson-next"> 下一课：<a href="/llm/num-fp8-scaling/">FP8 的格式与缩放</a></p><!----></nav><div style="position:relative;"><div><h1 id="浮点格式谱系-fp32-bf16-fp16" tabindex="-1">浮点格式谱系：FP32/BF16/FP16 <a class="header-anchor" href="#浮点格式谱系-fp32-bf16-fp16" aria-label="Permalink to &quot;浮点格式谱系：FP32/BF16/FP16&quot;">​</a></h1><div class="epigraph"><p>宽度不是精度，精度不是稳定；浮点把比特预算分给指数与尾数，训练稳定的第一件事是把这份预算分对。</p><footer>—— 据 IEEE 754 与 Micikevicius et al., 2018（混合精度训练）整理</footer></div><p><a href="/llm/sch-map">上一课</a>把调度收束成一张按依赖排序的决策单——指标合同、批与预算、策略、执行、放置、运维——并把它自己定位成回答「池子怎么用」的那层地图；地图之外，token 之下是内核与数值层。本课程就从这里接棒：每个数占几个比特、以什么格式参与计算。这是低精度数值与训练稳定这门课的第一课，写最基础的一层——FP32、BF16、FP16 的位分配与各自的失败方式。训练配方视角（主权重、损失缩放、哪些算子留宽）见<a href="/llm/pretrain-mixed-precision">混合精度 BF16 / FP8 训练</a>，本课给格式本身的账；后课 FP8 缩放与随机舍入默认已经读完这份位账。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一个浮点数把 \(b\) 个比特切成三份：符号、指数、尾数。FP32 是 1/8/23，FP16 是 1/5/10，BF16 是 1/8/7。这份切法决定了两件不同的事：指数决定动态范围——能表示的数有多大、多小；尾数决定相对精度——相邻两个可表示数靠得多近。在二进制指数 \(e\) 处，相邻可表示数的间隔是 \(2^{e-m}\)（\(m\) 为尾数位），于是舍入到最近的相对误差约 \(2^{-(m+1)}\)：FP32 约 \(6\times 10^{-8}\)，FP16 约 \(4.9\times 10^{-4}\)，BF16 约 \(3.9\times 10^{-3}\)。BF16 的相对误差是 FP16 的八倍，但动态范围与 FP32 完全同宽——这就是谱系的全部逻辑：预算在指数与尾数之间搬家。</p><p>预算分错有两个确定死法。指数太少：FP16 的最大有限值是 65504，最小正规数约 \(6.1\times 10^{-5}\)，未归一化的注意力分数与 logits 上溢成 Inf，反向传播里的小梯度下溢成零——后者表现为「某些层永远不更新」，损失停在一个平台。尾数太少：累加与小更新的量化噪声变大，小学习率的步长被台阶吃掉。</p><p><span class="marginnote">数字实例：FP16 的最大有限值是 65504，而 \(\exp(11)\approx 59874\)——一个 11 的 logit 过一次指数就顶到天花板；BF16 上限约 \(3.4\times10^{38}\)，同样的 logit 毫无压力。一格之差，就是那三比特尾数换来的范围。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把格式分配写成三条规则。其一，矩阵乘可以窄、归约与归一化要宽：GEMM 是大量乘加的平均，Tensor Core 的累加器比输入宽（FP16 输入配 FP32 累加），个别乘积的尾数误差被项数摊薄；而 softmax、LayerNorm 统计与交叉熵要做减最大值、指数、除法，对动态范围和尾数同时敏感。其二，主权重与优化器状态留在宽格式，窄格式只管计算：更新写回若也走窄格式，小于半格的更新被舍入吞掉（机制在第三课展开）。其三，逐元素非线性留在宽格式。</p><p><span class="marginnote">直觉类比：位预算像一笔钱，在「量程」与「刻度细度」之间分配。FP16 是刻度很细、但最多称到 65504 的精密天平；BF16 是刻度粗一倍、量程却与 FP32 同宽的台秤。要量程（怕溢出的 logits、梯度）选台秤，要细刻度（小更新）才选天平。</span></p><div class="mermaid"></div><p>FP16 并没有死：只支持 FP16 的上一代卡上，动态损失缩放（溢出则跳步并缩小 \(s\)）仍是可用配方；BF16 在 Ampere 及以后与 TPU 上是一等公民，指数同宽让全局损失缩放通常可以关掉。选择不是「谁更好」，而是「哪份预算在这块硬件上买得到」。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>三条规则的机制是两类运算对噪声的敏感度不同。GEMM 的误差近似零均值的随机变量，被大量项平均后按 \(1/\sqrt{n}\) 缩小；softmax 不是平均而是比值——logit 差经过指数放大，尾数不足时小概率 token 的相对误差失控，指数不足时整行 Inf 再除成 NaN。主权重必须宽的机制在舍入：RN 舍入下，\(|\Delta w|\) 小于半格的更新系统性丢失，FP32 主权重把累积挪到台阶更细的格子里。BF16 的本质因此可以一句话说完：把 FP16 的三比特尾数挪给指数，用更新噪声换溢出安全；大 batch 预训练把噪声平均掉，于是成为默认。</p><div class="mermaid"></div><p>这张图回答「为什么 GEMM 敢窄、softmax 必须宽」：GEMM 的误差是大量项的平均，噪声按 \(1/\sqrt{n}\) 摊薄，窄格式有宽累加器兜底即可；softmax 是比值且过指数，一格动态范围的缺口就会被放大成整行 Inf——两类运算对预算的敏感度天生不同。</p><p><span class="marginnote">「BF16 不需要损失缩放」是经验默认不是定理：某层梯度若系统性小于 BF16 的最小正规数，照样归零。遇到整层不更新，先看梯度直方图，再动格式。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>格式不是数值行为的全部：同格式下累加顺序不同，结果就不同——跨硬件对账是第九课的事。「位数减半误差翻倍」只在相对误差的量级意义上成立，具体层的掉点要看异常值分布，不是均匀噪声（第五课的图谱）。FP16 的 65504 上限也不是抽象风险：一个 \(\exp(11)\) 的 logit 就已用掉大半预算。最后，别把「BF16 训练」写成一句口径——计算 dtype、主权重 dtype、优化器状态 dtype 是三个独立开关，实验记录必须分开写。</p><p><span class="marginnote">常见误区：以为「16 位就是误差恰好翻倍、掉点注定」。相对误差确实从 \(6\times10^{-8}\) 跳到 \(10^{-3}\) 量级，但掉不掉点取决于异常值分布与运算类型——GEMM 里大量项的平均会把噪声摊薄。先看异常图谱，再下结论。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>浮点格式是指数与尾数之间的预算分配：指数保范围，尾数保相对精度。</li><li>FP16 险在范围（65504 上限、小梯度下溢），BF16 险在精度（相对误差约 \(0.39\%\)），FP32 是参照系。</li><li>三条规则：GEMM 可窄、归一化与归约留宽、主权重与优化器状态留宽。</li><li>BF16 换来溢出安全、付出更新噪声，大 batch 平均掉噪声，故为预训练默认。</li><li>格式之外还有舍入模式与累加顺序，分别在第三、九课展开。</li><li>出处：IEEE 754 格式定义；Micikevicius et al., 2018 混合精度训练；框架混合精度文档口径。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 低精度数值与训练稳定<!--[--> · 单元 格式<!--]--><!----></p><p class="lesson-progress">第 1 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/num-fp8-scaling/">FP8 的格式与缩放</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/sch-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">调度收束</span><span class="lesson-card-meta">服务调度与多租户 · 运维<!--[--> · 第 12 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/num-fp8-scaling/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">FP8 的格式与缩放</span><span class="lesson-card-meta">低精度数值与训练稳定 · 格式<!--[--> · 第 2 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

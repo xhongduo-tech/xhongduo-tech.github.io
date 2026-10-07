@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>视图与物化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_views-materialize.md.FA0JsTzd.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数据库<!--[--> · 单元 模型与查询<!--]--><!--[--> · 课序 关系<!--]--></p><p class="lesson-progress">第 19 / 43 课</p><p class="lesson-prereq"> 先修：<a href="/cs/bcnf-3nf/">BCNF 与 3NF 取舍</a></p><p class="lesson-next"> 下一课：<a href="/cs/covering-index/">覆盖索引扫描</a></p><!----></nav><div style="position:relative;"><div><h1 id="视图与物化" tabindex="-1">视图与物化 <a class="header-anchor" href="#视图与物化" aria-label="Permalink to &quot;视图与物化&quot;">​</a></h1><div class="epigraph"><p>视图是命名的查询；虚的每次重算，实的把结果存住，更新则变成维护问题。</p><footer>—— 据 Date 对视图；Gupta and Mumick 对物化视图维护的整理</footer></div><p><a href="/cs/bcnf-3nf">上一课</a>把宽表按依赖切开。本课不重做 3NF 合成。缺口是：用户仍想看见「一张订单宽表」，而基表已经分解。视图把一条声明查询命名成虚拟关系；物化则把结果写成真实存储，用空间换重复求值。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>分解之后，每次查询都要连接。若把连接写成应用里的字符串，模式一变，字符串全碎。缺口不是新代数，而是<strong>外模式</strong>：视图的指称是某棵查询树，对用户仍是关系。虚视图不占堆文件；物化视图占存储，基表一改就要维护，否则读到的是过期快照。</p><p>本课不把「可更新视图」的全部定理写完，只钉：读视图 = 求值或读副本；写视图往往没有唯一的基表翻译。</p><p><span class="marginnote">Codd 的三层模式：内模式存储、概念模式基表、外模式视图。数据独立性的用户侧就是这一层，与<a href="/cs/relational-model">关系模型</a>第一课的独立性相接。</span></p><p><span class="marginnote">术语翻译：视图就是用「给一条查询起个名字」的手段来做「让用户看见一张其实不存在的表」的事——虚视图每次打开都现场重算，物化视图则把这次重算的结果真的存下来，从此多了一件事：基表一变它就过期，得有人去维护。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>虚视图：打开查询时把视图名换成定义树，再走<a href="/cs/query-rewrite">改写</a>与计划。物化：把结果存成表，选立即维护或延迟刷新。增量维护：基表 delta 推出视图 delta，避免全量重算。本课不展开维护规则的代数，只要求维护保持与定义树一致。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>优化器可以把视图当改写的匹配对象：若物化结果能覆盖当前查询，就改成扫描该副本（视图匹配）。这与索引的角色相近，但是「预计算的查询」而不是「预计算的查找结构」。虚视图则把逻辑树变大，下推仍然适用。</p><p>更新异常在视图上更尖：一张视图行可能对应多张基表上的组合，插入无法唯一分解。因此主干把视图首先当读接口；可更新子集是工程特例。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲流式物化、列存 Cube 的全部 OLAP 栈。也不把缓存失效协议写细。物理上物化结果仍是后课的页与堆文件；本课只决定「有没有这一份关系副本」。</p><p>临时表与 CTE 不是物化视图：它们的寿命是查询或会话，不进入模式的持久外模式。后课默认：用户可以面对视图；存储引擎看到的是基表（及可选的物化副本）上的页。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：初学者容易把物化视图当成「免费加速」，实际上它是一份会过期的副本——立即维护让每次写入变慢，延迟刷新让读者可能拿到旧数；选哪种取决于业务能容忍多陈旧，而不是哪个听起来更快。</span></p><p>外模式可以宽，内模式可以窄。用户看见的名字不必等于堆文件的名字，这是独立性在本课的落点。</p><p><span class="marginnote">数字实例：报表每天扫 1 亿次订单明细做三表连接、聚合出 5000 行日汇总。虚视图每次跑都付 1 亿行的连接；物化后每次查询只扫 5000 行，代价是把「每次 1 亿」换成「每笔写入多做一点增量维护」——查询越频繁、视图越小，这笔交换越划算。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>分解之后用视图恢复外模式；虚的展开，实的维护。</li><li>读匹配可以省连接；写视图一般没有唯一翻译。</li><li>元组落在哪一页、哪一个槽，是后课缺口。</li><li>出处：Date；Gupta and Mumick；Garcia-Molina, Ullman and Widom。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数据库<!--[--> · 单元 模型与查询<!--]--><!--[--> · 课序 关系<!--]--></p><p class="lesson-progress">第 19 / 43 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/covering-index/">覆盖索引扫描</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/bcnf-3nf/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">BCNF 与 3NF 取舍</span><span class="lesson-card-meta">数据库 · 模型与查询 · 关系<!--[--> · 第 18 / 43 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/covering-index/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">覆盖索引扫描</span><span class="lesson-card-meta">数据库 · 模型与查询 · 关系<!--[--> · 第 20 / 43 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

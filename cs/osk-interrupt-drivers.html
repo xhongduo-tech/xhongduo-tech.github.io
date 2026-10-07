@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>中断与驱动的骨架 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_osk-interrupt-drivers.md.CEMssydm.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 操作系统内核实践<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 5 / 7 课</p><p class="lesson-prereq"> 先修：<a href="/cs/osk-syscall-path/">系统调用的路径</a></p><p class="lesson-next"> 下一课：<a href="/cs/osk-kernel-debugging/">内核调试的方法</a></p><!----></nav><div style="position:relative;"><div><h1 id="中断与驱动的骨架" tabindex="-1">中断与驱动的骨架 <a class="header-anchor" href="#中断与驱动的骨架" aria-label="Permalink to &quot;中断与驱动的骨架&quot;">​</a></h1><div class="epigraph"><p>驱动不是「操作设备的代码」，而是把一个说方言的设备注册成内核已有对象的那段胶水。</p><footer>—— 据 Tanenbaum and Bos, Modern Operating Systems；Arpaci-Dusseau, OSTEP 整理</footer></div><p><a href="/cs/osk-syscall-path">上一课</a>修好了同步进入内核的路；设备不等调用——异步进入内核的路是本课。<a href="/cs/hardirq-softirq">硬中断与软中断</a>、<a href="/cs/interrupt-bottom-half">中断下半部</a>已给上下半部的分工，<a href="/cs/apic-interrupt-routing">APIC 与中断路由</a>给了硬件侧的路由。缺口是把它们装配成一个能跑的驱动骨架：一条中断线从设备到处理函数走哪些层，probe 到 remove 之间都发生什么。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>内核里有成百上千种设备。若每种设备自带一套中断、缓冲与注册方式，块、网络、字符这些子系统就没法统一调度它们，写一个新设备就要重造一遍全部接缝。实现要回答三件事：设备的「存在」如何变成内核对象；中断到来时，通用层如何在一微秒内找到正确的处理函数；为什么处理函数里不许睡眠。不这么做会错在哪：在中断上下文里调用一个可能阻塞的函数——调度器不在中断里运行，没有人能把它换下去，那颗 CPU 就挂死在中途，往往表现为偶发的整机卡顿而不是清晰的崩溃。</p><p><span class="marginnote">常见误区：初学者容易以为在中断处理函数里调用会阻塞的函数顶多「等一等」。实际上中断上下文里没有进程身份，调度器管不到你——没有任何人能把你换下去，这颗 CPU 就停在你这一行代码上；症状不是清晰的报错，而是偶发的整机卡顿。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>驱动的生命周期是骨架的主体。总线扫描发现设备，按标识匹配到驱动，调用 probe：映射设备的寄存器窗口、申请中断号并注册处理函数、初始化设备，最后把自己注册进某个子系统——块设备交出请求处理入口，字符设备交出文件操作表，网络设备交出收发包接口。remove 按相反顺序拆除。中断半程：设备拉线，控制器路由成向量，通用中断层查表调用驱动注册的顶半部——确认设备、取走数据或推进 DMA 描述符环、标记需要下半部，然后立刻返回。上半程注册、下半程查表，这两张表（设备表与中断表）就是整条异步路的索引。</p><p><span class="marginnote">术语翻译：probe 就是驱动的「自我介绍环节」——内核发现设备后喊一声「谁管它」，匹配上的驱动上前做三件事：把设备寄存器映射进地址空间、登记自己的中断处理函数、把自己挂进对应子系统；之后这台设备的所有事件，都沿这张登记表找回来。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>顶半部为什么必须短：它运行在中断上下文，当前中断线被屏蔽，它占多久，同类中断就压多久，实时性直接受损。可睡眠的收尾交给 workqueue——它运行在进程上下文，背后正是第一课讲的普通调度；不可睡眠但可延迟的用 tasklet。选择判据只有一个：这一步要不要睡眠。完成通知是骨架的接缝：驱动提交请求后在等待队列上睡眠，中断到达后完成唤醒——上一课的 read 阻塞语义就落在这条链上，<a href="/cs/tasklet-workqueue">tasklet 与 workqueue</a> 给的部件在这里咬合。锁的配规则也由此定：可能被中断抢走的共享数据，临界区里要配 <a href="/cs/lock-irq">锁与关中断</a> 的组合，漏配就产生只在负载高时出现的竞态。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：顶半部像急诊分诊台——只做「确认是谁、把人接进来」这几秒的事，马上腾出手接待下一位；化验和手术这类耗时又能等的活，转给后台的 workqueue 排队做。分诊台占多久，后面的急救车就堵多久——这就是「顶半部必须短」的全部理由。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>具体设备协议是各自课的对象——NVMe 的队列对在 <a href="/cs/nvme-driver">NVMe 队列与驱动</a>，本课只取它们的公共骨架；中断亲和与线程化中断（<a href="/cs/irq-affinity">中断亲和</a>、<a href="/cs/irq-thread">线程化中断</a>）在骨架上叠加策略，不重复；中断虚拟化是主干隔离单元的对象。也别把骨架当成唯一形态：轮询驱动的设备没有中断半程，DMA 完成 CPU 不介入——骨架描述的是中断驱动这一主导形态，其它形态是它的减法。</p><p><span class="marginnote">共享中断线上的每个处理函数都必须先读设备状态寄存器判断「是不是我的中断」，不是就返回未处理——误认邻居的中断会把别人的完成事件偷走，症状是两台设备都偶发卡死，这是共享线上最经典的驱动 bug。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>驱动的本质是 probe 里的一串注册：寄存器窗口、中断处理函数、子系统接口。</li><li>中断路径是「设备、控制器、通用层、顶半部」；顶半部只做确认与取数。</li><li>下半部的判据只有一个：要不要睡眠——要就 workqueue，不要才 tasklet。</li><li>阻塞 I/O 的语义落在等待队列加中断唤醒这条链上；关中断锁保护被抢的临界区。</li><li>出处：Tanenbaum and Bos, <em>Modern Operating Systems</em>；Arpaci-Dusseau, <em>OSTEP</em>；Love, <em>Linux Kernel Development</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 操作系统内核实践<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 5 / 7 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/osk-kernel-debugging/">内核调试的方法</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/osk-syscall-path/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">系统调用的路径</span><span class="lesson-card-meta">操作系统内核实践 · 工程<!--[--> · 第 4 / 7 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/osk-kernel-debugging/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">内核调试的方法</span><span class="lesson-card-meta">操作系统内核实践 · 工程<!--[--> · 第 6 / 7 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

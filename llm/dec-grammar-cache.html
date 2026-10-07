@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>文法缓存与复用 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_dec-grammar-cache.md.DQ8EOHYD.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 解码控制与服务化<!--[--> · 单元 受控生成<!--]--><!----></p><p class="lesson-progress">第 3 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/llm/dec-schema-compile/">JSON schema 编译优化</a></p><p class="lesson-next"> 下一课：<a href="/llm/dec-multi-constraint/">多约束的组合</a></p><!----></nav><div style="position:relative;"><div><h1 id="文法缓存与复用" tabindex="-1">文法缓存与复用 <a class="header-anchor" href="#文法缓存与复用" aria-label="Permalink to &quot;文法缓存与复用&quot;">​</a></h1><div class="epigraph"><p>编译一次是优化，编译千次是事故；缓存键里漏掉分词器，命中越多越危险。</p><footer>—— 据 Dong et al., XGrammar, arXiv:2411.15100 的自适应掩码缓存与 SGLang 缓存工程整理</footer></div><p><a href="/llm/dec-schema-compile">上一课</a>把单个 schema 的编译压到可承受：简化、token 级索引、预计算与运行时切分。服务一天见到的 schema 远不止一个：工具定义、表单、信封各有各的文法，还有长尾被反复请求。本课写缓存与复用：什么做键、存什么、怎么失效、怎么度量。后课的多约束组合把缓存键扩成元组。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>缓存的候选有三层。第一层是<strong>编译产物</strong>：FSM / PDA、离线掩码表——不缓存它，每个请求付一次完整编译，冷启动打在 TTFT。第二层是<strong>运行时格局掩码</strong>：PDA 格局到合法 token 集的映射，XGrammar 用自适应缓存记住见过的格局，命中率决定逐步开销接近查表还是回到线性。第三层是与 <strong>KV 前缀缓存</strong>的联动：系统提示加工具定义这段前缀在<a href="/llm/kv-prefix-cache">前缀缓存</a>里照常命中，结构化请求的开销集中在正文分叉之后。三层各有键、容量与失效问题；缺一层，TTFT 或 TPOT 的尾部就会间歇性变差，而平均数看不出来。</p><p><span class="marginnote">术语翻译：「格局」就是自动机当前走到哪一步的快照——状态编号加上栈里压了什么。同一段 JSON 写到 <code>{&quot;name&quot;:&quot;</code> 和写到 <code>{&quot;age&quot;:</code> 是两个不同格局，各自允许的下一批 token 不同；格局缓存就是把「见过的快照 → 允许 token 表」记下来，下次同快照直接查表。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>键设计</strong>：编译产物缓存键至少三个字段——归一化后的 schema 哈希、分词器指纹、编译器版本。归一化要消掉空白、转义与键序差（若产品已固定键序则按序哈希）；分词器指纹防「换模型旧表照用」；编译器版本防算法升级后新旧产物混存。格局缓存的键是自动机格局本身（状态加栈），属进程内热数据，不需要跨机共享。</p><p><strong>存储与容量</strong>：编译产物小而贵，放进程级或节点级 LRU，容量按「活跃 schema 数 × 单产物大小」估；格局缓存大而热，放实例内存。多 worker 部署时编译产物可以共享（只读），格局缓存随请求粘性走。</p><p><strong>失效</strong>：三类信号——模型或分词器升级（全量清空编译产物）、schema 演进（哈希变则自然分桶）、引擎升级（版本号进键）。失效错误不是性能问题：给新模型挂旧掩码表，输出仍然合法，但模型已经不是训练时那个条件分布的拥有者。</p><p><span class="marginnote">常见误区：初学者容易以为「schema 文本一样键就一样」，实际上两个请求的 JSON Schema 往往只差空格、转义或键序，直接拿原文做键会让缓存永远 miss。所以键要用归一化后的哈希——先把无意义差异抹平，再哈希，同一模板的不同写法才能命中同一条缓存。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>缓存有效的理由在上一课已经埋下：真实流量的 schema 集中在少数模板上，PDA 格局集中在键名、标点与常见类型上。两层缓存的命中差体现为不同指标：编译缓存 miss 直接抬高该请求 TTFT（毫秒到百毫秒级，取决于 \(|Q|\cdot|\mathcal{V}|\)），格局缓存 miss 抬高 TPOT 的单步 CPU 时间。度量要分开报：编译命中率、格局命中率、以及 miss 时回源成本，否则「平均延迟没变」掩盖了长尾。</p><p>与 KV 缓存的复用同构但不同层：文法压缩在无分支路段直接写出确定 token、跳过前向，这些 token 照常写进 KV、照常能被 radix 树共享——结构化流量的系统提示前缀命中率与自由文本无异，分叉从正文第一个自由值开始。</p><p>三层缓存回答的问题不同：键是什么、放在哪、miss 时谁付钱。第一图画的是请求查缓存的流程，这里补一张三层对照：</p><div class="mermaid"></div><p><span class="marginnote">为什么重要：三层 miss 打中的指标不一样——编译缓存 miss 只坑该请求的首 token 延迟，格局缓存 miss 拖慢每一个后续 token。所以监控必须分层报命中率，只看「平均延迟没变」会把长尾恶化藏几周才发现。</span></p><p><span class="marginnote">数字感受：1000 QPS 下每请求重复编译 50ms 的 schema，等于常驻烧掉 50 个 CPU 核只做重复劳动；命中缓存的同请求成本接近零。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>缓存不改变正确性要求：失效管理的第一原则是「宁可重编译，不可错复用」。编译炸弹在缓存层同样要防：恶意 schema 会先在编译期烧 CPU 与内存，限额与审计在缓存之前。多租户共享编译产物是安全的（schema 不是机密，掩码不泄露数据），但共享格局缓存的键里若有用户自定义词表片段，要按租户隔离。最后，命中率是资产也是负担：schema 长尾越散，缓存的边际价值越低，此时先把 schema 模板收敛，比扩缓存便宜。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>三层缓存：编译产物、运行时格局掩码、与 KV 前缀缓存的联动；各管 TTFT、TPOT 与共享段。</li><li>编译缓存键：归一化 schema 哈希 × 分词器指纹 × 编译器版本，缺一即静默事故。</li><li>失效信号三类：模型升级、schema 演进、引擎升级；失效错误的代价是正确性。</li><li>命中率要按层分开报，miss 的回源成本决定长尾。</li><li>防编译炸弹在缓存之前；schema 收敛比扩缓存便宜。</li><li>出处：Dong et al., XGrammar, arXiv:2411.15100；Zheng et al., SGLang, NeurIPS 2024；Willard &amp; Louf, arXiv:2307.09702。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 解码控制与服务化<!--[--> · 单元 受控生成<!--]--><!----></p><p class="lesson-progress">第 3 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/dec-multi-constraint/">多约束的组合</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/dec-schema-compile/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">JSON schema 编译优化</span><span class="lesson-card-meta">解码控制与服务化 · 受控生成<!--[--> · 第 2 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/dec-multi-constraint/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">多约束的组合</span><span class="lesson-card-meta">解码控制与服务化 · 受控生成<!--[--> · 第 4 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

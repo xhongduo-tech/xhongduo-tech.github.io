@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>批大小与 roofline 拐点 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_batch-roofline-knee.md.D9LqsACG.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 性能会计与编译<!--[--> · 单元 性能会计<!--]--><!--[--> · 课序 算清楚再优化<!--]--></p><p class="lesson-progress">第 3 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/llm/arithmetic-intensity-decode/">解码的算术强度</a></p><p class="lesson-next"> 下一课：<a href="/llm/energy-per-token/">每 token 能耗</a></p><!----></nav><div style="position:relative;"><div><h1 id="批大小与-roofline-拐点" tabindex="-1">批大小与 roofline 拐点 <a class="header-anchor" href="#批大小与-roofline-拐点" aria-label="Permalink to &quot;批大小与 roofline 拐点&quot;">​</a></h1><div class="epigraph"><p>同一份权重被更多序列复用时，强度随 batch 上升；越过屋顶比之后，再加大 batch 主要加吞吐、不再降逐步延迟。</p><footer>—— 屋顶线见 Williams et al., CACM 2009；连续批使 batch 成为时间上的变量见 Yu et al., Orca, OSDI 2022</footer></div><p><a href="/llm/arithmetic-intensity-decode">上一课</a>定义了 decode 的 \(I\)。本课把 \(I\) 看成 \(B\) 的函数，找出拐点：从带宽绑定进入算力绑定的那个并发。连续批让 \(B\) 随时间变，产品感觉是「人一多，每个字变慢」还是「人一多，总吞吐上去」——取决于你在拐点哪一侧。<a href="/llm/continuous-batching">连续批处理</a>改成员；本课只写工作点，不重写调度器。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>小 \(B\) 时每步时间 \(\approx (W+\mathrm{KV})/\mathrm{bandwidth}\)，与 \(B\) 几乎无关，TPOT 稳定、吞吐线性于 \(B\)。\(B\) 大到 GEMM 打满 Tensor Core，逐步时间改由 \(\mathrm{FLOPs}(B)/\mathrm{peak}\) 决定，随 \(B\) 上升，TPOT 变差，吞吐接近常数（算力屋顶）。缺口是估计拐点 \(B^\star\)，否则 SLA 会写成互相矛盾的「高并发且低 TPOT」。</p><p><span class="marginnote">翻译一下：decode 一步无论服务 1 个还是 8 个请求，权重都得从显存整个搬一遍，搬运量几乎不变——小 batch 时每人分到的搬运用时相同，所以「每字延迟」不涨，吞吐纯属白赚。7B 模型 FP16 权重约 14 GB，1 个并发要搬 14 GB，4 个并发还是 14 GB，这就是「batch 维复用」。</span></p><p>KV 随 \(B\) 涨，容量墙可能先于拐点到来：还没打满算力就 OOM。此时优化应减 KV 字节，而不是再加卡的 FLOPS。反之，KV 很瘦（MLA、短上下文）时，拐点来得早，再堆并发只伤延迟。</p><p><span class="marginnote">拐点不是一个通用整数。它随模型宽、量化、是否投机（\(n_q\gt 1\)）、以及 prefill 是否混入而变。同一集群白天聊天与夜间批推理，工作点可以分居两侧。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>令 \(T_{\mathrm{mem}}=(W_{\mathrm{bytes}}+B\cdot \overline{\mathrm{KV}})/(\eta_b B_{\mathrm{HBM}})\)，\(T_{\mathrm{cmp}}=\mathrm{FLOPs}(B)/(\eta_c\,\mathrm{peak})\)。\(B^\star\) 满足 \(T_{\mathrm{mem}}\approx T_{\mathrm{cmp}}\)。权重主导时 \(B^\star\) 大致与 \(W/\overline{\mathrm{KV}}\) 和屋顶比有关：KV 越大，\(B^\star\) 越小（每条序列自己就带来很多字节）。测：\(B=1,2,4,\ldots\) 画 TPOT 与 tokens/s。TPOT 平坦段是带宽区；开始爬升是过拐点。吞吐的弯折应对上。</p><p><span class="marginnote">代个数估量级：A100 的 BF16 峰值约 312 TFLOPS、带宽约 2 TB/s，比值约 156 FLOP/字节；7B FP16 每请求每 token 搬 14 GB、算约 14 GFLOP，强度约 1 FLOP/字节。忽略 KV 的话 \(B^\star\) 就在 150 上下——KV 一加进来，实际拐点明显更小，所以曲线还是要自己测。</span></p><p>混合批次：<a href="/llm/chunked-prefill">chunked prefill</a> 把算力密的工作掺进 decode 拍，等效 \(I\) 上升，拐点左移，正在流式的用户 TPOT 抖动。分离 prefill/decode 池是为了让 decode 池停在选定的 \(B\) 一侧。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>权重在 batch 维复用，KV 不在请求之间复用（前缀共享除外）。因此拐点同时被两股力量拉：量化权重 → \(W\) 小 → 更容易被 KV 主导、拐点可能更早；量化 KV → 每条更瘦 → 可以更大 \(B\) 才碰到容量，拐点右移。投机加宽 \(n_q\)，等效把部分「batch 复用」换成「查询复用」，单请求也能略微右移工作点。</p><div class="mermaid"></div><p><span class="marginnote">这张图回答「一个改动会把拐点往哪边推」：两个「量化」方向恰好相反——压权重让拐点提前，压 KV 让拐点推后。调优前先想清楚自己压的是哪一边的字节，别指望「量化」三个字无条件提升并发。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要把训练的「最优 global batch」当成服务 \(B^\star\)。不要为了吞吐把 decode 池推过拐点还不改 SLA。尾延迟由最高 \(B\) 与最长 \(n\) 的乘积决定，平均值好看不够。后课把时间换成焦耳。</p><p>出处：Williams et al., 2009；Yu et al., OSDI 2022。Pope et al. 2022 讨论推理并行度与阶段。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>\(B^\star\) 是 \(T_{\mathrm{mem}}\approx T_{\mathrm{cmp}}\) 的并发；左侧加 \(B\) 加吞吐，右侧加 \(B\) 加 TPOT。</li><li>容量墙可早于拐点；先减 KV 再堆并发。</li><li>混合 prefill 使拐点移动并造成 TPOT 抖动。</li><li>权重量化与 KV 量化对拐点的方向相反。</li><li>测量用 TPOT–\(B\) 曲线，不要只用 GPU 利用率。</li><li>下一课：逐步时间换成每 token 能耗。</li><li>出处：Williams et al., 2009；Yu et al., 2022。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 性能会计与编译<!--[--> · 单元 性能会计<!--]--><!--[--> · 课序 算清楚再优化<!--]--></p><p class="lesson-progress">第 3 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/energy-per-token/">每 token 能耗</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/arithmetic-intensity-decode/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">解码的算术强度</span><span class="lesson-card-meta">性能会计与编译 · 性能会计 · 算清楚再优化<!--[--> · 第 2 / 25 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/energy-per-token/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">每 token 能耗</span><span class="lesson-card-meta">性能会计与编译 · 性能会计 · 算清楚再优化<!--[--> · 第 4 / 25 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

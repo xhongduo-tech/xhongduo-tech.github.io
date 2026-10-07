@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>掩模工艺修正 MPC | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_mpc.md.BMemrMBz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 掩模制造与数据准备<!--[--> · 单元 数据与写入<!--]--><!--[--> · 课序 从版图到掩模<!--]--></p><p class="lesson-progress">第 5 / 21 课</p><p class="lesson-prereq"> 先修：<a href="/litho/fracturing/">分割 fracturing</a></p><p class="lesson-next"> 下一课：<a href="/litho/curvilinear-data-volume/">曲线掩模数据量</a></p><!----></nav><div style="position:relative;"><div><h1 id="掩模工艺修正-mpc" tabindex="-1">掩模工艺修正 MPC <a class="header-anchor" href="#掩模工艺修正-mpc" aria-label="Permalink to &quot;掩模工艺修正 MPC&quot;">​</a></h1><div class="epigraph"><p>OPC 修的是晶圆空中像；MPC 修的是版上从胶到吸收体的偏置——两套模型，一张掩模。</p><footer>—— 对照 mask process correction 与 e-beam / 掩模刻蚀偏置的产线通称</footer></div><p><a href="/litho/fracturing">上一课</a>把多边形收成可写的炮。缺口是写出、显影、刻铬/刻吸收体之后，版上 CD 仍不等于数据边：掩模刻蚀有负载，侧壁有倾角，电子雾化有残差。本课钉 MPC（mask process correction）。曲线数据量，留给<a href="/litho/curvilinear-data-volume">下一课</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/litho/ebeam-mask-pec">PEC</a> 调的是写剂量，让胶上有效能量更均匀。胶边到金属边还有刻蚀偏置、微观负载和清洗损失。若把这些全塞进 PEC 核，换一套掩模干法配方时剂量模型一起坏。MPC 的对象是<strong>掩模工艺</strong>的几何或剂量补偿：让最终吸收体 CD 贴近 MDP 目标，而不是贴近胶边。</p><p>缺口是与晶圆 <a href="/litho/etch-in-opc">刻蚀进 OPC</a> 同构、但层不同。把 MPC 叫做「版厂 OPC」，会与客户 OPC 抢名：客户 OPC 假定掩模已经是目标尺寸；MPC 负责让这个假定大致成立。</p><p><span class="marginnote">直觉类比：PEC 像打印前调各处墨量，让纸上显出的笔画深浅均匀；MPC 像把字帖笔画预先描粗描细，抵消油墨洇开的方向——一个调「剂量」，一个调「形状」，目标都是让成品贴近原稿，只是发生在掩模厂、调的是版。</span></p><h3 id="几何-mpc-与剂量-mpc" tabindex="-1">几何 MPC 与剂量 MPC <a class="header-anchor" href="#几何-mpc-与剂量-mpc" aria-label="Permalink to &quot;几何 MPC 与剂量 MPC&quot;">​</a></h3><p>短程偏置可以用扩缩多边形（几何 MPC）；中远程负载可以用剂量微调或第二层密度图。过用几何会制造新 jog、与 MRC 打架；过用剂量会与 PEC 双计数。工程上按空间频率拆：纳米级边移给几何或短程剂量，微米级负载给密度核。</p><p><span class="marginnote">EUV 厚吸收体与高 Z 层的刻蚀偏置不同于二元铬。DUV 铬的 MPC 表不能贴到 Ta 基吸收体上。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>校准：密集/孤立、通过节距、二维拐角的掩模 CD-SEM 或 AFM，ADI（掩模胶）与 AEI（吸收体）成对。模型进 MDP，在 fracturing 之前或之后应用——之后应用要能改炮尺寸或剂量。签核看的是 AEI 对目标，不是胶边。</p><p><span class="marginnote">术语翻译：ADI（显影后检查）与 AEI（刻蚀后检查）是版厂对同一位置在两道工序后的成对测量。两套 CD 一相减，就得到刻蚀偏置有多大——这张「工艺前后差表」就是 MPC 核的数据来源。</span></p><div class="mermaid"></div><p>与 MEF 的衔接：晶圆看到的是 MPC 之后的残差乘 MEF。MPC 做过头会出现过校正振荡，密区过瘦，同样进 <a href="/litho/mask-cdu">mask CDU</a>。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>掩模干法刻蚀的横向偏置随开口率变：密区聚合物多、过刻少，孤立线更瘦（或按化学相反）。这与晶圆 RIE 负载同类，尺度在掩模纳米到微米。MPC 核是这张负荷图的逆。侧壁倾角改变有效透射/反射边缘，进入掩模 3D；二维 MPC 若只修顶 CD，AIMS 仍会报打印差——那是后课鉴定的对象，本课先承认偏置有三维残差。</p><p><span class="marginnote">常见误区：以为 MPC 修得越狠越好。过校正会出现振荡——密区反而过瘦；几何补偿若不与 PEC 剂量补偿按空间频率拆开，还会把同一偏置补两遍，掩模 CDU 不降反升。MPC 的功夫在「拆」，不在「补」。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>MPC 不消除空白缺陷，不替代 pellicle。它只把掩模工艺的系统偏置收进数据。换胶、换刻蚀腔、换吸收体等于新 MPC。客户 OPC 版本必须与「MPC 后的掩模」绑定，否则窗口数字是另一张版。</p><p>后课默认：曼哈顿路径上工艺偏置有人修；曲线层的数据量会先问文件与栅格是否还撑得住这条链。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>MPC 补偿掩模显影/刻蚀偏置；PEC 补偿电子剂量；OPC 补偿晶圆成像。</li><li>短程几何与长程密度核要拆开，避免与 PEC 双计数。</li><li>签核在吸收体 CD；残差经 MEF 进晶圆。</li><li>出处：mask process correction 产线通称；掩模刻蚀负载的公开讨论。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 掩模制造与数据准备<!--[--> · 单元 数据与写入<!--]--><!--[--> · 课序 从版图到掩模<!--]--></p><p class="lesson-progress">第 5 / 21 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/curvilinear-data-volume/">曲线掩模数据量</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/litho/fracturing/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">分割 fracturing</span><span class="lesson-card-meta">掩模制造与数据准备 · 数据与写入 · 从版图到掩模<!--[--> · 第 4 / 21 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/litho/curvilinear-data-volume/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">曲线掩模数据量</span><span class="lesson-card-meta">掩模制造与数据准备 · 数据与写入 · 从版图到掩模<!--[--> · 第 6 / 21 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

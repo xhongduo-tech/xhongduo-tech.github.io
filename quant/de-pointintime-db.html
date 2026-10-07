@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>点时数据库的构建 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_de-pointintime-db.md.BL1-0nxc.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 量化数据工程深入<!--[--> · 单元 平台<!--]--><!----></p><p class="lesson-progress">第 5 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/de-data-versioning/">数据版本化</a></p><p class="lesson-next"> 下一课：<a href="/quant/de-distributed-backtest/">分布式回测架构</a></p><!----></nav><div style="position:relative;"><div><h1 id="点时数据库的构建" tabindex="-1">点时数据库的构建 <a class="header-anchor" href="#点时数据库的构建" aria-label="Permalink to &quot;点时数据库的构建&quot;">​</a></h1><div class="epigraph"><p>宏观经济学家花了一个十年才建成实时数据集，因为他们发现政策评估里的「当时知道」无法靠回忆重建；投研平台的教训相同，只是代价以假 alpha 计。</p><footer>—— 据 Croushore and Stark, A Real-Time Data Set for Macroeconomists, Journal of Econometrics, 2001 整理</footer></div><p><a href="/quant/de-data-versioning">上一课</a>让每个数据集有了不可变的版本链；本课把这些版本收成一个可查询的库：给定任意决策日 \(t\) 与任意字段，返回「截至 \(t\) 已公开的最新值」。为什么与怎么的分工已经立好——<a href="/quant/point-in-time">时点基本面</a>与 <a href="/quant/pit-fundamentals">Point-in-time 基本面</a>讲清了 latest-available 为何泄漏，本课讲库怎么建：模式、摄取、查询与校验四层。回测对齐的做法在<a href="/quant/pit-alignment">点-in-time 基本面对齐</a>有基础版，本课把它变成平台函数。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>PIT 库的核心是一张双时间轴表。每行 \((entity, field, value)\) 带两枚时间戳：有效时间（这行关于哪个时期，如财季结束日）与事务时间（这行何时进入知识集，如公告日、更正日落库日）。<span class="marginnote">术语翻译：有效时间是「这条数据<strong>关于</strong>哪段时间」，比如 2025 年一季报写的是 3 月 31 日那个季度；事务时间是「这条数据<strong>什么时候才有人能看到</strong>」，比如 4 月 28 日公告。回测在 4 月 10 日只能用事务时间不超过 4 月 10 日的行——只用第一枚时间戳对齐，就是最经典的泄漏。</span>教科书里叫有效时间与事务时间，宏观传统叫 vintage，投研叫可得日——三套名字一件事。难点都在边缘：更正是覆盖还是并列（收入重述通常并列保留旧值，错误更正通常覆盖）；公告在非交易时段时，事务时间要归到下一个可交易的决策时点，否则回测会「在公告当晚收盘前」交易<span class="marginnote">直觉类比：把事务时间归到下一个可交易时点，就像快递只能在工作日签收——周五晚上送达的包裹，你的「签收动作」最早也是周一开盘。若允许回测在周五夜里下单，等于用了现实中不存在的交易时刻，泄漏就从这里进来。</span>；行业分类、股本、指数成分都是字段，同样要进这张表——只把报表 PIT 化而成分用今天的列表，等于修了一条腿的泄漏，见<a href="/quant/survivorship-bias">幸存者偏差</a>。</p><p><span class="marginnote">Croushore 与 Stark 建实时数据集的动机与本课同构：GDP 初值与终值系统性不同，用终值评估「当时的美联储」是让政策制定者预知未来。基本面的初值与终值同理，见<a href="/quant/fundamentals-restatements">基本面数据与重述</a>。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>四层落地。<strong>摄取层</strong>：供应商快照原样落盘为不可变批次，不做任何合并——这是事务时间的唯一可信来源，任何「聪明的合并」都等于销毁证据；<span class="marginnote">常见误区：初学者容易以为「落盘前先把快照合并干净」是工程好习惯。恰恰相反：合并会抹掉「哪条值是哪天进的库」，事务时间从此无从考证，更正是覆盖还是并列也不再可查。证据要先把原始批次冻起来，清洗和合并放到下游的查询层去做。</span>映射到统一实体键（永久号而非代码），口径与<a href="/quant/alt-panel-construction">面板构造</a>一致。<strong>模式层</strong>：上述双时间轴表加字段级元数据（单位、口径、来源）；供应商改字段定义等同新字段，沿用<a href="/quant/data-acquisition-audit">数据获取与审计</a>的重审义务。<strong>查询层</strong>：全平台只有一个 as-of 函数——研究、生产、监控共用同一实现，把 \(\mathrm{published\_at}\le t\) 的最大有效行收成一次扫描；不同的调用方写自己的包装，不许写自己的实现。<strong>校验层</strong>：每期抽若干实体，把 as-of 结果与留存的 vintage 快照对账；没有快照的字段标记降级。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>单点实现之所以是关键，在于泄漏治理与软件缺陷治理同构：逻辑散在多处时，修一处漏一处，你永远不知道生产在用什么知识集。唯一的 as-of 函数让「平台的时间语义」成为一个可测试的对象——函数升级走回归测试，测试集就是校验层攒下的 vintage 对账用例。双时间轴的另一个收益是可逆：从今天往回看是「最新值」，从事后任意一天往回看是「当时值」，两个视角由同一份数据支持，因为事务时间从未被抹去。这正是上一课版本化在字段粒度的延续：版本链管数据集，双时间轴管行，快照对账管整体。于是「同一因子在 A 库显著、B 库不显著」这类争论有了第三个出口——两家库的事务时间政策不同，可以把差值定位到具体字段的具体更正，而不是停在「数据不一样」。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>PIT 库不解决语义：它保证「当时在场」，不保证字段含义跨年可比（会计准则变更要在字段层另建口径）。覆盖有硬边界：更正链的完整性取决于供应商是否交付历次快照，早期年份常只有初值，降级用法要写进审计报告。性能上，双时间轴表比宽表贵，查询要靠分区与物化视图撑——这是下一课分布式回测架构的题目。最后，文本、舆情类另类数据的转载与修订同样吃事务时间，接<a href="/quant/alt-data-backfill-bias">回填偏差</a>的口径，不在本课展开。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>PIT 的核心是双时间轴：有效时间管「关于何时」，事务时间管「何时可知」。</li><li>摄取只落原始快照，合并即销毁证据；归一到永久实体键。</li><li>全平台唯一 as-of 函数，研究、生产、监控共用，升级走回归测试。</li><li>行业、股本、成分同 as-of，只修报表是单腿泄漏。</li><li>vintage 对账决定字段可用等级，没有快照就显式降级。</li><li>出处：Croushore and Stark, <em>A Real-Time Data Set for Macroeconomists</em>, <em>Journal of Econometrics</em>, 2001；站内<a href="/quant/point-in-time">时点基本面</a>与<a href="/quant/pit-alignment">点-in-time 基本面对齐</a>各课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 量化数据工程深入<!--[--> · 单元 平台<!--]--><!----></p><p class="lesson-progress">第 5 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/de-distributed-backtest/">分布式回测架构</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/de-data-versioning/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">数据版本化</span><span class="lesson-card-meta">量化数据工程深入 · 存储与清洗<!--[--> · 第 4 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/de-distributed-backtest/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">分布式回测架构</span><span class="lesson-card-meta">量化数据工程深入 · 平台<!--[--> · 第 6 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

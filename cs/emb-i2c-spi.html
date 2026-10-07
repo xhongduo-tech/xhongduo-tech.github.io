@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>外设协议：I2C 与 SPI | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_emb-i2c-spi.md.ncev5g2R.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 嵌入式系统<!--[--> · 单元 基础<!--]--><!----></p><p class="lesson-progress">第 3 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/cs/emb-interrupt-practice/">中断实践</a></p><p class="lesson-next"> 下一课：<a href="/cs/emb-rtos/">实时操作系统 RTOS</a></p><!----></nav><div style="position:relative;"><div><h1 id="外设协议-i2c-与-spi" tabindex="-1">外设协议：I2C 与 SPI <a class="header-anchor" href="#外设协议-i2c-与-spi" aria-label="Permalink to &quot;外设协议：I2C 与 SPI&quot;">​</a></h1><div class="epigraph"><p>片上的总线译码解决不了板上的问题：出了封装就是引脚和导线，两个器件要说话，先得约定谁出时钟、谁认地址、谁先松开总线。</p><footer>—— 据 NXP UM10204（I²C-bus specification）；Motorola SPI 应用说明整理</footer></div><p><a href="/cs/emb-interrupt-practice">上一课</a>解决了「片上事件如何到达代码」：中断把外设的请求送进向量表。但一块板子上真正干活的器件——温湿度传感器、Flash 存储器、屏幕——大多不在片上，CPU 必须穿过引脚、焊盘和几厘米的导线与它们交换数据。主干课的<a href="/cs/i2c-spi-uart">I²C / SPI / UART</a>已把三种串行协议的定义讲过；本课站在器件选型与驱动实现的角度，回答芯片手册不写的那部分：什么时候选哪条总线、时序参数从哪来、出问题时示波器上先看什么。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>引脚是 MCU 上最硬的预算：封装引出多少根，你就只有多少根。并口把地址线数据线一根根接过去，容量一大就不可布线；串行化的代价是<strong>时间换引脚</strong>，而两种主流的换法对应两种场景。SPI 用四根线（SCLK、MOSI、MISO，加每器件一根片选）换全双工与高时钟率，几十 MHz 平常；I2C 用两根线（SDA、SCL）挂一串器件，靠地址区分，标准模式 100 kbit/s、快速模式 400 kbit/s。缺口不是「哪个更好」，而是<strong>在引脚数、器件数、速率三者之间做显式交易</strong>：引脚紧张挂 I2C，带宽紧张走 SPI，两者都要时才谈重构。</p><p><span class="marginnote">数字实例：挂 4 片传感器，SPI 要 SCLK、MOSI、MISO 三根共享线加 4 根片选，共 7 根；I2C 只要 2 根。在 20 引脚的封装上，省下的 5 根线可能就是「要不要换更大封装」的差别——这是引脚预算的直接含义。</span></p><h3 id="地址、应答与选通" tabindex="-1">地址、应答与选通 <a class="header-anchor" href="#地址、应答与选通" aria-label="Permalink to &quot;地址、应答与选通&quot;">​</a></h3><p>两条总线对「谁在听」给出了不同答案。I2C 帧以 START 开场，主机发 7 位地址加读写位，被点名的器件拉低 SDA 回一个 ACK；7 位地址空间去掉保留段，可用地址只有 112 个，同型号传感器出厂地址固定，挂两片就得靠地址引脚。SPI 干脆没有地址：每器件一根片选线，选中谁谁听，代价是器件越多引脚越多；也没有 ACK，主机发出去的数据对不对，要靠读回状态寄存器验证——这份「不验证」正是 SPI 快的一部分原因。</p><p><span class="marginnote">数字实例：7 位地址理论上有 128 个，去掉全 0 广播、全 1 等约 16 个保留值，只剩 112 个可用；不少传感器的地址还是厂商写死的，同一型号挂第二片就撞车，只能靠地址引脚改位，或在总线上加地址切换器件。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>驱动实现按三层搭。寄存器层：两组外设的控制器都是 MMIO 状态机，延续<a href="/cs/bus-mmio">总线与 MMIO</a>的口径，读写状态、时钟与数据寄存器即可，配置项集中在时钟极性与相位——SPI 的四种模式必须与器件手册一致，错一档，收到的每个字节都稳定地错位。传输层：低速轮询，事件驱动用<a href="/cs/emb-interrupt-practice">中断实践</a>的纪律把完成事件交给 ISR；速率上去之后轮询的每个字节都在烧 CPU，改用 DMA 收发，<a href="/cs/dma-scatter-gather">DMA 控制器与散布聚集</a>的描述符思路原样适用。错误层：I2C 要处理仲裁丢失与卡死的总线——从机拉死 SDA 时，主机发 9 个时钟外加 STOP 才能救回来。</p><div class="mermaid"></div><p><span class="marginnote">I2C 的速率上限不写在协议里，写在物理上：开漏线靠上拉电阻充电，上升时间 \(t_r \approx 0.85\,RC\)，总线电容上限 400 pF。上拉 4.7 kΩ 配 400 pF，上升沿近 1.6 µs，快速模式 2.5 µs 的位时间就被吃掉大半——升不上去的边沿，不是驱动写得不好。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>I2C 最反直觉的一处是<strong>线与</strong>：两根线都是开漏输出加电阻上拉，任何器件都能拉低，没人拉低才是高。这个设计一举三得——多主机仲裁不需要额外线（谁发 1 却听到 0 谁退出）、从机可以用拉住 SCL 的方式请求减速（时钟拉伸）、电平不同的器件也能安全共线。SPI 反其道用推挽输出：不共享就无需仲裁，边沿陡峭，所以快。理解了「共享线必须容忍冲突」，两条总线的一切差异——应答位、仲裁、速率、引脚数——都能从开漏与推挽这一对物理选择推出来。</p><p><span class="marginnote">直觉类比：开漏总线像一间「拉绳才响」的铃铛会议室——谁都能拉铃（拉低），没人拉就是安静（高）。两人同时「发言」时铃一定响，发 1 的一方听到响声就知道有人说了 0，主动退场；仲裁就这样不花一根额外的线。</span></p><p>两个主机同时开讲，I2C 靠什么在一根线上决出胜负？</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课只写板级两条总线，不写差分与长距离：几厘米是 I2C/SPI 的适用半径，再远要上 RS-485 或改造成 <a href="/cs/usb-protocol">USB 协议分层</a>那样的分层栈。UART 的异步约定在主干课已讲，不重写。也不写外设驱动的抽象层：Linux 下 probe/match 那套是操作系统的课，本课停在寄存器与 DMA。两条工程边界值得钉死：一是逻辑分析仪的采样率要高于 SCL 四倍才看得清 ACK 位的归属；二是多器件共线时逐一断开定位故障，总线上贴着器件逐个排除，比改驱动快得多。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>引脚、器件数、速率构成显式交易：I2C 省引脚靠地址，SPI 换带宽靠选通。</li><li>I2C 的 ACK、仲裁、时钟拉伸都从开漏线与推出，SPI 的快有推挽与不验证两份贡献。</li><li>驱动分寄存器、传输、错误三层；速率上去必须交给 DMA，轮询是调试期的脚手架。</li><li>I2C 上升时间由上拉与总线电容决定，边沿升不上去先查物理，不先怀疑代码。</li><li>出处：NXP UM10204，<em>I²C-bus specification and user manual</em>；Motorola SPI Block Guide；据本栏 bus-mmio、dma-scatter-gather 两课口径整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 嵌入式系统<!--[--> · 单元 基础<!--]--><!----></p><p class="lesson-progress">第 3 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/emb-rtos/">实时操作系统 RTOS</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/emb-interrupt-practice/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">中断实践</span><span class="lesson-card-meta">嵌入式系统 · 基础<!--[--> · 第 2 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/emb-rtos/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">实时操作系统 RTOS</span><span class="lesson-card-meta">嵌入式系统 · 系统与生产<!--[--> · 第 4 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

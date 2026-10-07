@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>零拷贝与延迟测量 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_hpc-zerocopy-latency.md.Crl09Wzu.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 高性能网络编程<!--[--> · 单元 路径<!--]--><!----></p><p class="lesson-progress">第 5 / 6 课</p><p class="lesson-prereq"> 先修：<a href="/cs/hpc-rdma/">RDMA</a></p><p class="lesson-next"> 下一课：<a href="/cs/hpc-map/">高性能网络收束</a></p><!----></nav><div style="position:relative;"><div><h1 id="零拷贝与延迟测量" tabindex="-1">零拷贝与延迟测量 <a class="header-anchor" href="#零拷贝与延迟测量" aria-label="Permalink to &quot;零拷贝与延迟测量&quot;">​</a></h1><div class="epigraph"><p>省一次拷贝省的是几百纳秒；时间戳打错一个位置，结论能假出一个数量级。</p><footer>—— 据 Linux `timestamping` 文档与 IEEE 1588（PTP）整理</footer></div><p><a href="/cs/hpc-rdma">上一课</a>把跨机路径压进网卡，前提是专用网络与注册内存；多数服务仍在通用栈上，能省的是拷贝，能信的是测量。<a href="/cs/zero-copy-network">零拷贝网络</a>已在主干钉了拷贝的来源与 sendfile、MSG_ZEROCOPY、AF_XDP 三个接头；本课不重复词条，写两件事：通用发送路径上零拷贝的真实取舍，以及省下来的时间如何被诚实地量出来。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>零拷贝在发送方向收益明确，接收方向困难。发送可以把用户页直接挂进发送路径：MSG_ZEROCOPY 免掉缓冲到 skb 的拷贝，但页在网卡完成前不能复用，完成通知走异常队列，应用必须专门收割——忘了收割就是页泄漏。小包更微妙：内核对小于阈值的包直接拷贝，因为管理页引用的元数据开销超过拷贝本身，「零拷贝一定更快」在小包高频场景是反的。</p><p><span class="marginnote">常见误区：初学者容易以为零拷贝处处更快。实际上内核对小包（阈值随平台与 MTU 变动，常见 KB 量级）直接拷贝反而便宜——为省几十纳秒的拷贝去管理页引用的元数据账，是捡了芝麻丢了西瓜。大包（如几十 KB 的文件块）才是 MSG_ZEROCOPY 的主场。</span>测量侧的坑一串：跨机用系统时钟相减，钟差就有几十微秒；批量压测把排队延迟摊进平均值，报出的「平均延迟」掩盖尾部；中位数漂亮而 p99 爆炸的分布比比皆是。不这么做会错在哪：优化前后用不同位置的软件时间戳相减，得到的提升可能只是打点位置变了。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>打点分三层：NIC 硬件时间戳最接近线缆（SO_TIMESTAMPING 请求），驱动打点次之，纯软件打点含协议栈噪声。跨机对钟用 PTP（IEEE 1588），并把残余同步误差一并报出。指标报分布不报均值：p50、p99、p99.9 与最大值，注明采样窗口与负载形态；吞吐与延迟分开测，<a href="/cs/network-measurement">ping / iperf</a> 给的是基线口径，负载上升时排队延迟与利用率同向增长，两条曲线不能混。对照实验钉死变量：同一打点位置、同一批大小、关掉 Nagle（TCP_NODELAY）与中断聚合这类会移动分布的旋钮再比较。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>测量的机制定义：延迟是因果链上两个事件的间隔，误差等于打点误差加打点位置到物理事件之间的剩余路径。硬件时间戳把打点推进到 MAC 层，剩余路径最短；软件时间戳含调度与软中断噪声。所以延迟数字必须连打点位置一起报，否则数字没有语义。</p><p><span class="marginnote">直觉类比：报延迟不报打点位置，就像报跑步成绩不说从哪里起跑——NIC 硬件时间戳是「从发令枪起跑」，应用层软件时间戳则把排队、唤醒全算进了成绩。同一段路，两种报法能差出一个数量级。</span>零拷贝的机制账：省的是拷贝与随之而来的缓存失效，付的是页管理、完成通知与代码复杂度；接收方向头解析仍要 CPU 碰数据，小包直接拷贝反而便宜，阈值随平台与 MTU 变动。分布形态本身也是信号：轮询的旁路路径窄而稳，中断路径常呈双峰——聚合窗口内与外的包延迟不同，均值会把两种机制搅成一台账。</p><p><span class="marginnote">Nagle 算法与延迟确认叠加可引入约 40 ms 量级的假尖峰：小包被扣住等 ACK 才能发出。压测前先开 TCP_NODELAY 关掉 Nagle，再逐个打开其余旋钮归因。</span></p><p>同一个物理事件，在不同打点位置读出的延迟为什么差一个量级？把三层打点的剩余路径摊开：</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写 PTP 的报文与时钟伺服细节，不写硬件抓包仪；量化栏<a href="/quant/colocation-microwave">主机托管与微波</a>钉过「研究必须声明接入与介质」，本课的对应纪律是「结论必须声明打点位置」。下一课收束全课程。</p><p><span class="marginnote">数字实例：普通 NTP 对钟下，两台机器的时钟差可达几十微秒；而一次零拷贝省下的只有几百纳秒——测量误差比优化收益大两个量级，跨机相减的结论自然整个作废。PTP 能把残余误差压到亚微秒级，报数时要连残余误差一起报。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>发送方向零拷贝收益明确但要管页生命周期；小包低于阈值时拷贝反而便宜。</li><li>延迟是因果链两事件之差；报数字必须同时报打点位置与残余时钟误差。</li><li>分布重于均值：p99/p99.9、负载形态、批量与排队效应一起报。</li><li>Nagle、中断聚合、批大小都会移动分布，对照实验要钉死这些旋钮。</li><li>出处：Linux <code>SO_TIMESTAMPING</code>/<code>timestamping</code> 文档；IEEE 1588；测量实践。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 高性能网络编程<!--[--> · 单元 路径<!--]--><!----></p><p class="lesson-progress">第 5 / 6 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/hpc-map/">高性能网络收束</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/hpc-rdma/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">RDMA</span><span class="lesson-card-meta">高性能网络编程 · 路径<!--[--> · 第 4 / 6 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/hpc-map/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">高性能网络收束</span><span class="lesson-card-meta">高性能网络编程 · 路径<!--[--> · 第 6 / 6 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

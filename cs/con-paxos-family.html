@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Paxos 谱系 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_con-paxos-family.md.C2gwMraO.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 分布式共识深化<!--[--> · 单元 实现<!--]--><!----></p><p class="lesson-progress">第 3 / 7 课</p><p class="lesson-prereq"> 先修：<a href="/cs/con-multi-raft/">Multi-Raft</a></p><p class="lesson-next"> 下一课：<a href="/cs/con-linearity-testing/">线性一致性的测试</a></p><!----></nav><div style="position:relative;"><div><h1 id="paxos-谱系" tabindex="-1">Paxos 谱系 <a class="header-anchor" href="#paxos-谱系" aria-label="Permalink to &quot;Paxos 谱系&quot;">​</a></h1><div class="epigraph"><p>「Paxos」在工程里从来不是一个算法，是一族算法：领导者强度、日志语义、提交规则、配置变更，四个旋钮各拧各的——谱系不清，是 Paxos 难用的第一来源。</p><footer>—— 据 Lamport, ACM TOCS 1998 与 Paxos Made Simple, 2001；Chandra, Griesemer and Redstone, PODC 2007 整理</footer></div><p><a href="/cs/con-multi-raft">上一课</a>把共识横向切成几千份；本课回身把另一半家谱理清。主干课已分别走过 <a href="/cs/paxos">Paxos</a>、<a href="/cs/multi-paxos">Multi-Paxos</a> 与 <a href="/cs/viewstamped-replication">VR</a>，Raft 也读到了实现层；缺的是它们之间的关系图：谁补了谁的活性洞、谁把谁特例化、每个旋钮拧到哪里。立起这张图，再读任何一篇新共识论文都只需先标四个旋钮。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>工程里说「我们用 Paxos」时，歧义至少三层。第一层，经典 Paxos 是单值协议，与「日志」之间隔着 Multi-Paxos——而 Multi-Paxos 没有一份公认的规格：Lamport 2001 的极简版与 Paxos Made Live 的工程版，在领导者租约、日志空洞、成员变更上口径并不相同。第二层，Paxos 论文没说清领导者崩溃后日志怎么恢复，实现者各自发明，正确性参差。第三层，配置变更在早期论文是空缺，后来的联合共识、Vertical Paxos、Raft 单步变更各补一洞。不立谱系，每接手一个「Paxos 实现」都要从头猜它的旋钮位。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>方法是谱系学的读法而非教程式讲法：按时间把主线一篇一篇立起来，每篇只记录三件事——它拧动了哪个旋钮、补了谁的活性或工程洞、为此付了什么代价；四个旋钮的坐标系留到机制一节收拢。这样安排的好处是增量化：此后再读任何新共识论文，只需回答「它拧了哪个旋钮」，不必重讲共识推导。</p><h3 id="主线与分支" tabindex="-1">主线与分支 <a class="header-anchor" href="#主线与分支" aria-label="Permalink to &quot;主线与分支&quot;">​</a></h3><p>主线按时间读。1998 年《The Part-Time Parliament》用希腊议会寓言包装算法，难读而少人问津；2001 年作者用十几页重写成 Paxos Made Simple——prepare 争承诺、accept 写值，单值定音。2007 年 Paxos Made Live 补工程件：稳定领导者把 prepare 按任期摊销、只提交无空洞前缀、master 租约与快照。2006 年 Fast Paxos 拧「轮次」旋钮：无竞争时一轮通信直接学习，代价是快轮多数派更大（\(3f+1\) 个接受者中快轮取 \(2f+1\)），有竞争退回经典两轮。<span class="marginnote">给个数字实例：\(f=2\) 时系统共有 \(3f+1=7\) 个接受者，经典轮拿 4 票（过半）就能定值，快轮却要 \(2f+1=5\) 票。「快」的代价是票仓更大——少了竞争时确实少跑一轮，可一旦碰上竞争还得退回去，平均收益取决于冲突频率。</span>2009 年 Vertical Paxos 把「谁当主」与「重配置」解耦，主由外部强一致配置面驱动。2013 年 EPaxos 把领导者旋钮拧到零：命令按 key 亲和分组，无冲突时任意副本一轮提交，广域网下省半个 RTT，代价是恢复协议的复杂度。2014 年 Raft 从另一头进：把 Multi-Paxos 特例化成强领导者——日志无空洞、只有最新日志当选、当前任期才提交——用约束换可理解性。<a href="/cs/zab-zookeeper">Zab</a> 与 VR 是同族旁支，主干已读。</p><p><span class="marginnote">同一算法的两种命运：寓言版难读而少人问津，十几页的重写版成了被引最广的分布式论文之一。今天实现者口中的「Paxos」，多数指 Multi-Paxos 的某个私有变体，而不是 2001 年那份极简单值协议。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>四个旋钮给谱系一个坐标系。领导者强度：从 Raft 的唯一领导者，到 Multi-Paxos 的稳定提议者，到 EPaxos 的按 key 分权。日志语义：无空洞连续（Raft）与槽位独立（Paxos）——前者让回退与对齐有确定方向，后者允许乱序补槽但恢复协议复杂。提交规则：「当前任期多数派才提交」与「任意轮次证书」——前者防住旧任期条目自提交的陷阱。配置变更：联合共识、单步变更、Vertical Paxos 的外部配置面，三种写法都要保相邻多数派相交。读任何实现，先问四个旋钮的位置再谈正确性——工程里大多数「Paxos 之争」其实是旋钮没对齐。</p><p><span class="marginnote">把「四个旋钮」想象成调音台上的四根推子：每个共识算法只是各推子的一组位置组合，而不是四台不同的机器。所谓「设计一个新共识协议」，多数时候其实是把某根推子从 A 档推到 B 档，再补上这一档带来的新问题（比如 EPaxos 把领导者推子推到零，就得自己发明恢复协议）。</span></p><p><span class="marginnote">初学者容易以为「日志允许空洞」是缺陷、无空洞才是优点，实际上这是权衡：槽位独立让慢槽位不阻塞后面的写入（吞吐好），但恢复时得逐槽确认哪些已提交；无空洞日志让恢复方向唯一（直接对齐领导者），代价是前面卡住、后面全部干等。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>多数派相交与 FLP 不重证（主干与 <a href="/cs/flp-impossibility">FLP 课</a>已做）；拜占庭一族的 PBFT 不进本谱系；Fast Paxos 的完整 quorum 代数与 EPaxos 的恢复正确性证明是各自论文的题，本课只定位旋钮。也别把谱系读成进化链：EPaxos 不是 Raft 的替代，Fast Paxos 也未被淘汰——旋钮组合各有适用面，选型按延迟分布与运维能力，不按新旧。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Paxos 是一族算法；领导者强度、日志语义、提交规则、配置变更是四个旋钮。</li><li>主线：1998 寓言版、2001 单值极简、2007 工程化 Multi-Paxos，Fast、Vertical、Egalitarian 各拧一个旋钮，2014 Raft 特例化强领导者。</li><li>Multi-Paxos 没有公认规格；接手实现先标旋钮位，再谈正确性。</li><li>Raft 的三条额外约束换实现秩序；EPaxos 的零领导者换广域 RTT，各付各的复杂度。</li><li>出处：Lamport, TOCS 1998 与 Paxos Made Simple, 2001；Chandra, Griesemer and Redstone, PODC 2007；Lamport, Fast Paxos, Distributed Computing 2006；Moraru et al., SOSP 2013；Ongaro and Ousterhout, ATC 2014。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 分布式共识深化<!--[--> · 单元 实现<!--]--><!----></p><p class="lesson-progress">第 3 / 7 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/con-linearity-testing/">线性一致性的测试</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/con-multi-raft/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">Multi-Raft</span><span class="lesson-card-meta">分布式共识深化 · 实现<!--[--> · 第 2 / 7 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/con-linearity-testing/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">线性一致性的测试</span><span class="lesson-card-meta">分布式共识深化 · 验证与优化<!--[--> · 第 4 / 7 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

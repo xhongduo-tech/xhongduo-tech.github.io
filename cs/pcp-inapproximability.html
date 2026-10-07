@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PCP 与不可近似 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_pcp-inapproximability.md.Xrdes7Be.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 复杂性<!--]--><!--[--> · 课序 时间与空间<!--]--></p><p class="lesson-progress">第 27 / 66 课</p><p class="lesson-prereq"> 先修：<a href="/cs/interactive-proofs/">交互证明与 IP = PSPACE</a></p><p class="lesson-next"> 下一课：<a href="/cs/circuit-complexity/">电路复杂性</a></p><!----></nav><div style="position:relative;"><div><h1 id="pcp-与不可近似" tabindex="-1">PCP 与不可近似 <a class="header-anchor" href="#pcp-与不可近似" aria-label="Permalink to &quot;PCP 与不可近似&quot;">​</a></h1><div class="epigraph"><p>NP 证明可以写成：验证者只随机看常数个比特，仍有完备与可靠；由此，许多优化问题连近似比都被钉死。</p><footer>—— 据 Arora, Lund, Motwani, Sudan and Szegedy, 1998；Arora and Barak 整理</footer></div><p>上一课<a href="/cs/interactive-proofs">IP = PSPACE</a> 是多轮交谈。PCP 把「随机局部查」收成对 NP 的刻画：\(\mathrm{NP}=\mathrm{PCP}(\log n, O(1))\)。缺口不是再做一个交互类，而是<strong>不可近似</strong>：若能把 Max-3SAT 近似到 \(7/8+\varepsilon\) 以内，则会把 NP 放进 P。主干<a href="/cs/approximation-ratio">近似比</a> 给了 \(\rho\) 的定义，未给 PCP 下界。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>PCP 验证者：掷 \(O(\log n)\) 硬币，查证明的 \(O(1)\) 位，多项式时间，Yes 几乎总接受，No 任意证明几乎总拒。ALMSS 定理：这正是 NP。直觉：把 SAT 证明编码成局部可测的对象（多项式、展开图），错误被放大。本课不构造。</p><p>不可近似：从 PCP 验证的接受概率做成优化目标。Max-3SAT、团、顶点覆盖的缝隙（gap）归约，使「近似到某比」等于判定 NP。Hastad 的 \(7/8\) 是紧的课堂钉子，点名。</p><h3 id="pcp-不是-ip-的别名" tabindex="-1">PCP 不是 IP 的别名 <a class="header-anchor" href="#pcp-不是-ip-的别名" aria-label="Permalink to &quot;PCP 不是 IP 的别名&quot;">​</a></h3><p>PCP 验证者不与证明者交谈，证明是字面量，只是不读完。IP 的证明者自适应。类：PCP 刻画 NP，IP 刻画 PSPACE。</p><p><span class="marginnote">ALMSS 1998（PCP 定理）。Arora–Barak 第 11、22 章。Hastad 1997 最优不可近似。本课要用法：缝隙归约，不写傅里叶分析。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>陈述 PCP 定理。展示缝隙：Yes 公式可满足，No 公式任意赋值只满足 \(\lt s\) 的子句，\(s\lt 1\) 常数。多项式归约若保持缝隙，则近似算法会区分 SAT。对照 Cook–Levin 的「恰好可满足」：PCP 把恰好变成统计上的远离。</p><p><span class="marginnote">数字实例：Max-3SAT 的随机赋值就能满足每个子句的 7/8（每个 3 子句只被一种全假组合骗过）。Hastad 定理说的正是：想稳定超过 7/8，哪怕只超一小点 \(\varepsilon\)，就等价于解决了 NP——所以 7/8 这条线是「白送」的上限。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>有了缝隙，近似不再是「差一点的 NPC」。UGC 等更强假设收紧常数，本课不依赖。算法课的贪心比若优于 PCP 下界，只可能是对特例，或假设崩溃。</p><p>查询次数与缝隙大小互易；常数查询是定理的锋刃。</p><p>查询 \(O(1)\) 比特把「读整份证明」换成抽样。缝隙 3SAT 的 Yes/No 实例在子句满足比例上分开常数。Hastad 的 \(7/8\)：随机赋值已达 \(7/8\)，更好的多项式近似除非 \(P=NP\)。近似比课的贪心上界若与此冲突，只可能在特殊图族。</p><div class="mermaid"></div><p>这张图回答的问题是：「缝隙归约」凭什么把近似算法变成 NP 判定器？归约不是保持答案不变，而是把差距拉到常数宽：Yes 实例映成完美可满足，No 实例映成连最优解都够不到线 \(s\)。一个能稳定跨过这条线的近似算法，就顺带完成了 SAT 判定。</p><p><span class="marginnote">直觉类比：普通归约像用尺子量出「行/不行」，缝隙归约则是把两堆货物先分装到相差一米的两个货架上——之后哪怕用一把误差很大的粗尺子，也能立刻看出谁在哪边。近似算法就是那把「粗尺子」，缝隙保证了粗尺也够用。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不证 PCP，不引入 Unique Games。不把 LDPC 的局部校验与 PCP 验证混为一谈（编码课后头）。后课默认：谈不可近似，先问是否 PCP 缝隙。下一课非均匀：电路。</p><p><span class="marginnote">常见误区：以为「不可近似 = 没有启发式可用」。实际上它只禁止多项式时间内把近似比推过某条线——工程上的局部搜索、整数规划求解器照样能在多数实例上跑得很好；下界约束的是最坏情形的理论保证，不是实践手感。</span></p><p>PCP 把证明写成可随机局部查的对象，从而把「恰好 SAT」加成「满足比例的缝隙」。近似算法的 \(\rho\) 从此可能有 NP 硬度，不只是启发式好坏。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>\(\mathrm{NP}=\mathrm{PCP}(\log n,O(1))\)：随机局部查证明。</li><li>缝隙归约给出近似比的 NP 硬度。</li><li>与 IP 分工：NP vs PSPACE。</li><li>出处：Arora et al., 1998；Hastad；Arora and Barak。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 复杂性<!--]--><!--[--> · 课序 时间与空间<!--]--></p><p class="lesson-progress">第 27 / 66 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/circuit-complexity/">电路复杂性</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/interactive-proofs/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">交互证明与 IP = PSPACE</span><span class="lesson-card-meta">计算理论 · 复杂性 · 时间与空间<!--[--> · 第 26 / 66 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/circuit-complexity/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">电路复杂性</span><span class="lesson-card-meta">计算理论 · 复杂性 · 时间与空间<!--[--> · 第 28 / 66 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

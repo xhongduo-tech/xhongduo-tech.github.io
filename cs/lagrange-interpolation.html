@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lagrange 插值 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_lagrange-interpolation.md.B3nbz3XY.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-27</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 算法拾遗<!--[--> · 单元 代数与计数<!--]--><!----></p><p class="lesson-progress">第 6 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/cs/matrix-tree-theorem/">矩阵树定理</a></p><p class="lesson-next"> 下一课：<a href="/cs/burnside-counting/">Burnside 与 Polya 计数</a></p><!----></nav><div style="position:relative;"><div><h1 id="lagrange-插值" tabindex="-1">Lagrange 插值 <a class="header-anchor" href="#lagrange-插值" aria-label="Permalink to &quot;Lagrange 插值&quot;">​</a></h1><div class="epigraph"><p>过 $n+1$ 个横坐标互异的点，恰有一个次数至多 $n$ 的多项式——求值容易，插值回去也该有便宜的路。</p><footer>—— J.-L. Lagrange, 1795 师范学校讲义；插值公式的经典出处</footer></div><p><a href="/cs/matrix-tree-theorem">上一课</a>用行列式把「数树」压成一次消元；这一课做反向的事：把散落的点值升回系数。缺口是 <strong>Lagrange 插值</strong>：多项式的系数表示与点值表示一一对应，插值就是换一套坐标基。本课写朴素公式与 \(O(n)\) 的前后缀变体，不写数值稳定性分析与样条。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>系数侧加法便宜、乘法要卷积；点值侧乘法逐点相乘、加法要插值——两套表示各持半张牌。竞赛里的典型缺口：\(\sum_{i=0}^{n-1} i^k\) 这类在等距点上取值的量，本质是一个次数 \(k+1\) 的多项式，取 \(k+2\) 个点插回去就绕开了逐项求和。本课不写 <a href="/cs/fft">FFT</a> 的推导，只认它「系数与点值互转」这个身份。</p><p><span class="marginnote">术语翻译：interpolation 插值 = 已知点值求系数；interpolation nodes 插值节点 = 那组横坐标 \(x_i\)；\(n+1\) 个点确定的是次数至多 \(n\) 的多项式，次数上界比点数少一。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对每个 \(i\) 造基函数 \(L_i\)：在 \(x_i\) 处取 \(1\)、在其余节点取 \(0\)，答案即 \(\sum_i y_i L_i(x)\)。分子连乘 \(\prod_{j\ne i}(x-x_j)\)，分母除掉 \(x_i-x_j\)；节点取 \(0\) 到 \(n\) 这类规律点时，分子分母的前后缀连乘让单点求值 \(O(n)\)；任意节点则要付分治乘法的账。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：过 \((0,0),(1,1),(2,4)\) 三点，答案是 \(x^2\)。取 \(x=3\) 验基函数：\(L_0(3)=\frac{(3-1)(3-2)}{(0-1)(0-2)}=1\)，\(L_1(3)=\frac{(3-0)(3-2)}{(1-0)(1-2)}=-3\)，\(L_2(3)=\frac{(3-0)(3-1)}{(2-0)(2-1)}=3\)；加权 \(0\cdot1+1\cdot(-3)+4\cdot3=9=3^2\)，三点钉死抛物线。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>唯一性是地基：若两个次数至多 \(n\) 的多项式在 \(n+1\) 个互异点上同值，其差有 \(n+1\) 个根，而非零多项式根数不超过次数，故差恒为零。同一件事的另一面：插值是解 Vandermonde 线性方程组，Lagrange 公式只是把这个矩阵的逆写成了显式。节点取得「顺手」（等距、单位根）时变换便宜，任意节点则要付分治乘法的账。</p><p><span class="marginnote">直觉类比：系数与点值是同一支箭的两套坐标，像直角坐标与极坐标之于同一个向量。Lagrange 插值就是坐标变换矩阵的显式逆——<a href="/cs/fft">FFT</a> 是等距节点下最快的摆渡船，任意节点时船票按 \(O(n\log^2 n)\) 计价。</span></p><p><span class="marginnote">常见误区：以为节点必须等距或必须取 \(0\) 到 \(n\)。互异即可——等距只是让分子分母的连乘有规律、前后缀积能 \(O(n)\) 处理；硬把非等距点塞进前后缀套路会算出错误系数，错在假设了不存在的等差结构。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>数值域里插值怕病态节点（等距大节点下高次振荡），竞赛场景几乎都走模素数——逆元用费马小定理现取。\(k\) 次多项式要 \(k+1\) 个点，少一个点留自由度，多给的点拿来验证而不是硬塞。分治版插值能替代 Newton 形式的手工差商，但常数更大。与下一课的衔接在「对称」：等价类计数的去重缺口，由 Burnside 的平均不动点来补。</p><p><span class="marginnote">常见误区：把「\(n+1\) 个点」读成「次数 \(n+1\)」。错在把点数当次数——\(n+1\) 个互异点钉死的是次数<strong>至多 \(n\)</strong> 的多项式；要唯一确定次数恰为 \(k\) 的多项式，给 \(k+1\) 个点。差一个自由度，外推就飘。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>\(n+1\) 个互异点唯一确定次数至多 \(n\) 的多项式，Lagrange 公式给出显式解。</li><li>单点插值 \(O(n)\)：整体连乘、逐项除一次式、按 \(y_i\) 加权。</li><li>等距点是计数利器，\(\sum i^k\) 这类求和直接插回去。</li><li>任意节点完整插值走分治，\(O(n\log^2 n)\)。</li><li>出处：J.-L. Lagrange, 1795；J. von zur Gathen 与 J. Gerhard, <em>Modern Computer Algebra</em>；cp-algorithms 的 Lagrange Interpolation 词条。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 算法拾遗<!--[--> · 单元 代数与计数<!--]--><!----></p><p class="lesson-progress">第 6 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/burnside-counting/">Burnside 与 Polya 计数</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/matrix-tree-theorem/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">矩阵树定理</span><span class="lesson-card-meta">算法拾遗 · 代数与计数<!--[--> · 第 5 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/burnside-counting/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">Burnside 与 Polya 计数</span><span class="lesson-card-meta">算法拾遗 · 代数与计数<!--[--> · 第 7 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

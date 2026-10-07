@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>签名方案的实践 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_ce-signature-practice.md.CIoNSAfT.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 密码学工程<!--[--> · 单元 实践<!--]--><!----></p><p class="lesson-progress">第 3 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/cs/ce-aead-deep/">AEAD 的深入</a></p><p class="lesson-next"> 下一课：<a href="/cs/ce-kem-hybrid/">KEM 与混合加密</a></p><!----></nav><div style="position:relative;"><div><h1 id="签名方案的实践" tabindex="-1">签名方案的实践 <a class="header-anchor" href="#签名方案的实践" aria-label="Permalink to &quot;签名方案的实践&quot;">​</a></h1><div class="epigraph"><p>签名方案的数学几十年没被推翻；被打穿的地方几乎都在随机数与输入校验上——$k$ 重复一次，私钥就从两行式里走出来。</p><footer>—— 据 RFC 8032；Bernstein 等, Ed25519；RFC 6979 整理</footer></div><p><a href="/cs/ce-aead-deep">上一课</a>把 AEAD 的合同与误用边界钉死，对称侧的保密与完整齐了。接下来是公钥侧的身份：主干<a href="/cs/mac-signature">MAC 与签名</a>分开了认证与不可否认，<a href="/cs/ecdsa-eddsa">ECDSA / EdDSA</a>给了两族方案，<a href="/cs/rsa-attacks">RSA 攻击面</a>解释了 RSA 为什么退居填充正确的形状。缺口是<strong>实践纪律</strong>：签什么（原始消息还是哈希）、nonce 怎么来、验证器要拒绝什么。方案本身选错的情况很少，纪律缺失时攻击不需要碰数学。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>ECDSA 与 EdDSA 同为椭圆曲线签名，合同却不同。ECDSA 要求每次签名一个新鲜的秘密 \(k\)：签名方程 \(s = k^{-1}(H(m) + r\,x) \bmod n\) 里，同一个 \(k\) 签两条消息，两式相减即解出私钥 \(x\)——2010 年 PS3 的签名密钥正是这样被算出来的。即使 \(k\) 只用一次但来自弱 CSPRNG，或带可利用的偏差（格攻击），同样致命。EdDSA 把 \(k\) 改成从私钥与消息哈希确定性派生；RFC 6979 给 ECDSA 同样的确定性补丁。缺口因此不是「哪条曲线安全」，而是三件实践事：\(k\) 的来源、签名的输入格式、验证器的严格性。<span class="marginnote">常见误区：以为「选了公认安全的曲线就安全了」。PS3 被破时曲线本身毫发无损，坏的是静态的 \(k\)；Android 钱包案里坏的是弱随机源。方案的安全性是数学、随机数、输入校验三件事的和，任何一件缺席，攻击都轮不到碰数学。</span></p><h3 id="验证器要拒绝什么" tabindex="-1">验证器要拒绝什么 <a class="header-anchor" href="#验证器要拒绝什么" aria-label="Permalink to &quot;验证器要拒绝什么&quot;">​</a></h3><p>签名验证是面向不可信输入的解析器。进代数之前必须逐项检查：公钥是群内点且不是无穷远点（退化点上曲线方程的恒等式可能自动成立，验证被白绕）；签名分量的数值落在 \([1, n-1]\)；编码严格解析（宽容的 DER 解析曾让签名可变形成交易重放）。Ed25519 已把点压缩、坐标范围、dom 域分离写进 RFC 8032，照文检查即可；自己拼装「先哈希再喂 ECDSA」时，这些检查要自己补齐。<span class="marginnote">「把验证器当解析器」可以类比海关验护照：先验证件的材质与格式，再查人证是否一致，两关都过才谈得上比对记录。跳过格式检查直接进「代数比对」，等于给假护照开后门——群外点攻击利用的正是这个窗口。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>实践规则四条。其一，\(k\) 一律确定性：Ed25519 用 RFC 8032 的派生式，ECDSA 用 RFC 6979——把在线随机数需求从签名里删掉，同时保留可注入额外熵的接口。其二，输入域分离：Ed25519 的 dom2 前缀把纯 Ed25519 与预哈希变体 Ed25519ph 分开，同一密钥混用两式会互签；应用层的消息类型也应进哈希前缀，防止「转账单」被改签成「确认单」。其三，签钥与协商钥分离——<a href="/cs/ecdh-x25519">ECDH 与 X25519</a>的 DH 密钥不该兼签身份，两处的泄露后果与暴露面不同。其四，输出规范化：ECDSA 取 low-s（把 \(s\) 折到 \(n/2\) 以下）消灭可变形；验证端拒绝 high-s。RSA 侧只接受 PSS（RFC 8017），PKCS#1 v1.5 签名只在遗留校验里出现。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>确定性为什么够？被攻击的正是 \(k\) 的均匀性：\(k = \mathrm{PRF}(k_{\mathrm{seed}}, H(m))\) 的输出只要不可预测即可，不必真随机；Ed25519 干脆把消息哈希卷进派生，同一消息每次签名结果相同——重复投递由应用层序号去管，不是签名的职责。反过来，随机 \(k\) 的失败是集合式的：PS3 的静态 \(k\)、2013 年 Android 钱包弱随机导致的比特币密钥泄露、格攻击吃偏差，三条路汇到同一行代数。验证端同理：群外点让点加变成未定义行为，各库「容错」方向不同，签名等式在退化点上恒等成立，伪造免费。把验证器当解析器而不是当数学求值器，是这一课的机制核心。</p><div class="mermaid"></div><p><span class="marginnote">为什么 low-s 是「二选一收编」：ECDSA 的等式对 \(s\) 与 \(n-s\) 同时成立，同一份签名天然有两种合法编码，攻击者可拿另一种编码把已花的交易（或已投的消息）伪装成新的一条重放——2014 年比特币交易变形风波即属此类。约定只收 \(s \le n/2\) 的一半，编码就只剩一种，变形空间归零。</span></p><p><span class="marginnote">两次签名共享 \(k\)：\(s_1 - s_2 = k^{-1}(H(m_1) - H(m_2)) \bmod n\)，右端全部可算，先解出 \(k\)，代回任一式得私钥 \(x\)。2010 年 PS3 与 2013 年 Android 比特币钱包是同一行代数的两次执行。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课管签名本身的纪律；公钥绑到名字（证书、信任链、吊销）是 <a href="/cs/tls-handshake">TLS 握手</a>与 PKI 层的事，<a href="/cs/mac-signature">MAC 与签名</a>已把「签名只证明某把私钥」钉为边界。哈希函数选择与碰撞界按<a href="/cs/birthday-attack">生日攻击</a>的口径取；长度扩展类问题按<a href="/cs/length-extension-hmac">长度扩展与 HMAC</a>的结论用标准结构规避。门限签名、聚合签名与后量子签名是「后量子概览」及更前沿课的缺口。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>ECDSA 的 \(k\) 复用一次即解私钥；实践上一律确定性：Ed25519 派生式或 RFC 6979。</li><li>验证器是解析器：群内点、分量界、严格编码，逐项通过后才进代数。</li><li>签钥与 DH 钥分离；域分离（dom2、消息类型前缀）防跨语境互签。</li><li>ECDSA 取 low-s 消可变形；RSA 签名只接受 PSS。</li><li>出处：RFC 8032；RFC 6979；Bernstein 等, Ed25519；RFC 8017（PSS）。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 密码学工程<!--[--> · 单元 实践<!--]--><!----></p><p class="lesson-progress">第 3 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/ce-kem-hybrid/">KEM 与混合加密</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/ce-aead-deep/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">AEAD 的深入</span><span class="lesson-card-meta">密码学工程 · 实践<!--[--> · 第 2 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/ce-kem-hybrid/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">KEM 与混合加密</span><span class="lesson-card-meta">密码学工程 · 实践<!--[--> · 第 4 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>合成数据的缩放律 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_synthetic-scaling-laws.md.BuI06Z6V.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 配方与验证<!--]--><!----></p><p class="lesson-progress">第 14 / 16 课</p><p class="lesson-prereq"> 先修：<a href="/llm/synthetic-ablation-design/">数据配方的消融设计</a></p><p class="lesson-next"> 下一课：<a href="/llm/synthetic-license-compliance/">许可与合规</a></p><!----></nav><div style="position:relative;"><div><h1 id="合成数据的缩放律" tabindex="-1">合成数据的缩放律 <a class="header-anchor" href="#合成数据的缩放律" aria-label="Permalink to &quot;合成数据的缩放律&quot;">​</a></h1><div class="epigraph"><p>合成数据便宜，不等于合成数据的边际收益高：账要用幂律算，不能用单价算。</p><footer>—— 据 Muennighoff 等 Scaling Data-Constrained Language Models 整理</footer></div><p><a href="/llm/synthetic-ablation-design">上一课</a>回答「哪个旋钮在起作用」；本课回答规模问题：数据加倍，损失降多少；合成的那一份，按什么汇率折算。基础工具已在<a href="/llm/data-constrained-scaling">数据约束下的扩展</a>与<a href="/llm/multi-epoch-repetition">多 epoch 与重复数据</a>立好：独特数据 \(U\) 与名义 token 分开记账，重复前约四个 epoch 接近新数据、之后收益衰减。本课把合成数据放进这套账本。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>合成数据在缩放账本里最容易记错行。「再包装」类合成——同一知识的改写、复述、翻译——更像重复而不是新数据：它抬高名义 token，独特信息的增量有限，记成 \(U\) 会高估预算。「真扩充」类合成——新题、新任务、新程序验证样本——才真的增加 \(U\)，但它的「独特」是相对什么说的：相对真实分布还是相对训练池，两种口径差得很远。错误记账的直接后果是规划失真：按合成占比算出的「数据充足」判断，在真实分布的泛化上不兑现；更隐蔽的后果是闭环自食的代数被低估——<a href="/llm/model-collapse-empirics">模型坍缩的实证</a>的损害随代数累积，缩放计划若不绑定真实数据供给，等于在加速消耗。<span class="marginnote">再包装与真扩充可以类比复习：把同一份笔记换个颜色再抄一遍，是再包装——信息没变；做一道从没见过的新题，才是真扩充。前者防遗忘，后者长本事，缩放账本里必须分开记。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>记账三步。分类入账：每个合成批次声明它增加的是 \(U\)（新任务、新参数组合、新真实种子扩展）还是 \(R\)（同知识再包装），后者折算进重复预算，按 \(D_{\mathrm{eff}} = U \cdot f(R)\) 计有效数据；\(f\) 的形状用自己数据拟合，四个 epoch 的经验值只是先验。<span class="marginnote">重复的汇率给个数字实例：100 亿独特 token 重复 4 个 epoch，有效数据近似 400 亿；继续重复到 8 个 epoch，多出来的 4 遍远不值 400 亿——名义 token 翻倍，有效数据只多一小截。</span>分域拟合：合成子分布拟合自己的幂律——高密度教材式数据常常指数更优，同样的损失只需要更少 token；但这是子分布内的汇率，混进总配方后，总损失由配比加权的复合决定，<a href="/llm/data-mixture-laws">配比定律</a>的框架接管。绑定供给：缩放计划里真实数据的份额与回混比例写成约束（坍缩实证的量级是约一成回混即大幅推迟坍缩），合成再便宜也不能把真实锚点挤到零。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>合成缩放的深层约束是「教师是源分布」：合成样本是教师分布的采样，规模越大，合成部分与教师分布贴合越紧，它带来的损失下降越像「拟合教师」而不是「拟合世界」——真实探针与合成损失的裂口随规模放大，这正是预训练侧「日志会骗人」在缩放视角的形态。幂律拟合的机制风险在外推：小规模拟合的指数到目标规模可能变号，尤其当合成占比随规模计划上调时，配比本身在变，「单一分布」的拟合假设被打破——可行的做法是把占比固定成几个档位，各档分别拟合，插值只做参考。坍缩与缩放在闭环处交汇：自训练的每一代都把上一代输出并入语料，等效于 \(R\) 无限增大的极限情形，\(f\) 趋近于零；回混真实数据，就是把 \(U\) 重新接进回路。</p><p><span class="marginnote">Muennighoff 等 2024 的量化口径：数据受限下，重复约四个 epoch 内近似新数据，随后边际收益快速衰减。据此规划的 \(D_{\mathrm{eff}}\) 不能用「名义 token 除以成本」的直觉替代——重复的汇率不是一比一，也远不是零。</span></p><div class="mermaid"></div><p><span class="marginnote">这张图回答的问题是：闭环自训练为什么等效于「重复无限次」。每一代学生当教师再采样，产出的是上一代输出变着花样的重复——\(R\) 在账本上被推向无穷，\(f\) 趋近零。回混真实数据不是锦上添花，是把 \(U\) 重新接进回路的那根保险丝。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>幂律指数不可跨分布平移：教材式数据的优势汇率只对它自己成立，混配后不能当通用折扣用。拟合窗口要避开退火与课程阶段——那些阶段的损失形状由计划主导，不服从稳态幂律。合成批次的「独特性」判定带有主观性（新题但同解法算 \(U\) 还是 \(R\)），入账口径要在配方版本里写死并前后一致，否则账本本身失真。最后，缩放律回答平均值，不回答尾部：真实探针的尾部指标——低频任务、长尾格式——随合成占比上升的恶化，不在任何幂律的预测范围里，要单独立监测。<span class="marginnote">初学者容易以为小规模拟合出的幂律可以直接外推到目标规模。实际上合成占比随规模计划一上调，配比就在变，「单一分布」的拟合前提已被打破——按几个占比档位分别拟合，插值只做参考。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>合成批次分两类入账：真扩充记 \(U\)，再包装记 \(R\)，按有效数据算账。</li><li>教材式数据的优指数是子分布汇率，混合后由配比复合接管。</li><li>教师是源分布：合成损失降得多不代表世界拟合得好，真实探针定案。</li><li>幂律拟合按合成占比分档做，外推只做参考。</li><li>缩放计划绑定真实供给与回混约束，防闭环坍缩。</li><li>出处：Muennighoff 等 2024；Kaplan 等 2020；Hoffmann 等 Chinchilla 2022；Shumailov 等 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 配方与验证<!--]--><!----></p><p class="lesson-progress">第 14 / 16 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/synthetic-license-compliance/">许可与合规</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/synthetic-ablation-design/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">数据配方的消融设计</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 配方与验证<!--[--> · 第 13 / 16 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/synthetic-license-compliance/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">许可与合规</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 配方与验证<!--[--> · 第 15 / 16 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

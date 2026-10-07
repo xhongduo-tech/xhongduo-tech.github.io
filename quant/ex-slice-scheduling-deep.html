@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>子单调度的深化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_ex-slice-scheduling-deep.md.CbB5VBMm.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 交易执行深钻<!--[--> · 单元 算法<!--]--><!----></p><p class="lesson-progress">第 2 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/quant/ex-algo-taxonomy-deep/">执行算法的谱系深钻</a></p><p class="lesson-next"> 下一课：<a href="/quant/ex-dark-execution/">暗池执行</a></p><!----></nav><div style="position:relative;"><div><h1 id="子单调度的深化" tabindex="-1">子单调度的深化 <a class="header-anchor" href="#子单调度的深化" aria-label="Permalink to &quot;子单调度的深化&quot;">​</a></h1><div class="epigraph"><p>日程给计划，调度给修正：执行的质量不在计划曲线多漂亮，而在偏差出现后，修正律以多快速度、多大冲击把它收敛掉。</p><footer>—— 据 Bertsimas and Lo, Dynamic Programming and Trade Execution, Journal of Financial Markets, 1998；Almgren and Chriss, Journal of Risk, 2000/2001 整理</footer></div><p><a href="/quant/ex-algo-taxonomy-deep">上一课</a>把算法收成五根轴，分化最大的是决策轴：静态日程只回答「这一秒该完成多少」，不回答「没完成怎么办」。主干 <a href="/quant/child-order-slicing">子单切片</a>定了量、间隔、类型三维，<a href="/quant/adaptive-pov">自适应 POV</a> 给过控制律样例；本课把子单调度写成闭环控制：状态怎么取、增益怎么定、截止怎么守。不重推 AC 的双曲正弦。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>开环日程假设「目标即成交」。真实成交是随机的：限价片在队列里等 <a href="/quant/fill-probability">成交概率</a>，市价片吃到的深度随盘口变，涨跌停与临停直接中断释放。累计成交于是随机偏离计划，记进度误差 \(e_t=\hat q_t-q_t\)（计划量减已成交量）。\(e_t\) 不被处理，就滚成两种尾部：一路落后，余量压到窗口末端，在最差的流动性里集中清扫；一路领先，为抢进度在清淡时段重复吃簿。问题是设计修正律，使完成风险有界，而修正本身不再制造新冲击。</p><p>误差从哪来决定怎么修。队列等待造成的落后是慢变量，可匀速追回；盘口瞬间变厚造成的领先是快变量，追它会放大参与率。两类混进同一增益，算法在快噪声上振荡。</p><p><span class="marginnote">进度误差就是「计划减已成交」的欠账：计划到此刻应完成 60%，实际只成交 55%，误差就是 5% 的欠账。开环日程对这笔欠账视而不见，闭环调度把欠账本身当成输入信号，用来修正下一片的量。</span></p><div class="mermaid"></div><h3 id="状态、时钟与控制律" tabindex="-1">状态、时钟与控制律 <a class="header-anchor" href="#状态、时钟与控制律" aria-label="Permalink to &quot;状态、时钟与控制律&quot;">​</a></h3><p>状态三元组：剩余库存 \(x_t\)、剩余时间 \(T-t\)、进度误差 \(e_t\)；外生状态：价差、波动、毒性。时钟可选墙上时钟、成交量时钟或风险时钟：成交量时钟把随机性对齐到流动性厚的时段，进度方差更小，见 <a href="/quant/intraday-seasonality">日内季节性</a>。控制律写成参与率修正：</p> \[\rho_t=\mathrm{clip}\Bigl(\rho_0\bigl(1+g\,\tfrac{e_t}{x_t}\bigr),\rho_{\min},\rho_{\max}\Bigr), \]<p>落后为正则加速，领先为负则减速。增益 \(g\) 应相对成交动力学定标：一次修正要在若干个片间隔内显效，而不是在每笔成交后反弹。毒性门控叠在外层：<a href="/quant/ofi-toxicity">订单流毒性</a>升高时先压 \(\rho_{\max}\)，再谈追进度。</p><p><span class="marginnote">截止前收敛应预先编排：例如「完成八成不晚于八成时间」，剩余两成留给正常流动性，而不是全数压给尾盘。末端清扫在 TCA 尾部分位上的尖刺，几乎总对应一次失控的 \(e_t\)。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>落地为三个模块。观测：成交回报与时钟对齐，\(e_t\) 用短窗平滑（EWMA），避免把部分成交的抖动当趋势。决策：控制律加硬规则——临近竞价段或收盘前 \(\Delta\)，切换到 deadline 策略：剩余量转入 <a href="/quant/ex-auction-execution">竞价配额</a>，或按参与率上限线性排空，事先写死。执行：每片仍走 <a href="/quant/child-order-slicing">子单切片</a> 的三维规格，调度只改片的量与间隔，使归因时「日程」与「接口」可分离。</p><p>增益用回放数据扫描定标：\(g\) 过小等价开环，尾部照旧；过大则参与率在均值附近振荡。合适的 \(g\) 使 \(e_t\) 的自相关在几个片间隔内衰减，修正量的右尾不聚集在放量突发段。</p><p><span class="marginnote">增益 \(g\) 可以类比淋浴水温旋钮的灵敏度：\(g\) 太小像锈死的旋钮，水凉了半天没反应，等于开环；\(g\) 太大则一点误差就猛调，水温来回振荡。合用的 \(g\) 让欠账在几个片间隔内还清，而不是每笔成交后都反弹一次。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>反馈回路的失效方式可预测。其一，滞后振荡：回报延迟叠加增益过大形成极限环——加速、冲击、落后、再加速。其二，同步化：同批跑同类控制律的账户在价差恢复时一起加速，外生成交量假设失效，见 <a href="/quant/adaptive-pov">自适应 POV</a> 的结尾讨论；对策是增益与片间隔带随机化，代价是进度方差。其三，目标污染：KPI 若是贴 VWAP，控制律退化成追踪器；调度必须挂在到达价或完成率上。</p><p>不用滚动最优控制代替规则表，是因为最优控制需要条件冲击与波动的在线估计，误差进入二阶项，规则表是显式可审计的次优。折衷是分层：低频层重估 \(\rho_0\) 与上下限，高频层只跑修正律，两层分开审计。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>控制律假设误差可观测：成交回报延迟、暗池成交的打印滞后都会让 \(e_t\) 偏大，落后被高估。填成概率模型在体制切换时失效，增益在恐慌日应预置收紧而非重估。A 股 9:20 后不可撤与 14:57 收盘竞价是硬截止，控制律须在节点前冻结。不要把归因残差拿去每日重估增益：参数按预登记节奏更新，否则调度层会把样本噪声写成规则。</p><p><span class="marginnote">初学者容易把 TCA 报告里尾盘集中放量的大单解读为「尾盘流动性好」，实际上那多半是进度误差一路落后、被控制律压到窗口末端的集中清扫——在最差的时点干了最多的活，冲击成本也最贵。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>调度是闭环控制：状态取剩余库存、剩余时间与平滑后的进度误差，输出参与率修正而非重画日程。</li><li>时钟选成交量轴可降低进度方差；增益过小退化为开环，过大在自身冲击上振荡。</li><li>毒性门控外置：先压上限再追进度；末端清扫是失控误差的标志。</li><li>反馈的三种失效——滞后振荡、同批同步化、基准污染——对策都抬高进度方差。</li><li>低频重估参数、高频只跑修正律，两层分开审计；硬截止节点前冻结。</li><li>出处：Bertsimas and Lo, <em>Journal of Financial Markets</em>, 1998；Almgren and Chriss, <em>Journal of Risk</em>, 2000/2001；切片三维见 <a href="/quant/child-order-slicing">子单切片</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 交易执行深钻<!--[--> · 单元 算法<!--]--><!----></p><p class="lesson-progress">第 2 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/ex-dark-execution/">暗池执行</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/ex-algo-taxonomy-deep/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">执行算法的谱系深钻</span><span class="lesson-card-meta">交易执行深钻 · 算法<!--[--> · 第 1 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/ex-dark-execution/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">暗池执行</span><span class="lesson-card-meta">交易执行深钻 · 算法<!--[--> · 第 3 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

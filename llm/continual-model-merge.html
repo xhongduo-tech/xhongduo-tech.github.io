@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>模型合并作为持续学习 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_continual-model-merge.md.9jS2PvVW.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 在线与持续学习<!--[--> · 单元 语言模型的持续学习<!--]--><!----></p><p class="lesson-progress">第 5 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/continual-lora-lifecycle/">LoRA 生命周期管理</a></p><p class="lesson-next"> 下一课：<a href="/llm/continual-online-preference/">在线偏好更新</a></p><!----></nav><div style="position:relative;"><div><h1 id="模型合并作为持续学习" tabindex="-1">模型合并作为持续学习 <a class="header-anchor" href="#模型合并作为持续学习" aria-label="Permalink to &quot;模型合并作为持续学习&quot;">​</a></h1><div class="epigraph"><p>把每个阶段学到的不是一段历史，而是一个向量；合并把「按顺序训」换成「把向量加起来」，绕开了覆盖问题本身。</p><footer>—— 据 Ilharco 等 2023（任务向量算术）、Yadav 等 2023（TIES-Merging）整理</footer></div><p><a href="/llm/continual-lora-lifecycle">上一课</a>把增量装进低秩模块里隔离管理；合并走另一条路：允许各阶段各自完整地微调出快照，再把权重组合成一个模型。主干<a href="/llm/model-merging">模型合并：SLERP / TIES / DARE</a>已把算法讲透，<a href="/llm/task-arithmetic">任务向量算术</a>给了「微调差值即任务」的视角；本课只补持续学习那一层：用合并代替按序列训练，换掉了什么、绕不过什么。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>序列微调的遗忘来自覆盖：\(\theta\) 只有一份，后一个任务在前一个任务的解上继续走。合并的前提是解不止一份——每个阶段从同一基座各自训出快照 \(\theta_t\)，互不覆盖。剩下的是组合问题：逐点平均在方向冲突的坐标上互相抵消，多向量叠加时退化更快。合并作为持续学习方法，核心是回答「哪些坐标可信、冲突听谁的」。</p><p><span class="marginnote">可以把任务向量想象成「这次微调在基座上走的位移」：起点固定在预训练模型，终点在微调后的模型，这支箭头本身就被当作「这个任务学到的全部」。两支箭头方向一致就能叠加增强，方向相反就会在同一个坐标上打架。</span></p><h3 id="任务向量与三类操作" tabindex="-1">任务向量与三类操作 <a class="header-anchor" href="#任务向量与三类操作" aria-label="Permalink to &quot;任务向量与三类操作&quot;">​</a></h3><p>定义 \(\tau_t=\theta_t-\theta_0\)。任务算术给出三种语义：加 \(\tau\) 注入能力，减 \(\tau\) 摘除能力，加权组合折中。TIES-Merging（Yadav 等 2023）针对多向量叠加的三步：先按幅度裁掉小幅坐标（多数是微调噪声），再对余下坐标按总幅度投票定符号，最后只平均同号坐标——冲突不再互相抵消，而是被裁决。DARE（Yu 等 2023）用随机丢弃加重缩放达到类似的稀疏化效果。合并的持续学习用法由此成型：流上每隔一段训出快照，维护一串向量，周期性做一次 TIES 式合成，替换线上模型。</p><p><span class="marginnote">模型汤（Wortsman 等 2022）是同一思想的单任务版：把同一训练轨迹上不同超参的检查点贪心平均，常优于任一单点。持续学习里的轨迹平均——定期把近期快照平均一次——兼有抗漂移与平滑更新的作用，EMA 是它的在线特例。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>工程上先做对簿记：每份快照绑基座版本、数据配方与评测成绩；向量是差值，基座一动全部作废，基座版本必须冻结或整批重算。合成节奏是第二个决策：太快，单段漂移没被平均掉；太慢，新能力上线延迟。按「每累积 \(N\) 个快照或探针变化超阈值」触发，比按日历稳。</p><p>验收比合并本身重要：合成后的模型要在<strong>全部构成任务</strong>上重过探针，而非只测最近任务。合并可能同时带来增益与亏空，亏空不在输入端暴露——只有全量回归知道这刀切对了没有。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>合并为什么能绕开覆盖：各快照共享预训练解 \(\theta_0\)，差值只编码「相对基座改了什么」，公共能力留在基座里，干涉只发生在各自改动的坐标上。幅度裁剪进一步压缩干涉面——微调改动的坐标本就稀疏，大幅坐标才是能力载体。符号裁决把同坐标上的方向冲突从数值抵消变成显式取舍，这是 TIES 相对朴素平均的全部增量。</p><p><span class="marginnote">用数字感受一下裁剪：一个 7B 模型有约 70 亿个权重坐标，微调真正「用力」改动的往往只是其中一小撮；把改动幅度最小的多数坐标直接清零，既删掉了噪声，又让剩下的少数「真改动」在求平均时不被稀释。</span></p><p>两种路线的差别可以画在同一张图里看：序列训练是「在上一份解上继续改写」，合并是「各写各的副本再合成」。</p><div class="mermaid"></div><p>减法值得单独记：\(\theta_0+\tau_t\) 再减 \(\tau_t\) 回到基座，摘除一个阶段的行为有明确操作。持续学习里这给了比重训便宜的回退粒度——上周期加错的向量可定向减掉；上一课适配器的「摘下即还原」对应这里的「减掉向量」，只是残差不如低秩隔离干净。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>合并的三个前提先数清。同源：向量必须出自同一基座，跨基座合并退化为蒸馏问题。成分：合并不创造能力，向量里没有的东西合成不出来。可分性：任务间改动高度重叠时，裁剪与投票会扔掉真实信号；任务数上去后干涉重新占上风，经验上十个以内可控，数十个要重新算账。</p><p>与上一课的分工：适配器隔离适合更新频繁、边界清晰的域；合并适合阶段性固化——把一串已经稳定的能力收进一个部署物。两者可叠加：合并固化历史，适配器承载增量。最后提醒一遍验收纪律：合并的每一步都可能静默亏空，没有全量探针的合并等于闭眼缝合。</p><p><span class="marginnote">初学者容易把合并想成「集齐多个模型，能力自动变多」。实际上合并只是投票与取舍：向量里没有的能力合成不出来，方向冲突的能力还会被裁决掉一部分——它守住的是已有能力，不是无中生有。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>合并把序列训练换成向量组合：各阶段独立训快照，公共能力留在共享基座里不被覆盖。</li><li>TIES 三步——裁剪、投票、同号平均——把坐标冲突从数值抵消变成显式裁决；DARE 用丢弃重缩放近似。</li><li>加向量注能力、减向量摘能力，回退粒度比重训细，比适配器粗。</li><li>簿记绑定基座版本；基座一动，全部向量作废重算。</li><li>合并不创造能力、不豁免验收：合成后必须全量回归所有构成任务。</li><li>出处：Ilharco 等 2023（任务向量）；Yadav 等 2023（TIES-Merging）；Yu 等 2023（DARE）；Wortsman 等 2022（模型汤）。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 在线与持续学习<!--[--> · 单元 语言模型的持续学习<!--]--><!----></p><p class="lesson-progress">第 5 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/continual-online-preference/">在线偏好更新</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/continual-lora-lifecycle/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">LoRA 生命周期管理</span><span class="lesson-card-meta">在线与持续学习 · 语言模型的持续学习<!--[--> · 第 4 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/continual-online-preference/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">在线偏好更新</span><span class="lesson-card-meta">在线与持续学习 · 语言模型的持续学习<!--[--> · 第 6 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

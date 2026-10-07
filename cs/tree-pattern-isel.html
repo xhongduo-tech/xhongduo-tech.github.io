@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>树匹配指令选择 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_tree-pattern-isel.md.DXlynNm2.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 类型、优化与运行时<!--[--> · 单元 后端与链接进阶<!--]--><!--[--> · 课序 分配、调度与目标<!--]--></p><p class="lesson-progress">第 65 / 110 课</p><p class="lesson-prereq"> 先修：<a href="/cs/critical-path-scheduling/">关键路径调度</a></p><p class="lesson-next"> 下一课：<a href="/cs/target-description/">目标描述与 TableGen</a></p><!----></nav><div style="position:relative;"><div><h1 id="树匹配指令选择" tabindex="-1">树匹配指令选择 <a class="header-anchor" href="#树匹配指令选择" aria-label="Permalink to &quot;树匹配指令选择&quot;">​</a></h1><div class="epigraph"><p>IR 树用指令模板覆盖：动态规划选代价最小覆盖，每个模板对应一条或一组机器指令。</p><footer>—— 据 Aho, Ganapathi and Tjiang, Code Generation Using Tree Matching and Dynamic Programming；龙书 8.9；Appel 整理</footer></div><p>上一课<a href="/cs/critical-path-scheduling">关键路径</a>假定已有机器指令。主干<a href="/cs/instruction-select">指令选择</a>有直觉。缺口是 <strong>BURS/树匹配 + DP</strong>：像 <code>lea</code> 覆盖 <code>base+idx*scale</code>。本课钉覆盖，不写 TableGen 描述语言——下一课。调度在选择之后（或与 DAG 选择交织，如 LLVM ISel）。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>朴素：每个 IR 运算一条 RISC。CISC 与寻址模式要模式匹配。树覆盖：叶到根 DP，代价相加。缺口是<strong>最小代价覆盖</strong>，不是着色。</p><p>DAG 选择：公共子表达式使树变 DAG，覆盖更难（可能复制或用寄存器）。</p><h3 id="覆盖不是语法分析的-earley" tabindex="-1">覆盖不是语法分析的 Earley <a class="header-anchor" href="#覆盖不是语法分析的-earley" aria-label="Permalink to &quot;覆盖不是语法分析的 Earley&quot;">​</a></h3><p>虽然都是动态规划，对象是 IR 树 vs 文法。不要把 burg 当 yacc。</p><p><span class="marginnote">Aho–Ganapathi–Tjiang。TWIG、burg、iburg。LLVM SelectionDAG / GlobalISel。Appel 的 Maximal Munch 是贪心对照。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Maximal Munch：贪心最长匹配，快，非优。DP：每个结点存各非终结符最小代价。生成：按记录的模板吐指令。</p><div class="mermaid"></div><p>与 GVN：先编号减树大小。与立即数：选择时要认 ISA 宽度，否则后期再拆。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>非法覆盖用 expand（伪指令 → 真指令）。失败则报后端 bug。不要在选择里做全局调度。</p><p>代价：延迟、长度、是否破坏标志位。fast-math 可允许 <code>fma</code> 模板。</p><p>DP 在每个结点做的事：枚举能盖住该结点的模板，把各覆盖的代价取最小存进 <code>dp[结点][非终结符]</code>：</p><div class="mermaid"></div><p><span class="marginnote">数字实例：算 <code>x*8 + y</code>，x86 的 <code>lea rax,[rdi+rsi*8]</code> 一条指令搞定，代价记 1；朴素 RISC 要 <code>slli</code>（左移 3 位）加 <code>add</code> 两条，代价 2。DP 在这个结点取 min 后继续向上，父结点看到的只是一个「代价 1 的加法」。</span></p><p><span class="marginnote">术语翻译：expand 就是「先占位、后兑现」。当 ISA 没有真指令直接实现某个模板的结果时，选择器允许一个伪指令占住代价，随后展开成几条真指令；连伪指令都拼不出来，说明模式表有漏洞——报后端 bug，绝不静默生成错码。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写 TableGen 语法。后课默认：树/DAG 覆盖做选择。下一课目标描述：把模板写成可维护的描述。</p><p>也不把指令选择当 SQL 查询选择。</p><p><span class="marginnote">常见误区：初学者容易把树匹配 DP 与语法分析混为一谈。语法分析问「这串符号<strong>能否</strong>归约出文法」（合法性），指令选择问「在能盖满的方案里<strong>哪个最便宜</strong>」（合法性之上的最小代价优化）——前者是门槛，后者才是目标。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>树匹配 + DP（或贪心 munch）覆盖 IR。</li><li>代价含延迟与编码约束。</li><li>DAG 因共享比树难。</li><li>出处：Aho, Ganapathi and Tjiang；龙书 8.9；Appel Maximal Munch。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 类型、优化与运行时<!--[--> · 单元 后端与链接进阶<!--]--><!--[--> · 课序 分配、调度与目标<!--]--></p><p class="lesson-progress">第 65 / 110 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/target-description/">目标描述与 TableGen</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/critical-path-scheduling/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">关键路径调度</span><span class="lesson-card-meta">类型、优化与运行时 · 后端与链接进阶 · 分配、调度与目标<!--[--> · 第 64 / 110 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/target-description/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">目标描述与 TableGen</span><span class="lesson-card-meta">类型、优化与运行时 · 后端与链接进阶 · 分配、调度与目标<!--[--> · 第 66 / 110 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

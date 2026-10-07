@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>调度器的架构 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_orch-scheduler-arch.md.D68Qala7.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 容器编排<!--[--> · 单元 机制<!--]--><!----></p><p class="lesson-progress">第 1 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/cs/npk-map/">协议栈实践收束</a></p><p class="lesson-next"> 下一课：<a href="/cs/orch-declarative-controller/">声明式 API 与控制循环</a></p><!----></nav><div style="position:relative;"><div><h1 id="调度器的架构" tabindex="-1">调度器的架构 <a class="header-anchor" href="#调度器的架构" aria-label="Permalink to &quot;调度器的架构&quot;">​</a></h1><div class="epigraph"><p>调度器的输入不是集群的真相，是一份刚要过期的快照；它的每个决定，都在赌「读到的账」与「真实的账」之间的差值足够小。</p><footer>—— 据 Verma et al., Large-scale cluster management at Google with Borg, EuroSys 2015 与 Kubernetes 调度文档整理</footer></div><p><a href="/cs/npk-map">上一课</a>给「网络协议栈实践」收束：正向是包的旅程，逆向是排障的判定序，四条骨架跨版本成立——状态有地址、转移有动作、排队有预算、拒绝有计数。协议栈的图拼完，本课程到此接棒：单机上「怎么隔离」已有答案，编排要回答的是几千台宿主、几十万个容器时<strong>放哪、怎么收敛、怎么记账</strong>。本课是「容器编排」第一课，从「谁决定落点」开始。主干课 <a href="/cs/borg-kubernetes">Borg 与 Kubernetes</a> 给过控制面形状——强一致的小状态加最终一致的调和，还钉过绑定要带资源版本防双绑；本课拆调度器内部：队列、过滤、打分、绑定。后课默认已经读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>集群里有两种持续变化的量：一列待安排的意图（新 pod 要 CPU、内存、拓扑位置），一张资源地图（每台节点还剩什么）。缺口不是「找一台装得下的机器」——单次匹配谁都会写，难的是高频决定下账本不重不漏：同一份资源被记到两台节点上，或者明明有节点装得下却没人被选中。Borg 的论文给了规模参照：中等规模的 cell 每分钟安排上万个任务。快与不重账，本课要拆调度器怎么同时拿到这两样。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>方法是流水线加缓存。调度器不逐次读存储，而是 watch 全量对象进本地缓存（informer）——它读的是快照，不是真相，这笔账下文算。新 pod 进调度队列，按优先级与退避排序；一个调度周期四步：<strong>过滤</strong>把不满足硬约束（request 装不下、端口冲突、卷拓扑）的节点剔掉，剩下可行集；<strong>打分</strong>在可行集上按加权策略求和，取最高分；<strong>假设</strong>（assume）——先在自己的缓存里把这份资源预记上；<strong>绑定</strong>——写 binding 对象回 API，kubelet 看到绑定才真正起容器。</p><p><span class="marginnote">术语翻译：informer 缓存就是调度器自带的「复印本」——watch 把每一次变化推过来、随时更新本地副本，查账只翻复印本、不去档案室（API 存储）排队；代价是复印与盖章之间有时间差，所以调度器读到的永远是刚要过期的快照。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>快照过期靠<strong>假设</strong>兜底：assume 使同一时刻一个 pod 只在一个周期里被处理，后续 pod 读到的缓存已扣掉这份资源——调度器内部的重账被串行化消灭。调度器与世界之间的竞争（别的组件恰好把节点占满）交给绑定写回时的乐观并发：对象版本对不上就失败重入队。不这么做会错在哪：没有预记账，高峰期两个周期读到同一张地图，同一台节点被超卖；没有写回校验，过时快照的决定会静默覆盖真相。</p><p><span class="marginnote">直觉类比：assume 像服务员下单后先在墙上小黑板划掉一道菜——别的服务员看一眼黑板就知道没了，不必等厨房盘点确认；小黑板（缓存）与后厨库存（真实状态）偶尔对不上，就靠出单时核对订单号（写回校验）兜底，对不上就退单重下。</span></p><p>硬约束与软偏好的分工是结构性的：过滤收缩可行域，打分在剩下的里面挑。把软偏好写成硬约束，可行集会空洞化（找不到任何节点）；把硬约束写成打分项，「必须满足」退化成「倾向满足」。谱系上还有两条路：Mesos 把调度拆成两级，框架拿资源要约自己排，框架自由但全局视图碎掉；Omega 让所有调度器共享状态、乐观并发，并发高但冲突重算贵。Kubernetes 选集中式悲观：冲突率低时它最便宜。Burns 等人在 CACM 2016 对照三代后的结论正是：选择取决于冲突率与视图新鲜度的权衡，不存在全赢的架构。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：初学者容易把「想让它优先去大节点」这类偏好写成硬约束（如 nodeSelector）。硬约束是门槛——不满足直接剔除，一旦可行集空了 pod 就永远 Pending；偏好应放进打分项，让它只是「倾向」而不是「资格」。</span></p><p><span class="marginnote">打分权重是策略不是常数：默认把「资源配比均衡」与「低占用优先」两项加权求和；权重调偏会系统性制造碎片——大作业进不来，小作业填一地。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写一组任务绑在一起调度的 gang 调度，不写 GPU 拓扑对齐，也不写节点集合本身伸缩时的行为。调度决定是<strong>一次性的</strong>：pod 绑定后不搬家，哪怕更合适的节点后来空出来；重排是另外的工具，不在调度循环里。快照过期的残余风险由调和兜底：绑错顶多不优，不会错账——记账的真相在 API 对象里，快照只是输入。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>结构是缓存快照 + 队列 + 过滤 + 打分 + 假设 + 绑定；快与不重账同时成立。</li><li>assume 串行化调度器内部，乐观并发兜住调度器与世界之间；冲突重算即可。</li><li>硬约束收缩可行集、软偏好加权打分，二者不能互相冒充。</li><li>Mesos 两级、Omega 共享、Kubernetes 集中悲观，按冲突率选择，没有全赢架构。</li><li>出处：Verma et al., EuroSys 2015；Burns et al., CACM 2016；Kubernetes 官方调度文档。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 容器编排<!--[--> · 单元 机制<!--]--><!----></p><p class="lesson-progress">第 1 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/orch-declarative-controller/">声明式 API 与控制循环</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/npk-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">协议栈实践收束</span><span class="lesson-card-meta">网络协议栈实践 · 工程<!--[--> · 第 6 / 6 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/orch-declarative-controller/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">声明式 API 与控制循环</span><span class="lesson-card-meta">容器编排 · 机制<!--[--> · 第 2 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

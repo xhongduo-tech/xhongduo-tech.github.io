@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数值对齐与基线校准 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rw-baseline-alignment.md.Dj_sxM0t.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 论文复现工作流<!--[--> · 单元 实践<!--]--><!----></p><p class="lesson-progress">第 8 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rw-compute-budgeting/">算力预算的分配</a></p><p class="lesson-next"> 下一课：<a href="/llm/rw-open-source-upstream/">开源协作与上游回馈</a></p><!----></nav><div style="position:relative;"><div><h1 id="数值对齐与基线校准" tabindex="-1">数值对齐与基线校准 <a class="header-anchor" href="#数值对齐与基线校准" aria-label="Permalink to &quot;数值对齐与基线校准&quot;">​</a></h1><div class="epigraph"><p>在一个调平了的基线面前，大多数「突破」安静地退回到噪声里；这不是领域的不幸，是度量开始诚实。</p><footer>—— 据 Ferrari Dacrema 等, Are We Really Making Much Progress?, RecSys 2019 整理</footer></div><p><a href="/llm/rw-compute-budgeting">上一课</a>的阶梯走到了 full 级，该问两个收官问题：你的数字与论文「对上了」吗？你的方法「赢」了吗？两个词都必须先有定义才能回答。「对上」是复现的验收——数字落在约定的容差里；「赢」是对比的资格——基线在同等预算下调到自己的最好努力。本课写这两个定义如何落成可执行的检查。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>「对不上」是一个症状，不是判定；没有容差定义的对齐检查会永无止境：差 0.5 分时你不知道该继续归因还是宣布成功。更隐蔽的是基线资格问题：复现方法复现时，你的实现往往要和基线比——但基线是谁调的、调了多久、在什么预算下，决定了「赢」字有没有语义。两个失败模式相对：对齐容差没定，验收拖成持久战；基线没校准，赢来的结论被基线欠账一笔勾销。</p><p><span class="marginnote">「基线校准」就是先给对手做陪练：确认你复刻的基线能跑出官方成绩，再在你的环境里帮它把关键超参调到它的最好状态。对手被调到最强之后你还赢，这个「赢」才算数；赢一个没吃饱的对手不算。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对齐锚点从粗到细四层。第一层端到端指标：benchmark 分数，容差在声明（第一课）里定，通常给相对容差而不是绝对容差——小数点后第三位的绝对差在大基准上无意义。第二层曲线形态：loss 曲线的斜率、拐点位置、退火尾部的落差与<a href="/llm/ti-loss-curve-reading">loss 曲线的解读</a>的形态学对照。第三层中间统计：逐层激活均值与方差、梯度范数，口径见<a href="/llm/ti-numerical-health">数值健康检查</a>。第四层单步复算：走读一课定位的那「一步」，在完全相同的 batch 上与参考实现逐项对账——loss 与梯度分量的相对误差。先粗后细的次序是纪律：粗层没对齐时细层的差异不可解释（数据都不同，逐层统计本来就不同），先细后粗会误导归因。</p><p>基线校准三步：复刻官方基线配置，确认能跑出官方数字；在你的环境里为基线重调关键超参（学习率、权重衰减的小网格）；把「基线的最好努力」连同调参空间一起记档。校准费用在上一课的预算表里有一成份额，不是白送的善意，是对比的资格费。</p><p><span class="marginnote">数字实例：为什么写相对容差而不写绝对容差——同样是 0.1 分的容差，在 80 分的基准上只占 0.125%，在 20 分的小任务上却是 0.5%。基数不同，同样的绝对差含义完全不同，写相对比例才能跨任务复用同一条验收线。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么单步复算是最强锚点：它把训练动力学与规模全部冻结，差异只剩前向数值、反向数值与初始化——归因空间被压到最小。它也是最贵的锚点（要求参考实现可运行），所以放在最细层按需使用。为什么容差从坐标系来：相同数据加相同种子，期望接近逐位一致；相同数据不同实现，期望同分布（统计容差）；数据近似同源，只求排序一致。容差写错档位，对齐判定就失去含义——拿逐位标准去要求独立实现，永远「失败」；拿排序标准去验收数字线，永远「成功」。跨硬件的逐位一致不可得，那是<a href="/llm/num-crosshardware-consistency">跨硬件的数值一致性</a>的专题，本课的容差默认在统计档。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：单步复算像让两位厨师用同一勺食材炒「同一秒」的菜，只比较这一锅——训练动力学和规模全部冻结，剩下的差异只能来自手艺（前向与反向的数值计算）本身。虽然最贵，但归因最干净。</span></p><p>赢了基线之后还有一问：效应量与种子方差的关系——差距小于噪声带，结论只能写「未观察到差异」，不能写「相当」或「持平」。「没赢」同样要写判因：基线欠账、预算不足、还是方法确实无效，三者进报告的档位不同。</p><p><span class="marginnote">Ferrari Dacrema 等 2019 复查推荐系统的 18 篇「突破」论文：仅 7 篇可复现，而这 7 篇里有 6 篇被调好的简单基线（如 TopPop）盖过。「赢的资格」不是 LLM 特有的洁癖，是所有基准学科的共同教训。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>对齐不是逼近到荒谬：为追 0.1 分烧掉归因预算，是把验收当成了目的——判定一到就停，余下的差异写进未排除项。基线校准也不做无限网格：重调空间要在报告里写明，空间大得离谱的「基线最好努力」本身不可信。基准分数的公信力有独立的一套问题（污染、判卷漂移），见<a href="/llm/eco-community-benchmark-credibility">社区基准的公信力</a>，本课只负责「对上与赢」的内部账。最后，对齐账与基线账是复现报告的核心两节，格式在产出单元展开；本课的纪律是：每个判定都能点回一个 run 与一份容差声明。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>「对上」四层锚点：端到端、曲线形态、逐层统计、单步复算；先粗后细，判定一到即停。</li><li>「赢」的资格：基线必须复刻官方、环境内重调、最好努力记档；校准费占预算约一成。</li><li>容差分档与坐标系绑定：逐位、同分布、排序一致，写错档位判定失义。</li><li>效应量小于种子噪声带时只能写「未观察到差异」。</li><li>出处：Ferrari Dacrema 等, 2019；Melis 等, 2018；Musgrave 等, 2020；数值口径见<a href="/llm/ti-numerical-health">数值健康检查</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 论文复现工作流<!--[--> · 单元 实践<!--]--><!----></p><p class="lesson-progress">第 8 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rw-open-source-upstream/">开源协作与上游回馈</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/rw-compute-budgeting/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">算力预算的分配</span><span class="lesson-card-meta">论文复现工作流 · 实践<!--[--> · 第 7 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/rw-open-source-upstream/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">开源协作与上游回馈</span><span class="lesson-card-meta">论文复现工作流 · 产出<!--[--> · 第 9 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

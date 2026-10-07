@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>结构模型的验证 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_se-validation.md.BZqicla5.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 结构估计深化<!--[--> · 单元 方法<!--]--><!----></p><p class="lesson-progress">第 7 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/econ/se-smm/">模拟矩方法</a></p><p class="lesson-next"> 下一课：<a href="/econ/se-case-map/">结构估计案例与收束</a></p><!----></nav><div style="position:relative;"><div><h1 id="结构模型的验证" tabindex="-1">结构模型的验证 <a class="header-anchor" href="#结构模型的验证" aria-label="Permalink to &quot;结构模型的验证&quot;">​</a></h1><div class="epigraph"><p>拟合得再好的矩也不背书反事实；验证的对象是不变性——换市场、换年份、换政策，估好的参数是否还在原处。</p><footer>—— 据 Berry, Levinsohn and Pakes, Econometrica 1995；Peters, Evaluating the Performance of Merger Simulation, JLEO 2006 整理</footer></div><p><a href="/econ/se-smm">上一课</a>把积分与模拟误差管住，至此估计与计算都有答案。还欠一件事：这些参数只是拟合了你选定的矩，反事实是模型在从未发生过的区域的输出。<a href="/econ/structural-vs-reduced">结构对约化形式</a>主干课立了口令——结构的价值在不变形的参数；本课写「不变形」怎么被检验。合并模拟的实绩评估是最好的试验场：模型预测的合并涨价，与事后真实涨价比。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>验证的困难是结构性的：反事实的支持里没有数据，以后也不会有。能做的是把不变性拆成可检验的分段——跨市场的（同一需求在别的城市成立吗）、跨时间的（昨天的偏好在今年还稳吗）、跨政策的（行为对规则变化的反应被钉住了吗）。拟合优度不回答这些：\(J\) 不拒绝只说明矩彼此一致（<a href="/econ/gmm-econ">GMM</a> 课的旧话），观测等价的模型可以在支持外给出完全不同的反事实。缺口是操作协议：哪些检验、什么顺序、失败后怎么办。</p><p><span class="marginnote">术语翻译：「不变性」就是「参数是世界的性质，不是这次回归的副产物」——换城市、换年份、换政策，同一套偏好与成本还该适用。反事实的全部信用都押在这句话上，所以验证就是系统地给这句话找麻烦。</span></p><h3 id="验证协议" tabindex="-1">验证协议 <a class="header-anchor" href="#验证协议" aria-label="Permalink to &quot;验证协议&quot;">​</a></h3><p>四层。第一层，样本外预测：留出市场或年份，用估好的模型预测价格、份额、新品份额，预测误差与估计期拟合直接对比。第二层，约束复现：供给一阶条件在观测所有权下应能复现观测价格（<a href="/econ/merger-simulation">合并模拟</a>课的检验步骤），失败即结构有缝。第三层，伪反事实：模型预测一个「其实发生过」的事件（已实施的政策、已完成的合并），与<a href="/econ/difference-in-differences">双重差分</a>或<a href="/econ/rdd">断点回归</a>的准实验估计对表——同一事件、两种口径。第四层，敏感性与不确定性：换工具、换分布假设、换市场定义重估；反事实区间用<a href="/econ/bootstrap-econ">自举</a>或后验给出，不报裸点。</p><p><span class="marginnote">Peters 2006 把模拟预测与事后价格对照：需求弹性与方法的选择都会改变预测方向。单一案例的胜负不裁决模型，系统性对照才暴露「拟合好、反事实差」的组合；验证段要报负面结果，不能只留通过项。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>顺序即纪律：先检验后使用。留出集必须在估计前冻结，否则「样本外」只是同一样本的二次拟合。伪反事实要对表同事件：模型预测的是「若当时涨价一成」，DiD 估的是实际发生的那个事件，口径不一致的比较是修辞。不确定性分两条传：参数不确定性（自举或后验）与均衡解的数值误差分开报。失败后的选项按诚实度排：改结构（换替代模式、加状态）、收窄适用域、转部分识别报界——顺序不能倒，把界悄悄换成点估计等于没验。</p><p><span class="marginnote">直觉类比：留出集像考卷——必须在你答题之前封存。若先看过考卷再调模型，再高的分数也只是背过答案；「样本外预测」只有从估计那一刻起就没看见过的数据，才算数。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是「验什么」。每个检验对应一段不变性声明：样本外预测验市场间不变，一阶条件复现验成本与行为假设，伪反事实验政策反应函数，敏感性验结论对不可检验假设的依赖。模型可以层层通过而仍在新政策上错——政策若改变模型未建模的边际（进入、产品重定位、合谋组织），那是结构的边界而非验证的失败，但要写出来。验证的产出不是「通过或不通过」，是「模型在哪些区域可信」的地图。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：初学者容易把「矩拟合得好、\(J\) 检验不拒绝」当成模型通过了验证。那只说明你选的矩彼此自洽；两个观测上等价的模型，可以在数据没覆盖的区域给出方向相反的反事实。验证的对象是不变性，不是拟合。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>验证不产生证明：通过全部检验也不担保下一场干预。校准拟合不是验证（<a href="/econ/calibration-moments">校准与矩匹配</a>的旧分别）。微观验证（二次选择、购买面板）是额外证据，不是豁免。伪反事实里准实验自身也有识别假设，对表时两边都要摆出假设账。</p><p>后课默认：结构论文的验证段报四层协议的结果与失败处理；没有验证段的结构估计是命题，不是证据。下一课收束：把七课装置放回案例，看它们各自回答过什么问题。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>拟合优度不验证反事实，验证对象是不变性的分段。</li><li>四层协议：样本外预测、约束复现、伪反事实对表准实验、敏感性加区间。</li><li>留出集估计前冻结，对表要同事件同口径。</li><li>失败后按诚实度处理：改结构、收窄域、报界，不得倒序。</li><li>出处：Berry, Levinsohn and Pakes, <em>Econometrica</em> 1995；Peters, <em>JLEO</em> 2006；准实验对照见 DiD 与 RDD 文献。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 结构估计深化<!--[--> · 单元 方法<!--]--><!----></p><p class="lesson-progress">第 7 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/se-case-map/">结构估计案例与收束</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/econ/se-smm/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">模拟矩方法</span><span class="lesson-card-meta">结构估计深化 · 方法<!--[--> · 第 6 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/econ/se-case-map/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">结构估计案例与收束</span><span class="lesson-card-meta">结构估计深化 · 方法<!--[--> · 第 8 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

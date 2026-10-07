@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>rollout 引擎的架构 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rlsys-rollout-arch.md.CII8G_r3.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 RL 训练系统<!--[--> · 单元 架构<!--]--><!----></p><p class="lesson-progress">第 1 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/dist-map/">分布式训练收束</a></p><p class="lesson-next"> 下一课：<a href="/llm/rlsys-reward-serving/">奖励模型的服务化</a></p><!----></nav><div style="position:relative;"><div><h1 id="rollout-引擎的架构" tabindex="-1">rollout 引擎的架构 <a class="header-anchor" href="#rollout-引擎的架构" aria-label="Permalink to &quot;rollout 引擎的架构&quot;">​</a></h1><div class="epigraph"><p>算法论文写的是一次梯度更新怎么算；训练系统回答的是这次更新每天重复几千次时，样本从哪来、由谁生成、凭什么还算 on-policy。</p><footer>—— 据 Sheng 等 HybridFlow（EuroSys 2025）的抽象分层整理</footer></div><p><a href="/llm/dist-map">上一课</a>把分布式训练收成四本账与八步决策单：状态、通信、时间、故障，同步组是合同、峰值决定生死、恢复时间是有效算力的一部分。训练侧的机器装好了，RL 训练还剩另一半：算法只规定「拿到一批样本之后怎么更新」，没有规定样本由谁生成。本课程开卷 RL 训练系统：把算法装成一台机器。第一个零件是 rollout 引擎——把提示批变成经验批的部件，本课程其余课默认已读完本课给出的接口定义。</p><p><span class="marginnote">「rollout」翻译成大白话：让模型按当前策略往下生成一整条回答的过程，像下棋时「往前推演一盘」。训练机把它当成专门部件：你给它一批提示和一版权重，它还你一批「序列 + 每个 token 生成当时的概率」，这批产出就叫经验。</span></p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>训练器自带 <code>generate</code>，为什么还要一个专门的 rollout 引擎？因为两种负载的最优布局相反。训练布局为前向反向设计：3D 并行、激活重计算、优化器状态分片；生成负载是自回归逐 token，吃 KV cache、连续批处理与大显存占用，这些是推理引擎的本行。让训练布局兼职生成，每步都要跨流水线传递缓存，或干脆不做 cache，吞吐差一个量级。于是系统分裂成两个角色，缺口随之出现：两者的边界划在哪，接口传什么，权重如何从训练侧流到生成侧而不出错。这些问题答错的代价不是慢，而是静默地不再 on-policy。</p><p><span class="marginnote">数字实例看「布局错了有多亏」：让训练布局兼职生成、不做 KV cache，每出一个 token 都要把整个前缀重新前向一遍——生成 2000 token 的序列，计算量从约 2000 次单步前向膨胀到约 \(2000^2/2=200\) 万次 token 计算。慢还只是轻的，静默脱离 on-policy 才是重的。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>rollout 引擎的职责契约只有一条：输入提示批与权重版本 \(v_k\)，输出响应序列、逐 token 的行为 logprob \(\log \pi_{\mathrm{beh}}(y_t \mid y_{\lt t})\)，以及结束原因（自然结束或截断）。围绕契约有三个设计决定。第一，放置：与训练器同卡共置，还是独立一组卡分置——共置省卡，但要协调两相的显存峰值；分置吞吐高，要付权重传输与过期（staleness）的账。第二，编排：HybridFlow 用单控制器编排 RL 数据流（谁先生成、谁后打分、谁更新），多控制器执行每个模型的分布式计算；前者好改算法，后者好跑通信。第三，权重同步：全量广播、重切分重组、还是参数服务器拉取，共同要求是原子生效并带版本号。同步协议的细节与坑，<a href="/llm/rollout-weight-sync">rollout 引擎与权重同步</a>已有专课，本课只钉接口。</p><p><span class="marginnote">HybridFlow 论文报告相对既有 RLHF 系统 1.53×–20.57× 的吞吐，倍数强烈依赖基线实现与放置策略；引用时必须带上实验设定，否则不可比。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>接口里最值钱的一列是行为 logprob。严格 on-policy 时 \(\pi_{\mathrm{beh}}\) 与当前策略 \(\pi_\theta\) 相同，重要性权重恒为 1，可以不算；可系统里「相同」是靠版本号对齐维护出来的性质，不是天然成立的事实。生成与更新一旦并发（权重同步有延迟、部分请求还挂在旧引擎上），\(\pi_{\mathrm{beh}}\) 就落后于 \(\pi_\theta\)，梯度立刻变成离策略的：不补重要性权重是带偏的估计，补了则引入截断权重的方差（见<a href="/llm/truncated-importance-sampling">截断重要性采样</a>）。所以 rollout 引擎的第一职责不是快，而是让「这批样本是哪个版本的策略生成的」永远可答。工程上由此推出三条铁律：权重同步原子、版本号随样本走、行为 logprob 在生成侧当场算好并缓存，而不是训练时重算冒充。</p><p><span class="marginnote">直觉类比：行为 logprob 像小票上的「出厂批次号」——样本在生成那一刻，每个 token 的概率是多少就被当场盖章。训练时若拿最新版策略重算概率冒充小票，等于篡改出厂信息，重要性权重的分母从此对不上，梯度悄悄带偏。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>rollout 引擎不负责打分与组批：奖励谁来算、经验怎么变成更新批次，是随后两课的事。它也不承诺收敛：引擎加速的是迭代成本，算法层的方差与偏差（<a href="/llm/reinforce-variance">REINFORCE 与方差</a>、<a href="/llm/grpo">GRPO</a> 的组基线选择）不因系统变快而消失。共置与分置没有免费解：显存峰值与墙钟结构随模型规模与序列长度变化，跨框架的默认值不可直接照搬。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>rollout 引擎的契约：提示批加权重版本进，序列、行为 logprob、结束原因出；本课程后课默认此接口。</li><li>三个设计决定：放置（共置/分置）、编排（单控制器数据流/多控制器计算）、权重同步（原子加版本号）。</li><li>行为 logprob 是接口里最值钱的一列：版本对齐靠它可验证，离策略偏差靠它可修正。</li><li>引擎只管迭代成本；算法的方差、偏差与奖励设计不归它管。</li><li>出处：Sheng 等，HybridFlow，EuroSys 2025；Kwon 等，vLLM，SOSP 2023；据各开源框架实现整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 RL 训练系统<!--[--> · 单元 架构<!--]--><!----></p><p class="lesson-progress">第 1 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rlsys-reward-serving/">奖励模型的服务化</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/dist-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">分布式训练收束</span><span class="lesson-card-meta">分布式训练深入 · 健康与调试<!--[--> · 第 13 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/rlsys-reward-serving/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">奖励模型的服务化</span><span class="lesson-card-meta">RL 训练系统 · 架构<!--[--> · 第 2 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

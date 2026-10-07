@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数据并行的模式 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_par-data-parallel-patterns.md.CCzuvf99.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 并行计算模型<!--[--> · 单元 模型<!--]--><!----></p><p class="lesson-progress">第 3 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/par-openmp-mpi/">OpenMP 与 MPI 的直觉</a></p><p class="lesson-next"> 下一课：<a href="/cs/par-task-parallel/">任务并行</a></p><!----></nav><div style="position:relative;"><div><h1 id="数据并行的模式" tabindex="-1">数据并行的模式 <a class="header-anchor" href="#数据并行的模式" aria-label="Permalink to &quot;数据并行的模式&quot;">​</a></h1><div class="epigraph"><p>数据并行把「这些元素互不干扰」写进数据的形状：形状对了，锁就没有存在的理由。</p><footer>—— 据 Blelloch, Vector Models for Data-Parallel Computing, 1990；Iverson, Notation as a Tool of Thought, CACM 1979 整理</footer></div><p><a href="/cs/par-openmp-mpi">上一课</a>给了两套编程直觉，但没回答「什么时候并行是安全的」。缺口是模式：如果独立性被写进数据的形状——每个元素一份独立计算——那么锁、栅栏、调度都从程序文本里消失。数据并行不是某个 API 的别名，而是比 API 更稳的一层抽象：同一份模式组合，可以从线程循环一路换到 <a href="/cs/gpu-simt">GPU SIMT 与 warp</a> 的上万线程，上层代码不动。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>基本模式四个。map 对每个元素施加同一个纯操作；reduce 用结合运算把集合折成一个值；scan 算前缀——<a href="/cs/pram-prefix-sum">PRAM 与前缀和</a>的主角，紧凑、过滤、分配下标的公共子程序；gather/scatter 按下标集合搬运。各自的坑：reduce 改变结合次序，浮点和与串行不同；scan 需要的只是结合律，运算不可交换也行；scatter 有写冲突——两个元素落进同一格，硬件不会替你合并，结果取决于谁后写。错法：把带跨迭代依赖的循环（<code>a[i]=f(a[i-1])</code>）当 map 打并行——依赖在迭代之间，形状根本不成立，开再多线程也是串行链。</p><p><span class="marginnote">数字实例：scan（前缀和）输出的是「从头到我这的累加值」：输入 \([1,2,3,4]\)、运算取加法，输出 \([1,3,6,10]\)。过滤正是用它算新下标——每个幸存元素一查表就知道自己该搬去第几格，不用任何锁或临界区。</span></p><p><span class="marginnote">常见误区：把 <code>a[i]=f(a[i-1])</code> 这样的循环当 map 打并行。第 \(i\) 次迭代要等第 \(i-1\) 次的结果，是一条串行依赖链，开一万个线程也只会排队。判断标准不是「循环体短不短」，而是「元素 \(i\) 需不需要元素 \(i-1\) 的结果」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>方法是「先形状，后实现」：把内核拆成模式组合，再挑运行时。例：按谓词过滤 = map 出 0/1 标志 + 排他 scan 算新下标 + scatter 搬元素——三步全是已知模式，work/span 立刻可写，实现从 OpenMP 循环到 GPU 内核都能承接。融合（fusion）把相邻 map 串成一遍过，省掉中间数组的整轮读写：\(k\) 个模式各一遍内存，融成一遍，算术强度从 \(O(1)\) 提到 \(O(k)\)——这一步是后面 roofline 课的伏笔。形状的规则性还决定实现选择：规则的 map/scan 吃得到 SIMD 与 SIMT；不规则的 scatter 在向量机上退化成逐元素访存，红利消失。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>模式可组合的机制在账本上：map 的 \(W=n,S=1\)、scan 的 \(W=O(n),S=O(\log n)\) 已知，串接的组合界直接相加，运行时不需要理解应用语义——这正是<a href="/cs/par-task-parallel">任务并行</a>一课的工作窃取也能免费承接静态形状的原因。无锁的机制在内存模型上：元素之间不共享写，程序天然 DRF——<a href="/cs/language-memory-model">语言内存模型与 data race</a> 的结论是 DRF 程序可以按顺序一致交错理解，弱一致硬件不再需要你操心。scatter 的冲突是语义选择而非实现细节：原子 RMW 拿到正确但不确定的次序，scan 分桶拿到确定但多一遍的代价——先问结果要不要可复现，再选机制。词法分析、括号匹配这类「看似天生串行」的问题，也靠 scan 变成模式组合，而不是靠手写锁。</p><p><span class="marginnote">同一形状红利在数据库里也兑现一次：<a href="/cs/vectorized-execution">向量化执行</a>把算子从一行一次改成一批一次——与 GPU 把一次一元素改成 warp 一批，是同一个模式直觉。</span></p><p>方法一节那张图画的是「过滤流水线怎么拼」；scatter 的写冲突具体有哪两条出路、各自代价是什么，是另一个问题。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写任务并行——不规则、运行时才现身的并行是下一课的主题；也不写分布式洗牌版的 MapReduce：那是无共享机器之间的另一套账，上一课的 MPI 直觉已够定位它。scan 的推导不再重复，只当已知原语调用。模式清单也不求完备：zip、split、join 都是同一思想的变体，遇到再认。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>map/reduce/scan/gather-scatter 是数据并行的基本模式，独立性写在形状里。</li><li>reduce 次序变结果变；scan 只要结合律；scatter 的写冲突要语义决策。</li><li>融合把强度从 \(O(1)\) 提到 \(O(k)\)；规则形状才吃得到 SIMD 与 SIMT。</li><li>模式先行、实现后选：同一组合可跨线程、向量、GPU 承接。</li><li>出处：Blelloch, 1990；Iverson, CACM 1979。</li></ul><p><span class="marginnote">术语翻译：DRF（data-race-free，无数据竞争）指任何两个同时发生的访存至少有一个是读——不存在两个线程同一时刻写同一格。这类程序可以按「简单顺序执行」理解，在弱内存序硬件上也不会出意外，这正是「形状写对了、锁就不需要了」的底气所在。</span></p></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 并行计算模型<!--[--> · 单元 模型<!--]--><!----></p><p class="lesson-progress">第 3 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/par-task-parallel/">任务并行</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/par-openmp-mpi/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">OpenMP 与 MPI 的直觉</span><span class="lesson-card-meta">并行计算模型 · 模型<!--[--> · 第 2 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/par-task-parallel/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">任务并行</span><span class="lesson-card-meta">并行计算模型 · 模型<!--[--> · 第 4 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

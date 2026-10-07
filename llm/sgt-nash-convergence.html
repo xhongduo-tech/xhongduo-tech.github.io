@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>纳什均衡与自我对弈的收敛 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_sgt-nash-convergence.md.xrc6MM-8.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 自博弈与博弈论深化<!--[--> · 单元 理论映射<!--]--><!----></p><p class="lesson-progress">第 2 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/llm/sgt-game-rl-map/">博弈论基础的 RL 映射</a></p><p class="lesson-next"> 下一课：<a href="/llm/sgt-fictitious-play/">虚拟自博弈 FSP</a></p><!----></nav><div style="position:relative;"><div><h1 id="纳什均衡与自我对弈的收敛" tabindex="-1">纳什均衡与自我对弈的收敛 <a class="header-anchor" href="#纳什均衡与自我对弈的收敛" aria-label="Permalink to &quot;纳什均衡与自我对弈的收敛&quot;">​</a></h1><div class="epigraph"><p>纳什均衡是一条「无人单方面偏离有利可图」的稳定契约；它是自博弈想要的目的地，但训练动力学并不签到达协议。</p><footer>—— 据 Nash, Non-Cooperative Games, 1951；Daskalakis, Goldberg &amp; Papadimitriou, 2009 整理</footer></div><p><a href="/llm/sgt-game-rl-map">上一课</a>把博弈论对象映射进 RL 词汇，并把「对手是会变的环境」立为本课程的第一性事实，但留了一条尾巴：自博弈的停滞点可以是均衡，也可以是循环。本课把这条尾巴接上——纳什均衡到底是什么，自博弈何时朝它走、哪一步开始不再有保证。后课的 FSP、PSRO 都围绕「均衡能否可靠到达」设计，本课先把目标讲清。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>纳什均衡是一组策略 \(\sigma=(\sigma_1,\ldots,\sigma_n)\)，使得每个参与者在其他人的策略固定时，找不到能提高自己效用的单方面偏离：\(u_i(\sigma_i&#39;,\sigma_{-i})\le u_i(\sigma)\) 对一切 \(\sigma_i&#39;\) 成立。它是稳定性的定义，不是最优性的定义——均衡里每个人可能都过得不好，只是谁也动不了。零和两人博弈有更好的刻画：minimax 定理保证双方的最小最大值相等，混合策略均衡就是那对互为最优响应的策略。</p><p><span class="marginnote">「稳定但不最优」用堵车理解最直观：所有人挤同一条路的局面没人愿意先改道（先动的人更慢），可大家都不满意。稳定只说「没人想单独动」，完全不说「大家都过得好」——把均衡读成最优解是最常见的误读。</span></p><p>缺口在于：RL 训练是一个<strong>过程</strong>，均衡是一个<strong>点</strong>。过程趋近点，需要动力学层面的论证。石头剪刀布是标准反例教室：两个渐近学习者的出招比例可以被吸到 \((1/3,1/3,1/3)\)，也可能绕着最佳响应圈永远转圈，取决于更新规则的形状。把「训练久就会均衡」当默认，等于当这个分类问题不存在。</p><h3 id="收敛在哪些条件下真" tabindex="-1">收敛在哪些条件下真 <a class="header-anchor" href="#收敛在哪些条件下真" aria-label="Permalink to &quot;收敛在哪些条件下真&quot;">​</a></h3><p>有三类可靠的收敛结果。其一，零和两人规范式博弈，许多无悔更新族在时间平均意义下趋于均衡——博弈论学习理论的主要定理都在这一族里（Cesa-Bianchi 与 Lugosi 2006 有系统整理）。其二，可利用度可以归零：若每轮都对着「当前策略的可利用方向」做最优响应，近似误差可以逐轮压低，这是后课 FSP 与 PSRO 的骨架。其三，特定的势博弈（potential games）有天然的下降量，动力学必然停驻。除这三类之外，一般和博弈的多智能体学习没有公认的收敛保证，Shoham 等人 2007 年那篇「如果多智能体学习是答案，问题是什么」至今仍是对这一领域状态的准确描述。</p><p><span class="marginnote">直觉类比：势博弈像大家一起玩一张「共享海拔图」——任何玩家改善自己的同时，整张图的海拔必定下降一截。正因为有这把所有人对齐的公共尺子，动力学才必然停驻在谷底；一般博弈没有这把尺子，所以会打转。</span></p><p><span class="marginnote">计算侧的坏消息同样硬：两人纳什均衡被证明 PPAD 完全（Chen 与 Deng 2006；一般和见 Daskalakis、Goldberg 与 Papadimitriou 2009）。即便均衡存在唯一，把它算出来也没有已知的多项式算法——「均衡作为可训练目标」先天带复杂度上限。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>工程上的正确姿势是把均衡当<strong>审计工具</strong>而不是训练目标。训练时：用带对手池的自博弈（后课）扩大覆盖，避免对着最后一代对手过拟合；审计时：拿冻结的策略去打一组「攻击者」，测可利用度或评测胜率的凹陷。零和可模拟的任务（棋、牌）两类都做得到；语言任务里可利用度算不出来，只能用代理。</p><p>对语言模型，均衡概念已经以另一种方式进场：把 RLHF 的成对比较读成两人博弈，Bradley–Terry 假设隐含传递性，而偏好冲突时传递性破裂，于是有了按博弈论解偏好冲突的<a href="/llm/nash-learning-hf">Nash 学习</a>——那里 Munos 等人 2023 把优化目标从标量奖励改成寻找响应偏好分布的最优策略。本课的贡献是给那类工作一个定位：它们是在「一般和、偏好冲突」的领域里，用均衡替换不存在的标量真值。工程一节留个伏笔：语言任务里可利用度算不出来，审计只能用代理指标——这会在后面的奖励塑形一课变成中心问题。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么无悔更新在零和里收敛而一般更新会循环？直觉是：无悔保证<strong>时间平均</strong>策略不被任何固定对手持续剥削，零和结构把这个性质兑换成均衡近似——对手的平均也剥削不了你。但<strong>最后迭代</strong>（last-iterate）可以永远在外圈打转，平均好不等于终点好；用最后一代模型当交付物时，这个差别是实质的。PSRO 之所以解「meta 博弈的均衡」而不是信动力学，就是绕开 last-iterate 问题，把收敛从动力学性质变成求解器的性质。</p><p>这张分岔图回答的问题是：同一个循环的轨迹，交付「平均」与交付「当前模型」为什么一个有保证、一个没有。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不证明任何定理，只钉边界：均衡存在（Nash 1951）不等于可算（PPAD 完全），可算不等于可学（动力学无保证），可学的时间平均不等于可交付的最后迭代。</p><p><span class="marginnote">为什么重要：四层边界环环相扣，交付物取哪一层决定你继承了哪一层的保证。取「时间平均策略」，手里有定理；取「最后一代 checkpoint」，保证清零。很多自博弈项目翻车，就翻在拿着平均意义的收敛叙述，交付了当前模型。</span> 四层各漏一截，语言模型再补两刀：偏好无零和结构、评测本身可被对策。因此后课的策略没有一个直接「求纳什」：FSP 用平均响应弱化目标，PSRO 把动力学换成求解器，非传递性一课解释为什么对手课程永远做不完——那正是均衡不存在唯一时的日常。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>纳什均衡定义稳定而不定义最优；零和两人另有 minimax 的强结构。</li><li>收敛有三类可靠结果（零和无悔平均、可利用度递减、势博弈），一般和与一般更新不在其列。</li><li>PPAD 完全说明均衡计算本身有复杂度上限，均衡应作审计工具而非训练目标。</li><li>时间平均收敛不保证最后迭代好，交付「当前策略」时这是实质风险。</li><li>语言模型的偏好冲突让均衡以 Nash 学习的形式进场，替换不存在的标量真值。</li><li>出处：Nash 1951；Chen 与 Deng 2006、Daskalakis 等 2009（PPAD）；Cesa-Bianchi 与 Lugosi 2006（无悔与博弈）；Munos 等 2023（Nash 学习）。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 自博弈与博弈论深化<!--[--> · 单元 理论映射<!--]--><!----></p><p class="lesson-progress">第 2 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/sgt-fictitious-play/">虚拟自博弈 FSP</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/sgt-game-rl-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">博弈论基础的 RL 映射</span><span class="lesson-card-meta">自博弈与博弈论深化 · 理论映射<!--[--> · 第 1 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/sgt-fictitious-play/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">虚拟自博弈 FSP</span><span class="lesson-card-meta">自博弈与博弈论深化 · 理论映射<!--[--> · 第 3 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

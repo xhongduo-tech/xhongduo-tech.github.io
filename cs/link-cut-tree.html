@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>动态树与 LCT | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_link-cut-tree.md.AGf6swim.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-27</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 算法拾遗<!--[--> · 单元 动态结构<!--]--><!----></p><p class="lesson-progress">第 1 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/cs/ae-case-map/">算法工程案例与收束</a></p><p class="lesson-next"> 下一课：<a href="/cs/euler-tour-tree/">欧拉序与森林维护</a></p><!----></nav><div style="position:relative;"><div><h1 id="动态树与-lct" tabindex="-1">动态树与 LCT <a class="header-anchor" href="#动态树与-lct" aria-label="Permalink to &quot;动态树与 LCT&quot;">​</a></h1><div class="epigraph"><p>树一旦允许 link 与 cut，任何一次排好的 DFS 序都会作废；LCT 用偏好路径把「结构在变」摊还进每次访问，单操作摊还 $O(\log n)$。</p><footer>—— 据 Sleator 与 Tarjan, A Data Structure for Dynamic Trees, 1983</footer></div><p><a href="/cs/ae-case-map">算法工程案例与收束</a>把整条算法主线收进了案例——案例里的结构都是静态的。算法里常碰到的树却不冻结：<a href="/cs/tree-binary-lifting">tree-binary-lifting</a> 的倍增表、树剖的重链划分，都默认树不再长枝。缺口是 <strong>动态树</strong>：边会连、会断，路径聚合还得照答。本课写 LCT——不是把静态剖分搬来重跑，而是换一套随时重划的链。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>静态树上路径求和走树剖加 <a href="/cs/segment-tree">segment-tree</a>，LCA 走倍增；一次 cut 让子树归属全变，DFS 序整段报废，重建一遍是 \(O(n)\)，混进 \(10^5\) 次增删就是灾难。缺口：支持 link（连边）、cut（断边）、换根、路径查询修改的结构。本课不写 splay 摊还证明的全推导，也不展开子树聚合的虚儿子维护——那是软肋，下一课补。</p><p><span class="marginnote">术语翻译：preferred path 译作「偏好路径」，preferred child 译作「偏好儿子」；LCT 实为一个「辅助树森林」——真树不动，动的只是每条偏好链在 splay 树里的挂法。辅助树之间由虚边相连，虚边指向本链挂靠的上一层点。</span></p><p><span class="marginnote">数字实例：\(10^5\) 次混有 link/cut 的操作，朴素方案每次重建序要 \(O(n)\)，合计 \(10^{10}\) 级别；LCT 摊还 \(O(\log n)\)，合计约 \(10^5\times 17\)，差了近四个数量级。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>核心操作只有一个 <strong>access</strong>：把 \(v\) 到真根的路径拉成一条偏好路径，路径信息随之集中进一棵辅助树。makeroot（换根，翻转路径的懒标记）、link、cut 全是 access 的组合：cut 先 makeroot 再 access 再断链，link 先 makeroot 一端再挂到另一端。</p><div class="mermaid"></div><p>七步里只有 splay 与断右儿子真正改树形，其余是标记与指针搬动。写实现先把 access 打磨对，再往上叠 makeroot 与 link/cut，顺序反了会 debug 到怀疑人生。</p><p><span class="marginnote">直觉类比：偏好路径像公交公司每天重新划的快车专线——街道（真树）没变，只是「今天这条路上走快线」的标记在变。access 就是重新划线：要去的路线涂成专线，别的线降级。划线的成本被均摊进每次乘车。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么摊还 \(O(\log n)\)：splay 自身的摊还界管住辅助树内部；access 中切换偏好儿子的次数另有硬上限——每次被降级的原偏好儿子按重轻边性质必连一条轻边，而任意点到根的轻边不超过 \(O(\log n)\) 条。两个对数界相加，总摊还仍是对数。偏好儿子是给辅助树森林的标记，真树上没有「链」这层概念，换根、翻转才不至于改乱真实结构。</p><p><span class="marginnote">常见误区：以为 access 会把整棵真树压成一条链。真树一个字节没动，变的只有偏好标记与辅助树形态；错在把「辅助树里的链」读成「真树的链」，于是写出「access 后 \(v\) 是全树根」这类断言——\(v\) 只是偏好路径的底端。</span></p><div class="mermaid"></div><p>对照读：树剖赢在常数与实现简单，LCT 赢在链可以随时重划。同一道题能静态做就别上 LCT。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>LCT 主场是路径聚合、连通性维护、动态最小生成树（边权变更时按权试连试断）。子树和、子树最值要给每个点额外记「虚儿子信息之和」，换根时增量更新，实现难度跳一档——这恰是下一课欧拉序的主场，那边子树信息顺手、路径信息变难，两种结构互为镜像。</p><p><span class="marginnote">常见误区：在纯静态题上用 LCT 交卷——能过，但常数是树剖的数倍，还多养一套翻转标记。选型判据一句话：结构会不会变；会变才轮到 LCT。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>access 把 \(v\) 到根拉成偏好路径，makeroot/link/cut 全是它的组合。</li><li>摊还 \(O(\log n)\) 来自 splay 摊还界加重轻边性质双重夹逼。</li><li>真树不变，变的只有偏好标记——想通这点，翻转与换根才写不错。</li><li>子树聚合是软肋，下一课的欧拉序补那一面。</li><li>出处：Sleator 与 Tarjan, <em>A Data Structure for Dynamic Trees</em>, JCSS 1983；splay 摊还分析见同作者 <em>Self-Adjusting Binary Search Trees</em>, 1985。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 算法拾遗<!--[--> · 单元 动态结构<!--]--><!----></p><p class="lesson-progress">第 1 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/euler-tour-tree/">欧拉序与森林维护</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/ae-case-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">算法工程案例与收束</span><span class="lesson-card-meta">算法工程实践 · 验证与案例<!--[--> · 第 8 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/euler-tour-tree/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">欧拉序与森林维护</span><span class="lesson-card-meta">算法拾遗 · 动态结构<!--[--> · 第 2 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

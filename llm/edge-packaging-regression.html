@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>打包分发与性能回归 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_edge-packaging-regression.md.CEPd8mFb.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 端侧推理深入<!--[--> · 单元 系统与生产<!--]--><!----></p><p class="lesson-progress">第 9 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/llm/edge-eval/">端侧评测</a></p><p class="lesson-next"> 下一课：<a href="/llm/edge-map/">端侧收束</a></p><!----></nav><div style="position:relative;"><div><h1 id="打包分发与性能回归" tabindex="-1">打包分发与性能回归 <a class="header-anchor" href="#打包分发与性能回归" aria-label="Permalink to &quot;打包分发与性能回归&quot;">​</a></h1><div class="epigraph"><p>模型是资产，分发是供应链：哈希、配对、回滚三件齐了，性能回归门禁才挂得住。</p><footer>—— 据应用商店分发规范与本站开源生态收束课的发布口径整理</footer></div><p><a href="/llm/edge-eval">上一课</a>把评测立成门禁：质量、延迟、资源、持续性四张卷子都要过。本课写门禁挂在哪里——打包与分发链路。模型文件以 GB 计，随应用包分发不现实，首次启动下载是常态；下载、校验、版本配对、灰度、回滚，每一环的失败模式都不崩但变糟，比崩溃难抓得多。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>分发链路五环，每环有坑。体积环：包里只放最小常驻模型，大模型首次启动或按功能下载；应用市场对包体与下载各有历史限制，模型版本还要与应用版本解耦更新，否则一次模型修复要陪一次应用审核。完整性环：mmap 让权重文件被原地读，下载中断、磁盘损坏、被替换的文件直接进计算——校验必须哈希 pin 到发布方，而不是只看下载器报成功。配对环：模型、分词器、运行时三者必须版本配对；分词器错配的失败是「不崩但变蠢」，用户说不清、监控抓不到，是最阴的一类回归。回滚环：新模型灰度出问题，要能几分钟内指回旧版，旧文件与旧配置都要留。节奏环：模型更新走远程配置——新 URL、哈希、灰度比例；应用更新只管运行时。<span class="marginnote">灰度放量就是「先给一小撮人试吃」：新模型先发给 1% 的用户，盯着他们的质量与延迟遥测，没有异常再逐步放大到 10%、50%、100%。它的价值在于把爆炸半径提前锁死——出了问题也只有这一小批用户受影响，且能立刻指回旧版。</span></p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>发布物三件套：模型文件、元数据（架构、量化配置、分词器版本、最低运行时版本、期望的内存与能耗档）、校验哈希。元数据的字段口径沿用<a href="/llm/eco-map">开源生态收束</a>的发布包清单，把「不可变锚」从发布方仓库延伸到设备端。端上下载器四件事：断点续传；哈希校验后原子落盘，校验不过不进主路径；旧版本保留一份作回滚；加载时启动检查，哈希与分词器版本不匹配就拒载。回归门禁两道：模型变更过上一课的评测矩阵；运行时变更——升后端、换工具链版本——过同一矩阵，运行时同样改数值行为，只测模型等于门只锁了一半。灰度按设备档位分批放量，遥测看真机分位，指标与门禁用同一套。<span class="marginnote">算一笔体积账：一个 4 GB 的模型按 50 Mb/s 的下载速度要约 11 分钟；如果没有断点续传，下载到 99% 时断网就得从头再来——所以「断点续传 加 发布方哈希校验」是 GB 级分发的标配，而不是锦上添花的优化。</span></p><p><span class="marginnote">配对检查写成加载时的硬断言：模型哈希、分词器版本、运行时最低版本三项任一不匹配即拒绝启动并回退——比上线后排查「为什么这批用户觉得模型变笨了」便宜两个数量级。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么哈希与配对是地基：mmap 的性能红利把文件变成计算路径的一部分，文件层的任何损坏或替换都直接进数值；分词器错配不抛异常，只是每个 token 都错一点，只能靠质量遥测的反常分位捞出来，预防比检测便宜。为什么门禁要在设备矩阵跑而不是云端同款：上一课的结论原样适用——数值路径不同，回归只在目标硬件上显形。为什么回滚要留旧文件：配置指回旧版本的前提是旧文件还在设备上，重新下载一个 GB 级文件不是回滚，是二次发布。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>模型加密与 DRM 不在本课：它防不了越狱设备，也与开放权重生态相抵触，工程上通常止步于哈希与签名。应用商店审核细节与各市场政策差异不展开。A/B 实验的统计功效不展开，灰度只按「先小批后放量」的工程口径走。<span class="marginnote">初学者容易以为「模型加密了就不会被人拿走」。实际上模型运行时终要在内存里解密成明文权重，越狱设备可以直接抓取；加密防的是大规模脚本批量拉取，防不了本地提取。所以分发安全的主战场在哈希与签名（防篡改），而不是加密（防提取）。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>模型与应用版本解耦：模型走配置下发，运行时随应用走。</li><li>三件套发布物加哈希 pin；校验后原子落盘，旧版留一份作回滚。</li><li>加载时硬断言配对：哈希、分词器版本、最低运行时，不符即拒载。</li><li>门禁两道：模型变更与运行时变更过同一评测矩阵，灰度按档位放量。</li><li>出处：应用商店分发规范；本站开源生态收束课的发布包口径；按本课程工程实践整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 端侧推理深入<!--[--> · 单元 系统与生产<!--]--><!----></p><p class="lesson-progress">第 9 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/edge-map/">端侧收束</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/edge-eval/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">端侧评测</span><span class="lesson-card-meta">端侧推理深入 · 系统与生产<!--[--> · 第 8 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/edge-map/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">端侧收束</span><span class="lesson-card-meta">端侧推理深入 · 系统与生产<!--[--> · 第 10 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

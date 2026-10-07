@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>性能与成本的联合优化案例 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_pe3-cost-case.md.Da6PRjQd.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 性能工程案例<!--[--> · 单元 案例<!--]--><!----></p><p class="lesson-progress">第 7 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/pe3-tail-latency-case/">延迟长尾的追猎案例</a></p><p class="lesson-next"> 下一课：<a href="/cs/pe3-map/">性能工程案例收束</a></p><!----></nav><div style="position:relative;"><div><h1 id="性能与成本的联合优化案例" tabindex="-1">性能与成本的联合优化案例 <a class="header-anchor" href="#性能与成本的联合优化案例" aria-label="Permalink to &quot;性能与成本的联合优化案例&quot;">​</a></h1><div class="epigraph"><p>SLO 是约束，成本是目标函数；只优化任何一边的团队，都是在另一边的账本上偷偷透支。</p><footer>—— 据 Barroso 与 Hölzle，The Datacenter as a Computer，2nd ed., 2018 与 Beyer 等，Site Reliability Engineering，2016 口径整理</footer></div><p><a href="/cs/pe3-tail-latency-case">上一课</a>把 p99 收回错误预算内，大促平稳落地。本课程最后一类案例处理剩下的那对张力：性能达标之后，账单怎么办。季度复盘时这个服务的月账单超预算四成——性能与成本在两份报表里分开记账，没有人同时看两本。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>性能团队的安全水位、成本团队的缩减计划互相看不见：前者为峰值买的 N+2 冗余，在后者眼里是常年闲置；后者砍掉的「低价值」缓存，正是前者刚修好的尾延迟的支柱。缺口不是哪个单方的技术，而是把两本账合成一本：<strong>在 SLO 约束下最小化单位成本</strong>。不这么做会错在哪：先做性能再谈成本，结果过度供给成为常态——没人记得冗余是应急保险还是永久开销；或者反过来先省钱，砍缓存、抬水位，把刚攒下的延迟余量一次性花光，下一轮回归直接烧穿预算。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>第一步，建每请求成本账。把账单摊到请求上：CPU 秒、内存 GB·时、出流量、跨区流量、以及每一次下游调用——缓存 miss 就是一次付费的下游调用。账单是聚合的，杠杆藏在分母里；没有单位成本的优化无法排序。</p><p>第二步，找大户与它们的杠杆。出流量与跨区复制常是第一大户，CPU 未必。杠杆用 Amdahl 的钱版本：优化占账单 5% 的项，全省也只有 5%。优先扫「双赢点」——性能与成本同向的地方：缓存命中率从 0.90 提到 0.95，回源量沿 \(1-h\) 减半，下游费用与回源延迟同时减半；这类点先做，做完再谈取舍。</p><p><span class="marginnote">数字实例（命中率的杠杆）：回源量正比于 \(1-h\)。命中率 0.90 时每 100 个请求有 10 个回源；提到 0.95 只剩 5 个——账面上命中率只涨 5 个百分点，回源费用和回源延迟却都直接减半。命中率越高的区间，每提高一点值钱越多，这和直觉刚好相反。</span></p><p>第三步，在 SLO 约束下重新定价余量。安全水位从「固定七成」变成「SLO 允许的最高水位」：<a href="/cs/pe3-requirements">第一课</a>的错误预算是可以花的钱，水位每抬高一个点，都要在分位上验收——风险不是均值变差，是变异变大、尾先动（上一课的账）。延迟不敏感的批任务挪到低价时段或可抢占实例，与在线负载隔离，隔离的代价计回成本账一起算。</p><p>第四步，验收与性能优化同一套协议：灰度、分位对账、可回滚。成本优化降低的每一块钱都要能指认它对应的性能风险敞口。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>每请求成本为什么是正确的分母：它把「买多大」与「跑多快」放进同一量纲——每请求成本等于单价乘资源占用除以有效吞吐，缓存与批处理改变分母（吞吐），压缩改变分子（资源），摊平了才能比较。命中率为什么是指数杠杆：回源量正比于 \(1-h\)，h 从 0.90 到 0.95 在绝对数上只有五个百分点，在回源侧却是减半——在命中率高的区间优化它，性价比远高于在 CPU 上再挤 10%。水位与预算为什么必须联动：容量课的六到七成水位是按「模型有误差」定价的保险；当监控积累足够、模型误差收窄，保险可以降价——但降价幅度由错误预算付账，不由账单付账。</p><p><span class="marginnote">本案例最大的单项节省不在任何 CPU 报表里：聚合结果的跨区读改成本区读加索引同步，账单降两成而延迟不变。云账单里「数据搬运」一项经常大于计算一项——按资源类型而不是按服务维度看账单，才能看见这类钱。</span></p><div class="mermaid"></div><p>这张图回答的问题是：拿到一串候选成本优化时，先做哪个？决策只有两问——它占账单多大（Amdahl 的钱版本封死小项的天花板），以及它是否和性能同向（双赢点不需要付风险，反向取舍才要动用错误预算）。先扫完免费的同向区，再谈要付延迟风险的硬取舍。</p><p><span class="marginnote">直觉类比：「安全水位」就像买房时留的应急存款——按收入波动定价。刚开始工作没积蓄时留六个月开销；收入稳定、有历史数据后可以降成三个月。水位从七成抬到八成，就是用监控数据证明「波动其实更小」，把多余的保险退掉换现金流——退多少由错误预算（风险承受力）说了算，不由想省钱的念头说了算。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>单价是外生变量：云厂商调价、机型换代、汇率，都能让优化结论翻盘——成本账必须可重算，参数与公式进版本库。成本优化有重组成本：迁移、重训、冻结期，不是每次账单上涨都值得动架构。有些钱不该省：错误预算的余量、多可用区冗余、安全容量是保险不是浪费，「全都能省」的成本报告等于没做过风险管理。本课程不进财务口径（摊销、折旧、预留折扣），只到工程能控制的资源账为止；再往下是财务的账本。</p><p><span class="marginnote">为什么重要：成本账不可重算，等于优化结论无法审计——半年后云厂商降价三成，你既说不清当初省的钱还剩多少，也说不清哪个结论还成立。把单价、用量、公式存进版本库，调价时重跑一遍脚本，就知道哪些优化已经翻盘，而不是靠回忆。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>联合优化写成一个不等式：SLO 约束下最小化单位成本；两本账合成一本才有解。</li><li>每请求成本账是排序的依据；账单是聚合的，杠杆在分母里。</li><li>双赢点先做：命中率沿 \(1-h\) 的减半效应，性能与成本同向。</li><li>水位是保险：抬水位花的钱记在错误预算上，验收在分位不在均值。</li><li>成本账要可重算、优化要可回滚；单价一变结论就变。</li><li>出处：Barroso 与 Hölzle，<em>The Datacenter as a Computer</em>，2nd ed., 2018；Beyer 等，<em>Site Reliability Engineering</em>，2016；据本课四步口径整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 性能工程案例<!--[--> · 单元 案例<!--]--><!----></p><p class="lesson-progress">第 7 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/pe3-map/">性能工程案例收束</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/pe3-tail-latency-case/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">延迟长尾的追猎案例</span><span class="lesson-card-meta">性能工程案例 · 案例<!--[--> · 第 6 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/pe3-map/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">性能工程案例收束</span><span class="lesson-card-meta">性能工程案例 · 案例<!--[--> · 第 8 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

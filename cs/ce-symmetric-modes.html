@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>对称加密模式的实践 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_ce-symmetric-modes.md.D8YijN18.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 密码学工程<!--[--> · 单元 实践<!--]--><!----></p><p class="lesson-progress">第 1 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/cs/dt-case-map/">分布式事务案例与收束</a></p><p class="lesson-next"> 下一课：<a href="/cs/ce-aead-deep/">AEAD 的深入</a></p><!----></nav><div style="position:relative;"><div><h1 id="对称加密模式的实践" tabindex="-1">对称加密模式的实践 <a class="header-anchor" href="#对称加密模式的实践" aria-label="Permalink to &quot;对称加密模式的实践&quot;">​</a></h1><div class="epigraph"><p>选错模式不会让算法变慢，会让它变假：同一个 AES，ECB 里是一台复读机，GCM 里才是一台加密机。</p><footer>—— 据 NIST SP 800-38A、SP 800-38D；Ferguson, Schneier and Kohno, *Cryptography Engineering* 整理</footer></div><p><a href="/cs/dt-case-map">上一课</a>给「分布式事务深化」收束：选型第一问是「能不能单片」，分片键设计优于一切协议优化，性能税等于锁持有、分片数与轮次的乘积。密码学的账更不容含糊：主干<a href="/cs/block-modes">分组模式 CBC / GCM</a>与<a href="/cs/chacha20">ChaCha20</a>给了各模式的名字与密钥流形状。缺口是<strong>选型</strong>：工程里拿到一段要落盘或上链路的明文，第一问不是「用 AES 还是 ChaCha」，而是「用什么模式、nonce 从哪来、完整性谁负责」。本课是「密码学工程」的第一课，把模式选择钉成可执行的规则；后课的 AEAD、签名与协议陷阱都默认这套规则已经在手。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>模式决定「一块密文依赖哪些输入」。ECB 只依赖本块明文：相同明文块产出相同密文块，图像加密出剪影，这是复读机不是加密。CBC 引入链式依赖与随机 IV，堵住了模式泄露，却添两笔新账：填充使密文对齐块长，而填充校验一旦把失败原因泄露给攻击者，就成了<a href="/cs/padding-oracle">填充预言机</a>的入口；IV 若可预测，首块等价于在攻击者选定的明文下工作。CTR 用计数器编址密钥流，密文长度等于明文长度、可随机访问，但 nonce 唯一性成了硬合同：复用即密钥流复用，两条密文的异或把两段明文的异或直接暴露——与<a href="/cs/one-time-pad-perfect-secrecy">一次一密与完美保密</a>里复用密钥同类的失败。<span class="marginnote">ECB 的失败可以类比成给句子里每个词单独换上同一种固定颜色：内容听不见，但哪些词相同一目了然。著名的「加密企鹅」图就是把企鹅照片逐块 ECB 加密，企鹅轮廓原样可见——这就是「复读机」三字的直观版本。</span>缺口不是再讲一遍这些模式的定义，而是把「谁在什么条件下可用」钉成清单。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>实践规则按四步走。第一步，任何需要保密的传输或存储，默认选 AEAD：AES-GCM 或 ChaCha20-Poly1305；硬件有 AES 指令选前者，纯软件环境选后者。第二步，nonce 策略随模式定：GCM 的 96 位 nonce 用计数器分配（每密钥一个单调计数器），若只能随机生成，单密钥调用次数必须 \lt \(2^{32}\)，这是 SP 800-38D 把随机 IV 碰撞概率压在 \(2^{-32}\) 以下的界；XChaCha20 把 nonce 拉到 192 位，随机生成即可。<span class="marginnote">\(2^{32}\) 这条线的来由可以代一下数：生日界下，从 96 位空间里随机取 \(n\) 个数，碰撞概率约为 \(n^2 / 2^{96}\)。代入 \(n = 2^{32}\)，得 \(2^{64}/2^{96} = 2^{-32}\)——「可忽略」的门槛正好卡在这里；调用次数再多一个数量级，概率就升到 \(2^{-12}\) 量级，工程上不再可忽略。</span>第三步，遗留系统里的 CBC 只能与 HMAC 组合成 Encrypt-then-MAC，且 IV 由 CSPRNG 出、绝不复用；单独 CBC 一律视为错误。第四步，ECB 只允许出现在「单块、明文无结构」的场合，比如作为构造可调 PRP 的零件，永远不直接服务数据。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>这些规则的根据是「模式把块密码扩展成语义」的方式。每个模式的安全性证明都按特定前提给出：GCM 的证明要求每 nonce 只用一次，nonce 复用后 GHASH 的认证子密钥 \(H\) 会被同 nonce 的标签对恢复，Procter 2014 给出了此后对任意新消息伪造标签的完整路径；CBC 的证明依赖 IV 对攻击者不可预测。反过来说，实践清单的每一条都是在保住证明的前提，而不是风格偏好。长度也要记账：CTR 与 GCM 的密文不膨胀（只多 16 字节标签），CBC 膨胀至多一块且需要填充，落盘格式与去重都因此不同。密钥侧，同一主密钥跨模式使用要过 KDF 并做域分离，否则「CBC 的密钥」与「GCM 的密钥」在证明里是两把，混用等于让两份证明互相作保。</p><div class="mermaid"></div><p><span class="marginnote">「AEAD」翻译过来是「带关联数据的认证加密」：加密（保密）、认证（防篡改）、关联数据（不加密但同样不许被改的头部，比如路由地址）三件事一次合同做完。它把「先加密再 MAC 还是先 MAC 再加密」这种最容易做错的组合决策从使用者手里收走——这正是本课默认选它的理由。</span></p><p><span class="marginnote">SP 800-38D 的两道账：单密钥总加密量不超过 \(2^{39}-256\) 比特（约 64 GiB）；随机 96 位 IV 时调用次数不超过 \(2^{32}\)。任一越界，GHASH 的认证优势就按生日界塌掉——大吞吐服务在同一密钥下写满一年数据，恰好会撞线。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课只管「加密模式怎么选」，nonce 复用之后 AEAD 内部发生什么属于下一课；完整性合同与标签语义在 <a href="/cs/aead-gcm-internals">AEAD 与 GCM 内部</a>已钉。XTS 这类宽块可调模式服务磁盘扇区（SP 800-38E），只给扇区级保密、不给完整性，不在本课清单里，也不该被当成 AEAD 用。密钥怎么生成、熵从哪来，是「随机数」课的缺口；协议层组合错误（重放、降级、预言机）留给「协议实现的陷阱」。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>模式选择的第一问是完整性归谁：本层管就用 AEAD，遗留 CBC 必配 HMAC。</li><li>GCM 的 nonce 用计数器分配；只能随机时，单密钥调用次数 \lt \(2^{32}\)。</li><li>ECB 不直接服务数据；CTR nonce 复用与一次一密复用密钥同类失败。</li><li>IV 可预测、nonce 复用、无 MAC 的 CBC，都是证明前提被打破的三种形状。</li><li>出处：NIST SP 800-38A/38D；RFC 8439；Ferguson, Schneier and Kohno, <em>Cryptography Engineering</em>；Procter 2014。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 密码学工程<!--[--> · 单元 实践<!--]--><!----></p><p class="lesson-progress">第 1 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/ce-aead-deep/">AEAD 的深入</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/dt-case-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">分布式事务案例与收束</span><span class="lesson-card-meta">分布式事务深化 · 体系<!--[--> · 第 6 / 6 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/ce-aead-deep/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">AEAD 的深入</span><span class="lesson-card-meta">密码学工程 · 实践<!--[--> · 第 2 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

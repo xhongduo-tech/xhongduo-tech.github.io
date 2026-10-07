@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>复现工作流收束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rw-map.md.hOaFwtzz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 论文复现工作流<!--[--> · 单元 产出<!--]--><!----></p><p class="lesson-progress">第 13 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rw-case-training-recipe/">复现案例：训练配方</a></p><p class="lesson-next"> 下一课：<a href="/llm/ml-tokenizer-multilingual/">多语言分词的工程</a></p><!----></nav><div style="position:relative;"><div><h1 id="复现工作流收束" tabindex="-1">复现工作流收束 <a class="header-anchor" href="#复现工作流收束" aria-label="Permalink to &quot;复现工作流收束&quot;">​</a></h1><div class="epigraph"><p>有组织的怀疑：共同体的每个主张都摆上检验台，不因出处显赫而免检。</p><footer>—— 据 Merton, The Normative Structure of Science, 1942 整理</footer></div><p><a href="/llm/rw-case-training-recipe">上一课</a>的配方案例走完，方法、实践、产出三个单元的课都已在手：判读与走读给了对照面，配置与预算给了跑道，归因与对齐给了判定，回馈与报告给了出口，两个案例验证了全流程在两类论文上的形态。本课收束：把十二课收成一张可执行的决策单、几条不变量、几件高频拦错事。本课程到此收束。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>收束的缺口不是新知识，而是次序：十二课的方法若不成单，下次复现仍会从乱枪排查开始——先调学习率再查评测脚本，先押全量再想预算。训练基础设施的收束课立过一个口径：对账从后往前指，每一步的异常都能指回前一步的欠账。复现工作流需要同样的收法：一张按依赖排序的决策单，让「欠账」在花大钱之前就暴露。</p><p><span class="marginnote">「对账从后往前指」就像食品溯源码：货架上的每盒鸡蛋都能查到哪个养殖场、哪批饲料。报告结论是货架，run 是批次号，配置哈希是养殖场——链条任何一环查不到，这盒蛋就不能上架，结论同理降档。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>决策单九步，按依赖排。一，声明：类型、目标线、容差、范围、约束，一页纸。二，判读：报告抽出六行决策表，标披露档位。三，走读：仓库冻结到论文 tag，定位一步的产出物。四，账目：单一配置入口、哈希贯穿三处、种子分立。五，消融：从目标线倒推，同预算对照，过噪声带再判。六，归因：评测、数据、配置、初值、动态、全量，六步次序不许跳。七，预算：四级阶梯加闸门，归因消融占三到四成。八，对齐：四层锚点先粗后细，基线先校准再比高下。九，出口：回馈分级送上游，报告六节落档。</p><p>四条不变量。每个数字带坐标系；每个 run 可由四元组重建（配置哈希、代码、数据指纹、种子）；每个结论分档（强、中、弱、无）；每条死路可检索。对账从后往前指：报告里的结论点回 run，run 点回配置哈希，哈希点回代码 tag 与数据指纹——链条任一环断裂，结论降档，这就是九步互相咬合的意义。</p><p><span class="marginnote">数字实例：四条不变量落到一次汇报上就是四句话——「3 倍是 A100、每秒 8 请求负载下的 3 倍」「run 编号 9f3a 开头的那个哈希」「结论：中档，单种子」「tiny 级发散这条死路见台账第 41 条」。少任何一句，听众就得自己回去猜。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么不变量是这四条：它们分别封住四类事故。数字不带坐标，比较失义——判读课与案例课都撞见过的「3 倍」与「0.3 分」；run 不可重建，证据链断——账目课的哈希三处同一就是为它立的；结论不分档，弱结论搭车被引用——报告课的分档纪律；死路不可检索，团队重复付费——归档课的老规矩。四条都是「可检验性」在工程层的展开：Merton 的有组织怀疑落到团队里，就是让每个主张都带着自己的检验路径存在。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：把三件高频拦错事当成「新手才会犯」。定目标线、调平基线、留归因预算，省下的都是现在的时间，代价延期到以后——资深团队犯的频率并不低，区别只在他们开工前有这张清单。</span></p><p>三件高频拦错事，按代价排：没定目标线就开工（全部后续判据悬空）、基线没调平就比高下（结论作废且难察觉）、全量押注不留归因预算（一次失败即归零）。三件事的共同点是事前一分钱的检查，事后十倍的账。</p><p><span class="marginnote">预算的实践起点：两个案例里，tiny 加 small 加 pilot 约占总算力的三到四成，却解决了绝大多数归因问题——比例不是定理，是防全押的结构件；领域方差越大（如强化学习），这个占比越高。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>收束不等于封闭。新论文形态会给坐标系加维度：长程 agent 实验把负载与轨迹长度带进坐标，多模态训练把模态配比带进决策表——九步的骨架不变，行的内容会换。复现的许可与伦理边界随配方公开程度收紧或放松，回馈时按上游条款走。还有一条常被漏掉的出口：「不复现」也是合法决定——成本超过决策价值时，把它写成显式声明（读了什么、估了什么、为什么停），进同一套台账；沉默的不复现只会让下一个排队的人重新估一遍价。到此，复现工作流收束：类型定靶，判读与走读出对照，账目出跑道，消融与归因出判定，预算出闸门，对齐出验收，回馈与报告出口——本课程到此收束。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>决策单九步按依赖排：声明、判读、走读、账目、消融、归因、预算、对齐、出口。</li><li>四条不变量：数字带坐标、run 可重建、结论分档、死路可检索；对账从后往前指。</li><li>三件高频拦错事：没定目标线、基线没调平、全量押注——事前便宜，事后昂贵。</li><li>「不复现」写成显式决定进台账；新论文形态换决策表的行，不换骨架。</li><li>出处：Merton, 1942；账目与配方口径见<a href="/llm/ti-map">训练基础设施收束</a>；按本课程十二课整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 论文复现工作流<!--[--> · 单元 产出<!--]--><!----></p><p class="lesson-progress">第 13 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ml-tokenizer-multilingual/">多语言分词的工程</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/rw-case-training-recipe/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">复现案例：训练配方</span><span class="lesson-card-meta">论文复现工作流 · 产出<!--[--> · 第 12 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ml-tokenizer-multilingual/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">多语言分词的工程</span><span class="lesson-card-meta">多语言与区域化 · 语言侧<!--[--> · 第 1 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

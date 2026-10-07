@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>驱逐策略与启发式 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_kv-eviction-heuristics.md.Bv-cvrPf.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 KV 管理与压缩<!--[--> · 单元 压缩<!--]--><!----></p><p class="lesson-progress">第 6 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/kv-layerwise-sensitivity/">逐层与逐头的敏感度</a></p><p class="lesson-next"> 下一课：<a href="/llm/kv-merge-distill/">KV 合并与蒸馏</a></p><!----></nav><div style="position:relative;"><div><h1 id="驱逐策略与启发式" tabindex="-1">驱逐策略与启发式 <a class="header-anchor" href="#驱逐策略与启发式" aria-label="Permalink to &quot;驱逐策略与启发式&quot;">​</a></h1><div class="epigraph"><p>每条驱逐启发式都是同一个三段式：给历史打重要性分，给新来者留保护期，然后把分数最低者不可逆地扔掉。</p><footer>—— 据 Zhang et al., H2O, NeurIPS 2023；Xiao et al., StreamingLLM, ICLR 2024 的策略结构整理</footer></div><p><a href="/llm/kv-layerwise-sensitivity">上一课</a>把预算按层按头重排，隐含的前提是预算必须先存在：长度受控、每 token 字节受控之后还不够，就要丢历史。本课写丢的规则。各配方的机制已分别写过——<a href="/llm/kv-eviction">窗口与 sink</a>、<a href="/llm/h2o-kv">H2O</a>、<a href="/llm/snapkv">SnapKV</a>、<a href="/llm/quest-kv">QUEST</a>——本课收拢成一张谱系表：启发式之间怎么比、按什么选、错在哪。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>预算 \(k\) 小于当前长度 \(t\) 时，必须选一个可见子集 \(S_t\)，此后 softmax 只在 \(S_t\) 上归一化。选错的代价不可逆：被丢的键不再参与任何点积，将来即使变成关键也找不回来。所有启发式因此都在回答同一道题——<strong>用现在的信息估计「未来的注意力会打给谁」</strong>。估计是免不了的：未来查询还没出现。差别只在估计器用什么信号、给谁上保险。</p><p>还有一套容易混淆的「驱逐」：页池压力下逐出无引用的<a href="/llm/kv-prefix-cache">前缀缓存</a>页，按 LRU 走。那改变的是「哪些字节住在 HBM」，不改任何请求的可见集，与本课的可见集驱逐分属两本账，混写会让「命中率」与「任务质量」互相背锅。</p><p><span class="marginnote">术语翻译：页池逐出像图书馆把没人借的书搬去地下库——书还在，要时能调回来；可见集驱逐像把那几页直接撕掉——模型从此看不见这段内容。两者都叫 eviction，后果天差地别。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>按估计信号排成谱系。</p><ul><li><strong>位置即分数</strong>：滑动窗口加 sink 禁逐。零统计成本、最稳，代价是中间历史整段丢失。适合「只要当前句稳定、缓存常数」的流式场景（配方见 <a href="/llm/streaming-kv">StreamingLLM 策略</a>）。</li><li><strong>累积注意力当分数</strong>：<a href="/llm/h2o-kv">H2O</a> 在线累积每个位置的注意力质量，驱逐非窗口内分数最低者。能保住中部的实体锚点，但分数偏向活得久的位置，新出现的专名要靠 recent 保护期救。</li><li><strong>提前投票</strong>：<a href="/llm/snapkv">SnapKV</a> 用提示末段的观察窗预选前缀簇，在生成开始前完成压缩。适合「提示长、生成短」的问答负载；代价是选完即锁，长生成中途需要的新证据进不来。</li><li><strong>不删，挑着读</strong>：<a href="/llm/quest-kv">QUEST</a> 保留全部 KV，按当前查询挑页加载。没有失忆，失败模式是召回不足；前提是查询在 decode 前已知。</li></ul><p>选型判据三条：未来查询是否已知（已知走 query-aware，未知只能预测性驱逐）；提示与生成的长度比（长提示短生成偏好 SnapKV，长生成偏好 H2O 式在线）；允许多大的任务质量损失。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>三段式结构的每一环都有独立的失败模式。<strong>分数</strong>是对未来注意力的预测：累积分数偏向早期位置，投票偏向提示末段的局部模式，分布漂移时估计误差直接兑现成误杀。<strong>保护期</strong>是对估计置信度的承认：recent 窗保住「还没来得及积累分数」的位置，sink 禁逐保住配分函数。<strong>不可逆</strong>是与挑页方法的本质分界：删改的是模型看见的集合，挑改的只是 IO——前者是近似生成，后者是近似访存，两者不该用同一个「压缩率」评价。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：一个位置每步平均分到 0.01 的注意力，活 1000 步就累积了 10 分；一个刚出现的专名再关键，第一步也只有零点几分。这就是「累积分偏向老位置」的具体样子——recent 保护期正是给新人发的豁免额度。</span></p><p>驱逐还改变缓存的账本形状：被压缩后的页不再随 \(t\) 线性增长，容量与带宽的预算（后课）要按压缩后的长度重算；同时压缩页与全量页<a href="/llm/kv-prefix-cache">指纹不同</a>，不能进同一条前缀共享链。</p><p><span class="marginnote">同一预算下启发式之间的差距不是几个点：H2O 论文的消融里，只留最近窗口的版本在多种任务上明显掉队，而「H2 + recent」接近全缓存。选型必须在真实长生成上跑，短补全的困惑度会把滑窗排到第一。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>时间错位的负载对预测性驱逐最危险：「先闲聊、最后才问文档第 3 节」的查询，重要性在对话开始时不可见。多轮对话是被驱逐历史最常杀回马枪的地方——被删的键在下一轮又被引用，兜底路径是对丢失段重算 prefill，这笔账要提前算进成本。与量化叠加时误差同向累积：4-bit 噪声稀释针的 logit 优势，驱逐又可能把针直接删掉，两刀要联评。最后，评测只看任务质量与驱逐后的长度分布，吞吐提升不构成采用理由。</p><p><span class="marginnote">为什么多轮对话最容易翻车：第 1 轮提到的合同编号在第 5 轮被追问，若那个键早在第 2 轮被驱逐，模型只能凭残存上下文编一个——表面上像幻觉，根子却在驱逐决策。兜底方案是对丢失段重算 prefill，这笔钱要提前写进预算。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>可见集驱逐与页池逐出是两本账：前者改模型看见什么，后者只改字节住哪。</li><li>谱系按信号分：位置（窗口+sink）、在线累积（H2O）、提前投票（SnapKV）、查询感知挑页（QUEST）。</li><li>三段式：分数 + 保护期 + 不可逆；每环有独立失败模式。</li><li>选型判据：查询是否已知、提示与生成长度比、可接受的质量损失。</li><li>压缩后的页进不了全量前缀链；与量化联评，验收只看长上下文任务。</li><li>出处：Zhang et al., H2O, NeurIPS 2023；Xiao et al., StreamingLLM, ICLR 2024；Li et al., SnapKV, NeurIPS 2024；Tang et al., QUEST, ICML 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 KV 管理与压缩<!--[--> · 单元 压缩<!--]--><!----></p><p class="lesson-progress">第 6 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/kv-merge-distill/">KV 合并与蒸馏</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/kv-layerwise-sensitivity/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">逐层与逐头的敏感度</span><span class="lesson-card-meta">KV 管理与压缩 · 压缩<!--[--> · 第 5 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/kv-merge-distill/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">KV 合并与蒸馏</span><span class="lesson-card-meta">KV 管理与压缩 · 压缩<!--[--> · 第 7 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>长上下文收束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_lc-map.md.YtycxNRV.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 长上下文系统工程<!--[--> · 单元 工程化<!--]--><!----></p><p class="lesson-progress">第 11 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/llm/lc-failure-catalog/">失败模式清单</a></p><p class="lesson-next"> 下一课：<a href="/llm/aeval-safety-benchmark-design/">安全基准的设计原则</a></p><!----></nav><div style="position:relative;"><div><h1 id="长上下文收束" tabindex="-1">长上下文收束 <a class="header-anchor" href="#长上下文收束" aria-label="Permalink to &quot;长上下文收束&quot;">​</a></h1><div class="epigraph"><p>窗口是模型的能力，账本是系统的能力；系统工程让「支持 128K」第一次成为可以兑现的句子。</p><footer>—— 据本课程整理</footer></div><p><a href="/llm/lc-failure-catalog">上一课</a>把失败编成跨层清单，最后一格留给了机制回指。至此账已算清、池已调度、契约已立、门禁已设、失败已编目——本课程到此收束。收束做两件事：把十一课收进几条线，把本课程放回大图，留给后课一个干净的接口。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>收束要防的是把课程读成技巧堆砌：切块、缓存、外推表、门禁，单看都是工程技巧，合起来才是一套方法。散着记，换一个模型、换一个长度档位就全部重来；收进结构，重算的只有常数。所以收束的问题不是复述，是提炼：十一课里哪些是不随长度与模型改变的结构，哪些只是本次部署的常数。</p><p><span class="marginnote">术语翻译：「旋钮进门禁」是说每个可调参数（旋钮）都必须配一个盯着它的验收测试（门禁）。门禁就是上线前必须通过的自动化考题集：旋钮改动后考题不过，改动就出不了门——参数从此不能悄悄地坏。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>三条线。资源线是「显存与调度」单元：<a href="/llm/lc-memory-account">显存账</a>把字节的账算全，立下「按积不按条」的纪律；<a href="/llm/lc-chunked-prefill">chunked prefill 深入</a>把峰值与带宽的兑换定价；<a href="/llm/lc-context-cache-tiers">缓存分层</a>把重算与恢复定价。契约线是「服务语义」单元：<a href="/llm/lc-retrieval-hybrid-serving">检索混合</a>、<a href="/llm/lc-extrapolation-serving">外推配置</a>、<a href="/llm/lc-longoutput-streaming">长输出流式</a>、<a href="/llm/lc-multidoc-workload">多文档共享</a>，四课各把一类系统行为变成对调用方可声明的分支与承诺。门槛线是「工程化」单元：<a href="/llm/lc-eval-serving">评测服务化</a>把旋钮钉进协议，<a href="/llm/lc-cost-case">成本案例</a>把杠杆排成顺序，<a href="/llm/lc-failure-catalog">失败清单</a>把故障编成排查法。三条线是同一句话的三种说法：长上下文不是「更长的窗口」，是把窗口的代价变成可会计、可调度、可约定的对象。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>放回大图。往回接：KV 管理与压缩的深钻线把刀铸好——<a href="/llm/kv-quant-int8-int4">量化</a>、<a href="/llm/kv-eviction-heuristics">驱逐</a>、<a href="/llm/kv-offload">offload</a>各有专课；本课程回答刀往哪里用：进预算表、进降级链、进门禁。往回再接一层，主干把<a href="/llm/long-context-memory-curve">三条显存曲线</a>与<a href="/llm/serving-cost-model">服务成本模型</a>画全，本课程把曲线变成系统：曲线是物理，账本是决策。窗口继续增长时——多模态的长序列、代理轨迹的累积——课程里的常数全部重测：块长、恢复带宽、积的倍数；结构不变：四栏账、三条线、按积不按条、旋钮进门禁。这就是收束留下的接口：后课遇到「更长的东西」，先补账，再立契约，后设门禁。</p><p><span class="marginnote">一句自检：任何「长上下文方案」若说不清账记在哪几栏、契约有哪些分支、门禁测哪些任务族，它就还只是一个技巧——技巧在下一个长度档位就会失效，结构不会。</span></p><p>上面的链条回答「课程按什么顺序读」；换个问题——窗口继续涨、来了一个新需求时，三条线各自做什么、最后怎么合——是下面这张图的事。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：容易把三条线读成先后流程，以为算完账才立契约。实际上它们是同一个新需求的三份并行作业：账答「付得起吗」，契约答「做不到时怎么声明」，门禁答「凭什么信」——缺任何一份，方案都会在某个长度档位翻车。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p><span class="marginnote">直觉类比：「结构不变、常数重测」可以类比搬家装修：户型（四栏账、三分支、门禁）是承重墙，搬进新家不用砸；家具尺寸（块长、带宽、积的倍数）每次搬家都要重新量。把技巧误当结构的人，换个模型就等于把整套房子重新装修一遍。</span></p><p>本课程是服务侧的收束：训练侧的延窗续训（<a href="/llm/long-context-finetune">长上下文微调</a>）、内核侧的长序列核（<a href="/llm/ak-longsequence-kernels">长序列内核</a>）、检索栈的内部（<a href="/llm/rag-chunking">切分课</a>）各有其课，这里只做把三者接进服务的账与契约。课程案例的数字随模型与硬件过期；四栏、三分支、双口径这些结构不过期。深钻层在此收束一门课，不收束一个领域：长度还在涨，账本会一直写下去。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>三条线收束：资源线算清代价，契约线声明行为，门槛线守住发布。</li><li>核心句式：长上下文工程是把窗口的代价变成可会计、可调度、可约定的对象。</li><li>往回接 KV 压缩线与主干曲线：刀在彼处铸成，账在此处使用。</li><li>常数随长度与硬件重测，结构（四栏账、三分支、双口径、门禁）跨档位复用。</li><li>遇到「更长的东西」：先补账，再立契约，后设门禁。</li><li>出处：本课程各课口径汇总——Pope et al., 2022；Kwon et al., SOSP 2023；Agrawal et al., OSDI 2024；Zheng et al., NeurIPS 2024；Peng et al., 2023；Liu, Zaharia 与 Abbeel, Ring Attention（2023）；其余见各课小节。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 长上下文系统工程<!--[--> · 单元 工程化<!--]--><!----></p><p class="lesson-progress">第 11 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/aeval-safety-benchmark-design/">安全基准的设计原则</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/lc-failure-catalog/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">失败模式清单</span><span class="lesson-card-meta">长上下文系统工程 · 工程化<!--[--> · 第 10 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/aeval-safety-benchmark-design/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">安全基准的设计原则</span><span class="lesson-card-meta">对齐评测深钻 · 方法<!--[--> · 第 1 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

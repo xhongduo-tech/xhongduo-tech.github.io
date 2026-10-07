@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>BSGS 离散对数 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_bsgs.md.BXuhM7Lm.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 图、代数与近似算法<!--[--> · 单元 数值与代数<!--]--><!--[--> · 课序 多项式、线性与数论<!--]--></p><p class="lesson-progress">第 39 / 96 课</p><p class="lesson-prereq"> 先修：<a href="/cs/euler-mobius/">欧拉函数与莫比乌斯</a></p><p class="lesson-next"> 下一课：<a href="/cs/pollard-rho/">Pollard rho</a></p><!----></nav><div style="position:relative;"><div><h1 id="bsgs-离散对数" tabindex="-1">BSGS 离散对数 <a class="header-anchor" href="#bsgs-离散对数" aria-label="Permalink to &quot;BSGS 离散对数&quot;">​</a></h1><div class="epigraph"><p>$g^x=a$ 在阶 $n$ 的群里，拆 $x=i\lfloor\sqrt n\rfloor-j$，建小步表再大步查：$O(\sqrt n)$ 时间与空间。</p><footer>—— 据 Shanks, Class Number, a Theory of Factorization and Genera, 1971；[离散对数](/cs/generator-discrete-log) 对照整理</footer></div><p>上一课<a href="/cs/euler-mobius">欧拉函数与莫比乌斯</a>给了模 \(p\) 的阶相关函数。主干已定义离散对数，接<a href="/cs/fast-exponentiation">快速幂</a>算 \(g^k\)。缺口是<strong>算法</strong>：Baby-step giant-step（BSGS）。不重写原根存在性。后课 Pollard rho 也可离散对数，本课先讲确定性根号。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>循环群 \(\langle g\rangle\) 阶 \(n\)，\(a\in\langle g\rangle\)，求 \(x\) 使 \(g^x=a\)；穷举 \(O(n)\)。BSGS 把指数切成两半：令 \(m=\lceil\sqrt n\rceil\)，任何 \(x\in[0,n)\) 都可写成 \(x=im-j\)，\(0\le i,j\lt m\)（\(j\) 放负号一侧，等式 \(g^{im}=ag^{j}\) 两侧就都只剩能快速算的量）。于是小步枚举 \(j\)，把 \(ag^j\) 连同 \(j\) 存入哈希；大步枚举 \(i\)，从 \(g^0\) 起每步乘 \(g^m\) 查表，命中即 \(x=im-j\)。时间空间 \(O(\sqrt n)\)。</p><p>缺口是时间–空间的折中，不是 NP 证书。Pohlig–Hellman 走另一头：把 \(n\) 分解成小素因子、在小子群解、再 CRT 合并——点名。</p><p><span class="marginnote">数字实例：解 \(3^x \equiv 6 \pmod{19}\)，\(n=18\)，\(m=5\)。小步存 \(6\cdot 3^j \bmod 19\)（\(j=0..4\)）：6, 18, 16, 10, 11；大步算 \(3^{5i}\)：\(i=0\) 得 1，\(i=1\) 得 15，\(i=2\) 得 16——命中表中 \(j=2\)，于是 \(x=2\cdot 5-2=8\)。两侧各算约 \(\sqrt n\) 项即相遇，穷举则最坏要 \(n\) 次。</span></p><h3 id="不是线性筛那种" tabindex="-1">不是线性筛那种 \(O(n)\) <a class="header-anchor" href="#不是线性筛那种" aria-label="Permalink to &quot;不是线性筛那种 $O(n)$&quot;">​</a></h3><p>这不像线性筛把 \(O(n)\) 压成亚线性：\(n\) 是群阶，密码实例可达 \(2^{256}\)，开根号也毫无希望。BSGS 的适用域是 \(n\) 在 \(10^{12}\) 量级内可谈的场景；密码学大阶离散对数要亚指数（NFS），不在本课。</p><p><span class="marginnote">Shanks BSGS。Pollard rho 离散对数均摊同阶、空间更小。后课 rho 主讲分解，对数变体点名。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>四步：确定 \(n\)（或其已知倍数，代价相应放大）；定 \(m\) 建小步哈希，重复元素保留最小 \(j\)；大步维护 \(g^{im}\) 逐次乘 \(g^m\) 查表；扫完无命中即无解。注意 \(j\) 的符号约定别在实现里写反。群运算须能哈希元素——模素数乘法群天然可以，任意群要给规范表示。</p><div class="mermaid"></div><p>群运算须能哈希元素。</p><p><span class="marginnote">常见误区：初学者容易把拆分写成 \(x=im+j\)。这并非代数错误，但匹配时要对每个 \(j\) 算逆元 \(a\cdot g^{-j}\)；负号约定（\(x=im-j\)）让小步存 \(ag^j\)、大步存 \(g^{im}\)，两侧全用正幂次乘法，实现更省也更不易错。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>正确性在拆分定理：任何 \(x\in[0,n)\) 必有一种 \(i,j\) 拆法（\(i\) 取上取整、\(j=im-x\) 均在界内），两份长度 \(\sqrt n\) 的表必然在解处相交。哈希期望 \(O(1)\) 查询撑住复杂度；与穷举 \(O(n)\) 比降到根号，代价是 \(O(\sqrt n)\) 空间——这也是与后课 rho 的分工：时间同阶而空间常数级。矩阵群（如 GL）上的离散对数有同名的 baby-step/giant-step 变体，点名即可，不同群代价不同。</p><p>下图回答一个具体问题：实例 \(3^x \equiv 6 \pmod{19}\) 的两张表如何一步步相遇。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：meet-in-the-middle 像两人从山脚与山顶相向挖隧道，各挖 \(\sqrt n\) 米就相遇；一个人从山脚挖到山顶则要 \(n\) 米。BSGS 的两张表就是相向而挖的两端，拆分定理保证它们必然在解处接通。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写 index calculus。椭圆曲线群没有 index calculus，但 BSGS 照样可用，只是阶的形状不同。后课默认：小阶离散对数 BSGS \(O(\sqrt n)\)。下一课 Pollard rho 分解。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>大步小步 \(O(\sqrt n)\) 时间空间。</li><li>须知阶（或上界）。</li><li>大阶密码实例不靠本课。</li><li>出处：Shanks, 1971。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 图、代数与近似算法<!--[--> · 单元 数值与代数<!--]--><!--[--> · 课序 多项式、线性与数论<!--]--></p><p class="lesson-progress">第 39 / 96 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/pollard-rho/">Pollard rho</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/euler-mobius/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">欧拉函数与莫比乌斯</span><span class="lesson-card-meta">图、代数与近似算法 · 数值与代数 · 多项式、线性与数论<!--[--> · 第 38 / 96 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/pollard-rho/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">Pollard rho</span><span class="lesson-card-meta">图、代数与近似算法 · 数值与代数 · 多项式、线性与数论<!--[--> · 第 40 / 96 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

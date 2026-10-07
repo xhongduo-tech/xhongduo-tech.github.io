@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>规划域的分解 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_pl-domain-decomposition.md.Bvt0lj0i.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 推理链与规划深化<!--[--> · 单元 工程化<!--]--><!----></p><p class="lesson-progress">第 4 / 7 课</p><p class="lesson-prereq"> 先修：<a href="/llm/pl-reflection-design/">反思机制的设计</a></p><p class="lesson-next"> 下一课：<a href="/llm/pl-tool-planning/">工具规划</a></p><!----></nav><div style="position:relative;"><div><h1 id="规划域的分解" tabindex="-1">规划域的分解 <a class="header-anchor" href="#规划域的分解" aria-label="Permalink to &quot;规划域的分解&quot;">​</a></h1><div class="epigraph"><p>分解不是把问题说小一点，而是造出一批各自可解、接口闭合的子问题；接口拆错，后面每一步都在精确地解一个错问题。</p><footer>—— 据 Zhou et al., Least-to-Most Prompting, 2022；Wang et al., Plan-and-Solve, ACL 2023；Besta et al., Graph of Thoughts, 2023 整理</footer></div><p><a href="/llm/pl-reflection-design">上一课</a>写的是在既有问题里修正路径：触发、内容与停止判据。但有些失败不在路径而在问题本身——多跳依赖太长、组合深度超出单链外推能力，错不是因为没想清楚，而是因为问题从来没有被拆到「一步可解」的粒度。缺口是分解：把规划域拆成子问题，让每次求解只面对一个可核对的局部。本课写分解的三种形态、接口约束与误差传播；<a href="/llm/least-to-most">Least-to-Most</a> 与 <a href="/llm/self-ask">Self-Ask</a> 的提示形态不重讲。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/llm/chain-of-thought">思维链</a>在组合外推上失效：训练分布里见过的步数内它步步行，超出后缺步、跳步、把未求出的中间量直接写进最终式。Plan-and-Solve 用「先写计划再求解」压缺步，但计划仍是同一条轨迹上的文本，没有独立求解与回填边界。分解走得更远：先产出子问题序列，再<strong>多次调用</strong>逐个求解，子答案回填进后续上下文。这引入了新的失败面——分解本身会错：子问题前置缺失（第 3 问依赖一个没人求过的量）、覆盖不全（子问题加起来不回答原问题）、粒度失衡（细到每次调用只做一次加法，粗到退化回单链）。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>三种形态按结构从弱到强。<strong>序列分解</strong>（Least-to-Most）：子问题排成有序链，第 \(i\) 个子问题的条件里回填前 \(i-1\) 个子答案；适合依赖单向、深度可数的任务。<strong>递归分解</strong>：目标拆成子目标，子目标再拆，直到到达可直接求解的叶子；深度可变，适合层次分明的规划域（证明的引理、路线的区段）。<strong>图分解</strong>（<a href="/llm/graph-of-thoughts">Graph of Thoughts</a>）：子问题独立并行，部分解在宿主里聚合与精炼；适合分治后必须合流的任务。</p><p>三条约束跨形态通用。接口闭合：每个子问题的输入必须由前文或环境可满足，发现悬空引用应早失败，而不是让求解器编造。覆盖检查：子问题集合要能拼回原问题，这可以在分解产出时用一次核对调用检查。可验证：每个子问题应有局部判据——能规则核对的用规则，不能的至少核对类型与量纲。</p><p><span class="marginnote">「接口闭合」翻译成大白话：每个子问题要用的已知条件，必须已经躺在题目原文或前面子问题的答案里。如果第 3 问用到一个「没人算过的量」，这就是悬空引用——求解器多半会现编一个像模像样的数。早失败、重新拆，比让它在编造的数字上精确推理要便宜得多。</span></p><p><span class="marginnote">Zhou 等人在 SCAN 组合泛化拆分上报告：思维链只有约 16% 的准确率，least-to-most 达到 99.7%——分解的收益集中在「单链外推不动」的组合深度上；单链本来就会的题，分解只增加调用与出错机会。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>分解误差沿回填协议传播，且比单链更难改口：单链错一步可以<a href="/llm/self-verification-backtrack">回溯</a>，分解错是结构错——第 1 问的答案错了，第 3 问在忠实求解一个错前提。所以宿主必须钉住每个子答案：子问题与子答案都写进后续上下文的是「钉住」，任由模型转述是「漂移」。成本上分解是多次调用加回填 token，收益来自重复使用的短求解；简单题上它是纯开销。与 <a href="/llm/tree-of-thoughts">ToT</a> 的分工：分解默认串行不分叉，把深度问题摊平；要在同一子问题上比选多个候选，才轮到上一课的树与分数。</p><div class="mermaid"></div><p><span class="marginnote">「结构错 vs 路径错」的直觉类比：瓦工贴歪一块砖是路径错，撬掉重贴就行；图纸把承重墙画错了是结构错，后面每个房间都照错的图纸施工，而且每间都「施工得很精确」。分解把推理从贴砖升级成看图纸，所以它出错时也更贵——错在拆题这一步，后面每次调用都在放大它。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>分解适用于结构与依赖可显式表达的任务；开放域里模型会提出幻觉子目标，覆盖检查也只剩模型自评，收益上限随之封顶。分解产出的是子问题序列，不是可调度 DAG——要把节点换成工具调用、依赖边换成执行计划，是下一课工具规划的事。粒度没有免费午餐：切得太细，调用次数与回填误差同步放大；切得太粗，分解退化成一段更长的思维链，什么也没换来。</p><p><span class="marginnote">数字实例（示意）：一道 12 步的应用题，若拆成 40 个子问题，假设每次调用连回填要 600 token，光子问题就要约 2.4 万 token，还给了 40 个出错机会；反过来只拆成 2 个子问题，每个要单链跑 6 步——基本没享受分解的好处。好的粒度通常让每个子问题落在「一次调用、三五步内、有局部判据」的区间。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>分解三形态：序列回填、递归到叶、图聚合；结构强度与适用域依次不同。</li><li>三条约束：接口闭合、覆盖、可验证；悬空引用应早失败。</li><li>误差沿回填传播且难改口；宿主必须钉住子答案，不许模型转述。</li><li>收益集中在组合外推；单链本来会的题，分解是纯开销。</li><li>分解产出不是可调度计划；换工具与执行器是下一课的题目。</li><li>出处：Zhou et al., <em>Least-to-Most Prompting</em>, 2022；Wang et al., <em>Plan-and-Solve</em>, ACL 2023；Besta et al., <em>Graph of Thoughts</em>, 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 推理链与规划深化<!--[--> · 单元 工程化<!--]--><!----></p><p class="lesson-progress">第 4 / 7 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/pl-tool-planning/">工具规划</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/pl-reflection-design/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">反思机制的设计</span><span class="lesson-card-meta">推理链与规划深化 · 工程化<!--[--> · 第 3 / 7 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/pl-tool-planning/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">工具规划</span><span class="lesson-card-meta">推理链与规划深化 · 工程化<!--[--> · 第 5 / 7 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>perf 的深化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_obs-perf-deep.md.DqBzhKpD.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 可观测性与调试<!--[--> · 单元 工具<!--]--><!----></p><p class="lesson-progress">第 3 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/cs/obs-ebpf/">eBPF 的入门与应用</a></p><p class="lesson-next"> 下一课：<a href="/cs/obs-flamegraphs/">火焰图</a></p><!----></nav><div style="position:relative;"><div><h1 id="perf-的深化" tabindex="-1">perf 的深化 <a class="header-anchor" href="#perf-的深化" aria-label="Permalink to &quot;perf 的深化&quot;">​</a></h1><div class="epigraph"><p>PMU 是厂商埋进芯片里的诚实之人：它数的是真实发生的事件，不是你希望发生的模型。</p><footer>—— 据 Gregg, <em>Systems Performance</em>, 2nd ed., 2018；Intel/ARM PMU 手册；Yasin 的自顶向下分析方法, ISPASS 2014</footer></div><p><a href="/cs/obs-ebpf">上一课</a>把动态埋点接到 tracepoint 与 kprobe：事件发生在挂钩处，语义在内核源码里。缺口是 CPU 微观行为——cache 未中、分支预测失败、每指令平均周期数——这些事件没有语义挂钩点，只有 <a href="/cs/perf-sampling">PMU 计数器</a>数得到。基线课已钉 perf_events 的采样路径：溢出中断、mmap 环、skid。本课把它深化成一套测量学：计数与采样的分工、多路复用的误差、调用栈的取法、off-CPU 的盲区、统计纪律。后课的火焰图只是本课样本的展示层，默认已读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>「程序为什么慢」有两个分支：它在算，还是在等。算的问题问 PMU：哪个函数吃掉了周期、周期浪费在前端还是后端。等的问题 PMU 看不见：等磁盘、等锁、等调度，CPU 空转计数毫无动静——on-CPU 采样对等待时间全盲。基线课只铺了第一个分支的机制。缺口有四个：其一，PMU 计数器比事件少，多数事件靠时间片轮转复用，读出来的绝对数是缩放估计；其二，样本数不够时把噪声当信号，两次运行结论相反；其三，off-CPU 时间没有专门的采样通道，要借调度事件；其四，频率在变，cycle 数失去可比性——升频后同样的工作量 cycle 变少，像是优化了。</p><h3 id="计数先行-采样随后" tabindex="-1">计数先行，采样随后 <a class="header-anchor" href="#计数先行-采样随后" aria-label="Permalink to &quot;计数先行，采样随后&quot;">​</a></h3><p>先 <code>perf stat</code> 分型：IPC、每指令 cache 未中、前端与后端 stall 占比，把负载归入计算受限、访存受限或前端受限——自顶向下方法（Yasin, ISPASS 2014）把这条归因树做成了系统化流程。知道是哪一类，再去采样找具体函数。直接采样的风险是把「哪里热」当成「为什么慢」：热点函数本身可能只是替别人背锅。</p><div class="mermaid"></div><p><span class="marginnote">现代 x86 每核通用可编程计数器通常只有个位数，而可定义事件上千——复用不是实现瑕疵，是硬件预算。故同组测量才可靠：比率型指标的两个事件必须进同一个组。</span></p><p><span class="marginnote">术语翻译：IPC 就是「平均每个时钟周期干完几条指令」，像流水线上每人每分钟装几个盒子。IPC 明显低于预期，通常不是人偷懒，是流水线在停摆等待——最常见的是等内存数据送到。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>计数用事件组：把要算比率的分子分母放进一个 group，内核保证它们在同一调度片里测，复用缩放在分子分母上同向抵消。采样分两条线：on-CPU 用周期事件采样 IP 与栈，找计算热点；off-CPU 用调度切换事件记录「这个线程在哪个栈上睡了多久」，聚成等待直方图。栈的取法三选一：frame pointer 最便宜，但要求编译加 <code>-fno-omit-frame-pointer</code>；DWARF 最全，回溯要解 <a href="/cs/dwarf-debug-info">调试信息 DWARF</a>，采样开销更大；LBR 是硬件最后分支记录，深而准但入口有限。统计纪律四条：跑多次取中位数与极差；报告样本量；测量期间锁频锁核，消掉 turbo 与迁移；改动对照要用同一台机器同一组核。</p><p><span class="marginnote">常见误区：初学者升频后看到「同样代码 cycle 数变少」就以为优化生效了。cycle 随频率缩放，工作量不变时升频本身就让 cycle 变少；跨频比较要换用与频率无关的基准事件（如 constant TSC），或干脆锁频再测。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>复用的数学：内核把 \(N\) 个事件轮转装进每核数个计数器，读数按启用时间占比缩放。绝对数因此是估计，误差随复用率涨；比率若分子分母同组则近似无偏——这就是「先算比率再看绝对值」的原因。IPC 的解读要配分型：\(\mathrm{IPC}\lt 1\) 不必然坏，可能是访存等待；\(\mathrm{IPC}\gt 4\) 也不必然好，可能循环高度规则只是没活干。off-CPU 为什么要新通道：调度切换时被切下的是等待者，把切换事件与栈配对，等待时间才第一次有归属；它与 on-CPU 剖面互补，两张图拼起来才是墙钟时间的完整账。锁频为什么改变结论：PMU 的 cycle 数随频率缩放，只有参考周期（constant TSC 一类）跨频稳定；跨频比较要用不变基准事件。</p><p><span class="marginnote">数字实例：某事件只在四分之一的时间里占着计数器，读出 100 万次，按启用占比缩放，实际估计约 400 万次——这就是绝对数「是缩放估计」的含义；而同组同测的两个事件做比率，缩放同向抵消，近似无偏。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不把 PMU 事件当词典查——事件名随微架构变，查手册；云上虚拟机里 PMU 常被裁剪或半虚拟化，测不到要怀疑平台而不是工具。GPU 的计数体系在<a href="/cs/gpu-profiling">性能计数与 profiling</a>，别混进 CPU 叙事。skid 与精准采样的机制是基线课口径，不再展开。本课给的是证据：哪个函数、哪类受限、等多久；把成千上万个样本变成人能读的形状，是下一课火焰图的事。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>先 perf stat 分型再采样：计算受限、访存受限、在等待，三条路不同。</li><li>计数器复用使绝对数是缩放估计；同组测量保比率可靠。</li><li>on-CPU 找热点，off-CPU 用调度事件找等待，两图合看才是全部时间。</li><li>栈三法：frame pointer、DWARF、LBR，按精度与开销选。</li><li>统计纪律：多样本、锁频、报样本量，否则结论是噪声。</li><li>出处：Gregg, <em>Systems Performance</em>, 2nd ed., 2018；Intel/ARM PMU 手册；Yasin, ISPASS 2014。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 可观测性与调试<!--[--> · 单元 工具<!--]--><!----></p><p class="lesson-progress">第 3 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/obs-flamegraphs/">火焰图</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/obs-ebpf/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">eBPF 的入门与应用</span><span class="lesson-card-meta">可观测性与调试 · 工具<!--[--> · 第 2 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/obs-flamegraphs/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">火焰图</span><span class="lesson-card-meta">可观测性与调试 · 工具<!--[--> · 第 4 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

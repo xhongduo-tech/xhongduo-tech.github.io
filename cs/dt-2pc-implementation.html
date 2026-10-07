@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>2PC 的实现细节 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_dt-2pc-implementation.md.CnwAcrEk.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 分布式事务深化<!--[--> · 单元 协议<!--]--><!----></p><p class="lesson-progress">第 1 / 6 课</p><p class="lesson-prereq"> 先修：<a href="/cs/qo-case-map/">查询优化案例与收束</a></p><p class="lesson-next"> 下一课：<a href="/cs/dt-percolator-tidb/">Percolator 与 TiDB 案例</a></p><!----></nav><div style="position:relative;"><div><h1 id="_2pc-的实现细节" tabindex="-1">2PC 的实现细节 <a class="header-anchor" href="#_2pc-的实现细节" aria-label="Permalink to &quot;2PC 的实现细节&quot;">​</a></h1><div class="epigraph"><p>协议图只画两轮消息；实现里多出来的东西——prepared 日志、不确定窗口、启发式决定——才是两阶段提交的真实成本。</p><footer>—— 据 Gray, Notes on Data Base Operating Systems, 1978；Gray and Reuter, Transaction Processing, 1993 整理</footer></div><p><a href="/cs/qo-case-map">上一课</a>给「查询优化深化」收束：诊断沿数据流逆行——先看估计与实际之比，再查统计，再查尺子，最后才轮到改写；每层修复配一个判据，没有判据的修复是化妆。查询优化的判据收了档，事务这条线的判据更硬：提交要么发生、要么没发生。本课是「分布式事务深化」的第一课，打开协议图下面的实现账：prepare 应答前先落什么盘、决策记在哪、不确定窗口里锁归谁管、悬挂事务由谁收拾。主干课的 <a href="/cs/spanner-truetime">Spanner 与 TrueTime</a> 给过跨组 2PC 的外观，本课补的是任何实现都躲不开的内部序。后课的 Percolator 式与 Calvin 式路线，都默认你已知道这套账。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>主干只给了 canCommit、commit、abort 三句话。实现要回答的全是「先写日志还是先回消息」：参与者应答 yes 之前，必须先把 prepared 记录连同 redo/undo 信息刷盘——否则应答之后崩溃，恢复时既不能提交也不能回滚，还占着锁。协调者收齐 yes 后，先写决策记录再广播：广播可以丢，决策不能丢，丢了全组无人有权收场。缺口是把两轮消息变成一条<strong>崩溃安全的日志序</strong>。每一步的先后顺序就是正确性本身；顺序对了，剩下的都只是延迟与吞吐问题，顺序错了，崩溃恢复时系统连「自己决定过什么」都无从谈起。</p><p><span class="marginnote">固定税目：约两轮消息加三处强制刷盘——参与者 prepared、协调者 decision、参与者结局记录。跨洋链路一轮往返按百毫秒计，这段时间事务的锁全部持有；吞吐按锁持有时间的倒数掉，不是按 CPU 掉。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>账目走一遍。参与者收到 prepare：写 prepared 记录、刷盘、回 yes，锁从此保留到结局到达。协调者收齐：写 decision 记录、刷盘、广播 commit 或 abort。参与者收到结局：写结局记录、释放锁、回执。消息要幂等：协调者恢复后重发决定，参与者可能已提交过，重复收到 commit 不能产生第二次对外效果——用日志里的状态去重。悬挂事务（in-doubt）：协调者迟迟不回时，参与者不能自定结局，只能反复查询、等协调者所在共识组换主补发决定，或超时后由管理员做「启发式决定」；他定的方向若与协调者相反，系统只能记录不一致并告警，因为已对外公布的提交不可撤销。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>优化全部指向「能不能少写、少问、少等」。Presumed Abort：abort 是可以默认的结局——参与者超时未听说协调者，就自行回滚并忘掉 prepared 记录，因为「没消息」与「决定 abort」不可分辨；commit 没有默认答案，「没消息」也可能是「决定还没做」，不能 presume。协调者换主：把协调者状态放进共识组（Spanner 让锁表与提交记录由 Paxos 组持有），不确定窗口从「等一个进程」缩成「等一次选主」，这正是主干口径「共识复制 commit 决策」的兑现。三阶段提交想再进一步，在 prepare 后插一轮 pre-commit，让参与者提前知道「大概率提交」；代价是三轮消息，而且异步网络分区下仍要靠协调者超时收场，工程上极少有人用这一轮去换那一点恢复速度。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：固定税目算一遍——两轮消息跨洋各约 100 ms，加上三处强制刷盘每次几毫秒，一次跨库事务的锁要持有约 200 ms 以上。单机事务全程微秒级，两者差五六个数量级；吞吐按锁持有时间的倒数掉，这就是「能不用分布式事务就不用」的算术根据。</span></p><p><span class="marginnote">直觉类比：不确定窗口像网购后物流失联——商家说「考虑退款还是发货」，然后没了消息。你既不能拆包也不能退回（不知道最终决定），只能占着收货位干等。「启发式决定」就是等了三天你自作主张拆了包，结果商家其实决定了退款——系统只能记录这笔不一致并告警。</span></p><p><span class="marginnote">常见误区：初学者容易以为 2PC 卡住只是「消息丢了，重发就行」。真正的问题是参与者无权私自定结局：「没收到消息」可能是协调者还没做出决定，也可能只是消息丢了——参与者无法区分这两种世界，所以哪怕重发有用，也只能先挂着锁等。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不复述共识协议本身，不重算 <a href="/cs/spanner-truetime">Spanner 与 TrueTime</a> 的时钟账，也不把 Saga 补偿当成提交协议——补偿是业务失败后的应用层动作，语义与原子提交不在同一层。XA 是接口名，不是第四种协议，它的 prepare/commit 只是这套日志序的函数签名。后课默认：任何「分布式事务」产品，底下要么是这套账，要么把协议整个换掉——下一课看把协调者塞进数据表的做法。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>实现核心是日志序：先 prepared 刷盘再应答，先 decision 刷盘再广播；两轮消息加三处强制刷盘是固定税。</li><li>不确定窗口里锁必须保留；悬挂事务只能查询、换主或超时启发式，不能私自定结局。</li><li>Presumed Abort 让 abort 免决策日志；commit 没有默认答案，不能 presume。</li><li>决策状态进共识组，阻塞窗缩成选主窗；3PC 多一轮消息换不来分区安全。</li><li>出处：Gray 1978；Gray and Reuter 1993；Mohan 与 Lindsay 的 presumed abort；Corbett et al. 2012。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 分布式事务深化<!--[--> · 单元 协议<!--]--><!----></p><p class="lesson-progress">第 1 / 6 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/dt-percolator-tidb/">Percolator 与 TiDB 案例</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/qo-case-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">查询优化案例与收束</span><span class="lesson-card-meta">查询优化深化 · 现代执行<!--[--> · 第 8 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/dt-percolator-tidb/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">Percolator 与 TiDB 案例</span><span class="lesson-card-meta">分布式事务深化 · 协议<!--[--> · 第 2 / 6 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

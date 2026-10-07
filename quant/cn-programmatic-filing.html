@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>程序化交易的报备实践 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_cn-programmatic-filing.md.CbbYjrgb.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 中国市场的量化实践<!--[--> · 单元 工具与约束<!--]--><!----></p><p class="lesson-progress">第 3 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/cn-margin-lending-structure/">融券与转融通</a></p><p class="lesson-next"> 下一课：<a href="/quant/cn-fee-structure/">费率结构</a></p><!----></nav><div style="position:relative;"><div><h1 id="程序化交易的报备实践" tabindex="-1">程序化交易的报备实践 <a class="header-anchor" href="#程序化交易的报备实践" aria-label="Permalink to &quot;程序化交易的报备实践&quot;">​</a></h1><div class="epigraph"><p>报备档案是交易所给账户画的肖像：监控跑在申报与成交数据上，画像和真人长期对不上，系统不会先问你是不是忘了更新。</p><footer>—— 据证监会程序化交易管理规定及交易所报备通知口径整理</footer></div><p><a href="/quant/cn-margin-lending-structure">上一课</a>把空头腿的券源工程立住，工具与约束单元走到第三件：交易身份本身。<a href="/quant/cn-program-trading-rules">程序化交易管理规定与实施细则</a>已写制度框架，<a href="/quant/cn-amac-program-trading">中基协程序化交易自律要求</a>写了私募侧自律口径，<a href="/quant/cn-hft-threshold">高频交易认定标准</a>写了速率认定。本课写实务操作：报备什么、通过谁报、变更怎么跟、报备信息如何与交易所的监控数据互相勾稽。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>报备在实践里常被当成一次性开户材料，错在这里。它是一份持续有效的技术档案：策略从低频改成日内、系统从外购换成自研、服务器从本地搬进托管机房、速率长到认定线以上，每一项都触发更新义务；多券商开户时同一套策略要在每家分别报备，口径不一致会在监控侧留下两个不同的「你」。<span class="marginnote">可以把它想象成你的「交易简历」：交易所按简历设定对你账户的预期，实际报撤数据就是日常考勤。简历写的是慢跑，考勤却是百米冲刺，系统不会先问你是不是忘了改简历——它按数据处置。所以每次「换了跑法」都要同步改简历。</span>报备画像与实际交易特征长期偏离，轻则被要求补报整改，重则在异常交易处置里处于不利位置——而策略团队往往是最晚知道画像过期的人。</p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把报备做成台账治理。字段至少含四类：账户与产品信息；策略类型与换手画像；交易系统（自研或外购及版本）与技术信息（服务器与托管位置、下单方式）；速率类指标——最高申报速率、日均申报与撤单量级——加联系人与应急安排。<span class="marginnote">术语翻译：所谓「速率类指标」，就是给交易速度记账的几个数——最快一秒报了多少笔委托、一天总共报和撤了多少笔。它们决定你的账户被归进哪个监管档位；同样的策略，把拆单从每秒几笔提到几十笔，日均申报量涨一个数量级，画像就必须改报。</span>流程三条：新账户先报备、后启用程序化；重大变更在规定时限内经开户券商更新；达到高频认定标准的，额外报告义务与差异化收费监控直接挂钩（<a href="/quant/cn-fee-cancel-ratio">差异化收费与撤单率监控</a>）。托管机房的申请信息要与报备台账能互相对上（<a href="/quant/cn-colocation-rectify">主机托管清退与交易单元整改</a>）。台账与策略版本库联动：任何改变速率画像的上线动作，先过台账、再过生产。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>报备为什么是数据治理而不是合规手续。异常交易监控跑在申报与成交数据上，报备档案给出「这个账户被允许是什么样」的基准；实际速率与撤单模式长期偏离基准，系统按异常处理，不看你的意图。<span class="marginnote">常见误区：把报备当成「交作业」，交完就束之高阁。实际上交易所会拿真实申报撤单数据和你报的口径持续勾稽比对，长期对不上的后果不是「态度问题批评一下」，而是补报、整改乃至按异常交易处置——受影响的是账户本身的交易权限。</span>所以多券商、多产品的一致性是治理问题：同一策略在不同券商处速率画像不同，要么是真实的差异化部署且台账能解释，要么是治理缺陷。私募与公募的报备路径不同，但台账义务同在——载体差异留给生态单元再展开。</p><p><span class="marginnote">最常翻车的一条：回测阶段的换手画像和实盘不同。回测里看着是低频的信号，实盘为了抢单把委托拆碎、撤得更勤，速率指标越过认定线，而台账还停在旧口径。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>具体报送时限、认定阈值与收费标准以当期规定与交易所细则为准，本课程不做跨期承诺。本课不写规避报备、拆分账户稀释速率的方法——那本身是红线清单的一部分。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>报备是持续技术档案：账户、策略、系统、速率四类字段，重大变更限期更新。</li><li>高频认定把速率指标与额外义务、差异化收费挂钩，速率画像要进发布检查。</li><li>报备口径与监控数据勾稽，多券商部署的一致性是治理问题不是文书问题。</li><li>出处：证监会程序化交易管理规定与交易所实施细则口径；框架细节见<a href="/quant/cn-program-trading-rules">程序化交易管理规定与实施细则</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 中国市场的量化实践<!--[--> · 单元 工具与约束<!--]--><!----></p><p class="lesson-progress">第 3 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/cn-fee-structure/">费率结构</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/cn-margin-lending-structure/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">融券与转融通</span><span class="lesson-card-meta">中国市场的量化实践 · 工具与约束<!--[--> · 第 2 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/cn-fee-structure/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">费率结构</span><span class="lesson-card-meta">中国市场的量化实践 · 工具与约束<!--[--> · 第 4 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

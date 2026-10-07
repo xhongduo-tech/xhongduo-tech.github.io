@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>行情数据的清洗 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_de-marketdata-cleaning.md.amr4rFbO.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 量化数据工程深入<!--[--> · 单元 存储与清洗<!--]--><!----></p><p class="lesson-progress">第 2 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/de-tsdb-selection/">时序数据库的选型</a></p><p class="lesson-next"> 下一课：<a href="/quant/de-corporate-action-deep/">公司行动处理的深入</a></p><!----></nav><div style="position:relative;"><div><h1 id="行情数据的清洗" tabindex="-1">行情数据的清洗 <a class="header-anchor" href="#行情数据的清洗" aria-label="Permalink to &quot;行情数据的清洗&quot;">​</a></h1><div class="epigraph"><p>馈送给你的是撮合引擎的投影，不是一条干净序列；清洗的全部工作，是把「引擎说过什么」与「你想研究什么」之间的落差一一显式化。</p><footer>—— 据 NASDAQ TotalView-ITCH 消息规范；NYSE TAQ 成交条件字段的公开说明整理</footer></div><p><a href="/quant/de-tsdb-selection">上一课</a>把选型钉在查询形状上，数据有了住处；但落盘的字节还不是序列。行情清洗的缺口从这里开始：逐笔消息里有错误打印、重传重复、乱序到达、盘外成交与错误更正，全都长得像正常数据。清洗不改变事件，只把每个「看上去像」翻译成明确语义。本课写单日内的清洗——跨日界的调整是公司行动一课的对象。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>清洗要回答四个问题。<span class="marginnote">术语翻译：内容哈希就是把整条消息（时间、价格、量、标的等字段）压成一枚固定长度的「指纹」——两条消息指纹相同，几乎必然是同一条内容的重传。用「消息键 + 内容哈希」判重，比只比时间戳可靠得多，因为不同消息也可能落在同一毫秒里。</span><strong>消息级硬校验</strong>：负量、非正价、超出当日价格带的打印，通常是馈送或解码错误；量级小，但混进波动率估计就是一条假跳变。<span class="marginnote">数字实例：价格带可以直接用当日涨跌停（A 股 ±10%）当断言——10 元的股票打印出 11.5 元的成交，一条就越界，立刻入账剔除。没有这条断言，它混进日内收益率序列就是一次 +15% 的假跳变，把当日已实现波动率抬高数倍。</span><strong>去重与重排</strong>：行情协议的缺失与重传让同一条消息到达两次，乱序让到达序不等于撮合序；用毫秒时间戳给纳秒市场排序，并列序内的先后只能靠到达序，次序错了买卖方向分类就在临界处随机翻转。<strong>条件标记过滤</strong>：成交打印里相当一部分不是常规连续撮合——开盘竞价、大宗、交叉、错误更正各带专门标记（TAQ 的成交条件字段）；不过滤，开盘与收盘的已实现波动率被重复计入，日内季节性一半来自标记构成而非交易行为。<strong>快照对账</strong>：重建的簿与自报快照要对得上，负深度与交叉簿是重建错误，按<a href="/quant/lobster-itch-feed">LOBSTER 与 ITCH 行情</a>立下的不变量当数据测试失败处理，不许插值糊过去。</p><p><span class="marginnote">每类清洗动作都要留下计数账——过滤了多少硬错误、多少重复、多少非常规打印、多少并列序。账不全，就说不清一段序列「干净」到什么程度；回测异常时，这张账是第一个排查对象。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>管线按序五段，段与段之间只传带账目的中间结果。第一段硬校验，按字段级断言剔除坏行入账。第二段定序：主时钟用撮合引擎时间戳，到达时间只用于并列序破平；跨源数据先对时，见<a href="/quant/latency-budget">延迟预算</a>的口径，<a href="/quant/sip-vs-direct">SIP vs 直连行情</a>的结论在这里兑现——报价与成交不同源时，定序先坏。第三段去重：以消息键与内容哈希判重，重传与首传合并。第四段标记过滤：按研究用途决定保留集合——日内波动率只要常规连续成交，成交方向分类可以放宽，逐项写进数据字典。第五段对账：与交易所日终汇总对成交量、与快照对 BBO，超容差整段拒收并回放上游。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>清洗的本质是把三类「沉默的语义决定」显式化。其一，时钟决定因果：并列序内谁先谁后理论上不可识别，工程上必须选一个可重复的规则并声明它；换规则会改变成交方向分类与冲击估计，所以要像参数一样入版本。其二，标记决定样本空间：「市场」不是全部打印，而是被研究问题选中的子集，清洗把这个选择写成可审计的保留清单。<span class="marginnote">常见误区：初学者容易以为开盘竞价、大宗这些「非常规」打印是坏数据、一律删掉。它们不是错，只是不属于特定研究问题——波动率研究不要它们，成交方向分类反而可能要放宽保留。错不在数据，在于不声明保留清单就默认全收或全删。</span>其三，对账决定可信域：抽查对得上的时段才可信，对不上的宁可整段丢弃也不修补——修补会在最需要数据的压力日引入最强的人为结构。入账让「这段序列怎么来的」成为可引用的事实，而不是手艺。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重讲馈送与契约本身：消息语义见<a href="/quant/lobster-itch-feed">LOBSTER 与 ITCH 行情</a>，管道延迟见<a href="/quant/sip-vs-direct">SIP vs 直连行情</a>。清洗只处理单日内的字节；除权除息与代码变更会在日界上留下看似错误的跳价，那是下一课的对象，不要在这里当坏数据删掉。清洗也不承诺救回坏馈送：整段丢包、时钟漂移超容差的数据，丢弃是唯一正确动作。最后，清洗规则本身要版本化——规则一改，同一批原始数据变成另一段序列，这个绑定关系由版本化一课接管。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>清洗四问：硬校验、去重定序、标记过滤、快照对账，每段动作入账。</li><li>主时钟用撮合时间，到达时间只破平；跨源先对时，混源先坏定序。</li><li>「市场」是被保留清单选中的打印子集，清单可审计而非默认。</li><li>对不上容差的时段整段丢弃不修补；压力日最忌人为结构。</li><li>清洗规则随数据一起版本化，绑定关系交给下一课。</li><li>出处：NASDAQ TotalView-ITCH 消息规范；NYSE TAQ 成交条件字段说明；站内<a href="/quant/lobster-itch-feed">LOBSTER 与 ITCH 行情</a>与<a href="/quant/latency-budget">延迟预算</a>的口径。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 量化数据工程深入<!--[--> · 单元 存储与清洗<!--]--><!----></p><p class="lesson-progress">第 2 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/de-corporate-action-deep/">公司行动处理的深入</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/de-tsdb-selection/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">时序数据库的选型</span><span class="lesson-card-meta">量化数据工程深入 · 存储与清洗<!--[--> · 第 1 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/de-corporate-action-deep/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">公司行动处理的深入</span><span class="lesson-card-meta">量化数据工程深入 · 存储与清洗<!--[--> · 第 3 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>扩散推理管线解剖 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_diff-serving-pipeline.md.6GfMtz3p.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 扩散模型服务化<!--[--> · 单元 推理管线<!--]--><!----></p><p class="lesson-progress">第 1 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/llm/mm-map/">失败模式与收束</a></p><p class="lesson-next"> 下一课：<a href="/llm/diff-step-distill-tradeoff/">步数蒸馏的服务权衡</a></p><!----></nav><div style="position:relative;"><div><h1 id="扩散推理管线解剖" tabindex="-1">扩散推理管线解剖 <a class="header-anchor" href="#扩散推理管线解剖" aria-label="Permalink to &quot;扩散推理管线解剖&quot;">​</a></h1><div class="epigraph"><p>扩散服务慢不在「模型大」，而在同一段网络被调几百次；解剖管线就是找出哪一段在重复、哪一段只跑一次、哪一段可以提前算。</p><footer>—— 据 Ho 等 DDPM、Rombach 等 LDM 与 Stable Diffusion 推理实现整理</footer></div><p><a href="/llm/mm-map">上一课</a>把多模态服务侧的失败收成六族与三跑判据：失败多半静默，靠族坐标排障，监控面板先于故障建好，多模态的深钻线告一段落。本课程转向另一类生成负载：图像与视频的扩散生成服务化。主干已有 <a href="/llm/ddpm">DDPM</a>、<a href="/llm/latent-vae">潜空间与 VAE</a>、<a href="/llm/cfg-image">CFG 在图像生成</a>：加噪链、潜变量与引导的第一性都在那里立好。本课把「训练完的模型」切成服务视角的管线：一次请求到底执行了什么，时间与钱花在哪几段。后课的蒸馏、量化、批处理都默认你能按段报出成本。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一次文生图请求走五段：文本编码器把提示词编成条件嵌入；调度器按日程给出每步的噪声强度；去噪网络（UNet 或 DiT）从纯噪声潜变量迭代去噪 \(T\) 步；VAE 解码器把最终潜变量还原成像素；后处理做尺寸、格式与水印。缺口在五段的时间分布极不均匀：去噪网络要跑 \(T\) 次、开引导时再翻倍，其余各段只跑一两次，却常被当成「一个模型」整体优化。不解剖就优化，典型错误是给只占毫秒级的文本编码器配 GPU 常驻，却让占九成以上计算的去噪循环跑在未融合的算子上。</p><h3 id="一次请求的账" tabindex="-1">一次请求的账 <a class="header-anchor" href="#一次请求的账" aria-label="Permalink to &quot;一次请求的账&quot;">​</a></h3><p>以 SD 1.5 在 \(512\times512\)、50 步、CFG \(\gamma=7.5\) 为例：每步做有条件与无条件两次去噪前向，合计 \(100\) 次 UNet 前向，加一次 VAE 解码；潜变量是 \(64\times64\times4\)，UNet fp16 权重约 \(860\)M 参数、\(1.7\) GB。文本编码与调度器查表只占毫秒级，但前者输出可以缓存复用——同一提示词的嵌入是纯函数，这是扩散服务里最便宜的缓存。</p><p><span class="marginnote">50 步 × CFG 双前向 = 100 次去噪前向 + 1 次 VAE 解码。步数与引导是产品配置不是模型常数，前向次数按配置算，不能按模型算。</span></p><p><span class="marginnote">数字感受一下潜空间有多省：\(512\times512\times3\) 的原图约有 79 万个数值，压成 \(64\times64\times4\) 的潜变量后只剩约 1.6 万个，缩小约 48 倍。去噪循环全程在这个「小图」上进行，这就是扩散还能实时服务的前提——先在低维空间干活，最后才由 VAE 一次性放大回像素。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>服务化第一件事是把管线切成三类段：</p><ul><li><strong>一次性段</strong>：文本编码、控制条件预处理。输入不变则输出不变，可按提示词哈希缓存。</li><li><strong>循环段</strong>：去噪网络与调度器更新。\(T\) 次迭代共享同一份权重；扩散没有 KV 缓存，每步都从潜变量整张重算，这是与 LLM 推理最大的结构差异。</li><li><strong>收尾段</strong>：VAE 解码与后处理。解码是单次大变换，精度与显存敏感，常与去噪用不同精度。</li></ul><p>切完给每段计时：去噪循环应占端到端九成上下。若不是，先查批是否太小让 GPU 在循环间空转，或解码是否落在兜底精度上。调度器是查表不是网络：换采样器改的是循环次数与步长，不改权重，这给了服务端第一根「不改模型的旋钮」，也是下一课蒸馏的对照面。</p><p><span class="marginnote">「调度器是查表不是网络」翻译一下：调度器就是一张预先算好的时间表，写明第 1 步噪声多大、第 2 步多小……直到最后一步接近零。它没有任何可学习的参数，换采样器只是换一张表，权重一个字节都不动——所以调它不触发重新训练，是服务端最便宜的旋钮。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>循环段主导成本的原因：去噪前向的 FLOPs 随潜变量面积增长，注意力项还随 token 数平方增长；\(T\) 与 CFG 是乘在头上的倍数。于是服务级性能问题几乎都能约化成两条：「减少前向次数」与「降低单次前向成本」，前者通向蒸馏与调度，后者通向量化与批处理。条件嵌入缓存之所以成立，是文本编码器的纯函数性；VAE 解码不能这样缓存，因为它接在随机性最强的最终潜变量后面，输入几乎不重复。</p><div class="mermaid"></div><p>与 LLM 服务对照：自回归的长度运行时才确定，扩散的 \(T\) 在配置里就定了；自回归靠 KV 缓存把历史变增量，扩散每步对整张潜变量重算。这两条差异决定调度器形状不同，而「凑批复用」又与<a href="/llm/continuous-batching">连续批处理</a>形似神不似——形似在凑批，神不似在没有逐 token 的增量结构。</p><p><span class="marginnote">常见误区：做过 LLM 推理的人常以为扩散也能挂一个 KV 缓存，把「已算过的部分」存起来逐步增量。实际上扩散每一步的潜变量都是全新的一张图，上一步的中间结果对下一步毫无复用价值——这就是为什么扩散批内所有请求必须步调一致地走完 \(T\) 步，而 LLM 可以各生成各的长度。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课只解剖标准文生图管线：图生图多一段 VAE 编码，视频多一个时间维，都是后课的增量。段计时依赖实现，算子融合差的实现会让解码或预处理虚高，先修实现再谈分布。CFG 的机制与 \(\gamma\) 的取舍在 <a href="/llm/cfg-image">CFG 在图像生成</a>已立，本课只把它当前向次数的乘数；蒸馏后学生不再需要双前向，那是下一课的缺口。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>管线五段：文本编码、调度、去噪循环、VAE 解码、后处理；循环段占九成计算。</li><li>前向次数 = 步数 × 引导倍数，是服务级成本的第一公式。</li><li>文本编码是纯函数，条件嵌入缓存是扩散服务最便宜的复用。</li><li>扩散无 KV 增量结构，每步整张重算，批内步调一致是调度的前提。</li><li>性能问题约化成「少跑前向」与「跑便宜前向」，分别通向蒸馏与量化。</li><li>出处：Ho 等 DDPM、Rombach 等 LDM、Ho &amp; Salimans CFG；量级据 Stable Diffusion 1.5 公开规格。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 扩散模型服务化<!--[--> · 单元 推理管线<!--]--><!----></p><p class="lesson-progress">第 1 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/diff-step-distill-tradeoff/">步数蒸馏的服务权衡</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/mm-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">失败模式与收束</span><span class="lesson-card-meta">多模态推理服务 · 生产<!--[--> · 第 12 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/diff-step-distill-tradeoff/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">步数蒸馏的服务权衡</span><span class="lesson-card-meta">扩散模型服务化 · 推理管线<!--[--> · 第 2 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

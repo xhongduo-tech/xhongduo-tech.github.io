@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>延迟长尾的追猎案例 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_pe3-tail-latency-case.md.DqHwuCn7.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 性能工程案例<!--[--> · 单元 案例<!--]--><!----></p><p class="lesson-progress">第 6 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/pe3-capacity-case/">容量规划案例</a></p><p class="lesson-next"> 下一课：<a href="/cs/pe3-cost-case/">性能与成本的联合优化案例</a></p><!----></nav><div style="position:relative;"><div><h1 id="延迟长尾的追猎案例" tabindex="-1">延迟长尾的追猎案例 <a class="header-anchor" href="#延迟长尾的追猎案例" aria-label="Permalink to &quot;延迟长尾的追猎案例&quot;">​</a></h1><div class="epigraph"><p>均值是报表的语言，分位是体验的语言；长尾追猎的第一步不是优化，是把报表从平均数上拆下来。</p><footer>—— 据 Dean 与 Barroso，The Tail at Scale，CACM 2013 口径整理</footer></div><p><a href="/cs/pe3-capacity-case">上一课</a>用容量曲线与安全水位把大促峰值接住了。但大促当晚的仪表盘上，p50 是 40 ms、p99 却是 2.4 s：容量够，尾炸了。本课追这条尾——它的猎法与均值不同源，用均值问题的思路打尾，枪枪落空。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>均值由服务时间的中心决定，尾由<strong>变异</strong>与<strong>等待</strong>决定，两者的嫌疑人名单不同。常见嫌疑：GC 停顿与周期性后台任务（慢簇固定出现在整点或固定间隔）、缓存失效惊群（过期瞬间一群请求同砸下游）、共享资源上的排队（日志刷盘、<a href="/cs/fsync">fsync</a>、锁）、以及慢邻居与坏实例。不这么做会错在哪：只看聚合监控——几百个实例的分位混平均，尾被抹成一条平线；或者优化均值路径，把序列化再加快一倍，而 200 ms 的坑根本是每分钟一次的 GC。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>第一步，先把尾切开，再谈优化。按三个维度切分位数：<strong>时间</strong>（慢是否聚在固定时刻）、<strong>特征</strong>（慢是否聚在特定请求——大请求、缓存未命中、特定分片）、<strong>实例</strong>（慢是否聚在固定节点）。聚合看不见的簇，切开后自己显形。<a href="/cs/obs-distributed-tracing">分布式追踪</a>把端到端的尾拆到跳，定位它住在哪一跳。</p><p><span class="marginnote">「三维切分」可以想象成查堵车：不问「全城平均车速多少」（那是均值，永远 40 迈），而是问——堵车是不是都发生在早八点（时间）？是不是都堵在货车走的路线（特征）？是不是总卡在某一座桥（实例）？三个问题分别对应慢在何时、何种请求、哪台机器，交叉一下嫌疑范围就缩到很小。</span></p><p>第二步，on-CPU 之外查 off-CPU。等锁、等 IO、等调度不在 CPU 剖面里，要用<a href="/cs/obs-perf-deep">perf 的深化</a>的调度事件把等待时间聚成直方图；GC 停顿要看运行时的停顿日志而不是猜。本案例的 2.4 s 最后对上两个来源：缓存批量过期造成的下游惊群，叠加过载时段入口队列的排队。</p><p>第三步，机制层砍尾。缓存过期改逻辑过期加互斥重建（<a href="/cs/cache-stampede-hotkey">缓存雪崩与热键</a>）；入口队列上主动队列管理，早丢早拒绝而不是让请求排到超时（<a href="/cs/aqm-red-codel">AQM：RED 与 CoDel</a>）；读路径加对冲请求，扇出链路用<a href="/cs/tail-latency-hedging">尾延迟与对冲请求</a>与<a href="/cs/tail-at-scale">Tail at Scale</a>的分层对策。</p><p>第四步，收账回到 SLO。修复后分位写回错误预算（<a href="/cs/obs-slo-engineering">SLO 工程</a>），并与容量课的安全水位对表：砍尾如果吃掉了吞吐，水位要重新画。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>扇出为什么放大尾：一次请求等 \(N\) 个依赖，用户等待是各依赖延迟的 max——一百个依赖各自只有 1% 的概率超过 10 ms，整体至少一个超标的概率是 \(1-0.99^{100}\approx 63\%\)。稀有慢在扇出后变成常态慢，这是 Dean–Barroso 的原始论点，也是对冲请求存在的理由。变异为什么进排队账：Pollaczek–Khinchine 公式 \(W_q\approx\dfrac{\rho}{1-\rho}\cdot\dfrac{1+C_s^{2}}{2\mu}\) 里，等待随服务时间变异系数 \(C_s\) 线性涨——均值相同、变异翻倍的服务，在高利用率下排队等待同样翻倍；这就是「削平变异」（隔离、互斥重建、早拒绝）与「加机器」不等价、且常常更便宜的原因。对冲为什么要有预算：过载时所有请求都慢，对冲退化为同步双发，负载放大趋近两倍并正反馈——所以触发条件要延迟化，且能自动关闭。</p><p><span class="marginnote">本案例的 2.4 s 不是任何一跳的正常耗时：惊群那一跳 p99 是 300 ms，入口排队再乘一个过载因子。长尾案件里最常见的结论是「两个各不致命的来源在同一个瞬间相遇」——单变量排查在这里会漏案，要在同一时间轴上对齐多路证据。</span></p><div class="mermaid"></div><p>这张图回答的问题是：每个依赖都很快，为什么用户还是慢？扇出请求要等所有依赖返回，用户等待取的是 max 而不是平均。一百个依赖各自只有 1% 的概率超过 10 ms，几乎可以肯定其中有一个这次就是慢的——单点的「稀有慢」经过扇出被放大成用户的「经常慢」。对冲请求（同发多份、谁先回用谁）就是买断这种 max 风险的保险。</p><p><span class="marginnote">数字实例（变异进排队账）：两个服务均值都是 10 ms，一个变异系数 \(C_s=1\)（波动与均值相当），另一个 \(C_s=3\)（忽快忽慢）。排队公式里等待正比于 \(1+C_s^2\)：前者系数是 1，后者是 5——利用率 80% 时，前者排队约 8 ms，后者要等 40 ms。均值一点没变，体验翻了五倍。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不是所有分位都值得砍：第一课的 SLO 只承诺到 p99，p99.9 的尾可能属于另一本预算，为它付架构税要先立项。砍尾的手段各有代价——隔离降低利用率（与容量课的水位直接冲突）、对冲加负载、早拒绝牺牲吞吐——都要与错误预算对账后选型。跨地域的尾有光速下限，不是工程能砍掉的。本课不重讲<a href="/cs/tail-latency-hedging">尾延迟与对冲请求</a>的触发参数学与<a href="/cs/tail-at-scale">Tail at Scale</a>的微分区机制，只给把它们放进案件的顺序：先切分、再归因、后选机制。</p><p><span class="marginnote">常见误区：以为「尾慢就是机器不够多」。如果是 GC 停顿或缓存惊群造成的慢簇，加机器只是把同一个整点停顿摊到更多实例上，p99 该跳还跳——而且实例一多，扇出放大反而更凶。先归因到机制（变异与等待），再决定是削变异还是加容量。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>均值与尾不同源：尾由变异与等待决定，嫌疑人名单要先换再查。</li><li>三维切分（时间、特征、实例）让不可见的慢簇显形，聚合监控是帮凶。</li><li>off-CPU 与停顿日志是尾案件的常规证物；on-CPU 剖面查不出等待。</li><li>削平变异与加机器不等价：\(C_s\) 直接进排队公式，高利用率下更贵。</li><li>对冲与隔离都有账：负载放大与利用率损失要写进错误预算的对账单。</li><li>出处：Dean 与 Barroso，<em>The Tail at Scale</em>，CACM 2013；Gregg，<em>Systems Performance</em>，2nd ed., 2018；据本课四步追猎口径整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 性能工程案例<!--[--> · 单元 案例<!--]--><!----></p><p class="lesson-progress">第 6 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/pe3-cost-case/">性能与成本的联合优化案例</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/pe3-capacity-case/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">容量规划案例</span><span class="lesson-card-meta">性能工程案例 · 案例<!--[--> · 第 5 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/pe3-cost-case/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">性能与成本的联合优化案例</span><span class="lesson-card-meta">性能工程案例 · 案例<!--[--> · 第 7 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

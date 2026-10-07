@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>最小割的建模 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_min-cut-applications.md.DoHZl1s4.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 图、代数与近似算法<!--[--> · 单元 图进阶<!--]--><!--[--> · 课序 连通、树与匹配<!--]--></p><p class="lesson-progress">第 12 / 96 课</p><p class="lesson-prereq"> 先修：<a href="/cs/min-cost-flow/">最小费用最大流</a></p><p class="lesson-next"> 下一课：<a href="/cs/hopcroft-karp/">Hopcroft–Karp</a></p><!----></nav><div style="position:relative;"><div><h1 id="最小割的建模" tabindex="-1">最小割的建模 <a class="header-anchor" href="#最小割的建模" aria-label="Permalink to &quot;最小割的建模&quot;">​</a></h1><div class="epigraph"><p>把「选或不选」写成 $s$ 侧与 $t$ 侧；项之间的代价写成跨边容量，最小割给出最优划分。</p><footer>—— 据 Ford and Fulkerson, 1956；项目选择见 Picard, Maximal Closure of a Graph, 1976；CLRS 第 26 章整理</footer></div><p>上一课<a href="/cs/min-cost-flow">最小费用最大流</a>给了带费用的流。许多组合划分其实<strong>不需要费用</strong>，只要 \(s\)–\(t\) 最小割。主干已证最大流 \(=\) 最小割。本课不重证。缺口是<strong>怎么建图</strong>：项目选择、图的闭包、二元势函数的子模特例。后课回到匹配的组合算法。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>顶点要分到 \(S\ni s\) 或 \(T\ni t\)。跨割边容量之和是代价。建模：想惩罚「\(u\) 在 \(S\)、\(v\) 在 \(T\)」就加边 \(u\to v\) 容量 \(=\) 惩罚。想强制「\(u\) 在 \(S\) 则 \(v\) 在 \(S\)」则加无穷容量 \(u\to v\)。项目选择：项目有利润（可负），有依赖「做 \(A\) 必须做 \(B\)」。把正利润从 \(s\) 连入、负利润（成本）连到 \(t\)，依赖无穷边，最小割对应最大闭包。</p><p><span class="marginnote">「最小割」可以想象成：把所有顶点分成 \(s\) 圈与 \(t\) 圈两堆，每条被拆散的边按容量收「拆散费」，总费用最低的分法就是最小割。它之所以好算，是因为最大流最小割定理保证这份最低费用恰好等于从 \(s\) 能推到 \(t\) 的最大流量，而最大流有多项式算法。</span></p><p>以两个项目的具体连边为例，看依赖与正负利润如何各就各位：</p><div class="mermaid"></div><p><span class="marginnote">数字实例：\(A\) 利润 \(+60\) 成本 \(50\)，\(B\) 利润 \(+30\) 成本 \(20\)，做 \(A\) 必先做 \(B\)。两个都做：\(A,B\) 留在 \(s\) 侧，割掉两条成本边共 \(70\)，净赚 \(90-70=20\)；都不做：割掉两条利润边共 \(90\)，净赚 \(0\)。依赖边无穷使 \(A,B\) 必须同侧，最小割自动比出「都做」更划算。</span></p><p>缺口是这些边的含义，不是 Dinic 实现。</p><h3 id="不是任意-0-1-规划" tabindex="-1">不是任意 0-1 规划 <a class="header-anchor" href="#不是任意-0-1-规划" aria-label="Permalink to &quot;不是任意 0-1 规划&quot;">​</a></h3><p>一般二次伪布尔优化 NP-hard。可表示成无向图割的，是子模（或正则）的那一类。无穷容量表示硬约束，数值太大要小心与真无穷的区别。不要把 TSP 的圈约束写成一张最小割就多项式——那会回到 NPC。</p><p><span class="marginnote">Picard 1976 最大闭包。图像二值分割的图割（Boykov 等）是同一语言，本课点名应用不进视觉课。后课 Hopcroft–Karp 是二分匹配的速度，不是割。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先写清每个顶点属于 \(s\) 侧还是 \(t\) 侧的语义。列出硬约束（无穷边）与软代价（有限容量）。跑最大流，读残量 \(s\) 可达集。检查无穷边未被割。</p><p><span class="marginnote">跑完最大流后不必逐点记录归属：从 \(s\) 出发只沿还有剩余容量的边走，能走到的顶点就是 \(s\) 侧，其余全归 \(t\) 侧。这套「残量可达集」就是把一次最大流还原成具体划分方案的标准做法。</span></p><div class="mermaid"></div><p>多源多汇仍用超级源汇。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>割的容量把「跨界」的惩罚加起来；最大流最小割保证这是最小惩罚。依赖边无穷则最优割不会切开它，否则容量无穷。与费用流：若目标是运输量而非划分，用上一课；若目标是划分代价，用本课。</p><p><span class="marginnote">初学者容易以为「无穷边不会被割」是某种特殊规则，其实只是算术：割的代价是所有跨割边容量之和，含一条无穷边的划分代价就是无穷，永远进不了「最小」的候选。硬约束与软代价由此统一成同一套加法。</span></p><p>不要用最小生成树的割（切分定理那条最轻边）代替 \(s\)–\(t\) 容量割。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写多重标签图割（α-expansion）全文。不把线性规划对偶展开——那是单纯形单元。后课默认：能写成 \(s\)–\(t\) 割的 0-1 划分可最大流求解。下一课二分图最大匹配的 \(O(E\sqrt V)\)。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>划分代价 = 跨边容量；硬约束用无穷。</li><li>项目选择 / 最大闭包是标准模板。</li><li>一般伪布尔优化不能都化成一张割。</li><li>出处：Ford and Fulkerson, 1956；Picard, 1976。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 图、代数与近似算法<!--[--> · 单元 图进阶<!--]--><!--[--> · 课序 连通、树与匹配<!--]--></p><p class="lesson-progress">第 12 / 96 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/hopcroft-karp/">Hopcroft–Karp</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/min-cost-flow/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">最小费用最大流</span><span class="lesson-card-meta">图、代数与近似算法 · 图进阶 · 连通、树与匹配<!--[--> · 第 11 / 96 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/hopcroft-karp/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">Hopcroft–Karp</span><span class="lesson-card-meta">图、代数与近似算法 · 图进阶 · 连通、树与匹配<!--[--> · 第 13 / 96 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

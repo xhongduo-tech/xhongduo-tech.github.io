@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>回到后训练：RLHF/GRPO/RLVR 的位置 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rl-foundations-map.md.CWpFzCyt.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 强化学习基础<!--[--> · 单元 bandit、离线与后训练<!--]--><!--[--> · 课序 最小案例与收束<!--]--></p><p class="lesson-progress">第 22 / 22 课</p><p class="lesson-prereq"> 先修：<a href="/llm/reward-overoptimization-theory/">奖励过优化的理论视角</a></p><p class="lesson-next"> 下一课：<a href="/llm/rm-ensembles/">RM 集成与不确定性</a></p><!----></nav><div style="position:relative;"><div><h1 id="回到后训练-rlhf-grpo-rlvr-的位置" tabindex="-1">回到后训练：RLHF/GRPO/RLVR 的位置 <a class="header-anchor" href="#回到后训练-rlhf-grpo-rlvr-的位置" aria-label="Permalink to &quot;回到后训练：RLHF/GRPO/RLVR 的位置&quot;">​</a></h1><div class="epigraph"><p>理论保证是一本账：每条后训练路线都从账上划掉一项，换来一个跑得动的算法。</p><footer>—— 据 Schulman 等 2017、Shao 等 2024、Lambert 等 2024 的方法形态整理</footer></div><p><a href="/llm/reward-overoptimization-theory">上一课</a>给奖励过优化立了理论骨架：残差、压力、支撑距离三个可监控量。本课程从 <a href="/llm/mdp-five-tuple">MDP 五元组</a>出发，经无模型学习与信任域，到 bandit、离线与过优化，至此收束。本课做收束该做的事：把 RLHF/GRPO/RLVR/自博弈逐一放回本课程的概念坐标，写明每条路线留用什么、牺牲了哪个理论保证。<strong>后课默认已读完本课程</strong>；下一课程「奖励、自博弈与推理行为」从奖励模型进阶开卷（<a href="/llm/rm-ensembles">RM 集成与不确定性</a>），把被本课程当成真值的那个标量奖励拆开。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>课程是一部「保证的修复史」：<a href="/llm/policy-gradient-theorem">策略梯度定理</a>给无偏方向；REINFORCE 方差太大，<a href="/llm/baselines-advantage">基线与优势</a>不改期望只降方差；自举换方差（<a href="/llm/actor-critic-bootstrap">actor-critic 与自举</a>）引入致命三要素的一角；<a href="/llm/trust-region-monotone">信任域与单调改进</a>给出 KL 球内的单调改进，<a href="/llm/ppo-clip-view">PPO 的信任域重读</a>把它软化成可跑的 clip。缺口是这些零件在真实后训练里如何被取舍：每条知名路线各留哪个保证、扔哪个，扔掉之后用什么东西垫底。</p><p><span class="marginnote">把「理论保证」想成保险单：RLHF 保得全但保费贵（二阶优化、KL 球）；GRPO 退掉 critic 那份险，用同提示互相比较垫底；自博弈干脆换了一种险种。每退一份险，都要说清出事时谁兜底——本课就是这张保单对照表。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>四条映射，逐条过账。<strong><a href="/llm/rlhf-pipeline">RLHF 流程</a></strong>：离线偏好数据训 <a href="/llm/reward-model">奖励模型</a>，这是<a href="/llm/offline-rl-shift">离线 RL 与分布偏移</a>的支撑问题；PPO 或 GRPO 更新，用信任域与基线；KL 正则当压力旋钮，按<a href="/llm/reward-overoptimization-theory">奖励过优化的理论视角</a>定价。牺牲的保证：KL 球内的改进只是近似单调（clip 是软约束），且代理间隙被优化压力放大。<strong><a href="/llm/grpo">GRPO</a></strong>：REINFORCE（<a href="/llm/reinforce-variance">REINFORCE 与方差</a>）加组内基线——同提示一组奖励减均值，正是不改期望的 \(b(x)\)。牺牲：critic，逐 token 自举的那半方差减缩（GAE 一翼）没了，优势只到序列与组级。<strong><a href="/llm/rlvr">RLVR</a></strong>：验证器当奖励，稀疏常数标量。牺牲：覆盖面（只在可验证域），且验证器自己成为新代理，间隙换宿主；稀疏奖励又把方差推回蒙特卡洛端（<a href="/llm/monte-carlo-evaluation">蒙特卡洛策略评估</a>）。<strong><a href="/llm/self-play-lm">自博弈</a></strong>：对手取自旧版本策略，胜负当奖励，绕开 RM。牺牲：MDP 固定假设——环境随策略变，非平稳之下单调改进的前提（固定 \(\mathcal{M}\)）不成立。</p><p><span class="marginnote">「不改期望只降方差」的直觉版：同一提示采 8 个回答，它们共同面临的「提示本身难」的成分在相减时抵消，剩下的才是「这个回答比同伴好多少」。减均值不改变好坏排序，只把衡量基准从绝对分换成组内相对分。</span></p><p><span class="marginnote">GRPO 的组基线只在同提示内可比时成立：\(b(x)\) 里的 \(x\) 必须是同一情境；把不同提示的奖励混进一个均值，基线就依赖动作，「不改期望」的证明失效。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>把四条路线放进一个坐标系，账目就清楚。不变的核心只有一件：带基线的策略梯度，配一个软化的信任域——没有任何主流路线放弃这两个。可替换的坐标有三个：奖励来源（人类偏好、RM、验证器、胜负），基线形态（critic、组统计、无），数据分布（同策略 rollout、离线比较对、自产自消）。「某条路线牺牲了哪个保证」就翻译成「它在三个坐标上选了哪个点」：换奖励来源是重新分配代理间隙（RLHF 承担 RM 的，RLVR 承担验证器的，自博弈希望胜负无间隙但要求可检验）；换基线是重排偏差方差（critic 拿自举的偏差换方差，GRPO 拒绝这笔交易）；换数据分布是重付离线与在线的价（RLHF 的偏好数据带支撑问题，同策略 rollout 付算力）。</p><p>选型时「在三个坐标上选点」意味着什么：</p><div class="mermaid"></div><p><a href="/llm/contextual-bandits">上下文 bandit</a> 在坐标系里也有位置：单轮偏好与序列级奖励把生成当一拍动作，是有意选了 bandit 近似、把方差当账单。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>地图的失效方式。GRPO 不是 REINFORCE 原教旨：裁剪与 KL 正则通常都在，软信任域没有丢。RLVR 的奖励可以被过程奖励稠密化，不是天然稀疏。自博弈在语言里常退化成对旧版本的偏好优化，靠近离线一端，棋类的纯净胜负并不多得。所以这张图是记忆架与选型表，不是分类学：路线之间的迁移（给 GRPO 加过程奖励、给 RLVR 换基线）在坐标系上就是移动一个点。</p><p><span class="marginnote">初学者容易把这张图读成「哪条路线最强」的排行榜；它是选型表。问法应该是：我有没有可验证的奖励？显存养不养得起 critic？数据能不能在线采？——三个答案不同，最优点就落在不同坐标上。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>共同内核：带基线的策略梯度加软信任域；RLHF/GRPO/RLVR/自博弈都在三个坐标（奖励来源、基线、数据分布）上选点。</li><li>RLHF 牺牲近似单调性与代理间隙的可控性；GRPO 牺牲 critic 与逐 token 自举；RLVR 牺牲覆盖面并把间隙交给验证器；自博弈牺牲平稳性与收敛保证。</li><li>bandit、离线、过优化三课是坐标系的三根轴：一拍近似、支撑约束、压力定价。</li><li>本课程收束：后课默认已读完本课程；下一课程从<a href="/llm/rm-ensembles">奖励模型进阶</a>开卷，拆解被当成真值的标量奖励。</li><li>出处：Schulman 等 2017（PPO）；Shao 等 2024（GRPO）；Lambert 等 2024（RLVR）；Silver 等（自博弈），据各方法原文形态整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 强化学习基础<!--[--> · 单元 bandit、离线与后训练<!--]--><!--[--> · 课序 最小案例与收束<!--]--></p><p class="lesson-progress">第 22 / 22 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rm-ensembles/">RM 集成与不确定性</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/reward-overoptimization-theory/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">奖励过优化的理论视角</span><span class="lesson-card-meta">强化学习基础 · bandit、离线与后训练 · 最小案例与收束<!--[--> · 第 21 / 22 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/rm-ensembles/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">RM 集成与不确定性</span><span class="lesson-card-meta">奖励、自博弈与推理行为 · 奖励模型进阶 · 奖励从哪来<!--[--> · 第 1 / 49 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

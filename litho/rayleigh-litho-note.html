@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>瑞利判据笔记（Mack） | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_rayleigh-litho-note.md.WB9ZWhW_.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与机台对照<!--[--> · 单元 讲义与产品<!--]--><!--[--> · 课序 对照<!--]--></p><p class="lesson-progress">第 1 / 8 课</p><p class="lesson-prereq">本课为该课程第一课，后课默认已经读完这里。</p><p class="lesson-next"> 下一课：<a href="/litho/asml-euv-high-na/">ASML EUV / High-NA 产品线</a></p><!----></nav><div style="position:relative;"><div><h1 id="瑞利判据笔记-mack" tabindex="-1">瑞利判据笔记（Mack） <a class="header-anchor" href="#瑞利判据笔记-mack" aria-label="Permalink to &quot;瑞利判据笔记（Mack）&quot;">​</a></h1><div class="epigraph"><p>光学教材里的瑞利两针孔，给出的是「刚能分开两个艾里斑」；产线要的是在剂量、焦距与胶对比都合格时能稳定印出的线宽。Mack 把后者写成带 k₁ 的工程式，并用图像对数斜率去谈工艺窗，而不是只报一个分辨距。</p><footer>—— Rayleigh 1879 的两源分辨讨论；Chris A. Mack, Fundamental Principles of Optical Lithography, Wiley, 2007</footer></div><p>本篇是光刻栏附录链的第一篇，主干课程到此收束。主干里的<a href="/litho/rayleigh-litho">瑞利判据：CD = k₁ λ / NA</a>已经钉过产线公式、三个旋钮与单次曝光的 \(k_1\) 地板；<a href="/litho/nils-ils">NILS 与 ILS</a>已经把对数斜率的定义与读法写完。附录不重抄这两课，只做文献对照，补三件主干没有的事：0.61 判据的来路、Mack 书里从 NILS 走到窗口的推导线索、以及原书的章节脉络。附录链下一站是 <a href="/litho/asml-euv-high-na">ASML EUV / High-NA 产品线</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>0.61 不是从光刻里长出来的，把它当 \(k_1\) 的下限是文献史上的张冠李戴。这条线值得按年代读一遍。</p><div class="mermaid"></div><p>Airy（1835）算出圆孔衍射斑的第一零点在 \(1.22\,\lambda/D\)，对物方半角即 \(0.61\,\lambda/\mathrm{NA}\)。这只是几何，还不是判据。Abbe（1873）把显微镜成像写成衍射级的收集：相干照明的周期物，半节距极限是 \(\lambda/(2\mathrm{NA})\)，口语常作 \(0.5\lambda/\mathrm{NA}\)；数值孔径作为镜头设计量在这里登场。Rayleigh（1879，<em>Philosophical Magazine</em>，副题即「面向光谱仪」）提出两点判据：两个非相干点像，一个的中央极大落在另一个的第一极小上，合成剖面刚好有一个可辨的凹陷——\(0.61\lambda/\mathrm{NA}\) 由此成为「刚能分开」的代称。Sparrow（1916）改用拐点并合来定分辨：两像剖面刚不出现下凹的位置。那已经是「边还陡不陡」的思路，与半世纪后 NILS 的取向遥遥相望。</p><p>半导体产业接手的不是这条判据，而是另一条惯例：1980–90 年代的产线语言与教材（Levinson 一脉）把工程打包系数写成 \(k_1\)，路线图用 \(k_1\) 报进度。0.61 与 \(k_1\) 只共享一个字母——前者是 Airy 斑第一零点的几何常数，后者是照明、掩模、胶与计算光刻的打包。</p><p><span class="marginnote">直觉类比：0.61 回答的是「两颗星刚能看成两颗」（视力表），\(k_1\) 回答的是「这条线在产量与良率约束下印不印得出来」（工厂验收标准）。视力表再准，也代替不了产线的合格线——两把尺量程与接收器都不同。</span></p><h3 id="判据的接收器不同" tabindex="-1">判据的接收器不同 <a class="header-anchor" href="#判据的接收器不同" aria-label="Permalink to &quot;判据的接收器不同&quot;">​</a></h3><p>光谱学的接收器是眼睛或探测器，问「两根线分不分开」；晶圆厂的接收器是胶加显影，问「线宽在不在公差里，离焦偏剂量后还在不在」。判据史读清楚，就知道两边的数不可互换：把 0.61 写进晶圆厂，等于拿光谱仪的验收单去收线宽的货。</p><p><span class="marginnote">Rayleigh 的 1879 原文动机是光谱双线的分辨，判据对象是点像；阿贝路线处理的是相干周期物。两条线在教科书里常被捏成一句「分辨极限」，各自的适用面并不同。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Mack 书里从 NILS 定义走到工艺窗，中间有小信号的一步，主干<a href="/litho/exposure-latitude">曝光宽容度</a>与<a href="/litho/ed-process-window">曝光–散焦工艺窗口</a>两课给出完整窗口账；这里只留推导线索。</p><p>阈值条件是 \(I(x_e)\,E=I_\mathrm{th}\)：剂量 \(E\) 变 \(1+\epsilon\)，等效于空中像整体乘同一因子，边从 \(x_e\) 挪到 \(x_e+\Delta x_e\)。两边取对数微分：</p> \[\frac{d\ln I}{dx}\Big|_{x_e}\Delta x_e=-\Delta\ln E \quad\Longrightarrow\quad \Delta x_e=-\frac{w}{\mathrm{NILS}}\,\Delta\ln E, \]<p>其中 \(w\) 是目标线宽（NILS 的归一化宽度，定义见 <a href="/litho/nils-ils">NILS 与 ILS</a>）。倒过来读，就是曝光宽容度的小信号估计：</p> \[|\Delta\ln E|\approx \mathrm{NILS}\cdot\frac{|\Delta x_e|}{w}. \]<p>数量级一眼可读：NILS \(=3\)、\(w=40\,\mathrm{nm}\)、允许 \(\pm 2\,\mathrm{nm}\)，单边剂量窗约 \(1.7\%\)。书里就用这条小信号式把空中像的几何接到 E–D 窗的记账；孔、线端与不对称照明各自换 \(w\) 与最险的那条边。</p><p><span class="marginnote">再代一组数感受 NILS 的杠杆：\(w=20\,\mathrm{nm}\)、NILS \(=4\)、允许 \(\pm 1.5\,\mathrm{nm}\)，单边剂量窗 \(\approx 1.5/20/4 \approx 1.9\%\)。同样的线宽公差，NILS 每翻一倍，剂量窗也跟着翻倍——这就是全栏把 NILS 当硬通货的原因。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Mack 原书（<em>Fundamental Principles of Optical Lithography</em>, 2007）的章节行进，按主题可以收成一条四段的前向链，这也是本栏主干课程排布的对照系：</p><ul><li><strong>成像</strong>：先把空中像写成部分相干强度计算——Hopkins 核与源点叠加，评价对象是 \(I(x,y)\) 本身（Hopkins 原文的对照见附录 <a href="/litho/hopkins-1953-paper">Hopkins 部分相干成像</a>）。</li><li><strong>评价</strong>：把「分辨率」从单一分辨距换到边缘陡度——ILS、NILS、对比度，再装进 E–D 窗与聚焦–剂量预算。NILS 在这一段首次成为接口符号。</li><li><strong>记录</strong>：进胶——光化学反应、驻波与摆动曲线、PEB 与扩散，把光学 NILS 折算成潜像对比。</li><li><strong>控制</strong>：把窗口接回产线——套刻、产能、良率与工艺控制，判据从这里交还工程。</li></ul><p>读原书的要点是：<strong>NILS 是贯穿接口，不是某一节的孤立定义</strong>。成像部分引入它，窗口部分反复调用它，记录部分把它折给化学，控制部分拿它当工艺的验收量。抓住这条接口，四段就不是四个孤立专题；对照阅读时，<a href="/litho/goodman-fourier-optics">Goodman 傅里叶光学</a>给频域工具，<a href="/litho/levinson-litho-book">Levinson 光刻原理</a>给产线工程语境，Mack 居中做成像到窗口的桥。</p><div class="mermaid"></div><p><span class="marginnote">术语翻译：NILS（归一化图像对数斜率）就是给「空中像的边有多陡」打的归一化分数——边越陡，同样的线宽公差能换来越大的剂量窗。Mack 书里它是成像、评价、记录、控制四段共用的接口，所以抓 NILS 一条线就能把全书串起来。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本篇是文献对照，不替代主干的推导。引书按主题回溯，不逐字抄目录编号与页码，防止把转述写成原文。0.61 属于两点非相干判据，Sparrow 判据也不是产线标准，两者都不该出现在工艺规格里。小信号式只在阈值附近线性区可用：NILS 本身随离焦与剂量变，扫到窗口边沿要回到 E–D 的完整账。不给未公开的某代机台 \(k_1\) 内部表——那条规矩主干已立，附录只守不重申。</p><p><span class="marginnote">出处：G. B. Airy, 1835；E. Abbe, 1873；Lord Rayleigh, <em>Phil. Mag.</em> 1879；C. M. Sparrow, 1916；C. A. Mack, <em>Fundamental Principles of Optical Lithography</em>, Wiley, 2007。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>0.61 的文献链：Airy 1835 几何 → Abbe 1873 相干半节距 → Rayleigh 1879 两点判据 → Sparrow 1916 拐点判据；半导体 \(k_1\) 是 1980–90 年代另一条产线惯例，与 0.61 不可互换。</li><li>NILS 推导线索：阈值边条件对剂量取对数微分，\(\Delta x_e=(w/\mathrm{NILS})\,\Delta\ln E\)；曝光宽容度与 NILS 同向，完整窗口账在主干 E–D 课。</li><li>Mack 原书按「成像 → 评价 → 记录 → 控制」行进，NILS 是贯穿四段的接口符号。</li><li>出处：Airy；Abbe；Rayleigh；Sparrow；Mack 2007。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与机台对照<!--[--> · 单元 讲义与产品<!--]--><!--[--> · 课序 对照<!--]--></p><p class="lesson-progress">第 1 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/asml-euv-high-na/">ASML EUV / High-NA 产品线</a></p><div class="lesson-cards"><!----><a class="lesson-card lesson-card--next" href="/litho/asml-euv-high-na/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">ASML EUV / High-NA 产品线</span><span class="lesson-card-meta">文献与机台对照 · 讲义与产品 · 对照<!--[--> · 第 2 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

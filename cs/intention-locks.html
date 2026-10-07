@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>意向锁与粒度 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_intention-locks.md.Dcquzi6F.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 优化、事务与分析型系统<!--[--> · 单元 事务进阶<!--]--><!--[--> · 课序 并发控制续<!--]--></p><p class="lesson-progress">第 66 / 112 课</p><p class="lesson-prereq"> 先修：<a href="/cs/ssi/">SSI</a></p><p class="lesson-next"> 下一课：<a href="/cs/gap-locks-predicate/">间隙锁与谓词锁</a></p><!----></nav><div style="position:relative;"><div><h1 id="意向锁与粒度" tabindex="-1">意向锁与粒度 <a class="header-anchor" href="#意向锁与粒度" aria-label="Permalink to &quot;意向锁与粒度&quot;">​</a></h1><div class="epigraph"><p>要锁一行，先在表上挂意向：别人想锁整表时能看见冲突，而不必枚举所有行锁。</p><footer>—— 据 Gray, Lorie, Putzolu and Traiger 多粒度锁，1975；Gray and Reuter；Ramakrishnan and Gehrke</footer></div><p><a href="/cs/ssi">上一课</a>在行版本上追踪冲突。本课回到悲观锁的<strong>粒度</strong>：行、页、表。主干 2PL 常默实行锁。缺口是多粒度：若只行锁，全表扫描的互斥要百万把锁；若只表锁，并发为零。意向锁（IS/IX）在祖先上做标记。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>层次：数据库–表–页–行。事务要 X 锁行：先 IX 表、IX 页，再 X 行。另一事务要 X 表：与 IX 冲突，等待，不必看每一行。缺口是<strong>相容矩阵</strong>：IS 与 IX 相容，X 与一切意向在同对象上冲突等。锁升级：行锁太多则升表锁，减少内存，增加冲突。</p><p><span class="marginnote">术语翻译：IS＝「我打算在下面加共享锁」，IX＝「我打算在下面加排他锁」。它们自己不锁任何数据，只是挂在祖先（表、页）上的告示牌，让粗粒度请求不必枚举全部细粒度锁。</span></p><p>与 latch：latch 仍短、在页结构上；意向锁是事务锁，可持有到提交（严格 2PL）。</p><p><span class="marginnote">Gray et al. IBM 多粒度。SQL Server、DB2、InnoDB 都有表/行意向。Postgres 行锁+表级 ACCESS SHARE 等是另一套名字，机制同族。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>加锁自上而下，释放自下而上（或提交一次性），避免死锁协议破环。查询计划决定粒度：全表更新应直接表锁，不要先锁每一行再升级。优化器与锁：顺序扫描仍可能行锁，HOT 更新同页。</p><p>覆盖：意向不替代行上的 X；它是祖先上的警告灯。</p><p><span class="marginnote">直觉类比：意向锁像楼层门口的「楼内有人」指示灯——你想给整层断电（表锁），不必挨个房间查看，瞄一眼门口的灯就知道里面有没有人；每个进房间的人（行锁）进门时先按下这盏灯。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>死锁：两事务对表与行反序仍可环，wait-for 下一课。SSI 的 SIREAD 也是一种范围意向。分区表：锁可停在分区级。</p><p>授予判定怎么做到「不枚举行锁」：只看同对象上的已有标记。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：一张 100 万行的表，没有意向锁时，互斥地全表更新得逐行比对 100 万把锁；有了表级 IX 标记，查一次表就够。反过来若总是用表锁，100 个各读一行的事务也只能完全排队——两端都不划算。</span></p><p>内存：锁表项数是容量。升级阈值是调参。计划回归：突然表锁把并发打穿，像优化器选了全表更新路径。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲 next-key。也不把文件锁当意向。分布式锁粒度更粗，后课。</p><p>后课默认：行锁路径必先意向祖先。间隙锁与谓词锁：防幻象的范围，不只点行。</p><p>没有意向，表级互斥只能靠「锁所有行」或「总是表锁」两端。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>多粒度用 IS/IX 标记祖先，使表锁与行锁可检测冲突。</li><li>加锁自上而下；升级是容量阀门。</li><li>间隙锁与谓词锁下一课。</li><li>出处：Gray et al. 1975；Gray and Reuter；Ramakrishnan and Gehrke。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 优化、事务与分析型系统<!--[--> · 单元 事务进阶<!--]--><!--[--> · 课序 并发控制续<!--]--></p><p class="lesson-progress">第 66 / 112 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/gap-locks-predicate/">间隙锁与谓词锁</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/ssi/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">SSI</span><span class="lesson-card-meta">优化、事务与分析型系统 · 事务进阶 · 并发控制续<!--[--> · 第 65 / 112 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/gap-locks-predicate/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">间隙锁与谓词锁</span><span class="lesson-card-meta">优化、事务与分析型系统 · 事务进阶 · 并发控制续<!--[--> · 第 67 / 112 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>博弈论基础的 RL 映射 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_sgt-game-rl-map.md.DKJs20wR.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 自博弈与博弈论深化<!--[--> · 单元 理论映射<!--]--><!----></p><p class="lesson-progress">第 1 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/llm/continual-map/">持续学习收束</a></p><p class="lesson-next"> 下一课：<a href="/llm/sgt-nash-convergence/">纳什均衡与自我对弈的收敛</a></p><!----></nav><div style="position:relative;"><div><h1 id="博弈论基础的-rl-映射" tabindex="-1">博弈论基础的 RL 映射 <a class="header-anchor" href="#博弈论基础的-rl-映射" aria-label="Permalink to &quot;博弈论基础的 RL 映射&quot;">​</a></h1><div class="epigraph"><p>两个人以上、利益不完全一致的环境里，最优动作取决于别人会怎么做；RL 把对手写进转移函数，博弈论把转移函数里那个「别人」也写成正在学习的人。</p><footer>—— 据 Shapley, Stochastic Games, 1953；Littman, Markov games as a framework for multi-agent RL, 1994 整理</footer></div><p><a href="/llm/continual-map">上一课</a>把「在线与持续学习」收束成一张图：遗忘、回放、LoRA 生命周期、漂移与评测在那门课里各自成课，末课只留地图。本课开启「自博弈与博弈论深化」。主干课已经写过<a href="/llm/self-play-lm">自博弈</a>的做法面——两个模型互为对手互相提升；本课程要补的是它脚下的理论面：自博弈在什么条件下成立、什么时候循环不收敛、语言模型把哪些假设弄松了。本课先把博弈论的基本对象一一映射到 RL 词汇上，后课的均衡、FSP、PSRO 都默认这张映射表已在手。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>单智能体 RL 的收敛故事依赖一个隐藏假设：环境不动。转移函数 \(p(s&#39;\mid s,a)\) 与奖励 \(r(s,a)\) 由物理或仿真器固定，策略改善只会让回报单调变好。自博弈打破这个假设：你的对手是另一个策略，而且它也在被同一个损失更新。于是环境变成「别人眼中的你」的函数——昨天最优的招，今天对手已经会拆。缺口不是重新学一遍 RL，而是换一套记账单位：从「回报」换到「对手条件下的回报」。</p><p>博弈论恰好是为这种记账发明的。规范式博弈给每个参与者一个策略集 \(\Delta(A_i)\) 与效用 \(u_i\)；随机博弈把一串阶段博弈用状态 \(s\) 串起来——这正是 MDP 的多人版。Littman 1994 把 Markov games 引进 RL 时给的判断至今成立：只要环境里有别的学习者，价值函数就必须对「对方策略」条件化，否则估值本身在漂。</p><p><span class="marginnote">「记账单位换成对手条件下的回报」翻译成大白话：成绩单换了科目。以前你这一手得多少分只看环境；现在同一招对新手满分类、对高手可能零分——打分前必须先写上「对面是谁」，否则分数本身没有意义。</span></p><h3 id="映射表" tabindex="-1">映射表 <a class="header-anchor" href="#映射表" aria-label="Permalink to &quot;映射表&quot;">​</a></h3><p>对象对齐是本课的全部产出：MDP 对应单人随机博弈；策略 \(\pi(a\mid s)\) 对应混合策略，即动作分布上的分布；回报对应效用 \(u_i\)；on-policy 采样对应「按当前策略联合行动」；环境平稳性对应「对手策略固定」。零和两人博弈里 \(u_1=-u_2\)，minimax 有一条成熟理论；一般和博弈——辩论、协商、多模型竞争用户——没有这个免费午餐，这是后课反复回头的前提。</p><p><span class="marginnote">von Neumann 1928 的 minimax 定理已经保证零和两人规范式博弈存在均衡：每个可解出值的博弈里「攻守同价」。RL 映射不是发明新对象，而是把 1928 年以来的记账接上梯度下降。</span></p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>本课的方法是<strong>对象映射表</strong>：把博弈论词汇逐项对齐到 RL——随机博弈对多人版 MDP、混合策略对动作分布上的分布、效用对回报——对齐的判据只有一条：环境里出现别的学习者时，记账单位必须换成对手条件下的回报。方法上刻意不做两件事：不引入收敛结论（那是后课的命题），不改更新器（PPO、GRPO 原样可用，变的只是采样对手那份 roll-out 由谁出）。本课交付的是词汇表与三处不许越界的边界。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>映射之后，训练动力学的性质整体改变。单智能体里，策略梯度沿着回报曲面上升，停滞点就是局部最优；自博弈里回报曲面本身随策略移动，「梯度在动过的地形上追最高点」，停滞点可以是纳什均衡，也可以是无人满意的循环。所以自博弈的工程问题从来不是「怎么加梯度」，而是「怎么选对手」——对手分布就是你的环境设计，这是<a href="/llm/player-selection-bias">自博弈的对手选择</a>在主干里立过的事实，本课程后几课给它配理论。</p><p>这张图回答的问题是：单智能体与自博弈的训练动力学差在哪、工程杠杆因此挪到了哪里。</p><div class="mermaid"></div><p>第二处机制差异在信用分配：对手的失误算你的功劳还是运气？零和博弈可以用可利用度（exploitability）——被最优对手打穿的程度——做绝对标尺；一般和与语言任务里没有可算的标尺，只能靠评测集，而评测集也会被博弈，这个坑留给收束课。PPO、GRPO 这些更新器<a href="/llm/ppo-llm">原样可用</a>，变的只是采样对手那份 roll-out 由谁出。</p><p><span class="marginnote">数字实例：零和博弈里若算出可利用度 0.5，意思是来了一个理论上最优的对手，平均每局能比你多赢 0.5 分；把它压到 0.01，才说明几乎没人能打穿你。它像「被职业选手虐的程度」，数值越低策略越接近无懈可击。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>映射有三处不许越界。其一，博弈论的均衡概念是对「无限理性、无限样本」的极限描述，不承诺有限算力的学习过程到达它；其二，随机博弈仍假设状态可观测、转移可采样，语言博弈的「状态」是对话历史加双方不可见的意图，采样靠生成；其三，本课只对齐词汇，不引入任何收敛结论——「自博弈趋于均衡」是下一课要专门拆解的命题，这里不给保证。</p><p><span class="marginnote">常见误区：以为「存在纳什均衡」等于「训练会自动走到它」。均衡是无限理性、无限样本下的极限描述，好比「两点之间直线最短」并不保证你走路真能走直线——有限算力的学习过程可能永远在路上，甚至绕圈。</span></p><p>后课默认你已经把「对手是环境的一部分，而且是会变的那部分」当成第一性事实：谈均衡、对手池、辩论与协商时，都在回答同一个问题——这条会变的环境，怎么走才不会白学。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>自博弈把 RL 的固定环境假设换成「对手也是学习者」，记账单位必须换成对手条件下的回报。</li><li>映射表：混合策略对策略分布、随机博弈对 MDP 的多人版、效用对回报；零和有 minimax 理论，一般和没有。</li><li>自博弈的核心工程量在对手分布的选取，不在策略梯度本身。</li><li>均衡是极限概念，本课不给任何「自博弈会到均衡」的承诺。</li><li>出处：Shapley 1953（随机博弈）；Littman 1994（Markov games 与 RL）；von Neumann 1928（minimax 定理）。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 自博弈与博弈论深化<!--[--> · 单元 理论映射<!--]--><!----></p><p class="lesson-progress">第 1 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/sgt-nash-convergence/">纳什均衡与自我对弈的收敛</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/continual-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">持续学习收束</span><span class="lesson-card-meta">在线与持续学习 · 生产化<!--[--> · 第 12 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/sgt-nash-convergence/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">纳什均衡与自我对弈的收敛</span><span class="lesson-card-meta">自博弈与博弈论深化 · 理论映射<!--[--> · 第 2 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>盈余漂移的事件化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_ed-pead-eventization.md.DBoyNNuj.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 事件驱动策略<!--[--> · 单元 策略与风控<!--]--><!----></p><p class="lesson-progress">第 6 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/ed-regulatory-event/">监管与制度事件</a></p><p class="lesson-next"> 下一课：<a href="/quant/ed-eventstudy-micro-app/">事件研究的微观应用</a></p><!----></nav><div style="position:relative;"><div><h1 id="盈余漂移的事件化" tabindex="-1">盈余漂移的事件化 <a class="header-anchor" href="#盈余漂移的事件化" aria-label="Permalink to &quot;盈余漂移的事件化&quot;">​</a></h1><div class="epigraph"><p>漂移不在日历时间里均匀发生，而是在下一次公告附近再集中一截；按月度因子持有它，等于在信息最密的地方睡大觉。</p><footer>—— 据 Bernard and Thomas, Journal of Accounting Research, 1990；Frazzini and Lamont, NBER Working Paper, 2007 整理</footer></div><p><a href="/quant/ed-regulatory-event">上一课</a>收掉制度事件；本课回到财报，把五元组用到最成熟的信号上：把<a href="/quant/pead-sue">盈利意外 PEAD / SUE</a> 从月频截面因子改写成以公告为条件的事件策略。因子版按月末再平衡、持仓不看日历；事件版在公告时刻刷新、按事件日历进出。本课写改写三步——信号时点、持仓窗口、增量条件——与必须分清的两笔账：漂移与公告溢价。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>因子化丢掉了三样东西。第一，<strong>信号的陈旧度</strong>。月度组合里混着刚公告与公告十周的股票，而漂移最肥的段落在公告后头几天；新旧信号等权持有，等于用闲置仓位稀释事件收益。第二，<strong>公告窗风险没有定价</strong>。因子组合被动站在每次公告旁：公告跳方向未知，波动与价差先加宽再回落。事件化要显式回答：跨公告持有是收溢价还是躲跳变。第三，<strong>增量信息没有合并窗口</strong>。<a href="/quant/earnings-call-tone">电话会语气</a>的残差语气、指引修订与 SUE 在同一个事件簇里，因子框架里只是另一列特征；事件框架里有天然的合并时点——公告本身。</p><p><span class="marginnote">直觉类比：信号像面包，有新鲜度。月度因子组合把刚出炉和放了十周的面包混在一个篮子里卖；漂移最「新鲜」的段落是公告后头几天，新旧等权等于用陈面包稀释刚出炉的——篮子看起来还是面包，味道已经被平均掉。</span></p><h3 id="多季结构的约束" tabindex="-1">多季结构的约束 <a class="header-anchor" href="#多季结构的约束" aria-label="Permalink to &quot;多季结构的约束&quot;">​</a></h3><p>Bernard 与 Thomas 的发现里有因子框架装不下的细节：漂移在下一、二、三季的公告窗附近再次集中，到第四季往往反号。持仓窗口必须围绕多季结构设计，而不是用单一持有期常数把它平均掉。</p><p><span class="marginnote">Livnat 与 Mendenhall（2006）：分析师预测算的 SUE 比时间序列模型算的漂移更强，公告前后机构交易越活跃漂移越大——信号定义与事件窗定义互相咬合，不能各改各的。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>信号在公告时刻刷新。</strong> 公告落地即算 SUE、更新语气残差与指引状态，事件表按 \((T, \mathrm{SUE}, \ldots)\) 入库；未刷新的旧信号不进当期组合。不这么做会错在哪：陈旧信号把「公告后第 1 天建仓」混成「第 60 天建仓」，事件的时序结构全部抹平。</p><p><strong>窗口对准漂移的时序。</strong> 持仓写成两段：公告后 \(N\) 日的主窗（漂移最陡），加上下一季公告窗的副窗（漂移再集中处），第四季反号前清仓或反转。同日扎堆按截面分组：单票风险二值，几十票同日公告的组合才是统计意义上的漂移。</p><p><strong>公告账单独记。</strong> 持有主窗赚漂移；跨公告持有，额外赚公告溢价（Frazzini 与 Lamont，2007：财报周的收益系统性高于非财报周）并承担跳变。策略必须显式选择——避开公告窗（主窗在公告后起算，自动避开下次公告），或保留跨季副窗（赚溢价、付跳变）；两者波动预算不同。</p><p><span class="marginnote">术语翻译：「跨公告持有是卖保险」——你像保险公司一样承保公告日的突发跳变（方向未知、价差摆动），财报周的超额收益就是收到的保费。主窗在公告后才建仓的策略则躲开承保期，只赚漂移、不收保费，也不会被跳变击中。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>事件化能提高可实现收益，机制在于<strong>持有期对准了信息处理期</strong>。漂移由系统性反应不足驱动，反应不足在公告时产生：预期形成、意外落地、注意力集中都在公告窗。因子版把资金摊在两个公告之间的日历时间，事件版集中到信息处理的时段，闲置的中间段让出来。多季再集中是同一反应不足的重复：投资者修正了这一季的意外，仍按旧模型外推下一季（Bernard 与 Thomas 押在盈余自相关的错误先验上），新公告每次都再触发一段修正。第四季反号则是修正过度：市场最终学会外推，把前几季的欠账补过头。</p><div class="mermaid"></div><p>公告溢价的机制反着写：跨公告持有是卖保险——公告日的双跳风险（方向未知、流动性摆动）由持有者承担，补偿是财报周的超额收益。事件化把这笔保险从被动承担变成显式选择。</p><p><span class="marginnote">常见误区：以为漂移会线性延续，把副窗一直拿到第 N 季。证据是第四季常反号——市场最终学会外推，把前几季欠账补过头；不设反号检查点，前几季赚的漂移可能在第四季整段还回去。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>成本与小盘偏倚沿用<a href="/quant/pead-sue">盈利意外 PEAD / SUE</a> 的口径：等权小盘样本会高估可实现收益，主窗换手按事件频率而非月频计费。预告与快报不与正式公告混表（第 1 课边界继续有效）。漂移强度随资本进入衰减，多季结构在公开化高的市场变浅——历史窗口参数不能直接外推。事件化不是免费午餐：月频分散组合换成事件日的集中建仓，扎堆与容量约束在事件框架里更紧，不是更松。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>三步：信号在公告时刻刷新、窗口对准漂移时序、增量信息在事件簇内合并。</li><li>持仓分主窗副窗：公告后 N 日是漂移主段，下一季公告窗是再集中处，第四季反号前离场。</li><li>两笔账分记：主窗赚漂移，跨公告赚溢价并承担跳变；选择要显式。</li><li>陈旧信号与月度再平衡抹平事件时序；事件表按公告时戳入库。</li><li>出处：Bernard and Thomas, <em>Journal of Accounting Research</em>, 1989/1990；Livnat and Mendenhall, <em>JAR</em>, 2006；Frazzini and Lamont, <em>NBER Working Paper</em>, 2007；Ball and Brown, <em>JAR</em>, 1968。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 事件驱动策略<!--[--> · 单元 策略与风控<!--]--><!----></p><p class="lesson-progress">第 6 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/ed-eventstudy-micro-app/">事件研究的微观应用</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/ed-regulatory-event/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">监管与制度事件</span><span class="lesson-card-meta">事件驱动策略 · 策略与风控<!--[--> · 第 5 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/ed-eventstudy-micro-app/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">事件研究的微观应用</span><span class="lesson-card-meta">事件驱动策略 · 策略与风控<!--[--> · 第 7 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

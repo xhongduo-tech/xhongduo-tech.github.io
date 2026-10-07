@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>输出后处理管线 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_dec-postprocess-pipeline.md.B-OPDUxq.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 解码控制与服务化<!--[--> · 单元 服务侧<!--]--><!----></p><p class="lesson-progress">第 8 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/llm/dec-stream-reparse/">流式重排与增量解析</a></p><p class="lesson-next"> 下一课：<a href="/llm/dec-bestofn-serving/">best-of-n 的服务化</a></p><!----></nav><div style="position:relative;"><div><h1 id="输出后处理管线" tabindex="-1">输出后处理管线 <a class="header-anchor" href="#输出后处理管线" aria-label="Permalink to &quot;输出后处理管线&quot;">​</a></h1><div class="epigraph"><p>后处理的每一刀都要留底：改过的文本不再是模型的输出，回填历史、写日志、交付客户端，三处必须用同一份决定。</p><footer>—— 据 OpenAI 兼容接口的输出约定与 JSON Schema 校验器实践整理</footer></div><p><a href="/llm/dec-stream-reparse">上一课</a>把 token 流变成事件流交出去。本课管最后一公里：解码完成后的<strong>后处理</strong>。零件分散在基础课里：stop 命中后的裁剪在 <a href="/llm/stop-sequences">stop 课</a>，schema 校验与回退在 <a href="/llm/json-constrained-decode">JSON 约束课</a>，工具片段的切分在 <a href="/llm/function-calling">function calling</a>。本课把它们排成一条有序管线，钉住每一步的输入输出不变量。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一段生成文本从解码器出来，到成为交付物，要过若干刀：裁掉 stop 命中段及其右侧、剥离围栏与角色残片、规范化 unicode 与空白、schema 或正则校验、失败时修复或重试、脱敏与内容过滤、包装（加引用、加代码围栏）。这些步骤散落在网关、SDK 与业务代码里时，同一请求在不同客户端得到不同文本；更要命的是<strong>回填历史用哪份文本</strong>没有定论——模型下一轮见到的上下文与它上一轮实际生成的对不上，是又一处条件前缀 OOD。缺口是把后处理当系统对象：顺序、幂等、留痕、与解码层的关系。</p><p><span class="marginnote">术语翻译：「回填历史」就是把模型这轮说的话存进对话记录，让它在下一轮还能「看见」。为什么必须用同一份文本——如果给用户看的是裁剪过的，存进历史的却是带 stop 残段的原始版，模型下一轮会以为自己说过那些多余的话，越聊越跑偏。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>固定阶段序</strong>，每阶段声明不变量：</p><ol><li><strong>裁剪</strong>：stop 与 eos 命中段的右侧切除；多模式按最长匹配优先（<a href="/llm/stop-sequences">stop 课</a>钉过）。不变量：输出是模型生成文本的真前缀。</li><li><strong>规范化</strong>：unicode 形式、行尾、空白折叠。不变量：可逆或有留痕——规范化改变字节，回填与日志必须用同一份。</li><li><strong>校验</strong>：schema <code>fullmatch</code> 断言（<a href="/llm/regex-constrained-decode">正则课</a>的老规矩）。失败分两路：解码层回退（空支撑集）与内容越界（事实、取值），处理不同。</li><li><strong>修复</strong>：JSON repair 是启发式，修复后的对象不再等于模型输出。日志存双份（原始与修复后），修复率是解码质量的观测指标。</li><li><strong>脱敏与过滤</strong>：PII、内容分类，独立于 stop 的通道。</li><li><strong>包装</strong>：加围栏、注入引用，只在交付面生效，不进历史。</li></ol><div class="mermaid"></div><h3 id="一致性三角" tabindex="-1">一致性三角 <a class="header-anchor" href="#一致性三角" aria-label="Permalink to &quot;一致性三角&quot;">​</a></h3><p>三份文本必须对齐：<strong>交付文本</strong>（用户看到的）、<strong>历史文本</strong>（回填进下一轮上下文的）、<strong>日志文本</strong>（复盘用的）。包装层只影响交付面；历史回填用裁剪加规范化后的文本；日志存原始文本与每阶段的变更记录。三处各用各的，是复盘失真与 OOD 的共同根源。</p><p><span class="marginnote">常见误区：初学者容易以为「修复器好使就行」。实际上 JSON repair 常用的操作——补引号、删尾逗号、关括号——会把模型的输出改得面目全非。修复率 5% 意味着每 20 条回复里就有 1 条不是模型真正说的；这 5% 是解码层配置漂移的警报，把它修「好」等于拆掉警报器。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>管线的正确性论证在不变量上：裁剪保证「交付的是模型说过的」，因此历史回填不引入模型没见过的形态；校验保证「进下游的是契约允许的」；修复是唯一会伪造模型输出的阶段，所以必须留底并单独计量。修复率是金丝雀：它突然升高，先查引擎、分词器或文法配置是否变化，而不是庆祝修复器好用——修复器掩盖的正是解码层配置的漂移。</p><p>与解码层的分工：掩码层的失败（空支撑集回退、降级路径）必须在管线里可见，标记到请求元数据；管线不静默吞掉解码层的事故，否则「总有输出」的表象会掩盖类型契约已经破裂的事实（<a href="/llm/json-schema-decode">JSON Schema 课</a>的老边界）。</p><p>第一张图画的是阶段的先后；一致性三角回答的是另一个问题——各阶段的结果分别流向三份文本中的哪一份：</p><div class="mermaid"></div><p><span class="marginnote">为什么重要：这三条去向如果各写各的代码，同一请求在 App、网页、日志里就是三个版本。复盘事故时对着日志看，永远复现不出用户看到的现象——因为日志里那份文本从来没被任何人「看到」过。对齐规则要写成一份共享实现，不是三处约定。</span></p><p><span class="marginnote">重试的经济学：修复是毫秒级、重试是秒级。管线应先修复再重试，且重试必须携带失败原因——「校验失败加错误信息再生成」是 <a href="/llm/json-schema-decode">JSON Schema 课</a>的第一条解码路径，重试不声明原因等于让模型盲猜。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>后处理不能创造质量：它裁剪、规范化、验证、包装，不能把错答案改对——语义层的对错归验证器与重采样（<a href="/llm/best-of-n">Best-of-N</a>）。安全过滤放在管线哪一段是产品决策：早过滤省下游计算，晚过滤少误杀上下文；但无论放哪，被滤内容都不回填历史。流式场景下管线要能跑增量（裁剪与脱敏在事件层之前的部分必须流式友好），整段校验仍在闭合后——流式与后处理的关系归流式课，本课钉的是完成后的段。下一课把候选从一条放大到 \(N\) 条：best-of-n 的服务化。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>固定阶段序：裁剪 → 规范化 → 校验 → 修复 → 脱敏 → 包装，每阶段声明不变量。</li><li>一致性三角：交付、历史、日志三份文本的对齐规则必须写死，包装不进历史。</li><li>修复是唯一伪造模型输出的阶段：存双份、计量修复率，修复率突变先查解码层。</li><li>解码层事故（回退、降级）要在管线元数据可见，不静默吞掉。</li><li>重试先修复后重试，重试携带失败原因与上下文。</li><li>出处：据开放 API 输出约定与 JSON Schema 校验器实践整理；裁剪与校验语义见 stop sequences、JSON 约束、正则约束各课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 解码控制与服务化<!--[--> · 单元 服务侧<!--]--><!----></p><p class="lesson-progress">第 8 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/dec-bestofn-serving/">best-of-n 的服务化</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/dec-stream-reparse/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">流式重排与增量解析</span><span class="lesson-card-meta">解码控制与服务化 · 服务侧<!--[--> · 第 7 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/dec-bestofn-serving/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">best-of-n 的服务化</span><span class="lesson-card-meta">解码控制与服务化 · 服务侧<!--[--> · 第 9 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

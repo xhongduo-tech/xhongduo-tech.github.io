@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>验证器瓶颈 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_verifier-bottleneck.md.bE401gAU.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 自训练与数据闭环<!--[--> · 单元 闭环的解剖<!--]--><!--[--> · 课序 验证与上限<!--]--></p><p class="lesson-progress">第 4 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/model-collapse-empirics/">模型坍缩的实证</a></p><p class="lesson-next"> 下一课：<a href="/llm/rlvr-design-space/">RLVR 的设计空间</a></p><!----></nav><div style="position:relative;"><div><h1 id="验证器瓶颈" tabindex="-1">验证器瓶颈 <a class="header-anchor" href="#验证器瓶颈" aria-label="Permalink to &quot;验证器瓶颈&quot;">​</a></h1><div class="epigraph"><p>自训练的上限不在生成侧——采样可以无限重试——而在验证侧：选择算子有多准，回路就能把策略推到多远。</p><footer>—— 据 Gao 等 RM 过优化缩放律；Brown 等 Large Language Monkeys 整理</footer></div><p><a href="/llm/model-collapse-empirics">上一课</a>把递归自食的后果钉在尾部丢失与熵收缩，并给了回混与累积两条不坍缩条件。本课把镜头对准回路里决定「什么算通过」的部件：即使分布不坍缩，自训练的上限也由验证质量决定。<a href="/llm/math-verifier-equivalence">数学验证器与等价</a>与<a href="/llm/code-verifier-unittests">代码验证器</a>已把假阳、假阴的具体来源讲清；本课讲这些误差如何顺着回路变成策略的偏移，以及为什么优化压力会放大它。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>生成侧与验证侧不对称：每题可以采样任意多条，覆盖随 \(K\) 增长，而选择只有验证器那一步。Brown 等 2024 的大规模重采样实验口径：足够大的 \(K\) 下，真实能力覆盖显著高于验证器选出的准确率——这个差距就是验证器瓶颈的宽度。误差两类，后果相反：假阳让错的解法被通过、进入训练数据；假阴把对的解法拒掉、正确的示范被丢弃。<a href="/llm/verifiable-reward">可验证奖励</a>课的结论在这里兑现：抽取器与运行规范是 \(R\) 的一部分，它们的系统性偏差不是噪声。</p><p><span class="marginnote">直觉类比：生成侧像撒一千张渔网出海，撒得越多总有网有鱼；验证侧是码头上只有一个质检员，他看走眼一条，那条鱼就永远定错了。渔网加倍救不了质检员的眼神——这就是「重采样填不平验证缺口」的直觉。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>治理按瓶颈位置分三步。测瓶颈：抽样人工复核通过样本（假阳率）与被拒样本（假阴率），按题型分层；用金标探针构造「满足判据但答案错」的样本测假阳。堵假阳：判据集成（多验证器投票）、隐藏与随机化测例（代码课结论：训练用例会被硬编码）、训练与评测同源脚本（数学课结论）、格式判据配内容复核。减假阴：等价规范声明完整（数值、符号、整数化三条口径）、被拒样本抽样回放人工判定、对全零组换题而不是硬训。兜底：KL 锚与检查点早停——<a href="/llm/rlvr">RLVR</a>课测到真值验证器仍会过优化，误差非零的验证器只会更早。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：某题集上人工复核发现采样 200 条里有 120 条存在正确解法（覆盖 60%），而验证器最终选出的样本真确率只有 25%——缺口就是 35 个百分点。把采样数从 200 加到 2000 只会继续抬高覆盖，这道缺口一分都不会缩小；能缩它的只有修验证器本身。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p><span class="marginnote">Gao 等 2023 的缩放律口径：代理奖励与金标的间隙随优化压力（KL 预算）放大。验证器误差不是恒定的背景噪声——回路施加的优化压力越大，同一条判据漏洞吃掉的份额越大。</span></p><p>偏移的因果链：假阳样本进入训练，策略分布向「能通过验证器」的区域移动，下一代采样在该区域更密，同型漏洞被更频繁命中，权重把漏洞学进去——回路把一次性的判据缺陷变成迭代放大的策略偏移。假阴走另一条链：组相对优势下，某题全组被误判为零则无梯度（<a href="/llm/dynamic-sampling-rl">动态采样</a>课的无效组），正确解法的探索白做；系统性假阴（等价规范不认某类写法）把整类正确解法推离支撑——与坍缩课的尾部丢失同构，只是截断来自判据而非采样。两条链合流于一个事实：回路实际优化的是 \(v\) 而非真值 \(R^*\)，收敛点是 \(v\) 上的最优；\(\|v-R^*\|\) 在支撑上的分布，就是策略与真实能力的距离。</p><div class="mermaid"></div><p>治理三步分别插在这条链的环节上：测瓶颈量化入口误差，堵假阳与减假阴削弱偏移与截断两个分支，KL 锚限制放大系数——但都只能推迟与收窄，不能归零。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课假设验证器在迭代间固定；验证器自身随回路升级（自出测例、模型当裁判）引入新的循环依赖，属于下一单元。假阳与假阴的治理互相顶：更严的判据压假阳、抬假阴——权衡怎么摆，是下一课 RLVR 设计空间的主题。生成侧的覆盖测量（pass@k 与提交预算）见<a href="/llm/pass-at-k">pass@k</a>课，不重复。</p><p><span class="marginnote">常见误区：初学者容易以为「多训几轮，回路自己会把验证器的误差磨掉」。实际上回路优化的是验证器 \(v\) 而非真值 \(R^*\)：误差非零时，迭代只会把策略更快推向 \(v\) 的漏洞区；KL 锚只能推迟与收窄，不能归零。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>生成可以重试，验证只有一次选择：瓶颈宽度是覆盖与选出质量之差。</li><li>假阳经回路变成策略偏移并被迭代放大；假阴把正确解法推离支撑。</li><li>回路优化的是 \(v\) 而非 \(R^*\)；KL 预算放大间隙。</li><li>治理：测误差率、判据集成与隐藏测例堵假阳、规范完整与全零组换题减假阴、KL 锚兜底。</li><li>出处：Gao 等 2023 过优化缩放律；Brown 等 2024 重采样覆盖；Cobbe 等 GSM8K；数学与代码验证器两课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 自训练与数据闭环<!--[--> · 单元 闭环的解剖<!--]--><!--[--> · 课序 验证与上限<!--]--></p><p class="lesson-progress">第 4 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rlvr-design-space/">RLVR 的设计空间</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/model-collapse-empirics/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">模型坍缩的实证</span><span class="lesson-card-meta">自训练与数据闭环 · 闭环的解剖 · 回路与停止<!--[--> · 第 3 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/rlvr-design-space/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">RLVR 的设计空间</span><span class="lesson-card-meta">自训练与数据闭环 · 闭环的解剖 · 验证与上限<!--[--> · 第 5 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

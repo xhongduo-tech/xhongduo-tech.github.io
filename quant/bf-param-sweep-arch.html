@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>参数扫描的架构 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_bf-param-sweep-arch.md.8ym_t9rL.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 回测框架设计<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 5 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/bf-multiasset/">多资产回测</a></p><p class="lesson-next"> 下一课：<a href="/quant/bf-parallel-backtest/">并行回测</a></p><!----></nav><div style="position:relative;"><div><h1 id="参数扫描的架构" tabindex="-1">参数扫描的架构 <a class="header-anchor" href="#参数扫描的架构" aria-label="Permalink to &quot;参数扫描的架构&quot;">​</a></h1><div class="epigraph"><p>每个被看过的参数格子都是一次试验；扫描架构的职责是让这个 $N$ 数得出来、存得下来、赖不掉。</p><footer>—— 据 Bailey, Borwein, López de Prado and Zhu, The Probability of Backtest Overfitting 及 Notices of the AMS, 2014 对多重检验的论述；对照 White, Econometrica, 2000 整理</footer></div><p><a href="/quant/bf-multiasset">上一课</a>把引擎撑到多资产，剩下的工程问题是规模：一个策略族乘参数网格乘多市场，运行与评估都得有架构。本课把扫描写成框架的一等公民：配置对象、试验身份、结果存储与试验计数。筛选层用向量化的算力（见<a href="/quant/bf-vectorized-vs-event">向量化与事件驱动的取舍</a>），本课写的是那一层之上的组织学。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>笔记本里的扫描死于四件事。结果只活在 notebook 里，三天后连作者也不知道胜者参数是哪次运行、哪份数据；只记录胜者，参数面上的邻域稳定性与鲁棒性再也问不出来；报错与中断的运行被顺手丢弃，配置层面重演一遍幸存者偏差；最要命的是 \(N\) 失忆——看过两百个格子，报告里写「我们试了三个想法」，<a href="/quant/backtest-overfitting">过拟合次数与试错</a>的调整从此无从谈起。缺的不是更快 sweeping，而是一套让每一次「看过结果」都留痕的架构。</p><h3 id="配置、身份与结果库" tabindex="-1">配置、身份与结果库 <a class="header-anchor" href="#配置、身份与结果库" aria-label="Permalink to &quot;配置、身份与结果库&quot;">​</a></h3><p>扫描的三件套。<strong>配置对象</strong>是声明式的：策略版本、宇宙、参数网格、数据版本、成本情景、种子，一个字典说尽。<strong>试验身份</strong>是配置、代码哈希与数据版本的联合哈希——数据版本来自平台（<a href="/quant/de-tsdb-selection">时序数据库的选型</a>的版本化），没有它，供应商一次刷新就让历史结论不可复现。<strong>结果库</strong>按身份存每一次运行的完整产物：权益路径、成交日志、指标、报错。失败也是结果；只存胜者的结果库，在配置层面先行一遍<a href="/quant/survivorship-bias">幸存者偏差</a>。</p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>评估层读的是全网格，不是冠军。报告的最小集合：参数面热图与邻域稳定性（冠军参数的邻居是否同样好，还是孤峰）；样本内外散点与<a href="/quant/cpcv">组合过拟合 CPCV</a> 的路径分布；以有效试验数填入 <a href="/quant/deflated-sharpe">Deflated Sharpe</a>。有效数是关键修正：网格里的格子高度相关，\(5\times5\) 的格子簇可能只等于三五个独立假设；名义格子数填进多重检验调整会高估显著性，应按参数邻域聚类计数，与<a href="/quant/multitest-discipline-cap">多重检验纪律的现场用法</a>一致。搜索策略上，网格与随机采样适合铺面，贝叶斯优化省算力但每一步查询都自适应于已看结果——查询次数同样计入 \(N\)，不能因为「智能」就免票。</p><p><span class="marginnote">把报错的运行也写进结果库并标出原因：某格因数据缺口失败，与某格因策略失效亏损，是两种信息。静默丢掉前者，参数面上会出现一片看似「未评估」实为「不可评估」的空洞，后续的人会把它当成空地重新踩一遍。</span></p><p><span class="marginnote">给个数字：\(5\times5\) 的参数网格名义上是 \(25\) 次试验，但相邻格子高度相关——若按邻域聚类只折出 \(4\) 个独立假设，填进 Deflated Sharpe 的有效 \(N\) 就取 \(4\) 而不是 \(25\)。取 \(25\) 会把显著性门槛放得过宽，让平庸的夏普也显得能过关。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>扫描架构真正的机制是把「选择」从「运行」中剥离。执行器是无视角的：给它身份与配置，它产出结果，不知道谁是冠军；选择只发生在评估层，而评估层看到的永远是分布。这样分离之后，任何后续问题——鲁棒性面、参数敏感性、换一个成本情景重读——都不需要重跑，只需要重新读库。试验计数也因此有了账本：结果库里的每一行都是一次看过，\(N\) 不再依赖作者的记忆。预注册的假设与扫描的关系同样清晰：扫描生成假设，预注册（<a href="/quant/hypothesis-preregistration">假设与预注册</a>）冻结下一个样本外的检验，两者的分界就是结果库的某一次读取。</p><div class="mermaid"></div><p><span class="marginnote">「选择与运行剥离」可以想象成体检中心与医生：体检中心（执行器）只管按单子抽血出报告，不知道也不关心你哪里不舒服；诊断（评估层）是医生拿着全部指标做的，想换个角度分析就重读报告，不必重新抽血——回测里「重新抽血」就是重跑扫描，又慢又多花一次 \(N\)。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>扫描不替代时序协议：CPCV 与<a href="/quant/walk-forward">样本外与滚动检验</a>回答的是路径与漂移，参数面回答的是邻域，三层互补。也不要在看过事件层结果之后回头重扫向量层——那是用新一次试验去解释旧试验，\(N\) 翻倍而报告不变，是最常见的隐性膨胀。算力不是约束，纪律才是：结果库会诱惑「反正便宜再扫一轮」，每一轮都在花同一个 \(N\) 的额度。</p><p><span class="marginnote">常见误区：把结果库当「备份」，存不存都行。其实它是账本——\(N\) 的每一个计数都以库中的一行为凭；没有账本，「我们只试了三个想法」就无从审计，多重检验调整也就退化成自我申报的荣誉制度。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>扫描三件套：声明式配置、试验身份（配置乘代码乘数据版本）、成败全存的结果库。</li><li>评估层读分布不读冠军：参数面、邻域稳定性、CPCV 路径、按有效数填 DSR。</li><li>网格格子相关，名义试验数高估独立性；按邻域聚类计数，贝叶斯查询同样计票。</li><li>选择与运行剥离；预注册与扫描的分界是结果库的某一次读取。</li><li>出处：Bailey, Borwein, López de Prado and Zhu, <em>Journal of Computational Finance</em>, 2017 与 <em>Notices of the AMS</em>, 2014；White, <em>Econometrica</em>, 2000；站内<a href="/quant/cpcv">组合过拟合 CPCV</a>、<a href="/quant/backtest-overfitting">过拟合次数与试错</a>各课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 回测框架设计<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 5 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/bf-parallel-backtest/">并行回测</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/bf-multiasset/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">多资产回测</span><span class="lesson-card-meta">回测框架设计 · 架构<!--[--> · 第 4 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/bf-parallel-backtest/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">并行回测</span><span class="lesson-card-meta">回测框架设计 · 工程<!--[--> · 第 6 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

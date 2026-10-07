@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>缓存友好的算法 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_ae-cache-friendly.md.DqVCQW4L.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 算法工程实践<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 3 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/ae-constant-optimization/">常数优化</a></p><p class="lesson-next"> 下一课：<a href="/cs/ae-bit-tricks/">位运算技巧</a></p><!----></nav><div style="position:relative;"><div><h1 id="缓存友好的算法" tabindex="-1">缓存友好的算法 <a class="header-anchor" href="#缓存友好的算法" aria-label="Permalink to &quot;缓存友好的算法&quot;">​</a></h1><div class="epigraph"><p>让计算变快的上限是屋顶，让数据变近的收益是斜率；很多时候该省的不是乘加，而是搬运。</p><footer>—— 据 Williams, Waterman, and Patterson, CACM 2009；Drepper, What Every Programmer Should Know About Memory, 2007 整理</footer></div><p><a href="/cs/ae-constant-optimization">上一课</a>把常数拆成指令数与每指令成本，但那笔账里藏着常最大的一个成本项：访存。寄存器与 L1 以个位周期计，DRAM 以几百周期计；同一份算法，摆数据的姿势不同，时间能差出一个数量级。本课把「缓存友好」写成可操作的三件事——布局、分块、顺序访问——并接上<a href="/cs/par-roofline-map">roofline 的深化与收束</a>那幅屋顶图：算术强度不够时，缺的不是算力而是字节。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>指令数已经压过的代码仍然慢，原因有三类。指针追链：链表与树每次解引用都可能 miss，地址在下一次访问之前未知；错序遍历：矩阵按与存储序不匹配的方向扫，每一步都换行失效，空间局部性全丢；布局错位：结构体数组让热循环把整条结构体扛进缓存却只用一个字段。<a href="/cs/cache-miss-types">缺失分类</a>给了词汇：这里的对象主要是容量与冲突缺失，而它们不是常数——miss 的价格随层级差百倍，且能被算法改写。不这么做会错在哪：只盯着乘加计数做优化，却在每次迭代里付一次 DRAM 访问，省下的那几条指令根本不够填坑。</p><p><span class="marginnote">常见误区：初学者容易把「优化」等同于「减少乘加次数」，实际上把三重循环的内外层换个顺序（ikj 序）一条指令都没省，只因把访问改成沿内存方向滑动，就能快数倍——省的是每次换行缓存失效的那几十到几百周期。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>第一件事，紧凑布局。把指针结构换成数组下标：隐式堆、数组化的邻接表，孩子与邻居就是一段连续内存；热字段与冷字段拆开，让热循环只装它要的字节；<a href="/cs/alignment-access">对齐与非对齐访问</a>决定一行缓存装得下几条记录，padding 不是小事。</p><p>第二件事，分块（tiling）。矩阵乘按缓存大小取块，让一块数据装入后被算够本再换下一块；<a href="/cs/loop-invariant">循环不变式</a>式的复用在数据上的对应物就是「复用装入缓存的那份字节」。同样的原理写进结构：B 树节点做成一页、二叉堆用隐式数组布局，都是把「子问题恰好装进一层缓存」铸进数据结构。</p><p>第三件事，顺序访问喂预取器。硬件预取器认固定的步长；顺序扫描几乎免费，乱序与链式访问让它哑火，见<a href="/cs/cache-prefetch">预取</a>。</p><p>最后用递归分块收尾：<a href="/cs/cache-oblivious">缓存无关结构</a>让同一份代码在各层缓存上都自动分块，免去按机器调参。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>miss 为什么主导：一次 DRAM 访问约两百到三百周期，够做几百次浮点乘加。算法强度（每字节几次运算）低于脊点 \(I^{*}=F/B\) 时，程序贴在带宽斜线上，SIMD 与多核都抬不动它——这正是屋顶图给出的判决，也是向量化要求规整布局的原因（见<a href="/cs/par-simd-vectorization">SIMD 与向量化</a>）。分块为什么成立：装入成本被块内的重复计算摊薄，强度上升，工作点右移；经典结果是分块把矩阵乘的缺失从 \(\Theta(n^3)\) 压到 \(O(n^3/\sqrt{M})\)（\(M\) 为缓存可容纳的元素数）。顺序访问为什么便宜：预取把 miss 藏进计算后面，等效延迟趋近 L1；换成本质是每元素一次访存对一次顺带装载。</p><p><span class="marginnote">直觉账（Drepper 2007 的口径）：L1 命中约 4 周期，DRAM 约 200–300 周期。8 字节指针的链表换成连续数组后，遍历常快 5–10 倍——不是玄学，是把每元素一次不可预取的访存，换成一次顺带预取的顺序流。</span></p><p>方法一节的图回答「缓存友好按哪三件事操作」，下面这张回答另一个问题：分块到底怎么把缺失次数压下来。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：L1 数据缓存 32 KB、double 占 8 字节、三个块同住时，\(3b^2\times 8\le 32768\) 解得 \(b\le 36\)——这就是工程上块大小常取 32 或 48 的来历：不是魔法数，是「装得下」的算术。</span></p><p><span class="marginnote">直觉类比：分块像写论文查资料——把要用的三本书一次抱到桌上，写完所有相关段落再换书；朴素循环则是每查一个字就跑一趟书架，跑腿（访存）的时间远超查字（计算）本身。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写 SIMD 指令本身，那是<a href="/cs/par-simd-vectorization">SIMD 与向量化</a>的事；但次序不能反——先有规整布局，向量化才有资格发生。分块参数依赖机器：写死的块大小换台机器就不再最优，取值要靠基准课的纪律测定；缓存无关结构免去调参，代价是更大的常数。多核共享缓存下的争用、NUMA 上的摆放，属并行课程，本课不展开。渐近阶不动是前提：缓存友好改善的是同一阶下的常数，把 \(\Theta(n^2)\) 改成 \(\Theta(n\log n)\) 仍然是选型课的事。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>常数账的最大项常是访存：miss 以百周期计，乘加以周期计，先看强度再谈指令。</li><li>三件事：紧凑布局（数组化、冷热拆分、对齐）、分块提强度、顺序访问喂预取器。</li><li>分块把矩阵乘缺失从 \(\Theta(n^3)\) 压到 \(O(n^3/\sqrt{M})\)；「节点装进一页」是同一原理的结构化。</li><li>roofline 是验收标准：强度不足时，SIMD 与多核都上不去。</li><li>出处：Lam, Rothberg, and Wolf, ASPLOS 1991；Frigo, Leiserson, Prokop, and Ramachandran, FOCS 1999；Drepper 2007。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 算法工程实践<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 3 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/ae-bit-tricks/">位运算技巧</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/ae-constant-optimization/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">常数优化</span><span class="lesson-card-meta">算法工程实践 · 工程<!--[--> · 第 2 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/ae-bit-tricks/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">位运算技巧</span><span class="lesson-card-meta">算法工程实践 · 工程<!--[--> · 第 4 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

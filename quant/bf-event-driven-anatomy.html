@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>事件驱动框架的解剖 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_bf-event-driven-anatomy.md.Bl7WMR6Q.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 回测框架设计<!--[--> · 单元 架构<!--]--><!----></p><p class="lesson-progress">第 1 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/de-map/">数据工程收束</a></p><p class="lesson-next"> 下一课：<a href="/quant/bf-vectorized-vs-event/">向量化与事件驱动的取舍</a></p><!----></nav><div style="position:relative;"><div><h1 id="事件驱动框架的解剖" tabindex="-1">事件驱动框架的解剖 <a class="header-anchor" href="#事件驱动框架的解剖" aria-label="Permalink to &quot;事件驱动框架的解剖&quot;">​</a></h1><div class="epigraph"><p>框架与库的分界是控制反转：库等你来调用，框架拥有主循环，在它认为正确的时刻来调用你。</p><footer>—— 据 Johnson and Foote, Designing Reusable Classes, Journal of Object-Oriented Programming, 1988 对框架与控制反转的论述；对照 Pardo, The Evaluation and Optimization of Trading Strategies, 2007 的仿真流程整理</footer></div><p><a href="/quant/de-map">上一课</a>把数据工程收成一台平台：不变量、双时间轴与契约让研究里的每个数字都答得出哪份字节、哪条规则、哪个知识集——引擎设计从此建立在可信数据之上。本课程把事件驱动回测做成能长期维护的软件：部件放在哪、接口是什么、不变量由谁守护。本课给出解剖图——时钟、数据端口、策略端口、撮合模拟器、账本、风控闸门、记录器七个器官——后课的取舍、深化、规模与测试都在这张图上展开。后课默认已经读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/quant/event-driven-backtest">事件驱动回测引擎</a>讲清了循环的语义，没有讲工程边界。把策略、撮合器与账本写进一个进程，第一天没事，第三个月出现三种溃烂：策略为了「看一眼现金」直接伸手进账本，回测与实盘的对账从此各说各话；有人在策略回调里读了系统时钟，历史重放的确定性被静默破坏；成交模型与引擎焊死，换一个市场就要动核心。缺的不是更聪明的循环，而是一组器官边界：每类状态只有一个所有者，每条信息只走声明的通道。</p><p><span class="marginnote">术语翻译：控制反转（IoC）就是「把『什么时候调用谁』的决定权从你的代码移交给框架」——你不再写主循环，只交出若干回调函数，框架在事件到达时来调用你。类比：图书馆按开馆时间通知你来取书，而不是你自己想什么时候闯进去就什么时候闯进去。</span></p><h3 id="七个器官与各自的契约" tabindex="-1">七个器官与各自的契约 <a class="header-anchor" href="#七个器官与各自的契约" aria-label="Permalink to &quot;七个器官与各自的契约&quot;">​</a></h3><p><strong>时钟与队列</strong>是全序的唯一来源：引擎按 \((\text{timestamp}, \text{seq})\) 弹出事件，任何不经队列的状态修改都违规。<strong>数据端口</strong>把历史行情、修订与停复牌事件按到达序交给引擎，策略不得自行开文件。<strong>策略端口</strong>是回调契约——on_bar、on_order、on_timer——策略收到事实、返回意图，不做 IO、不读墙钟。<strong>撮合模拟器</strong>消费请求与行情、产出回报，档位可插拔。<strong>账本</strong>是现金、仓位、均价的唯一真相，只由成交事件更新。<strong>风控闸门</strong>在订单入队前检查在途与持仓限额，拒绝本身是事件。<strong>记录器</strong>把每个事件与每个决策追加落盘，是后课诊断与测试的地基。</p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>落成代码后按依赖方向审一遍：策略依赖端口类型与事件定义，不依赖引擎；撮合器依赖<a href="/quant/order-state-machine">订单状态机</a>与行情，不依赖策略；账本只认回报。<strong>端口适配器</strong>把「同一策略对象跑在模拟撮合器与真实网关上」变成配置而不是分支：实盘与回测共享状态机语义、只换网关，这正是<a href="/quant/research-sim-prod">研究、模拟、实盘隔离</a>要求的形态，也是对账的前提。</p><p>策略端口的宽窄是关键设计决定。太窄（只给收盘价数组），事件框架退化成向量化的空壳；太宽（把整本账本与撮合器内部递给策略），边界失效。可用的判据：把回调入参抄成文档，凡是「策略在实盘拿不到的」都不能出现在入参里——上帝视角的簿、未来的 bar、别人的订单号，一票否决。</p><p><span class="marginnote">审计一个框架的第一分钟：在策略回调里搜 <code>time.now</code> 与 <code>read_csv</code>。出现任何一个，重放同一份数据就得不到同一条净值——确定性在策略侧已经丢了。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>控制反转买来两样东西。第一是<strong>可重放</strong>：全序事件流加上种子化随机数，同一输入必得同一输出，监管审计、灾备演练与回归测试才有裁判。第二是<strong>可替换</strong>：撮合器、数据源、网关都是接口后面的实现，替换它们不触碰策略；保真度的提升因此变成换档位，而不是重写系统。记录器让「图从哪来」有了答案：诊断与报表读事件流重放，而不是重新计算状态，图与账本才不会变成两套真相。性能优化必须在不破坏全序的前提下做：按品种分区、批量行情编码都合法；「先算完所有信号再一次撮合」不合法，它重新引入了<a href="/quant/event-driven-backtest">事件驱动回测引擎</a>警告的前视。</p><p><span class="marginnote">直觉类比：可重放像「棋谱复盘」——只要记录每一步棋（事件流）和掷骰子的种子，任何人在任何机器上重摆都能得到一模一样的盘面。没有全序事件流的回测像凭记忆复盘：两个人摆出来的局面不一样，争论从此没有裁判。</span></p><p>主循环归谁管，决定了后面的一切：</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>解剖不是劝你一切从框架开始：日频、宽松成交假设的研究，向量化脚本仍是对的工具，框架的价值要等路径依赖出现才兑现（下一课写这条边界）。也不要为调试方便开后门——引擎不知道策略的存在，策略不知道引擎的内部，后门最终都会在生产对账时收费。</p><p><span class="marginnote">常见误区：初学者容易以为「框架=重=慢，向量化永远更快」。日频宽假设下确实如此；但一旦出现路径依赖（止损、部分成交、保证金追缴），向量化要么写不出来、要么偷偷引入前视。框架的慢是常数开销，前视是正确性错误——后者的代价高得多。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>框架即控制反转：引擎拥有时钟与全序事件流，策略是被调用的回调，只返回意图。</li><li>七器官各守一类状态：时钟、数据端口、策略端口、撮合器、账本、风控闸门、记录器。</li><li>同一策略对象经适配器跑模拟与实盘、只换网关，是对账与环境隔离的前提。</li><li>可重放（全序加种子）与可替换（插拔撮合器）是框架买到的两样能力。</li><li>策略回调里不许出现墙钟与文件 IO；诊断必须从记录的事件流重放。</li><li>出处：Johnson and Foote, <em>JOOP</em>, 1988；Pardo, <em>The Evaluation and Optimization of Trading Strategies</em>, 2007；站内<a href="/quant/event-driven-backtest">事件驱动回测引擎</a>、<a href="/quant/order-state-machine">订单状态机</a>各课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 回测框架设计<!--[--> · 单元 架构<!--]--><!----></p><p class="lesson-progress">第 1 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/bf-vectorized-vs-event/">向量化与事件驱动的取舍</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/de-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">数据工程收束</span><span class="lesson-card-meta">量化数据工程深入 · 平台<!--[--> · 第 10 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/bf-vectorized-vs-event/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">向量化与事件驱动的取舍</span><span class="lesson-card-meta">回测框架设计 · 架构<!--[--> · 第 2 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

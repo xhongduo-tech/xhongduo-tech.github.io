@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ECDH 与 X25519 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_ecdh-x25519.md.Zi27UJwx.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 密码、利用与系统防御<!--[--> · 单元 密码学进阶<!--]--><!--[--> · 课序 原语<!--]--></p><p class="lesson-progress">第 15 / 133 课</p><p class="lesson-prereq"> 先修：<a href="/cs/rsa-attacks/">RSA 攻击面</a></p><p class="lesson-next"> 下一课：<a href="/cs/ecdsa-eddsa/">ECDSA / EdDSA</a></p><!----></nav><div style="position:relative;"><div><h1 id="ecdh-与-x25519" tabindex="-1">ECDH 与 X25519 <a class="header-anchor" href="#ecdh-与-x25519" aria-label="Permalink to &quot;ECDH 与 X25519&quot;">​</a></h1><div class="epigraph"><p>椭圆曲线 DH 用短得多的密钥达到与有限域 DH 同类的协商目标。X25519 把曲线、编码与钳位私钥收成一套难误用的合同，而不是「任意一条曲线都行」。</p><footer>—— Koblitz / Miller 椭圆曲线公钥；Bernstein, Curve25519；RFC 7748</footer></div><p>上一课<a href="/cs/rsa-attacks">RSA 攻击面</a>劝许多协议离开 RSA 封装。主干<a href="/cs/elliptic-curve-group">椭圆曲线</a>已有群直觉。缺口是<strong>ECDH 作为密钥协商</strong>：共享秘密是点的坐标派生，不是加密消息。X25519 是工程默认之一。</p><p>后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>有限域 DH 公钥大；ECDH 在合适曲线上密钥约 256 比特。小群、错误曲线、点不在曲线上，会把协商拉到弱群——本课只陈述必须校验或用蒙哥马利曲线避开一类检查。X25519：Curve25519、固定基、钳位。缺口是协商合同，不重推曲线方程。</p><p><span class="marginnote">数字实例：256 比特的椭圆曲线密钥，安全强度大致相当于 3072 比特的有限域 DH 或 RSA。而 RSA 3072 公钥要 384 字节，X25519 公钥只要 32 字节——握手包更小、计算更快，这正是 TLS 1.3 等协议全面转向 ECDH 的直接原因。</span></p><h3 id="共享秘密还要-kdf" tabindex="-1">共享秘密还要 KDF <a class="header-anchor" href="#共享秘密还要-kdf" aria-label="Permalink to &quot;共享秘密还要 KDF&quot;">​</a></h3><p>ECDH 输出不是 AEAD 键。HKDF 更后；本课只要求「再派生」。</p><p><span class="marginnote">RFC 7748。TLS 1.3 的 x25519 是命名群。不要把任意自选曲线当同等安全。本课不给弱曲线参数的利用步骤。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对照 DH：\(g^a,g^b\mapsto g^{ab}\) 变成标量乘。陈述 X25519 的 32 字节编码。认证仍缺：无签名或预共享时，ECDH 对中间人成功。证书课已在主干；本进阶课后面信道单元再钉链验证细节。</p><p><span class="marginnote">常见误区：以为协商算出来的数能直接当 AES 密钥用。实际上共享秘密是曲线点的坐标派生值，不是均匀随机的比特串，也不区分「加密用」「认证用」；必须再过一遍 KDF（如 HKDF）派生出规整的密钥材料，跳过这一步会留下很难察觉的弱点。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>前向保密来自临时标量。长期静态 ECDH 没有同样的遗忘性。实现必须用恒定时间标量乘；曲线选择把一类无效点问题收进规格。身份绑定仍是 PKI 或预共享。</p><p><span class="marginnote">前向保密（forward secrecy）说的是：长期身份密钥将来丢了，过去的通信记录也解不开。直觉类比：每次见面用一次性保险箱当场装秘密、用完砸掉钥匙——小偷日后偷到万能钥匙（长期私钥），也只能开未来的箱子，翻不动已经砸掉钥匙的旧箱子。</span></p><p>临时标量和长期静态密钥，泄露时的损失范围差在哪？</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写全部 NIST 曲线清单。下一课 ECDSA/EdDSA：同一类群上的签名，与 DH 分工，密钥不要混用语义。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>RSA 封装之外，ECDH 做临时协商。</li><li>X25519 是难误用的 Curve25519 合同。</li><li>输出必须再 KDF；无认证则中间人成功。</li><li>下一课：同群上的签名 EdDSA/ECDSA。</li><li>出处：RFC 7748；Bernstein, Curve25519；对照 Diffie and Hellman, 1976。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 密码、利用与系统防御<!--[--> · 单元 密码学进阶<!--]--><!--[--> · 课序 原语<!--]--></p><p class="lesson-progress">第 15 / 133 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/ecdsa-eddsa/">ECDSA / EdDSA</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/rsa-attacks/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">RSA 攻击面</span><span class="lesson-card-meta">密码、利用与系统防御 · 密码学进阶 · 原语<!--[--> · 第 14 / 133 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/ecdsa-eddsa/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">ECDSA / EdDSA</span><span class="lesson-card-meta">密码、利用与系统防御 · 密码学进阶 · 原语<!--[--> · 第 16 / 133 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

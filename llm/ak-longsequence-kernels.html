@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>长序列的内核策略 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ak-longsequence-kernels.md.BnjOlBQ2.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 工程化<!--]--><!----></p><p class="lesson-progress">第 10 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ak-speculative-interaction/">投机解码与注意力内核的交互</a></p><p class="lesson-next"> 下一课：<a href="/llm/ak-benchmark-methodology/">内核基准测试方法论</a></p><!----></nav><div style="position:relative;"><div><h1 id="长序列的内核策略" tabindex="-1">长序列的内核策略 <a class="header-anchor" href="#长序列的内核策略" aria-label="Permalink to &quot;长序列的内核策略&quot;">​</a></h1><div class="epigraph"><p>序列变长不改变注意力的公式，改变的是并行度从哪来：KV 轴切开后，softmax 的结合律就是你的归并器。</p><footer>—— 据 Dao et al., 2022；Liu et al., 2023（Ring Attention）整理</footer></div><p><a href="/llm/ak-speculative-interaction">上一课</a>处理了投机带来的形状冲击。本课把 \(n\) 推到十万级。<a href="/llm/flashdecoding">FlashDecoding</a> 定过沿 KV 切分与二层 LSE 归并，<a href="/llm/ring-attention">Ring Attention</a> 定过跨设备的序列分片；本课把它们当作同一套内核策略收拢：并行度从哪来、部分结果怎么归并、掩码在长序列下要多管什么。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>三个缺口同一个来源。其一，前填 \(n=128\mathrm{k}\) 时 FlashAttention 的内层循环有上千个 KV 块，但网格并行度仍按 \(\mathrm{batch}\times h_q\) 展开：单请求、8 个查询头就是只有 8 个线程块，上百个 SM 大半闲置。其二，解码时 KV 读随 \(n\) 线性增长，单请求下算术强度贴地，<a href="/llm/arithmetic-intensity-decode">解码的算术强度</a>那本账在长上下文里被放大到难看。其三，显存装不下：\(128\mathrm{k}\) 上下文的整段 KV 本身就超出单卡容量。查询轴没得切（就一行或几行），能切的只剩 KV 轴。</p><p><span class="marginnote">术语翻译：SM 是 GPU 里的计算核心单元，一块卡上有上百个；内核启动时被切成许多线程块去铺满它们。线程块数少于 SM 数时，多出来的 SM 只能空转——好比 8 个工人分到 108 个工位，九成工位闲着。切 KV 段就是临时雇更多工人。</span></p><h3 id="切了-kv-softmax-怎么办" tabindex="-1">切了 KV，softmax 怎么办 <a class="header-anchor" href="#切了-kv-softmax-怎么办" aria-label="Permalink to &quot;切了 KV，softmax 怎么办&quot;">​</a></h3><p>第一课说过每行携带 \((m,l,O)\) 三个统计量、且合并满足结合律——沿 KV 切段正是把这条结合律从「块间」用到「段间」：每段独立算出部分结果，再用同一个合并式归并。精确性不丢，因为合并是恒等变换换了个执行顺序。</p><p><span class="marginnote">直觉类比：分段归并像几组评委各读半本书分别打分，最后按各段「见过的最高分」把分数换算到同一尺度再加总。汇总规则只要按结合律写对，结果和一个人从头读到尾完全一致——省的只是让一个人读完全书的时间。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>沿 KV 切分四步。第一，把 KV 均匀切成 \(S\) 段，段数按占用算：让 \(\mathrm{batch}\times h_q\times S\) 盖过 SM 数。第二，每段独立跑一遍 FA 循环，产出 \((m_i,l_i,O_i)\)。第三，归并：\(m=\max_i m_i\)，\(O=\sum_i e^{m_i-m}O_i\)，\(l=\sum_i e^{m_i-m}l_i\)，最后 \(O/l\)——数值上与一遍算等价，只是舍入顺序不同。第四，跨设备时段间走点对点环传递 KV 块，通信与段计算重叠，单卡显存不再是上限（Ring Attention 的口径）。服务端还有一路：把 128k 的前填切成若干 4k 段逐段做，与第 5 课的变长接口咬合，首 token 延迟从「全部算完」变成「逐段出活」。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么段数有甜点：切分解决的是并行度，付出的是部分结果的写读与归并——\(O_i\) 是 \(n_q\times d\) 的张量，段数翻倍它也翻倍，但相对 KV 流量通常可忽略；段太碎则归并占比上升、每段循环的启动开销显形。所以段数由 SM 数与形状算出，不拍脑袋。错法有三种。把 tile 开小去「多开块」：第一单元的预算表说过这会溢出，方向就错了。用滑窗硬切长序列：那是改语义不是改策略，感受野有损接力是模型课的决定，见 <a href="/llm/sliding-window-attention">Sliding Window Attention</a>。滚动窗口挤掉开头：许多头的权重质量沉在初始 token 上，它们是归一化的锚，切掉锚窗口内权重重新放大、输出崩，见 <a href="/llm/attention-sink">Attention Sink</a>——长序列的掩码策略与数值策略要一起定。</p><div class="mermaid"></div><p><span class="marginnote">单请求、\(h_q=8\)、A100 有 108 个 SM：不切分时 8 个块占不到一成 SM；沿 KV 切 64 段得 512 块，SM 排满。代价只是多写读一遍 \(O\)（\(n_q\times d\)）与统计量——相对 KV 流量不足百分之一。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>Ring Attention 的通信量、拓扑与重叠效率属于并行训练课程；本课只认「段间可以走设备」这个接口。位置编码与外推、上下文扩展是模型课题目。KV 装不下时的驱逐与压缩是 KV 管理课程的题目，本课的前提是段都在某个地方存着。策略层面的结论只有一句：长序列的内核手段是同一精确算法换并行度与归并，谁要用近似换速度，先在边界里声明。</p><p><span class="marginnote">为什么重要：很多模型把大量注意力压在最开头几个 token 上，它们像「排水口」一样稳住 softmax 的归一化。滚动窗口一挤掉开头，锚没了，窗口内权重重新放大，输出立刻崩。所以长序列上改掩码、改窗口，永远要先给开头留位置。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>长序列的第一缺口是并行度：查询轴切不动，沿 KV 轴切段，段数按 SM 数算。</li><li>段间归并用第一课的结合律：\(\max\) 并 \(m\)、指数加权并 \(l\) 与 \(O\)，精确无近似。</li><li>部分结果的写读是切分的代价，段太碎归并占比上升，甜点由占用算出。</li><li>跨设备切段即 Ring Attention 的接口：KV 块点对点传递，通信与计算重叠。</li><li>掩码与数值要一起定：滑窗是语义决定，attention sink 的锚不能被滚动挤掉。</li><li>出处：Dao et al., 2022；Flash-Decoding, 2023；Liu et al., <em>Ring Attention</em>, 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 工程化<!--]--><!----></p><p class="lesson-progress">第 10 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ak-benchmark-methodology/">内核基准测试方法论</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/ak-speculative-interaction/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">投机解码与注意力内核的交互</span><span class="lesson-card-meta">注意力内核工程 · 工程化<!--[--> · 第 9 / 14 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ak-benchmark-methodology/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">内核基准测试方法论</span><span class="lesson-card-meta">注意力内核工程 · 工程化<!--[--> · 第 11 / 14 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

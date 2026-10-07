@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>像差对 NILS 的敏感度 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_aberration-nils-sensitivity.md.Cm4YH21B.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 傅里叶光学与薄膜<!--[--> · 单元 变换与传递函数<!--]--><!--[--> · 课序 成像的数学骨架<!--]--></p><p class="lesson-progress">第 12 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/litho/immersion-vector-imaging/">浸没成像的矢量分析</a></p><p class="lesson-next"> 下一课：<a href="/litho/focus-tilt-compensation/">焦面倾斜与场曲补偿</a></p><!----></nav><div style="position:relative;"><div><h1 id="像差对-nils-的敏感度" tabindex="-1">像差对 NILS 的敏感度 <a class="header-anchor" href="#像差对-nils-的敏感度" aria-label="Permalink to &quot;像差对 NILS 的敏感度&quot;">​</a></h1><div class="epigraph"><p>Zernike 系数改的是光瞳相位；工艺看见的是阈值处斜率掉了多少。敏感度是把 $c_j$ 接到 NILS 的导数，不是再报一次 RMS 波前。</p><footer>—— Zernike 展开见 Malacara；NILS 定义见 Mack；相位进 TCC 见 Hopkins</footer></div><p><a href="/litho/immersion-vector-imaging">上一课</a>把浸没默认成矢量能量沉积。缺口是：镜头残差、热漂移、离焦配平，最终要问<strong>边还陡不陡</strong>。主干已有 <a href="/litho/nils-ils">NILS</a> 与 <a href="/litho/zernike-aberrations">Zernike</a>；本课补的是二者之间的敏感度，不重定义 ILS，不重背全套多项式。焦面倾斜与场曲如何补偿，留给<a href="/litho/focus-tilt-compensation">下一课</a>。不重推产线 CD 式。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>NILS \(=\mathrm{CD}\cdot(d\ln I/dx)|_{\mathrm{th}}\)。像差进 \(P\) 的相位，因而进每条 SOCS 核，空中像边沿变缓或侧移。波前 RMS 或 Strehl 是积分指标，对「这条金属边」不必敏感：同样的 RMS，球差与彗差对密线 NILS 的伤害可以差一截。缺口因此是 \(\partial\mathrm{NILS}/\partial c_j\)（以及 \(\partial x_\mathrm{edge}/\partial c_j\)），而不是再展开一次 \(W=\sum c_j Z_j\)。</p><p><span class="marginnote">术语翻译：NILS（归一化像对数斜率）量的是阈值处「光强爬坡有多陡」。NILS=3 就是把曝光能量拉高 1%，边位置大约只动千分之三的量级——数字越大，剂量误差越不容易变成 CD 误差。</span></p><p>必须声明图形与阈值：孤立线、密栅、孔、线端各有一套敏感度。浸没矢量像上，TM 已经矮了一截的边，同样 \(c_j\) 可以更快把 NILS 打穿。</p><h3 id="偶项与奇项" tabindex="-1">偶项与奇项 <a class="header-anchor" href="#偶项与奇项" aria-label="Permalink to &quot;偶项与奇项&quot;">​</a></h3><p>离焦、球差、像散（偶次、随焦点可配平的一类）主要糊对比、关焦窗。彗差、三叶、倾斜（奇项）主要造成边位移和左右不对称，套刻与 CD 不对称一起动。把所有 \(c_j\) 塞进一个「像差预算纳米」而不分偶奇，会同时去拧调焦和对准。</p><p><span class="marginnote">数字实例：193 nm 下 \(\lambda/14\) 的 RMS 波前约 14 nm——这是 Marechal 判据（Strehl≈0.8）的镜头验收线；而对敏感图形，远小于它的单项像差就足以让 NILS 明显下滑。所以「验收合格」与「这条边好用」是两句话。</span></p><p><span class="marginnote">Fringe 与 Noll 编号不同，敏感度表必须写约定。场点不同系数不同：狭缝中心的球差表不能代表狭缝边缘的彗差。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>在校准过的前向（矢量 TCC + 薄膜）上，对每个 \(c_j\) 做小扰动，量目标图形阈值处的 NILS 与边位置。线性区给出敏感度系数；大像差要看 Bossung 与 PV-band，线性不够。扫描平均把瞬时波前沿狭缝积分，有效敏感度是加权后的。</p><p>计算光刻：PW-OPC 的工艺点应包含代表像差的焦点与剂量，而不是假定 \(c_j\equiv 0\) 的理想核。镜头加热导致 \(c_j(t)\)，敏感度高的项必须进补偿环（下一课的倾斜/场曲是其中可驱动的部分）。</p><div class="mermaid"></div><h3 id="与-mtf-敏感度的差别" tabindex="-1">与 MTF 敏感度的差别 <a class="header-anchor" href="#与-mtf-敏感度的差别" aria-label="Permalink to &quot;与 MTF 敏感度的差别&quot;">​</a></h3><p>OTF 随像差掉的是正弦调制；NILS 是局部对数斜率。通带里 MTF 看起来还能用，切在拐角或线端的缓坡上 NILS 可以已经死。敏感度分析必须在真实图形上做，不能用圆孔 MTF 零点代替。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>相位在光瞳径向的弯曲改变不同空间频率的相对相位，空域干涉从「同相相长」变成错位，边的傅里叶合成变钝。彗差让光瞳一侧的频率多走相位，边向一侧爬，看起来像局部套刻。这就是为什么 EPE（后课）会把像差项和 overlay 项缠在一起：奇像差本来就在挪边。</p><p><span class="marginnote">常见误区：初学者容易以为「波前 RMS 小就万事大吉」。同样大小的 RMS，彗差可以把边悄悄挪出套刻预算，球差却只是糊掉对比——单一 RMS 数字里看不出这种差别，必须看分项敏感度。</span></p><div class="mermaid"></div><p>高阶项振荡快，对靠近截止的密图形更毒；低阶项对孤立边和焦窗更毒。敏感度随节距走，禁戒节距附近导数可以变号——照明一换，表要重做。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不给某代投影物镜的系数预算。Strehl 与 Marechal 判据是镜头验收语言，不是 NILS 敏感度。胶扩散会再糊一层，光学敏感度是上限。禁止把未公开的「Zernike 每毫波对应几纳米 CD」当作通用常数。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>像差敏感度是 \(\partial\mathrm{NILS}/\partial c_j\) 与边位移，不是单靠 RMS。</li><li>偶项糊窗，奇项挪边；图形类别必须声明。</li><li>矢量浸没像上同样 \(c_j\) 可以更狠。</li><li>MTF 掉不代替阈值斜率掉。</li><li>下一课：倾斜与场曲作为可补偿的场相关项。</li><li>出处：Mack（NILS）；Malacara（Zernike）；Hopkins（相位进核）。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 傅里叶光学与薄膜<!--[--> · 单元 变换与传递函数<!--]--><!--[--> · 课序 成像的数学骨架<!--]--></p><p class="lesson-progress">第 12 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/focus-tilt-compensation/">焦面倾斜与场曲补偿</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/litho/immersion-vector-imaging/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">浸没成像的矢量分析</span><span class="lesson-card-meta">傅里叶光学与薄膜 · 变换与传递函数 · 成像的数学骨架<!--[--> · 第 11 / 25 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/litho/focus-tilt-compensation/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">焦面倾斜与场曲补偿</span><span class="lesson-card-meta">傅里叶光学与薄膜 · 变换与传递函数 · 成像的数学骨架<!--[--> · 第 13 / 25 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>可解释性应用收束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_xai-map.md.Bkh-TZik.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 可解释性应用<!--[--> · 单元 应用<!--]--><!----></p><p class="lesson-progress">第 10 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/llm/xai-limits-frontier/">局限与前沿</a></p><p class="lesson-next"> 下一课：<a href="/llm/agent-loop-design-space/">Agent 循环的设计空间</a></p><!----></nav><div style="position:relative;"><div><h1 id="可解释性应用收束" tabindex="-1">可解释性应用收束 <a class="header-anchor" href="#可解释性应用收束" aria-label="Permalink to &quot;可解释性应用收束&quot;">​</a></h1><div class="epigraph"><p>收束不是把九课再讲一遍，而是回答一个问题：周一早晨拿到一个具体需求，先打开哪一课、按什么顺序走、哪里必须停。</p><footer>—— 据 Bricken et al., 2023、Templeton et al., 2024、Elhage et al., 2021 与 Zou et al., 2023 的方法谱系，按本课程整理</footer></div><p><a href="/llm/xai-limits-frontier">上一课</a>把硬限与前沿收拢成清单。本课做收束该做的事：方法工程单元给了四件工具——字典（<a href="/llm/xai-sae-practice">第 1 课</a>）、验证协议（<a href="/llm/xai-feature-validation">第 2 课</a>）、自动化电路（<a href="/llm/xai-circuit-automation">第 3 课</a>）、表征读写（<a href="/llm/xai-representation-engineering">第 4 课</a>）；应用单元给了五个场景——监控（<a href="/llm/xai-deception-monitoring">第 5 课</a>）、训练引导（<a href="/llm/xai-guided-training">第 6 课</a>）、机制评测（<a href="/llm/xai-mechanistic-eval">第 7 课</a>）、工具链（<a href="/llm/xai-toolchain-repro">第 8 课</a>）、边界（第 9 课）。本课把它们装配成一张地图和一张决策单。<strong>本课程到此收束。</strong></p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>解释性团队最贵的浪费是错配：想检测问题却去训大字典——字典是工具不是答案；想改行为却只做推理期加向量——可开关的控制挡不住有心人；想验收模型却只跑行为基准——<a href="/llm/specification-gaming">规约博弈</a>的缝隙恰好留在机制里。各场景局部最优会互相拆台：监控的探针没过验证协议（第 2 课），告警没有公信力；训练引导没跑特征画像 diff（第 6 课），伤能力不可见。收束要给的是先把需求放进哪个格子、再按什么顺序调用工具的先后表。</p><p><span class="marginnote">「字典是工具不是答案」打个比方：字典像显微镜，监控报告才是化验单。实验室花大钱买了最高倍的显微镜，不等于做出了任何诊断——检测需求要的是「用已有工具跑读数、定阈值、接人审」，而不是先造设备。错配的代价是预算烧在设备上，问题没人看。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>决策单</strong>，按「先定格子、检测先行、读数必验、误差入账」排序：</p><ol><li><strong>定格子</strong>：理解（电路）、检测（监控与评测）、改造（训练引导与读写）——三格的工具链不同，先答「要的是什么」。</li><li><strong>检测先于改造</strong>：动手之前先有读数基线，否则改造的效果与副作用都无法归因。</li><li><strong>一切读数过验证协议</strong>：探针、特征、方向，未过第 2 课验收的不进决策依据。</li><li><strong>误差与失败案例入账</strong>：误差节点占比、未找到的审计结论、验证失败清单，与正面结果同权。</li><li><strong>口径随结论走</strong>：位点、宽度、版本、字典元数据（第 1、8 课）附在任何对外结论后面。</li></ol><p>永不碰的三件事：把「欺骗方向激活」当意图判决；把未验读数写进训练目标；把解释性产出当「模型无害」的证书（第 9 课的越界）。</p><p><span class="marginnote">「检测先于改造」的道理和体检一样：先量血压、留下基线，再开始吃药；否则之后血压变化是药的功劳还是病本来就在波动，永远说不清。改模型同理——先跑特征画像和监控读数做基线，改造后的效果与副作用才有对比的参照物。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>地图的骨架是三条不变量，与前九课一一扣合。<strong>不变量一：干预优先于相关。</strong> 释义、探针、归因都先产出相关候选，升级为结论只发生在干预之后——特征验证（第 2 课）、电路闭环（第 3 课）、读写验收（第 4 课）用的是同一个闭环。<strong>不变量二：读数不是判决。</strong> 内部证据始终是可证伪假设，处置要过人审与行为复核——监控（第 5 课）与机制评测（第 7 课）的判分原则同源。<strong>不变量三：口径绑定一切。</strong> 位点、宽度、checkpoint、解释器版本变了，结论就换了地盘——工程实践（第 1 课）与复现规范（第 8 课）守的是这一条。三条不变量定了，字典换代、追踪器升级，决策单的顺序不动。</p><div class="mermaid"></div><p><span class="marginnote">这张图回答「一条内部读数要过几道闸才能写进结论」：先过验证协议（它准不准），再过干预对照（它有没有因果），最后过人审与行为复核（该不该据此行动）。任何一道没过，读数仍可留着排优先级，但不能进决策依据——三条不变量在这个闸门序列里同时生效。</span></p><p><span class="marginnote">一张自检表：如果只做三件事——给高危流量挂已验证的轻量读数，把特征画像 diff 加进发布门槛，让每条对外结论自带字典元数据。多数团队在这三步内就能把解释性从演示变成工序；后面的每一步都要求先证明前面拿不出来了。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>这张图有时效与方法界。方法界：全部工具默认白盒——有权重、能 hook、能重训；API 模型只剩行为侧的降级版。能力界：工具只见线性可读的表征，四条硬限（第 9 课）原样压在地图上，地图不承诺覆盖。时效界：字典与追踪流水线仍在换代，编号与图谱会过时，三条不变量与决策单的顺序是本课程打算留下的部分。地图之外由相邻课程接棒：模型之上的编排、工具与生产化，是 Agent 工程的主题，本课程不再跟进。</p><p><span class="marginnote">「白盒」翻译成大白话：研究者手里有模型的完整权重，能在任意一层插入钩子读取激活，甚至拿回去重新训练——相当于能拆开修理的收音机。API 模型则像密封的一次性设备，只能看到输入和输出，本课程的全部工具在它身上只剩「看行为」的降级版可用。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>决策单五步：定格子 → 检测先行 → 读数必验 → 误差入账 → 口径随结论走。</li><li>三条不变量：干预优先于相关、读数不是判决、口径绑定一切；工具换代，顺序不动。</li><li>永不碰：读数当意图判决、未验读数进训练目标、解释当无害证书。</li><li>白盒是默认前提，四条硬限压在整张地图上；解释性是纵深防御的一层，不是终点。</li><li>出处：Bricken et al., <em>Towards Monosemanticity</em>, 2023；Templeton et al., <em>Scaling Monosemanticity</em>, 2024；Elhage et al., 2021；Zou et al., 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 可解释性应用<!--[--> · 单元 应用<!--]--><!----></p><p class="lesson-progress">第 10 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/agent-loop-design-space/">Agent 循环的设计空间</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/xai-limits-frontier/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">局限与前沿</span><span class="lesson-card-meta">可解释性应用 · 应用<!--[--> · 第 9 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/agent-loop-design-space/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">Agent 循环的设计空间</span><span class="lesson-card-meta">Agent 工程深入 · 架构<!--[--> · 第 1 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

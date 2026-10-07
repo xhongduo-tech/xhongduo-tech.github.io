@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>对手方分层与定向 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_mm-counterparty-tiering.md.i0nP8-s4.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 做市业务深入<!--[--> · 单元 策略<!--]--><!----></p><p class="lesson-progress">第 4 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/mm-hedging-inventory/">对冲与库存转移</a></p><p class="lesson-next"> 下一课：<a href="/quant/mm-toxicity-online/">毒性流的线上检测</a></p><!----></nav><div style="position:relative;"><div><h1 id="对手方分层与定向" tabindex="-1">对手方分层与定向 <a class="header-anchor" href="#对手方分层与定向" aria-label="Permalink to &quot;对手方分层与定向&quot;">​</a></h1><div class="epigraph"><p>把知情概率当成全市场一个常数，价差就按最毒的对手收；低毒流被高价赶走，剩下的池子更毒——分层定价不是歧视，是让做市可活的条件。</p><footer>—— 据 Glosten and Milgrom, Journal of Financial Economics, 1985；Harris, Trading and Exchanges, 2003 整理</footer></div><p><a href="/quant/mm-hedging-inventory">上一课</a>把库存风险转移给对冲腿之后，对手仍被当成一个整体在定价。<a href="/quant/glosten-milgrom">Glosten–Milgrom</a> 的知情者比例 \(\mu\) 是单一参数：所有人同样可能知情。真实流不是：小额零售、机构母单与程序化单混在同一簿里，被同一个价差收费。本课把 \(\mu\) 截面化：用什么特征识别对手、对每层报什么价、哪些做法越线。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>混合定价的均衡是逆选择螺旋：价差按平均毒性收，价差越宽，对成本敏感的低毒流越先离开，剩余池子的平均毒性越高，价差再宽——驱逐直到市场只剩知情者与被动指数流。缺口因此是三层：识别（用什么可观测特征分层）、定价（对每层报什么价与量）、合规（差别化与抢先的边界在哪）。不做分层的做市商最终只能收全市场最宽的价差，或在消息日历上停摆，把成交量让给会分层的人。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：保险公司分不清好坏司机时，只能按平均事故率收保费；好司机觉得亏，转投别家，剩下的池子事故率更高，保费再涨——这就是「柠檬市场」螺旋。做市商不分层定价时面对的是同一道题，只是「保费」是价差。</span></p><h3 id="特征族与打分" tabindex="-1">特征族与打分 <a class="header-anchor" href="#特征族与打分" aria-label="Permalink to &quot;特征族与打分&quot;">​</a></h3><p>分层特征三类：身份与路由属性（账户类型、订单标记、进入场所）、订单形态（大小、是否拆分、方向与公开消息的时序相关）、历史行为（该来源成交后固定窗口内中点朝成交方向的位移，即 markout 得分）。打分的会计口径直接用<a href="/quant/adverse-selection-cost">逆向选择成本度量</a>：每层分别算有效价差减实现价差，谁在事后吃掉你的价差，数字自己会排出来。零售流的行为差异有大样本证据，见 <a href="/quant/boehmer-retail-flow">零售流的证据</a> 一类研究。</p><p><span class="marginnote">术语翻译：markout 就是「成交后过一小段时间，中点朝成交方向走了多少」。你买入后价格继续涨，说明你更可能是知情方，对手方（做市商）的 markout 为负——瞬间赚了价差，几分钟后在更好的价位把库存亏回去。逐来源累积这个数，就是最朴素的毒性档案。</span></p><p><span class="marginnote">markout 得分的窗口必须固定并写进台账：把窗口从 30 秒改成 5 分钟，「同一来源」的毒性排序可能翻转。窗口选择本身就是一层模型假设，前台与风控各用各的窗口，分层阈值就永远吵不完。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>动作按层配套：对低分来源收窄价差、扩大规模，甚至内部化对敲（自己接下对手单，不出现在公开簿）；对高分来源加宽、缩量、拒单，或改走询价——定向报价把「挂给所有人」改成「报给特定对手」，价格可以带该对手的毒性条件。分层经济等价于把单一市场拆成多个子市场，每个子市场的 \(\mu\) 更低、价差更窄，公开簿反而更健康。</p><p><a href="/quant/pin">PIN</a> 的日度似然给不出逐笔分层，但它是分层有效性的低频校验：你的分层是否真的把高 PIN 时段的高毒来源挑了出来。</p><p><span class="marginnote">数字实例：假设全池混合的知情概率对应 12 分宽的价差。分层后，低毒层按 \(\mu\approx 0.05\) 收 4 分、高毒层按 \(\mu\approx 0.5\) 收 20 分——低毒层价差缩小三分之二，被窄价差吸引回流，公开簿的总流量与深度反而变厚。分层不是把蛋糕切小，是把被高价赶走的流量请回来。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>分层改变的是价差对谁收：Glosten–Milgrom 里价差是条件期望之差，条件集合从「全市场」换成「这一层」，价差就跟着这一层的 \(\mu\) 走。内部化低毒流的经济学不是掠夺而是分离均衡：愿意被内部化的对手拿到更窄的价差，公开簿剩余池子的毒性被明码标价。定向报价更进一步：报价本身成为对特定对手的条件合同，做市商从「被动接所有来者」变成「选择与谁成交」。</p><p>反馈环要闭到阈值：分层的正确性只有会计能检验——某层开始持续吃掉实现价差，阈值就该移动；某层长期贡献价差收入，规模就该放开。这是第一课「模型是分解器」口径在对手维度的重演。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>红线在信息流：不能把一层对手的成交信息用于对另一层的抢先报价——front-running 与信息屏障是监管与合同的双重对象。不能对同层对手做无依据的差别定价，标记错误会让受保护人群系统性拿到劣价。小来源样本不足，阈值要平滑回退到全池价差，不要让两个 markout 样本决定一个价差。分层是风险管理语言：本课不提供识别具体自然人对手或定向淘汰对手的构造。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>单一 \(\mu\) 按平均毒性收费，引发逆选择螺旋；分层是让低毒流留在市场的条件。</li><li>特征三类：身份路由、订单形态、历史 markout；会计口径是逐层有效价差减实现价差。</li><li>动作按层配套：窄价差与内部化给低毒层，宽价差、缩量与 RFQ 给高毒层。</li><li>定向报价把报价变成对特定对手的条件合同，等价于拆分子市场。</li><li>阈值靠会计反馈闭环；窗口与规则进台账。</li><li>信息屏障与公平对待是红线；小来源回退全池价差。</li><li>出处：Glosten and Milgrom, <em>Journal of Financial Economics</em>, 1985；Easley, Kiefer, O&#39;Hara and Paperman, <em>Journal of Finance</em>, 1996；Harris, <em>Trading and Exchanges</em>, 2003。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 做市业务深入<!--[--> · 单元 策略<!--]--><!----></p><p class="lesson-progress">第 4 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/mm-toxicity-online/">毒性流的线上检测</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/mm-hedging-inventory/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">对冲与库存转移</span><span class="lesson-card-meta">做市业务深入 · 策略<!--[--> · 第 3 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/mm-toxicity-online/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">毒性流的线上检测</span><span class="lesson-card-meta">做市业务深入 · 风控与运营<!--[--> · 第 5 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

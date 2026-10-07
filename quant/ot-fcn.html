@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>FCN 与固定收益增强 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_ot-fcn.md.B5o8bw9T.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 结构化产品与场外<!--[--> · 单元 产品解剖<!--]--><!----></p><p class="lesson-progress">第 2 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/ot-autocall-snowball-deep/">自动赎回谱系：雪球深化</a></p><p class="lesson-next"> 下一课：<a href="/quant/ot-barrier-portfolios/">障碍结构的组合</a></p><!----></nav><div style="position:relative;"><div><h1 id="fcn-与固定收益增强" tabindex="-1">FCN 与固定收益增强 <a class="header-anchor" href="#fcn-与固定收益增强" aria-label="Permalink to &quot;FCN 与固定收益增强&quot;">​</a></h1><div class="epigraph"><p>固定票息票据不是一张高息债加一点风险，而是一张零息债叠加裸卖的下跌期权；「固定」修饰的是票息，不是本金。</p><footer>—— 据 Henderson and Pearson, Journal of Financial Economics, 2011；结构口径据场外结构化票据条款书整理</footer></div><p><a href="/quant/ot-autocall-snowball-deep">上一课</a>把雪球钉成敲出、敲入、支付三条轴上的字段表，票息逐字段反解。本课把谱系上敲出轴清空的那个端点单独拆开：固定票息票据 FCN。它没有降敲节奏、没有敲出观察，发行人放弃早赎权，只保留敲入风险；市场上以「固收增强」名义销售的正多。主干里<a href="/quant/snowball-pricing">雪球定价</a>立的票息反解与适当性口径在此沿用，后课默认已经读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>把 FCN 当固收记账，会漏掉它在敲入后的全额下跌暴露；把 FCN 当雪球报价，又会在敲出轴上多算一条不存在的腿——发行人的早赎期权费。缺口是先钉清 FCN 相对雪球到底少了什么：少了敲出腿，票息理应更低，期限内的凸性结构理应更简单。实务里的错误恰恰反着来：销售端按票息与期限类比存款，账本端却沿用雪球的全套希腊。本课先给支付分解，再谈反解在此如何退化。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>标准 FCN：期限 \(T\)，每期付固定票息 \(c\)，到期日若存续期内标的从未低于敲入线 \(H\)，按面值还本；若曾低于 \(H\)，投资者按行权价 \(K\)（通常等于期初价格）接收标的或等额亏损。分解成两条腿：一张零息债，加一份投资者卖出的向下敲入看跌（行权价 \(K\)、障碍 \(H\)）。票息就是这条看跌的期权费摊还：</p> \[c\,A+B=1, \]<p>形式与雪球一致，但 \(A\) 退化成「未敲入路径上的年金贴现」，不再含敲出截断；\(B\) 是敲入后损失的贴现期望。变体只有两处值得单列：或有票息把 \(c\) 从固定改成按期判定未敲入才付，此时 \(A\) 里的路径集合再收窄一次；含早赎权的 FCN 由发行人买回一张百慕大式赎回权，票息上调，谱系坐标向雪球靠近一格。</p><p><span class="marginnote">术语翻译：敲入线 70% 就是给标的留 30% 的「缓冲垫」——跌幅不足 30% 你当无事发生；一旦盘中跌穿，垫子宣告击穿，此后亏损全额落到本金。垫子越薄（敲入线越高），票息越贵，因为卖出的保险越容易赔。</span></p><p><span class="marginnote">常见条款量级：两年期 FCN，敲入线 \(70\%\)，季度票息 \(2.8\%\)，敲入后按期初价接券。把敲入线从 \(70\%\) 抬到 \(90\%\)，票息不是线性上移——敲入概率与损失期望同时改写，反解出的票息常翻倍以上，这正是「高票息结构」的真实来源。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>票息反解在无敲出轴下的机制含义是：FCN 的公允票息主要由敲入概率与敲入后损失期望决定，与「市场利率加多少点」没有先验关系。保护垫变薄，\(B\) 上升，\(c\) 上升；期限拉长，敲入概率上升，\(c\) 也上升——但这些都不是线性映射，障碍附近的敏感度沿<a href="/quant/ot-autocall-snowball-deep">雪球深化</a>立的三处失效区（敲入线附近、期限压缩短端）同样存在。「固收增强」的口径错在哪：本金风险没有被票息覆盖，票息是每期收到的期权费，敲入后的损失从 \(H\) 到零全部由本金承担，票息越高的 FCN，卖出的期权越贵。Henderson 与 Pearson 对零售结构化票据的实证给出同一方向：发行价系统性高于可复制组合的成本，价差落在条款复杂性的支付意愿上，不落在「增强」上。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：FCN 像把自家房子按今天的市价「预售」给发行商，同时每期收一笔占用费——房价一直没跌破约定线，你安心收租；一旦跌破，房子按合同价过户，跌得再深也按原价算你的亏损，占用费一分不涨。</span></p><p><span class="marginnote">数字实例：买 10 万元两年期 FCN，季度票息 2.8%，共收 8 期约 2.24 万。若第二年标的盘中跌破敲入线、到期跌了 35%，按期初价接券等于本金亏 3.5 万——两年「利息」不够补亏。票息是保费，不是本金的保险。</span></p><p>发行方视角的差异留到后课，这里只钉一句：敲出腿拿掉后，发行方账本在敲入带附近的凸性符号与雪球并不同族，市场层面的对冲行为对照<a href="/quant/snowball-knockin-cascade">敲入级联</a>与对冲商堆积两课，不在本课展开。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不回答「FCN 值不值得买」——那是适当性约束下的销售问题，口径沿雪球定价课：不得按保本陈述，评级与风险揭示挂钩条款字段。FCN 的篮子与最差表现变体把相关抬成一等项，定价进<a href="/quant/dispersion-corr-prem">相关溢价</a>的口径；挂钩利率的浮动票息变体还多一层指数的合同地位，那是收束课的案例。发行人信用不进本课：票据的违约风险是后课的缺口。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>FCN 是零息债加卖出向下敲入看跌；「固定」指票息，不指本金。</li><li>敲出轴清空，票息反解退化：\(c\) 主要由敲入概率与损失期望决定，敏感区在敲入线附近。</li><li>或有票息与早赎权各改写一次路径集合；早赎权把谱系坐标向雪球拉近一格。</li><li>「固收增强」的错误在把期权费当利息；零售结构发行价系统性高于复制成本。</li><li>出处：Henderson and Pearson, <em>JFE</em>, 2011；结构与反解口径沿 <a href="/quant/autocallable">autocallable</a>、<a href="/quant/snowball-pricing">雪球定价</a>与<a href="/quant/ot-autocall-snowball-deep">雪球深化</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 结构化产品与场外<!--[--> · 单元 产品解剖<!--]--><!----></p><p class="lesson-progress">第 2 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/ot-barrier-portfolios/">障碍结构的组合</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/ot-autocall-snowball-deep/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">自动赎回谱系：雪球深化</span><span class="lesson-card-meta">结构化产品与场外 · 产品解剖<!--[--> · 第 1 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/ot-barrier-portfolios/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">障碍结构的组合</span><span class="lesson-card-meta">结构化产品与场外 · 产品解剖<!--[--> · 第 3 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

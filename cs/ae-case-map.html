@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>算法工程案例与收束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_ae-case-map.md.BMEFaPSQ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 算法工程实践<!--[--> · 单元 验证与案例<!--]--><!----></p><p class="lesson-progress">第 8 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/ae-library-comparison/">算法库的对照与使用</a></p><p class="lesson-next"> 下一课：<a href="/cs/link-cut-tree/">动态树与 LCT</a></p><!----></nav><div style="position:relative;"><div><h1 id="算法工程案例与收束" tabindex="-1">算法工程案例与收束 <a class="header-anchor" href="#算法工程案例与收束" aria-label="Permalink to &quot;算法工程案例与收束&quot;">​</a></h1><div class="epigraph"><p>工程里没有纯算法：每个被部署的算法，都带着数据、机器与团队的签名。</p><footer>—— 据 Bentley, Programming Pearls, 2000 整理</footer></div><p><a href="/cs/ae-library-comparison">上一课</a>把库的化石拆开看后，本课程走到收束。本课把前七课的杠杆放进三个案例——大整数乘法的谱系、数据库连接的选择、一次排序库 bug 的追查——看它们如何叠加生效，并回答第一课留下的问题：一个算法决定是怎样被做出来的。本课程到此收束，树序后续由附录的文献对照接走。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>案例课的问题只有一个：杠杆怎么组合、次序对不对。错法是把杠杆并列乱用——还没定输入规模与分布就埋头压常数，还没跑基准就先信库，出了性能问题先改代码而不是先固定输入。三个案例各给一遍正确的次序。</p><p><span class="marginnote">常见误区：初学者容易以为「渐近更优的算法在任何规模都更快」。实际上 FFT 的每次运算常数是普通乘法的十倍上下，输入只有几百位时用它反而更慢——所以成熟库都在阈值之下保留经典乘法，「更小的阶」是要靠规模换的。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>案例一，乘法谱系。大整数乘法的教科书基线是 \(O(n^2)\)；<a href="/cs/karatsuba">Karatsuba</a> 用分治把指数压到 \(O(n^{\log_2 3})\)，<a href="/cs/fft">FFT</a> 再压到 \(O(n\log n)\) 但带来精度与常数代价。成熟的高精度库不二选一：按操作数规模在多级算法间切换，切换阈值由基准扫出，阈值之下仍用经典乘法吃常数，大块乘法的速度又由分块布局决定。选型给骨架，常数、缓存、基准给肉。</p><p>案例二，连接的选择。数据库优化器按统计信息在嵌套循环、<a href="/cs/sort-merge-join">排序归并连接</a>、哈希连接之间挑：输入恰好已按索引有序时，归并连接免一趟排序，赢在「分布与布局」而非渐近阶——这正是第一课「分布改变题目」的工业化版本，第三课的顺序访问红利顺手落袋。</p><p>案例三，库的 bug。2015 年，形式化验证发现 Java 的 TimSort 在特定输入下可触发数组越界，修复进入 OpenJDK。追查路径全在课程里：对抗与随机输入构造（随机化一课的对手视角），复现靠种子、输入与版本归档（基准一课的纪律），修复后又回到库对照的保证清单（上一课）。库不是正确性的终点，测量也不只是测快。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>杠杆叠加的次序：先选型定阶与分布，再布局与常数压同一阶下的成本，再随机化把最坏情况买掉，最后基准裁决、库把决定落地并冻结。次序反了的代价可以直接算：先压常数，可能在错误的阶上白干——\(O(n^2)\) 省一半常数追不上换一次阶；先信库，可能连输入分布的假设都错了——用随机数据给自适应排序打分是白打。三个案例共有的机制是换币：每一层杠杆把上一层留下的剩余差距换成另一种货币——阶与分布换给常数，常数换给测量，测量最后换给维护决策；收束时剩下的差距（TimSort 的越界）不在任何性能货币里，而在正确性验证的账户上。</p><p><span class="marginnote">de Gouw 等 2015 发现的不是理论瑕疵，而是真实输入可触发的越界异常，藏在 galloping 搜索与 run 栈不变量的组合里。形式化验证与工程基准是互补的探针：一个找「错的输入」，一个量「慢的路径」——收束课各钉一行。</span></p><p>方法一节的图回答「五个杠杆按什么次序串联」，下面这张回答另一个问题：案例一的乘法谱系，库在实际运行时怎么按规模挑算法。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：\(n=10^6\) 位时，\(O(n^2)\) 是 \(10^{12}\) 次基本运算，\(O(n\log n)\) 约 \(2\times 10^7\) 次蝶形——差五万倍，FFT 完胜；\(n=100\) 时是 \(10^4\) 次对约 \(700\) 次蝶形，后者单次贵十倍，实际持平——两条曲线的交点就是阈值，交点位置随机器变，所以要扫出来。</span></p><p><span class="marginnote">直觉类比：杠杆次序像装修——先定户型（选型：阶与分布），再挑建材与工法（常数与缓存），验收时拿实测说话（基准），最后交钥匙入住（库落地）。户型错了再贵的地板也救不回来；没验收就入住，TimSort 那样的越界就藏在墙里。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课程不覆盖并行与外存算法（各有专课），不重推渐近证明（主干课的事）；案例里的库行为随版本漂移，引用结论要带版本号。算法工程没有终局：规模、分布、硬件任一漂移，第一课的四问重新开问。收束即循环的入口。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>杠杆有次序：选型定阶与分布，布局与常数压成本，随机化买最坏情况，基准裁决，库落地。</li><li>乘法谱系：渐近阶梯是骨架，台阶上的切换阈值与常数由基准和布局填肉。</li><li>连接选择：赢的是与数据形态匹配者，不是渐近最优者。</li><li>TimSort 越界：库不是正确性终点，复现靠种子、版本与对抗输入。</li><li>本课程到此收束：规模、分布、硬件再漂移时，四问重开。</li><li>出处：Bentley, <em>Programming Pearls</em>, 2000；Musser, 1997；de Gouw, Rot, de Boer, Bubel, and Seifert, 2015。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 算法工程实践<!--[--> · 单元 验证与案例<!--]--><!----></p><p class="lesson-progress">第 8 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/link-cut-tree/">动态树与 LCT</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/ae-library-comparison/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">算法库的对照与使用</span><span class="lesson-card-meta">算法工程实践 · 验证与案例<!--[--> · 第 7 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/link-cut-tree/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">动态树与 LCT</span><span class="lesson-card-meta">算法拾遗 · 动态结构<!--[--> · 第 1 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

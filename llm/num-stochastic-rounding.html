@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>随机舍入与低精度优化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_num-stochastic-rounding.md.BHE_fLUm.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 低精度数值与训练稳定<!--[--> · 单元 格式<!--]--><!----></p><p class="lesson-progress">第 3 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/num-fp8-scaling/">FP8 的格式与缩放</a></p><p class="lesson-next"> 下一课：<a href="/llm/num-qat/">量化感知训练</a></p><!----></nav><div style="position:relative;"><div><h1 id="随机舍入与低精度优化" tabindex="-1">随机舍入与低精度优化 <a class="header-anchor" href="#随机舍入与低精度优化" aria-label="Permalink to &quot;随机舍入与低精度优化&quot;">​</a></h1><div class="epigraph"><p>舍入到最近是有偏的：比半格更小的更新永远落不进格子；随机舍入拿方差换无偏，让小步长在统计上活下来。</p><footer>—— 据浮点误差分析的随机舍入文献与低精度训练硬件实践整理</footer></div><p><a href="/llm/num-fp8-scaling">上一课</a>写完 FP8 的尺子，但尺子作用在最后一个环节：把真值写回存储。写回用的舍入函数默认是舍入到最近（RN），它在第一课被当成理所当然；本课打开它。RN 有系统偏置——比半格小的更新永远丢失。随机舍入（stochastic rounding, SR）是无偏的替代。本课写它的定义、适用位置，以及它与 FP32 主权重在「保住小更新」上的分工：一个花显存，一个花方差。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>把偏置算清楚。权重更新是 \(\Delta w = -\eta g\)。设当前权重落在格子的某处，若 \(|\Delta w|\) 小于 ULP 的一半，RN 之后 \(w\) 原地不动——不是偶尔丢失，是<strong>只要方向与幅度不变就永远丢失</strong>。小学习率、长尾的小梯度、训练后期的精细调整，全都落在这个区间：损失停在平台上，梯度非零而权重不动。第一课的对策是主权重留在 FP32，让累积发生在细格子里；但 FP32 主权重加 FP32 动量是显存大头，窄宽度训练的动机之一恰恰是省这份钱。</p><p><span class="marginnote">数字实例：把 ULP 想成格宽 0.01。本步更新 \(\Delta w = -0.004\)，不足半格（0.005），RN 之后权重原地不动——哪怕之后一万步都是同方向的小梯度，权重也一格未进；「梯度非零、损失停在平台上」说的就是这件事。</span></p><p>不均匀的格子加深问题：浮点的 ULP 随幅度变化，权重大时小更新的相对步长更小，更容易落在半格以内。偏置不随训练平均掉——它不是噪声，是确定性丢失。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>SR 的定义：对真值 \(x\) 落在相邻格子 \(a \lt x \lt b\) 之间，以概率 \(p = (x-a)/(b-a)\) 舍到 \(b\)，否则舍到 \(a\)。期望 \(E[\mathrm{SR}(x)] = x\)：单次有误差，累积无偏。半格以内的更新不再确定性丢失，而是以正确的概率偶尔前进一格，多次更新后期望走完该走的路。</p><p><span class="marginnote">直觉类比：SR 像在两个格点之间掷一枚不均匀的骰子——离哪个格点越近，落到它的概率越大。掷一次可能错，掷一万次后，平均位置恰好回到真值：单次有误差，累积无偏。</span></p><p>用在哪比用什么更重要。全网每个算子都做 SR 既贵又没必要：误差的入口在<strong>权重更新的写回</strong>——每次优化器 step 的最后一舍。这一舍换 SR，前向与反向的算术仍用 RN。实现要点有二：每次舍入要新的随机数，复用同一随机流会引入相关；硬件不支持的卡上用软件模拟，模拟本身要读写随机位，收益先被开销吃掉一块。支持 SR 的硬件（部分 TPU 与研究用加速器）把它做进写回路径，才是「bf16 无主权重训练」真正跑通的地方。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>无偏不等于无害：SR 把偏置换成方差，方差进入权重轨迹，等效于给训练加了一层温度。大 batch 与长训练把方差平均掉，期望意义上更新正确积累——这与 BF16 靠大 batch 平均更新噪声是同一机制，只是换了位置。对照主权重方案：FP32 主权重是「用显存买零偏置零方差」，SR 是「用方差买零偏置」。优化器状态不在交换之列：Adam 的二阶矩 \(v\) 对噪声平方敏感，窄格式存 \(v\) 会把步长估计带偏，动量与 \(v\) 仍应留在宽格式——SR 只豁免权重本体。</p><div class="mermaid"></div><p><span class="marginnote">SR 与下一课的 STE 是两种不同的偏置来源：STE 是梯度方向的偏置（取整导数几乎处处为零，直通是估计），SR 是写回舍入的偏置。混在一起说「训练噪声」会归因错。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>SR 治写回，不治累加：长归约的截断误差仍要宽累加器，别指望随机舍入救 softmax。推理不需要 SR——没有更新就没有偏置可消。方差不是免费：极小 batch、超长尾的损失或对温度敏感的微调里，方差本身会伤质量，此时主权重方案更稳。最后，SR 的收益 claim 要有对照实验：同宽格式、同 schedule，开与关 SR 对比小学习率段的平台现象——「开了 SR 更稳」若没有 FP32 主权重参照轨，分不清是 SR 的功劳还是别处变了。</p><p><span class="marginnote">常见误区：把「无偏」听成「没有代价」。SR 只是把确定性偏置换成了随机方差，权重轨迹因此多一层温度；极小 batch 或温度敏感的微调里方差平均不掉，质量反而受损——这时该回到 FP32 主权重，用显存把方差也买掉。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>RN 舍入对小更新有确定性偏置：半格以内的更新永远丢失，表现为损失平台。</li><li>SR 按距离比例概率进位，期望无偏，用方差换偏置；大 batch 与长训练平均掉方差。</li><li>用在优化器写回这一舍最有效；前向计算仍用 RN。</li><li>优化器状态不豁免：动量与二阶矩留在宽格式。</li><li>与 FP32 主权重的分工：一个花显存，一个花方差；两者都为保住小更新。</li><li>出处：浮点误差分析的随机舍入文献与低精度硬件实践；混合精度主权重口径见 Micikevicius et al., 2018。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 低精度数值与训练稳定<!--[--> · 单元 格式<!--]--><!----></p><p class="lesson-progress">第 3 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/num-qat/">量化感知训练</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/num-fp8-scaling/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">FP8 的格式与缩放</span><span class="lesson-card-meta">低精度数值与训练稳定 · 格式<!--[--> · 第 2 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/num-qat/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">量化感知训练</span><span class="lesson-card-meta">低精度数值与训练稳定 · 训练中的低精度<!--[--> · 第 4 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

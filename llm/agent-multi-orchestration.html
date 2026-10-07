@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多 Agent 编排模式 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_agent-multi-orchestration.md.DEB4Sn4V.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 Agent 工程深入<!--[--> · 单元 质量与生产<!--]--><!----></p><p class="lesson-progress">第 5 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/agent-memory-implementation/">记忆系统的实现</a></p><p class="lesson-next"> 下一课：<a href="/llm/agent-error-recovery/">错误恢复与重试</a></p><!----></nav><div style="position:relative;"><div><h1 id="多-agent-编排模式" tabindex="-1">多 Agent 编排模式 <a class="header-anchor" href="#多-agent-编排模式" aria-label="Permalink to &quot;多 Agent 编排模式&quot;">​</a></h1><div class="epigraph"><p>多代理不是能力相加，是把上下文、权限和失败半径切开；切错了方向，得到的是几份账单和一个更难调试的系统。</p><footer>—— 据 Wang 等，大模型自主代理综述，2024；以及多代理框架的公开工程口径整理</footer></div><p><a href="/llm/agent-memory-implementation">上一课</a>把记忆外置之后，单环的最后一块短板也显形了：所有职责共用一个上下文、一套权限、一个失败半径。编排把控制流劈开。主干已有<a href="/llm/multi-agent-orchestration">多代理编排</a>讲框架谱系（CAMEL、MetaGPT、AutoGen 的对话与 SOP 模式）；本课把编排当<strong>生产决策</strong>来写：什么时候值得拆、按什么切、拆完付什么税。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>拆分的收益有四项，对应四种痛：<strong>上下文隔离</strong>——子代理各带干净窗口，探索性阅读的噪声不回流主轨迹（机制见<a href="/llm/multi-agent-context-isolation">多智能体上下文隔离</a>）；<strong>权限隔离</strong>——只有执行者握写权限，评审者只读，注入的损失上限随权限收窄；<strong>并行</strong>——读侧任务（多文件调研、多方案试写）天然可并行；<strong>独立验证</strong>——评审代理看不见作者的推理过程，锚定被切断。对应的税也有四项：<strong>通信有损</strong>——编排者只见子代理的报告，报告没写的细节对主代理不存在；<strong>费用倍增</strong>——每个子代理重付系统提示与任务简报；<strong>一致性</strong>——两个代理并发改同一文件，锁与合并要做；<strong>终止</strong>——互相等待或互相推诿的代理环需要超时与仲裁。拆错方向的典型：把强耦合的读写任务拆给两个并行代理，全部预算花在互相修复上。<span class="marginnote">失败半径是工程术语：一个组件出事时能波及的最大范围。单代理里，一次误操作的写权限、一段被注入的指令、一个塞爆的上下文全在同一半径内；拆分后评审代理只读、执行者只拿子集工具，等于给可能的事故画了隔离墙。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>按信息流与权限流选模式。<strong>流水线</strong>：阶段工件交接，上游不见下游反馈，适合稳定 SOP；换任务域要重写流程。<strong>编排者—工人</strong>：主代理动态拆子任务、给每个子代理一份任务简报与工具子集，只收结构化报告；<a href="/llm/claude-agent-sdk">Claude Agent SDK</a> 与 <a href="/llm/agentloop-server">server-based AgentLoop</a> 把这做成一等原语，报告模板（结论、证据、不确定度、改动清单）是编排质量的第一瓶颈。<strong>评审/辩论</strong>：独立上下文的批评者对产出复核，何时反驳有价值见<a href="/llm/debate-oversight">辩论</a>；注意评审者与作者同源时的<a href="/llm/self-preference-bias">自我偏好</a>。<strong>群聊/共享黑板</strong>：全员可见全部消息，调试直观，费用随人数平方涨，适合少量角色短程协作。<span class="marginnote">「平方」的数字实例：n 个角色互相都可能说话，通道数约 n×(n−1) 条——4 个角色 12 条，8 个角色 56 条。人数翻倍，消息量约翻四倍，还都要过模型理解一遍，所以群聊模式角色一多，账单先爆炸。</span>跨组织边界、互不信任的代理之间，工具协议要换成服务协议（<a href="/llm/a2a-protocol">A2A 协议</a>），那是信任模型不同，不是同一模式的远距离版。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>编排提升质量的机制是隔离与独立，不是人数：评审代理有用，是因为它没有作者的沉没成本与自我辩护链；子代理有用，是因为它的窗口不背主轨迹的历史。同一机制决定失败面：隔离切断的不只是噪声，还有上下文——子代理不知道主代理已知的约束，简报漏写就是行为差异。所以简报与报告模板要当接口协议管理（回指<a href="/llm/agent-tool-protocol-deep">工具协议深钻</a>的 schema 纪律）：写明输入假设、输出结构、权限边界。一致性的机制解是所有权：同一时刻一个文件只归一个代理写，其余排队或申请，锁比事后合并便宜。</p><div class="mermaid"></div><p><span class="marginnote">可以把它想象成给外包团队写需求文档：文档里没写的需求对方就真的不知道，做偏了不能全怪外包。初学者容易以为子代理「不听话」，实际上简报漏写约束导致的偏差，责任在接口协议这一层，补简报比换模型有效。</span></p><p><span class="marginnote">一得一失常被一起忽略：并行子代理把墙钟时间缩短，但每个子代理都要重付系统提示与工具说明——并行省时间不省钱；预算紧的任务，串行加缓存反而更便宜。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>任务可线性分解、上下文装得下时，单代理加好工具总是更便宜的选择：编排是给「装不下或权限必须分」的任务付的税。编排器本身也会成为单点：它选错模式、简报写偏，下游全错——编排者的决策要进轨迹（<a href="/llm/agent-observability">可观测性</a>）才能复盘。编排的失败恢复不在本课：某条子环死了怎么办，是<a href="/llm/agent-error-recovery">错误恢复与重试</a>的分级问题在多代理下的实例。把「多代理」当评测加分项是方向性错误：评测只认任务成败与过程（<a href="/llm/agent-eval-success-process">评测：任务成功率与过程</a>），不认架构名头。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>拆分买四样：上下文隔离、权限隔离、并行、独立验证；付四税：通信有损、费用、一致性、终止。</li><li>编排者—工人是默认模式；简报与报告模板是接口协议，要按 schema 纪律管理。</li><li>群聊费用随人数平方涨；评审要防同源自我偏好。</li><li>一致性靠所有权与锁，不靠事后合并。</li><li>单代理够用时不要编排：编排是税，不是荣誉。</li><li>出处：据 Wang 等（2024）综述与主流多代理框架的公开口径整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 Agent 工程深入<!--[--> · 单元 质量与生产<!--]--><!----></p><p class="lesson-progress">第 5 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/agent-error-recovery/">错误恢复与重试</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/agent-memory-implementation/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">记忆系统的实现</span><span class="lesson-card-meta">Agent 工程深入 · 架构<!--[--> · 第 4 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/agent-error-recovery/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">错误恢复与重试</span><span class="lesson-card-meta">Agent 工程深入 · 质量与生产<!--[--> · 第 6 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

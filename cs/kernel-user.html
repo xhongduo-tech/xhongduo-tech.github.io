@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>内核与用户态 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_kernel-user.md.Cb3-GqjV.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 操作系统<!--[--> · 单元 内核边界<!--]--><!--[--> · 课序 特权与陷入<!--]--></p><p class="lesson-progress">第 1 / 135 课</p><p class="lesson-prereq"> 先修：<a href="/cs/bootstrapping/">自举</a></p><p class="lesson-next"> 下一课：<a href="/cs/syscall-abi/">系统调用 ABI</a></p><!----></nav><div style="position:relative;"><div><h1 id="内核与用户态" tabindex="-1">内核与用户态 <a class="header-anchor" href="#内核与用户态" aria-label="Permalink to &quot;内核与用户态&quot;">​</a></h1><div class="epigraph"><p>操作系统是一直运行着的程序，它控制着应用程序，并充当计算机与应用程序之间的中介。</p><footer>—— 据 Silberschatz, Galvin and Gagne, Operating System Concepts 整理</footer></div><p><a href="/cs/bootstrapping">上一课</a>把编译课收到自举：用编译器编译自己，直到二进制稳定，信任链靠证明与测试一起撑住。<a href="/cs/privilege-rings">特权级</a>和<a href="/cs/exception-interrupt-entry">异常与中断入口</a>已经给出环与陷入；<a href="/cs/paging-vm">分页</a>和 <a href="/cs/tlb-translate">TLB</a>已经能把虚地址译成物理页。本课不重讲页表，也不重做 GC。缺口是：ISA 有环和陷阱，还没有命名<strong>哪一段程序拥有这台机器</strong>。操作系统课从这里开始。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>用户程序可以算、可以申请堆，但它不能直接改页表根、不能关中断、不能对磁盘端口乱写。若所有代码同一特权，一个越界存储就能毁掉调度器和文件系统。缺口不是再发明一套译址硬件，而是把软件切成两半：<strong>内核</strong>常驻高特权，<strong>用户态</strong>跑在低特权；越过边界只能走陷入。<span class="marginnote">可以想象成一栋宿舍楼：用户程序是住户，内核是握有总钥匙的物业。住户开自己房门（用自己的内存、算自己的数据）不用请示谁；要动水电气总闸（页表、磁盘、网卡），只能去前台填申请单。这张「申请单」就是后文的系统调用——权限不是靠自觉，而是硬件在每次访存和取指时都要查一遍。</span></p><p>本课只钉这道门。进程映像、系统调用路径、调度，都是后课在门的两侧展开的对象。</p><p><span class="marginnote">Tanenbaum 把内核定义为处理中断与陷入、操纵硬件的那一层。用户态看不到端口与页表；它看见的是后课才命名的系统调用。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>约定：复位后先进入内核，建立页表、中断向量、设备。此后用户程序以低特权运行；需要服务时执行陷入指令，硬件切到内核入口——入口约定沿用组成课，不重写。内核做完再返回用户 PC 与栈。<span class="marginnote">「陷入」（trap）翻译成大白话就是「CPU 的正规求助通道」：用户程序执行一条专用指令，硬件立刻把特权级抬高、跳到内核预先登记好的入口地址，办完事再把特权级降回来。它不是出错崩溃，而是用户态申请特权服务的唯一合法路径——自己写 <code>mov</code> 去改页表寄存器走不了这条路，只会被硬件拦下。</span></p><div class="mermaid"></div><p>内核映射通常对用户不可写；用户页对内核可见，这是后课系统调用拷贝参数的前提，本课只要求两边地址空间策略不同。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>有了内核/用户，错误被关在用户页里：缺页、非法指令、越权访问都进同一套入口，由内核决定杀进程还是补页。<span class="marginnote">初学者容易以为「程序出错崩溃」和「程序正常要服务」走的是两条路；实际上缺页、除零、主动申请内存都从同一个陷入入口进内核，差别只在内核查明原因后的裁决——是补一页让程序继续跑，还是记下信号直接终止它。入口统一意味着内核只需要维护一套检查逻辑。</span>运行时的 GC 仍在用户堆上工作；它不能自己改 CR3。需要新物理页时，必须请内核。</p><div class="mermaid"></div><p>内核不是「又一个运行时」。GC 管的是语言对象图；内核管的是 CPU、内存和设备的所有权。两者可以共存：托管语言的运行时是用户态程序，底下仍是这道特权门。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不把微内核与宏内核的模块切分写完，也不列出 Linux 的 <code>syscall</code> 表。不重导页表项的有效位与权限位：那是分页课的对象，本课只使用「用户页不可执行特权指令」。也不把隔离当成安全课的沙箱；沙箱是更后的策略。</p><p>后课默认：谈到「谁在跑」，先问特权。用户程序默认没有设备与页表的写权限；要服务，就陷入——陷入的约定是下一课<a href="/cs/syscall-abi">系统调用 ABI</a>，被内核切换的那份<strong>进程映像</strong>再往后给。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>ISA 已有环与陷入；本课命名内核为拥有机器的程序，用户态为被它中介的程序。</li><li>越过边界只能走陷入；GC 仍在用户堆上，不能改页表。</li><li>进程、系统调用、中断下半部都是后课缺口。</li><li>出处：Silberschatz et al., <em>OSC</em>；Tanenbaum and Bos, <em>Modern Operating Systems</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 操作系统<!--[--> · 单元 内核边界<!--]--><!--[--> · 课序 特权与陷入<!--]--></p><p class="lesson-progress">第 1 / 135 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/syscall-abi/">系统调用 ABI</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/bootstrapping/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">自举</span><span class="lesson-card-meta">类型、优化与运行时 · 运行时与虚拟机 · 语言特性落地<!--[--> · 第 110 / 110 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/syscall-abi/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">系统调用 ABI</span><span class="lesson-card-meta">操作系统 · 内核边界 · 特权与陷入<!--[--> · 第 2 / 135 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>FlashAttention 重读：tiling 与 online softmax | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ak-flashattention-reread.md.Ds15zxVg.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 基础机制<!--]--><!----></p><p class="lesson-progress">第 1 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/sgt-map/">自博弈深化的边界与收束</a></p><p class="lesson-next"> 下一课：<a href="/llm/ak-memory-access/">内存访问模式分析</a></p><!----></nav><div style="position:relative;"><div><h1 id="flashattention-重读-tiling-与-online-softmax" tabindex="-1">FlashAttention 重读：tiling 与 online softmax <a class="header-anchor" href="#flashattention-重读-tiling-与-online-softmax" aria-label="Permalink to &quot;FlashAttention 重读：tiling 与 online softmax&quot;">​</a></h1><div class="epigraph"><p>FlashAttention 的贡献不在算得少，而在把中间结果钉在片上存储里；tiling 决定搬什么，online softmax 决定算到一半怎么办。</p><footer>—— 据 Dao et al., FlashAttention, 2022 整理</footer></div><p><a href="/llm/sgt-map">上一课</a>把自博弈深化的边界与收束写完，后训练与自训练一族到这里告一段落。本课是「注意力内核工程」的第一课，部署研究从推理热路径上跑得最多的那个内核讲起。本栏里你已经读过 <a href="/llm/sdpa">SDPA</a> 的公式与 <a href="/llm/flashattention">FlashAttention</a> 的定位：不物化 \(n\times n\) 分数矩阵、计算仍是精确注意力、收益主要来自省 HBM 流量。本课重读它，问的是内核作者的问题：这两条性质靠什么写出来——答案是 tiling 与 online softmax 这一对配套件。后课的访存分析、片上预算、各路变体与移植，都默认你已能把这对件装进脑子。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>会算注意力与会写注意力内核之间隔着什么。标准实现要走三趟：\(S=QK^\top\) 把 \(n\times n\) 的分数写进 HBM，softmax 再把它读出来改写回去，\(O=PV\) 第三遍读它。\(n=8192\)、单头、fp16 时，光这张矩阵就是 \(128\,\mathrm{MiB}\)，在显存里滚三个来回。缺口因此不是 FLOPs，而是：能不能让它根本不落显存。障碍有两个。其一，softmax 的分母要扫完整行才知道，而分块之后每一行只看到一部分键。其二，直接分块会把「归一化」这个全局操作切碎，切错顺序数值就崩。</p><p><span class="marginnote">直觉类比：标准实现像做菜要三次进出冷库——半成品切好放回去，取出来调味再放回去，再取出来装盘。FlashAttention 是把灶台搬到手上（片上 SRAM）：食材切一块炒一块，装盘前根本不进冷库。菜没变（还是精确注意力），变的是中间成品不再来回搬运。</span></p><h3 id="softmax-不能分块算——直到随身带上统计量" tabindex="-1">softmax 不能分块算——直到随身带上统计量 <a class="header-anchor" href="#softmax-不能分块算——直到随身带上统计量" aria-label="Permalink to &quot;softmax 不能分块算——直到随身带上统计量&quot;">​</a></h3><p>softmax 逐行定义：减最大值、取指数、除以行和。最大值与行和都是行内归约量，看全行之前只有部分结果。若先对每个块局部 softmax 再把结果平均，得到的是另一个函数，不是 softmax——归一化不是可分的局部操作。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>tiling 把 \(Q\) 切成 \(B_r\times d\) 的行块，\(K,V\) 切成 \(B_c\times d\) 的列块；外层循环扫 KV 块，逐块载入片上 SRAM，内层在片上算这个块的 \(S\)。online softmax 给每行随身维护三个量：运行最大值 \(m\)、运行和 \(l\)、未归一化输出 \(O\)。新块带来分数 \(S\)，先更新 \(m&#39;=\max(m,\ \mathrm{rowmax}(S))\)，再把旧结果按 \(e^{m-m&#39;}\) 重缩放：</p> \[O \leftarrow e^{m-m&#39;}O + e^{S-m&#39;}V,\qquad l \leftarrow e^{m-m&#39;}l + \mathrm{rowsum}\left(e^{S-m&#39;}\right),\qquad m \leftarrow m&#39;. \]<p>KV 块扫完之后 \(O \leftarrow O/l\)，一次归一化收尾。每一步只依赖已见过的块，顺序无关。</p><p><span class="marginnote">术语翻译：online softmax 就是「边收卷子边记统计」——不等全部分数到齐才求最大值与总和，每来一块，就用新最大值把已积累的结果按比例修正一遍，收完最后一块再统一除一次行和。名字里的 online 指的就是这种来一块处理一块的流式做法。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么这样合并是对的：每行的部分结果构成三元组 \((m,l,O)\)，而 \((m,l,O)\) 上的合并满足结合律——两个部分用 \(\max\) 并最大值、按指数加权并和与输出。这条结合律是精确的，不是近似，后面长序列切分与 <a href="/llm/flashdecoding">FlashDecoding</a> 的二层归并用的正是它。减最大值还兼任数值保险：\(e^{S-m&#39;}\) 保证指数不上溢。不这么做错在哪：想省一趟就把局部 softmax 的结果落盘再平均，分布已经错了；或者干脆先算 \(P\) 再乘 \(V\)，\(n\times n\) 回到显存，等于没写。</p><div class="mermaid"></div><p>成本账要按字节记。FlashAttention 论文的口径：标准实现需要 \(O(n^2)\) 量级的额外 HBM 读写（\(S\) 与 \(P\) 各进出一遍），FlashAttention 把它降到 \(O(n^2 d^2/M)\)，其中 \(M\) 是片上 SRAM 容量——\(d\) 固定、\(M\) 以百 KB 计时，主项被 tile 大小吃掉。SRAM 比 HBM 快一个数量级，这就是「省字节」能兑换成时间的原因，下一课把这本账展开。</p><p><span class="marginnote">\(n=8192\)、\(d=128\)、fp16：一张 \(S\) 矩阵 \(128\,\mathrm{MiB}\)。A100 上 HBM 约 \(1.5\)–\(2\,\mathrm{TB/s}\)，SRAM 约 \(19\,\mathrm{TB/s}\)——\(S\) 每少走一个来回，就省下零点一毫秒量级的搬运。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>FLOPs 一个没少，省的全是字节；渐近计算仍对 \(n\) 二次，二次项本身要靠稀疏或线性变体去动，那是本课程后面的事。训练要反向：分数矩阵没存，就用重算把前向再走一遍换掉存储，数学对象仍是同一个 Jacobian，见<a href="/llm/attention-backward">注意力的反向传播</a>。因果掩码在块内逐元素施加，对角块之外的整块直接跳过，白送一份稀疏。dropout 同样是块内的逐元素操作。解码时查询只有一两行，沿查询维并行失效，要沿 KV 维另想办法，本课程到长序列一课再收。</p><p><span class="marginnote">初学者容易以为「分数矩阵没存，反向就没法算了」——实际上训练时用重算把前向再走一遍，把需要的中间量当场重新造出来，用一点计算时间换显存。求的还是同一个导数，只是不把它留到反向那一步。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>tiling 与 online softmax 是一对配套件：前者定搬运粒度，后者让归一化可以边算边改。</li><li>online softmax 的本质是每行随身带 \((m,l,O)\) 三个统计量，合并满足结合律，精确无近似。</li><li>省的是 HBM 流量，不是 FLOPs；访存量从 \(O(n^2)\) 降到 \(O(n^2 d^2/M)\)。</li><li>因果掩码、dropout 都落在块内；对角块外的整块跳过是免费的稀疏。</li><li>解码与长序列要换并行轴，不是这套骨架失效。</li><li>出处：Dao et al., <em>FlashAttention</em>, NeurIPS 2022；online softmax 归约见 Milakov &amp; Gimelshein, 2018。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 基础机制<!--]--><!----></p><p class="lesson-progress">第 1 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ak-memory-access/">内存访问模式分析</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/sgt-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">自博弈深化的边界与收束</span><span class="lesson-card-meta">自博弈与博弈论深化 · 收束<!--[--> · 第 11 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ak-memory-access/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">内存访问模式分析</span><span class="lesson-card-meta">注意力内核工程 · 基础机制<!--[--> · 第 2 / 14 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

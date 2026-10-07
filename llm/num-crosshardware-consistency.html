@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>跨硬件的数值一致性 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_num-crosshardware-consistency.md.BOR5wS2Q.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 低精度数值与训练稳定<!--[--> · 单元 预算与验证<!--]--><!----></p><p class="lesson-progress">第 9 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/num-inference-error-budget/">低精度推理的误差预算</a></p><p class="lesson-next"> 下一课：<a href="/llm/num-experiment-design/">数值实验设计</a></p><!----></nav><div style="position:relative;"><div><h1 id="跨硬件的数值一致性" tabindex="-1">跨硬件的数值一致性 <a class="header-anchor" href="#跨硬件的数值一致性" aria-label="Permalink to &quot;跨硬件的数值一致性&quot;">​</a></h1><div class="epigraph"><p>同一检查点在不同芯片上给出不同的 token 不是事故；事故是没有事先约定：哪一层一致才算通过。</p><footer>—— 据各加速器数值格式白皮书与加速器对比方法课整理</footer></div><p><a href="/llm/num-inference-error-budget">上一课</a>的预算表默认在同一台机器上兑现。真实服务跨代际、跨厂商：Hopper 上的逐张量延迟缩放、Blackwell 与 MX 阵营的块缩放、不同后端的归约树与融合策略，见 <a href="/llm/mxfp8">MXFP8</a> 与 <a href="/llm/blackwell-infer">Blackwell 对推理的含义</a>。加速器怎么公平对比在 <a href="/llm/accelerator-comparison-method">加速器对比方法</a> 已写。本课写数值口径：位级一致为什么不可达也不需要，统计级与任务级验收怎么做，迁移时差异怎么归因。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>同一个低精度检查点，在两台机器上 token 逐位不同，误差从哪来？清单比直觉长。累加顺序：浮点加法不结合，归约树、split-K、并行度切分都改变求和次序——这不是 bug，是调度的组成部分。舍入与融合：FMA 是否可用、中间结果写不写回、不同的核融合边界。格式变体：E4M3 的 NaN/Inf 约定分家（第二课）、MX 的块大小与 scale 取幂规则、某些后端对特定算子静默使用 TF32 一类的自动降精度。库与驱动版本：同一芯片不同版本的归约实现也会变。低精度放大一切：格子粗了，次序差的舍入跨档概率变大。</p><p><span class="marginnote">数字实例：两台机器某个 token 的 logit 只差 \(0.001\)，恰好横跨第 2 与第 3 名的分界，采样翻面；下一个 token 的条件分布从此换轨，几十个 token 后两段输出面目全非。没有谁算错——自回归把一位格子之差复利成了两个故事。</span></p><p>于是第一条结论：位级一致在跨硬件时不可达；追求它只会得到「处处回退宽格式才能过测试」的假验收。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>三层一致性，验收前先签约用哪层。<strong>位级</strong>：同硬件、同软件版本下的回归护栏——用于捕捉「不该变的东西变了」（内核被静默替换、回退路径触发）。<strong>统计级</strong>：输出分布对齐——固定提示集上比较 logits 的 KL 或温度扫描后的采样分布距离，配 PPL 差的容忍带；这是跨硬件迁移的主验收层。<strong>任务级</strong>：基准通过率在预置容忍带内——最终对外承诺的层。三层各管一段，混用层级是常见事故：拿位级标准卡跨硬件迁移（做不到），或拿任务级标准做内核回归（太钝，抓不到）。</p><div class="mermaid"></div><p>归因靠插桩：预算表（上一课）给了每部件的期望误差，超出部分插入中间张量探针逐层定位——是某层的缩放合同没对齐，还是归约树差异在长链路里放大。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>位级不可达的机制在第一课就埋着：浮点加法不结合，而并行求和的次序是调度问题。宽格式下次序差在 \(10^{-7}\) 相对量级，低位被淹没；低精度下格子粗，同一物理和值落在不同格子，差一位就 diverge——自回归再把这个差异逐 token 复利。统计级为什么够：下游消费的是分布不是序列——采样本身带随机性，任务的语义对局部改写不敏感；PPL 与 KL 都是在分布层面对账，正好匹配。任务级为什么必要：统计级对「少数能力大幅退化、总体分布不动」的故障不敏感——长上下文、代码、数学的敏感谱不同（上一课的验收分账），必须各留一道门。</p><div class="mermaid"></div><p>这张图回答「三层一致性各管哪一段」：位级只在同机同版本下当护栏，统计级是跨硬件迁移的主验收，任务级管对外承诺。拿错层级的标准验收（位级卡迁移、任务级做回归），要么验不过、要么抓不到。</p><p><span class="marginnote">混合集群里通信 dtype 必须全集群统一（第六课合同的跨硬件版）：不同厂商对 FP8 归约的实现不同，同一 All-Reduce 两边各按各的缩放解释，求和无定义——这类故障在单机测试里永远不出现。</span></p><p><span class="marginnote">直觉类比：验收译者不该逐字对照（位级），而该看译文是否传达同一意思（统计级）、关键数字有没有译错（任务级）。两个合格译者译同一篇文章，字面必然不同——逐字相等反而是抄袭的信号。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>验收签约必须钉住版本：驱动、库、内核后端、格式变体——「这台机器上过了」是一个随时间过期的陈述，内核升级要重跑统计级。不要用 A 卡的精度结论给 B 卡签字：格式变体不同（逐张量对块缩放），预算表要按目标硬件重排。自动降精度开关（TF32 类）要在环境清单里显式列出——它是最常见的「宽基线先就没对齐」的原因。最后，一致性验收的成本随提示集大小线性涨：固定一个小的金丝雀集做日常回归，全量集按版本节点跑。</p><p><span class="marginnote">为什么重要：忘关 TF32 类自动降精度，你的「宽格式基线」从一开始就不宽，后面所有差异归因都建在错的地基上。它是「宽基线先就没对齐」的最常见原因，必须写进环境清单并逐项打卡。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>跨硬件位级一致不可达也不需要；验收前签约用哪一层：位级护栏、统计级迁移、任务级承诺。</li><li>差异来源清单：归约次序、融合与舍入、格式变体、静默降精度、库版本。</li><li>迁移流程：宽格式先对齐，逐部件开低精度，超带用中间张量插桩归因。</li><li>统计级对局部能力退化不敏感，任务级按敏感谱分能力设门。</li><li>混合集群通信 dtype 全集群统一；验收结果随版本过期，升级重跑。</li><li>出处：各加速器数值格式白皮书；<a href="/llm/accelerator-comparison-method">加速器对比方法</a> 的对比口径。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 低精度数值与训练稳定<!--[--> · 单元 预算与验证<!--]--><!----></p><p class="lesson-progress">第 9 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/num-experiment-design/">数值实验设计</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/num-inference-error-budget/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">低精度推理的误差预算</span><span class="lesson-card-meta">低精度数值与训练稳定 · 预算与验证<!--[--> · 第 8 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/num-experiment-design/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">数值实验设计</span><span class="lesson-card-meta">低精度数值与训练稳定 · 预算与验证<!--[--> · 第 10 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

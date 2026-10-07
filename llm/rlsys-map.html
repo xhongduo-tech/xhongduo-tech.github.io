@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RL 训练系统收束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rlsys-map.md.BHsDHVky.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 RL 训练系统<!--[--> · 单元 监控与生产<!--]--><!----></p><p class="lesson-progress">第 13 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rlsys-production-ablation/">生产案例与消融管理</a></p><p class="lesson-next"> 下一课：<a href="/llm/pf2-pretrain-checklist/">训练前的检查清单</a></p><!----></nav><div style="position:relative;"><div><h1 id="rl-训练系统收束" tabindex="-1">RL 训练系统收束 <a class="header-anchor" href="#rl-训练系统收束" aria-label="Permalink to &quot;RL 训练系统收束&quot;">​</a></h1><div class="epigraph"><p>把一台 RL 训练机拆开，只剩两条不变量：样本永远知道自己出自哪个版本，仪表永远独立于被监控的对象。</p><footer>—— 据 Sheng 等 HybridFlow（EuroSys 2025）与开源框架文档整理</footer></div><p><a href="/llm/rlsys-production-ablation">上一课</a>用消融纪律把结论钉在可比的地基上，本课程到此收束。三个单元走过的路：架构（<a href="/llm/rlsys-rollout-arch">rollout 引擎的架构</a>、<a href="/llm/rlsys-reward-serving">奖励模型的服务化</a>、<a href="/llm/rlsys-refmodel-kl">引用模型与 KL 的管理</a>）；工程（<a href="/llm/rlsys-replay-batching">经验回放与批处理</a>、<a href="/llm/rlsys-inference-in-loop">推理引擎在 RL 循环里</a>、<a href="/llm/rlsys-multiturn-env">多轮 RL 的环境工程</a>、<a href="/llm/rlsys-async-debug">异步 RL 的系统调试</a>）；监控与生产（<a href="/llm/rlsys-hacking-monitor">Reward hacking 的监控</a>、<a href="/llm/rlsys-eval-in-loop">评测在环</a>、<a href="/llm/rlsys-cost-vs-sft">成本：RL 相对 SFT</a>、<a href="/llm/rlsys-failure-catalog">失败模式清单</a>、<a href="/llm/rlsys-production-ablation">生产案例与消融管理</a>）。本课把零件装回整机，并给算法课程交一份分账清单：系统替你扛了什么，没扛什么。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>收束课的问题是：十三课能不能压缩成更少的命题？如果每课是一个零件说明书，收束课要给出整机的原理图——哪些是承载一切的不变量，哪些是可替换的实现选择，哪些账单永远要有人付。压缩的判据是：删掉一条命题后，机器会在哪类事故里坏，就把它归到哪一类。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>整机原理图一条主线、三条不变量。主线是数据流：提示池喂 <a href="/llm/rlsys-rollout-arch">rollout 引擎的架构</a>生成经验（序列加行为 logprob 加版本号），<a href="/llm/rlsys-reward-serving">奖励模型的服务化</a>补分数列，<a href="/llm/rlsys-replay-batching">经验回放与批处理</a>组批过滤，训练器更新，权重经同步回生成端。不变量一，版本对齐：行为 logprob、奖励、KL 的分母都绑定明确版本，<a href="/llm/rlsys-async-debug">异步 RL 的系统调试</a>的探针守着它。不变量二，仪表独立：金标与监控不进训练环，<a href="/llm/rlsys-eval-in-loop">评测在环</a>的卫生闸门守着它。不变量三，预算显式：显存、上下文、staleness、卡时都要写成配置与水位，<a href="/llm/rlsys-failure-catalog">失败模式清单</a>的水位告警守着它们。<a href="/llm/rlsys-refmodel-kl">引用模型与 KL 的管理</a>站在算法与系统的接缝上：跑道多宽是算法决定，跑道刻进显存与调度是系统执行。</p><p><span class="marginnote">直觉类比：把系统想成一条流水线，版本号就是每件半成品上挂的工单——无论它流到打分、组批还是更新的工位，工单都注明出自哪版模具。丢了工单的流水线照样转，只是没人说得清成品是谁做的，出了错也没法追责。</span></p><p><span class="marginnote">判据的用法：删掉「版本对齐」，坏法是静默离策略（<a href="/llm/truncated-importance-sampling">截断重要性采样</a>救得回一半）；删掉「仪表独立」，坏法是守门人被收买；删掉「预算显式」，坏法是长尾一步顶爆显存。三类坏法对应三类断言，这就是清单的由来。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>系统与算法的分账。系统扛走的：迭代成本——引擎、共置与异步把闲置压掉；静默错误——探针、断言与清单把几周量级的事故压到分钟级；统计混淆——消融纪律把假提升挡在门外。系统扛不走的：奖励设计，<a href="/llm/rm-overoptimization">RM 过优化与 Goodhart</a> 的拐点不因系统变快而消失；算法方差，<a href="/llm/reinforce-variance">REINFORCE 与方差</a> 的账仍在策略梯度里；任务与分布的选择——环境即 MDP，<a href="/llm/rlsys-multiturn-env">多轮 RL 的环境工程</a>里那句「环境设计就是奖励设计」是本课程与算法课程之间的双向桥。</p><p><span class="marginnote">「引用模型 KL」翻译成大白话：KL 是一把尺子，量当前策略和出发时的参考模型差了多远。跑道比喻就是为它画的——预算多宽（允许走多远）是算法的决定，把尺子插进显存与调度里按时测、别忘测，是系统的执行。</span></p><p>开源系统（<a href="/llm/verl-hybridflow">verl 与 HybridFlow</a>、<a href="/llm/openrlhf">OpenRLHF</a>、<a href="/llm/slime-rl">slime 轻量 RL 框架</a>）把零件做成了可安装的形态，但配方——隐旋钮取值、卫生闸门、监控面板——仍然只有自己能建。</p><p><span class="marginnote">常见误区：初学者容易以为「系统够快就能弥补算法问题」——方向错了，快只放大速度、不纠正方向。奖励设计错了，系统越快、烧卡越多、离目标越远。系统承诺的是「又快又不出静默故障」，从不承诺「学对东西」。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课程的边界即 RL 训练系统的边界：它假设奖励可定义（RM、验证器或人审），假设算力买得到经验。奖励写不成的域（无金标、人审太贵）与经验太贵的域（环境慢、轨迹长）里，这台机器的账算不平——那是算法与产品的问题，不是系统的问题。反向的告诫同样成立：系统再好也救不了错的奖励，只会让你更快地到达错误的终点。本课程到此收束，机器交回给写配方的人。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>一条主线：生成 → 打分 → 组批 → 更新 → 同步回生成端；版本号全程随行。</li><li>三条不变量：版本对齐、仪表独立、预算显式；探针、卫生闸门、水位是各自的守卫。</li><li>分账：系统扛迭代成本、静默错误与统计混淆；扛不走奖励设计、算法方差与任务选择。</li><li>环境设计就是奖励设计：系统课程与算法课程在这句话上对接。</li><li>本课程收束：机器可安装，配方需自建；出处口径为 HybridFlow（EuroSys 2025）与 verl、OpenRLHF、slime 的文档实现。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 RL 训练系统<!--[--> · 单元 监控与生产<!--]--><!----></p><p class="lesson-progress">第 13 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/pf2-pretrain-checklist/">训练前的检查清单</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/rlsys-production-ablation/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">生产案例与消融管理</span><span class="lesson-card-meta">RL 训练系统 · 监控与生产<!--[--> · 第 12 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/pf2-pretrain-checklist/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">训练前的检查清单</span><span class="lesson-card-meta">预训练实践配方 · 开工前<!--[--> · 第 1 / 16 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

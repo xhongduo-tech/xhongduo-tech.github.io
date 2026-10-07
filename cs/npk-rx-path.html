@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>收包路径的解剖 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_npk-rx-path.md.MIvWtVVP.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 网络协议栈实践<!--[--> · 单元 收发路径<!--]--><!----></p><p class="lesson-progress">第 1 / 6 课</p><p class="lesson-prereq"> 先修：<a href="/cs/osk-map/">内核实践收束</a></p><p class="lesson-next"> 下一课：<a href="/cs/npk-tcp-state-machine/">TCP 状态机的实现</a></p><!----></nav><div style="position:relative;"><div><h1 id="收包路径的解剖" tabindex="-1">收包路径的解剖 <a class="header-anchor" href="#收包路径的解剖" aria-label="Permalink to &quot;收包路径的解剖&quot;">​</a></h1><div class="epigraph"><p>应用看见的「可读」是一个事件；把它生产出来的是一条由中断、预算、队列与内存会计串成的流水线，每一节都有容量，每一节都会丢。</p><footer>—— 据 Benvenuti, <em>Understanding Linux Network Internals</em>；Linux 内核对 NAPI 与 softirq 预算的文档整理</footer></div><p><a href="/cs/osk-map">上一课</a>给「操作系统内核实践」收束：执行流、地址、数据、同步入口、异步入口、失效面六课一条装配主线，四条不变量各堵一个已知的装配失效——主干给零件图，本课程给总装图。网络协议栈照同一个读法拆：主干课的<a href="/cs/socket-nonblock">阻塞与非阻塞套接字</a>把应用侧的合同钉在「就绪」上——阻塞读睡着等，非阻塞读立即返回 EAGAIN，再靠多路复用回来；<a href="/cs/tcp-handshake">三次握手</a>、<a href="/cs/tcp-seq-rexmit">序号与重传</a>、<a href="/cs/tcp-window">流控窗口</a>被当协议拆过；操作系统课也用<a href="/cs/rx-path">接收路径</a>把函数链串过一遍。本课程「网络协议栈实践」开始把每一段拆开当程序读。第一课解剖收包路径：一帧从网卡内存到进程被唤醒，经过几段队列、几次上下文切换、哪些检查点会丢包。后课默认你已读过这条路径。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>应用层的观感是「有数据了」；实现层要回答的是预算问题：软中断一次最多干多少活、socket 队列最多装多少字节、装不下时谁被丢。不这么做会错在哪：把丢包一律归咎网卡或对端，会漏掉最常见的第三类——网卡计数器干净、线上也干净，包丢在软中断预算耗尽之后的 backlog 队列或 socket 内存会计上；这三类丢包各有各的计数器，混在一起就查不下去。</p><p><span class="marginnote">术语翻译：NAPI 就是「别每来一个包都按一次门铃」的手段——硬中断只按一次铃说「有货了」，然后 CPU 自己下到收货台（驱动环）按预算批量盘点，盘点期间门铃先关掉。包越密，省下的门铃（中断）次数越多。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>逐段解剖。入口：网卡 DMA 把帧写进接收环，硬中断只做一件事——登记 NAPI 并调度软中断，然后把中断关掉，否则每个包都打断一次 CPU。轮询：软中断 <code>net_rx_action</code> 在预算内循环调驱动 poll，一次预算默认三百个包、八毫秒上限，单设备单轮权重六十四；预算花完，剩余帧留在 backlog 队列等下一轮，<code>time_squeeze</code> 计数器加一。合并：GRO 把同流的小帧并成最大六十四 KB 的逻辑包再交协议栈，协议栈每字节只跑一次。分发：<code>eth_type_trans</code> 认出 IPv4 后，<code>ip_rcv</code> 过 netfilter 钩子，本机交付走 <code>tcp_v4_rcv</code>，用四元组哈希在 established 表里一次查出 sock——early demux 在此之前先把查到的 sock 缓存下来，省掉一次路由查找。入队：skb 计入该 sock 的 rmem 会计，超限则修剪队列甚至丢包，成功则挂进接收队列并执行 <code>sk_data_ready</code> 唤醒读者——这正是主干课<a href="/cs/socket-nonblock">阻塞与非阻塞套接字</a>「就绪」合同的生产端。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：GRO 把 1500 字节的小帧并成最大 64 KB 的逻辑包，一次最多约合 43 个帧。合并后 <code>ip_rcv</code>、netfilter、协议栈入口整条流水线只走 1 次而不是 43 次——这就是「合并」省的不是复制，而是每层检查的固定开销。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>这套组织的理由是摊销与记账。中断只付一次「有包」的通知成本，批量轮询把固定成本摊到整批，代价是预算内的包要等轮询结束——这是延迟与 CPU 的交换。每层剥头不复制，六十四字节的以太网头到 TCP 头一路是同一块 skb 换偏移。内存会计把「谁吃光内核内存」钉到每个 sock：慢读者不会拖垮全机，只会压低自己的通告窗口——这是<a href="/cs/socket-buffers">套接字缓冲与背压</a>的机制在收包路径上的执行点。多核下 RSS 先按流哈希选队列，RFS 再把协议栈处理搬到应用所在的核，付一次跨核通知换缓存亲和（<a href="/cs/rss-multiqueue">RSS 与多队列</a>）。丢包点各有名字：backlog 溢出记 <code>TCPBacklogDrop</code>，socket 队列修剪记 <code>PruneCalled</code>，软中断丢帧记 softnet_stat 第二列。</p><p><span class="marginnote">预算的默认值值得背下来：<code>net.core.netdev_budget</code> 300、<code>netdev_budget_usecs</code> 8000 微秒、单轮权重 64。10 GbE 线速小包约 14.88 Mpps，每个软中断循环只处理 300 包——预算跟不上线速时，包根本没到协议栈就积压在驱动环里，<code>rx_missed</code> 类网卡计数器先涨。</span></p><p><span class="marginnote">常见误区：接收吞吐上不去就怀疑网络或网卡。若同连接的通告窗口在缩，先看本机应用是不是读得慢——rmem 会计超限时被压低的是「自己这条连接」的窗口，慢读者只拖垮自己，不拖垮全机。窗口缩小的病灶常在接收端的应用线程，不在链路。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重讲 <a href="/cs/gro-gso">GRO 与 GSO</a> 的合并规则，不展开 <a href="/cs/netfilter-conntrack">netfilter</a> 的表与链，转发路径（本机不是终点）与 XDP 的驱动层分流也不在此——那是<a href="/cs/hpc-kernel-bypass">内核旁路</a>的世界，本课程只承认它在更早的检查点上就能把包拿走。虚拟化里的 veth 与网桥变形不在本课。后课默认：包到 TCP 时已在 sk 接收队列里，唤醒路径成立；下一课把 TCP 拿到包之后怎么记账——状态机——拆开。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>收包路径是一条预算链：中断只通知，软中断按预算轮询，超支的包排队或被丢。</li><li>early demux 与四元组哈希让「找 sock」一次命中；rmem 会计把丢包责任钉到单个连接。</li><li>三类丢包（网卡环、backlog、socket 队列）各有独立计数器，排障必须分层对号。</li><li>「可读」事件由 <code>sk_data_ready</code> 生产，是阻塞与非阻塞合同在内核里的落点。</li><li>出处：Benvenuti, <em>Understanding Linux Network Internals</em>；Linux 内核 NAPI/softirq 文档；Stevens, <em>UNIX Network Programming</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 网络协议栈实践<!--[--> · 单元 收发路径<!--]--><!----></p><p class="lesson-progress">第 1 / 6 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/npk-tcp-state-machine/">TCP 状态机的实现</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/osk-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">内核实践收束</span><span class="lesson-card-meta">操作系统内核实践 · 工程<!--[--> · 第 7 / 7 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/npk-tcp-state-machine/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">TCP 状态机的实现</span><span class="lesson-card-meta">网络协议栈实践 · 收发路径<!--[--> · 第 2 / 6 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

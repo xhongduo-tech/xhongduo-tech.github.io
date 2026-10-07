@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>hypervisor 的类型 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_virt-hypervisor-types.md.BNMGKKWn.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 虚拟化与容器深入<!--[--> · 单元 机制<!--]--><!----></p><p class="lesson-progress">第 1 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/cs/st-map/">存储深化收束</a></p><p class="lesson-next"> 下一课：<a href="/cs/virt-kvm-qemu/">KVM 与 QEMU</a></p><!----></nav><div style="position:relative;"><div><h1 id="hypervisor-的类型" tabindex="-1">hypervisor 的类型 <a class="header-anchor" href="#hypervisor-的类型" aria-label="Permalink to &quot;hypervisor 的类型&quot;">​</a></h1><div class="epigraph"><p>类型 1 与类型 2 说的是 VMM 活在哪一层、复用了谁的驱动与调度器；真正决定一台虚拟机行为的，是敏感指令那次陷入用什么机制接住。</p><footer>—— 据 Popek and Goldberg, Formal Requirements for Virtualizable Third Generation Architectures, 1974 整理</footer></div><p><a href="/cs/st-map">上一课</a>给「存储系统深入」收束：放大账、合同账、层次账三张账并读，顺序化是贯穿 LSM、LFS、FTL 与列存的第一母题，局部性是唯一的免费午餐——成本都在写入端明码标价。存储的账本合上，多租户的隔离问题换到下一层舞台。本课是「虚拟化与容器深入」的第一课。主干课里<a href="/cs/hypervisor-types">虚拟化类型 1 / 2</a>已经给过分类标签，<a href="/cs/trap-and-emulate">陷阱与模拟</a>也演示过一次陷入；本课把这些钉成一套机制语言：什么架构才可虚拟化、不可虚拟化时工程上有哪几条出路，后课的 KVM、微 VM 与容器都默认这套语言。后课默认已经读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一个 VMM 要成立，得同时满足三件事：等价性（客户程序除时序外看不出自己在虚拟机里）、控制性（VMM 掌握物理资源，客户不能绕过）、效率（无须 VMM 介入的指令原地执行）。Popek 与 Goldberg 在 1974 年给出判定：当且仅当<strong>敏感指令是特权指令的子集</strong>，纯软件的陷落式 VMM 才可能。敏感指令是「结果依赖特权态」的指令，特权指令是「非特权态执行就陷入」的指令；前者被后者覆盖，硬件才替你把每一处越权变成一次陷入。这个判定解释了 VMM 的实现谱系，而不是给产品排座次。</p><p><span class="marginnote">术语翻译：特权指令是「在用户态一执行就报官」的指令，敏感指令是「结果随你在哪个特权级而变」的指令。Popek 与 Goldberg 的判定一句话说完——每种敏感指令都得报官，纯软件的 VMM 才兜得住；有指令能悄悄变行为，VMM 就瞎了。</span></p><p>缺口在真实 ISA 上：二十世纪七十年代的 x86 有十多条指令敏感却无特权——用户态执行不陷入、但行为随特权态改变（改标志位、读描述符表位置一类）。VMM 看不见这些操作，等价性与控制性同时失守。缺口不是「x86 慢」，是 x86 当时<strong>原则上不可虚拟化</strong>。</p><p><span class="marginnote">数字实例：当年 x86 有十多条「敏感却非特权」的指令，比如用户态改标志位、读段描述符表位置这类——执行了、没陷入、VMM 又看不见结果变了什么；等价性与控制性各漏一个口子，这是结构性的洞，不是调优能补的。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>工程史的回答是三条出路，按「改哪一层」区分。</p><h3 id="三条出路" tabindex="-1">三条出路 <a class="header-anchor" href="#三条出路" aria-label="Permalink to &quot;三条出路&quot;">​</a></h3><p>第一，陷入后补洞：不行的指令靠动态二进制翻译，在客户代码执行前扫描替换。第二，改客机：Xen 在 2003 年干脆承认客内核要改写，把敏感操作换成对 hypervisor 的显式调用——半虚拟化，用兼容性换清晰。第三，改硬件：VT-x 与 AMD-V 给 ISA 补上「非根模式」，敏感指令真的会陷入，Popek-Goldberg 条件由硬件满足。今天的主流是第三条加第二条的混合，第一条例外存在于旧产品与特殊调试。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>类型 1 与类型 2 度量的是<strong>复用边界</strong>：VMM 直接调度硬件并自带驱动（类型 1，如 Xen、ESXi），还是作为宿主 OS 的进程、复用宿主的驱动栈与调度器（类型 2，如托管式桌面产品）。KVM 落在中间：Linux 内核就是 VMM，vCPU 是可被 <a href="/cs/cgroup-cpu-sched">CFS</a> 调度的普通线程——这不是「1.5 类」的含混，而是复用边界的彻底外移：调度、内存、驱动全部沿用宿主，内核只补陷入机制。</p><p>半虚拟化与硬件辅助并不互斥。Xen 时代的方案如今常写成「硬件负责陷入，半虚拟化负责接口」：客机通过 <a href="/cs/virtio">virtio</a> 一类约定接口提交 I/O（后课细拆），硬件只接住剩余的敏感指令。判定的历史价值在于方向：<strong>每一代虚拟化技术都是在补「敏感指令无处陷入」这一具体缺口</strong>，而不是抽象的性能竞赛。</p><div class="mermaid"></div><p><span class="marginnote">KVM 的直觉类比：它不是在内核里另盖一栋调度楼，而是在原有大楼里加了一层门禁——排队进门（调度）、找水电工（驱动）、物业账目（内存）全用宿主原班人马；门禁只干一件事，客户越权时把人拦下并记一笔，其余照旧。</span></p><p><span class="marginnote">把「类型 2 一定更不安全或更慢」当结论是常见误读。托管式 VMM 复用宿主驱动省去重写，宿主被攻陷时客户才连带失守；裸机型则要自己维护特权分区（Xen 的 Dom0）——两边交换的是不同的运维债，不是一条单向光谱。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不展开 VMX 的字段与退出码，那是下一课 KVM/QEMU 与 <a href="/cs/vmx-vmexit">VMX 与 VM exit</a> 的对象；也不给容器留位置——容器根本不引入第二套特权级视图，它与本课的对照要到「安全边界」「性能开销」两课才有量化意义。嵌套虚拟化（VMM 之下再套 VMM）在本课只承认存在，机制归<a href="/cs/nested-virtualization">嵌套虚拟化</a>。</p><p>判定本身也有边界：Popek-Goldberg 说的是<strong>递归虚拟化的充分条件</strong>（对第三代体系结构陈述），不是性能上限，也不覆盖共享内存多核上的新问题——同一地址被两个客户核缓存的观感差异，陷入机制管不住，后课测开销时会回来。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>可虚拟化的判定是「敏感指令 ⊆ 特权指令」：陷入必须覆盖所有观察特权态的指令。</li><li>x86 曾不满足判定；二进制翻译、半虚拟化、硬件辅助是三条补法，现代 VMM 是混合体。</li><li>类型 1/2 说的是复用边界（驱动、调度器归谁），不是安全或性能的单向排序。</li><li>KVM 把复用边界推到宿主内核：vCPU 是普通线程，内核只补陷入。</li><li>出处：Popek and Goldberg 1974；Barham et al., Xen, SOSP 2003；据对该时代 x86 指令行为的分析整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 虚拟化与容器深入<!--[--> · 单元 机制<!--]--><!----></p><p class="lesson-progress">第 1 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/virt-kvm-qemu/">KVM 与 QEMU</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/st-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">存储深化收束</span><span class="lesson-card-meta">存储系统深入 · 格式与系统<!--[--> · 第 8 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/virt-kvm-qemu/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">KVM 与 QEMU</span><span class="lesson-card-meta">虚拟化与容器深入 · 机制<!--[--> · 第 2 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

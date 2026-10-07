@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>投机解码与注意力内核的交互 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ak-speculative-interaction.md.Ct3qkAnS.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 工程化<!--]--><!----></p><p class="lesson-progress">第 9 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ak-quantized-attention-kernel/">低精度注意力的内核</a></p><p class="lesson-next"> 下一课：<a href="/llm/ak-longsequence-kernels/">长序列的内核策略</a></p><!----></nav><div style="position:relative;"><div><h1 id="投机解码与注意力内核的交互" tabindex="-1">投机解码与注意力内核的交互 <a class="header-anchor" href="#投机解码与注意力内核的交互" aria-label="Permalink to &quot;投机解码与注意力内核的交互&quot;">​</a></h1><div class="epigraph"><p>投机解码把 decode 的查询行数从 1 变成 γ+1；内核若还是那个 q=1 的内核，草稿赚到的步数会被一遍遍重复读 KV 全数退还。</p><footer>—— 据 Leviathan et al., 2023；vLLM / FlashInfer 实现口径整理</footer></div><p><a href="/llm/ak-quantized-attention-kernel">上一课</a>收掉变体单元，工程化单元从系统交互开始。<a href="/llm/speculative-decoding">投机解码原理</a>在算法侧定过提议、校验与接受规则；本课只看它与注意力内核的四个接触面：查询行数、掩码形状、KV 写回、批内变长。投机在算法上保分布，内核要保的是不把保真的算法跑成失真、不把省下的步数赔在带宽上。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><span class="marginnote">术语翻译：投机解码就是「小快模型先替大模型猜 \(\gamma\) 个词，大模型一次并行批改」——对的留下，错的从错处重来。算法上输出分布不变，赚的是把串行的逐 token 生成压成一次大批改；本课讲的是这笔账怎么别在内核上亏回去。</span>校验一步要对 \(\gamma+1\) 个位置各算注意力：\(n_q\) 从 1 变成 \(\gamma+1\)。内核的形状、算术强度与最优配置随之全变。最直接的错法是拿现成的 q=1 解码内核逐 token 调用：同一份 KV 被读 \(\gamma+1\) 遍，而投机赚的恰是「一次 KV 读服务多个 token」这笔带宽账——步数省了，字节翻了，墙钟不赚反赔。反过来把它当成普通前填也不对：网格按长序列的 tile 划分，γ+1 行的小查询填不满流水。缺口是一个专属于「短而宽」形状的内核路径。</p><h3 id="树形草稿改的不是算法是掩码" tabindex="-1">树形草稿改的不是算法是掩码 <a class="header-anchor" href="#树形草稿改的不是算法是掩码" aria-label="Permalink to &quot;树形草稿改的不是算法是掩码&quot;">​</a></h3><p>链式草稿的 \(\gamma+1\) 个位置是普通因果链；<a href="/llm/speculative-tree">树状验证</a>的草稿是树：兄弟分支互不可见。这在数学上只是换一张布尔掩码，在内核上是把「因果掩码」换成「树掩码」传进同一个循环——前提是内核的掩码通道本来就是块级、可换的。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>内核侧三件事。第一，变长 \(q\) 接口：接受 \(n_q=\gamma+1\) 的小批查询，网格按行块展开，KV 载入一次、被所有行块复用——骨架就是第一单元的 tiling，只是形状换了。第二，掩码通道参数化：因果掩码与树掩码都作为块级布尔图传入，落在 \(S\) 上；接受率统计与位置对齐由外层做，内核只认图。第三，KV 写回与回滚：草稿位置的 KV 在校验时已经算出，被拒绝的尾部要回收——按第 5 课的页表接口就是页引用减一，或者标记惰性失效；接受前缀的 KV 原样保留，下一步直接续用。<span class="marginnote">直觉类比：KV 回滚像用铅笔打草稿——草稿的痕迹（页引用）先记上账，批改后没被采纳的尾部用橡皮擦掉（页引用减一），被采纳的前缀描深定稿、下一步接着写。怕的不是擦，是擦不干净留下的脏数据。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>带宽账要算细：设共要产出 \(\tau\) 个 token，链式草稿下的 KV 全读从 \(\tau\) 次降到约 \(\tau/(\gamma+1)\) 次——内核一次调用读 KV、服务 \(\gamma+1\) 行，这是投机在系统层赚钱的物理来源；逐 token 调用的实现把这笔账清零。树掩码错成因果掩码的后果比慢更糟：兄弟分支互相可见，草稿间「达成共识」，校验通过率虚高，输出分布已不再等于目标分布——这不是近似误差，是正确性错误，而且静默。<span class="marginnote">为什么重要：树掩码错成因果掩码不会报错也不会变慢，只是兄弟分支互相看见、草稿间「串通」，接受率虚高而输出分布悄然偏离目标——像多位考生互相抄了答案再一起交卷。这种静默正确性事故上线后极难察觉。</span>批内各请求 \(\gamma\) 不同、树形各异时，形状是真正的变长批次，第 5 课的块表加长度表接口原样接住，掩码图按请求传。</p><div class="mermaid"></div><p><span class="marginnote">\(\gamma=4\) 时校验一步 \(n_q=5\)：KV 读一遍替代至多五遍；平均接受约 2–3 个 token 时净赚仍在。把五次校验拆成五次 \(n_q=1\) 调用的实现，一分钱也赚不到——这是投机解码「无效化」的头号工程原因。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>接受规则保分布是算法课已证的命题，本课不重证；内核侧的责任是掩码语义与接受前缀一致。草稿模型的 KV 是否入页、占多少配额，是 KV 管理的题目。\(\gamma\) 的动态调整（按接受率伸缩）会改变 \(n_q\) 的取值集合，本课只指出后果：形状桶变宽，配置缓存键必须把 \(n_q\) 记进去，后面调优一课兑现。多草稿模型与自推测是草稿供给侧的变体，与内核接口无关。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>投机把 decode 变成「短而宽」：变长 \(q\) 内核一次读 KV、服务 \(\gamma+1\) 行。</li><li>带宽账是投机的物理来源：KV 全读次数从 \(\tau\) 降到 \(\tau/(\gamma+1)\)；逐 token 调用清零收益。</li><li>树掩码是块级布尔图，与因果掩码共用通道；错成因果掩码是正确性事故。</li><li>KV 写回按页表回收拒绝尾部，接受前缀原样续用。</li><li>批内变长由块表加长度表接口接住，\(n_q\) 必须进配置缓存键。</li><li>出处：Leviathan et al., <em>Fast Inference via Speculative Decoding</em>, 2023；据 vLLM 与 FlashInfer 实现整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 工程化<!--]--><!----></p><p class="lesson-progress">第 9 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ak-longsequence-kernels/">长序列的内核策略</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/ak-quantized-attention-kernel/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">低精度注意力的内核</span><span class="lesson-card-meta">注意力内核工程 · 变体的内核<!--[--> · 第 8 / 14 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ak-longsequence-kernels/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">长序列的内核策略</span><span class="lesson-card-meta">注意力内核工程 · 工程化<!--[--> · 第 10 / 14 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>寄存器分配的深入 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_cg-register-allocation-deep.md.BCatRbtd.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 编译器后端深化<!--[--> · 单元 核心<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/obs-map/">可观测性收束</a></p><p class="lesson-next"> 下一课：<a href="/cs/cg-instruction-selection/">指令选择</a></p><!----></nav><div style="position:relative;"><div><h1 id="寄存器分配的深入" tabindex="-1">寄存器分配的深入 <a class="header-anchor" href="#寄存器分配的深入" aria-label="Permalink to &quot;寄存器分配的深入&quot;">​</a></h1><div class="epigraph"><p>寄存器分配不是把变量搬进格子，而是在一台比程序需要的更小的物理机上安排搬迁；代价表错了，搬得越勤快，程序越慢。</p><footer>—— 据 Chow and Hennessy, ACM TOPLAS, 1984；Briggs, Cooper and Torczon, PLDI, 1992 整理</footer></div><p><a href="/cs/obs-map">上一课</a>给「可观测性与调试」收束：埋点、检测、止损、复盘、加固是一条闭环，预算先行、证据分层、回路闭合三句口诀各管一类错误——系统跑错时怎么看见已经答完，程序被错译或漏优化时怎么看见，是另一门手艺。加上更早的<a href="/cs/regalloc-color">着色分配</a>、<a href="/cs/linear-scan-regalloc">线性扫描</a>与 <a href="/cs/chaitin-briggs">Chaitin–Briggs 一族</a>，机制件齐了。缺的是决策层：真实函数里，溢出什么、溢出成什么样、在哪拆，三个决定互相纠缠，还把后果反馈回压力本身。本课是「编译器后端深化」的第一课，把这层决策补成一张能算的账；本课程后面的选择、调度、链接、JIT 与 MLIR，都默认你已经读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>主干给出的流程是单步的：建冲突图、简化、溢出、改写、重来。每步单独都对，连起来却没人回答三个问题。第一，溢出谁：图上每个节点的度数一样，代价不一样——最内层循环里的一次使用与循环外的一次使用，相差几个数量级。第二，溢出成什么样：<a href="/cs/spill-remat">溢出与重物化</a>给过两种改写，但没有给「选哪个」的判据。第三，在哪拆：把一个跨循环的长区间整个溢出，等于让循环外便宜的部分陪绑。没有代价表，这些全是抽签；抽错一次，热点循环里就多出一对 store/load，每次迭代都付。</p><h3 id="代价怎么算" tabindex="-1">代价怎么算 <a class="header-anchor" href="#代价怎么算" aria-label="Permalink to &quot;代价怎么算&quot;">​</a></h3><p>第一个能算的量是嵌套权重：给每个使用点记 \(10^{d}\)，\(d\) 是它所在循环的嵌套深度，顶层一次用是 \(1\)，三层循环里的一次用是 \(1000\)。区间代价近似为各使用点权重之和。Chow–Hennessy 的优先级着色用「每单位邻居度数的代价」排序：先保贵的，先溢便宜的。静态分支频度与代码布局给冷路径折价，这张表的底数是估计——但指数权重保证估计错一倍，也不至于把内层循环错当成外层。</p><p><span class="marginnote">数字实例：把一个值溢出到内层循环里，一次 load 权重按 \(10^3 = 1000\) 计——等价于顶层代码里一千次使用。这意味着哪怕估计器把循环次数估错十倍，也只是把「1000」算成「100」，排序结论通常不变：内层的值无论如何该留在寄存器。</span></p><p><span class="marginnote">Chow–Hennessy 的指数权重：嵌套深度每加一层，使用点权重乘十。溢出槽几乎总该留在循环外，是这张代价表最直接的推论；同理，重物化放在内层才划算，放在冷路径上常常不值得省那个栈槽。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>有了代价表，三种改写才能排序。溢出最贵：定义点一次 store、每个使用点一次 load，按使用点权重计价。重物化次之：定义本身廉价时——立即数、几条地址算术——在使用点重算比 round-trip 便宜，还不占栈槽。拆分最便宜但最细：把长区间在压力谷处切成两段，贵的一段留寄存器，便宜的一段落槽；拆分点常选在支配边界上，<a href="/cs/dominator-phi">支配与 φ</a> 的语言在这里直接用上。</p><div class="mermaid"></div><p><span class="marginnote">术语翻译：重物化（rematerialization）就是「不保存，用时重算」——比如一个常量或「某数组首地址加偏移」这类几条指令就能重建的值，与其 store 到栈里再 load 回来，不如在使用点重新算一遍，还省一个栈槽。</span></p><p>SSA 上还有一条捷径。SSA 形式的干涉图是弦图，弦图有完美消去序，\(K\)-着色不再需要启发式猜测；工程上的 SSA 型分配器干脆把溢出统一推迟成「处处溢出」的一次性改写，再由 <a href="/cs/ssa-destruction">SSA 析构</a>接住。主干里的着色启发式是给一般控制流的；拿到 SSA 就不必再付那笔启发式的钱。</p><p><a href="/cs/abi-codegen">ABI</a> 从两侧夹住分配：预着色节点钉住调用点两侧的实参与返回值寄存器；callee-saved 用一个赔一个，prologue 里 push 的列表就是分配的下游账单。所以工程实现常把 callee-saved 留作缓冲：先用 caller-saved，不够再动「要赔钱」的那批。</p><p><span class="marginnote">直觉类比：caller-saved 寄存器像出租车——下车（调用别人）就两清，里面有没有行李自己事先拿走；callee-saved 像借朋友的车——朋友（被调方）用完必须原样还，还要替你保管（push/pop）。所以调用密集处优先用出租车，朋友的车留给整个函数都活得久的值。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><div class="mermaid"></div><p>单步流程连成不动点：每次改写产生新 IR，新 IR 要重做<a href="/cs/dataflow-liveness">活跃性分析</a>、重建图、再分配，直到无溢出。两个工程后果由此而来。其一，<a href="/cs/coalescing-splitting">迭代合并</a>之所以保守——只合并那些合并后干涉图仍可着色的邻居对——是因为激进合并推高压力，把分配推回不动点的下一圈，省下的 mov 会在别处以溢出付回去。其二，分配前值得做一次前置压力扫描：如果热点块的寄存器需求本来就超过 \(K\)，任何分配器都救不了，该回头缩短区间，而不是让后端硬吃。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重讲着色与扫描的机制，也不处理物理寄存器堆的异构——x87 栈与通用寄存器之间的搬移是另一层约束。硬件侧的<a href="/cs/register-renaming">寄存器重命名</a>在乱序核内部另设物理寄存器消假依赖；那是同一个「名字不够用」问题在硬件里的解，编译器看不见，不能拿它当借口。分配与调度的耦合——藏延迟会把区间拉长、压力推高——留给本课程后面的调度课处理。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>分配的深层不是建图，而是代价表：嵌套指数权重让「溢出谁」可算。</li><li>三种改写有价序：拆分、重物化、溢出；贵贱由使用点权重与定义成本决定。</li><li>SSA 把着色降为弦图上的多项式问题，溢出推迟成统一改写。</li><li>合并、溢出与压力互相反馈：分配是改写—重建的不动点，不是一遍。</li><li>出处：Chow and Hennessy, 1984；Briggs, Cooper and Torczon, 1992；George and Appel, 1996；Hack 的 SSA 寄存器分配工作。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 编译器后端深化<!--[--> · 单元 核心<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/cg-instruction-selection/">指令选择</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/obs-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">可观测性收束</span><span class="lesson-card-meta">可观测性与调试 · 工程<!--[--> · 第 10 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/cg-instruction-selection/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">指令选择</span><span class="lesson-card-meta">编译器后端深化 · 核心<!--[--> · 第 2 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

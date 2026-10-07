@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>autotuning 实践 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ak-autotuning.md.Cd3QV0Aa.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 工程化<!--]--><!----></p><p class="lesson-progress">第 12 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ak-benchmark-methodology/">内核基准测试方法论</a></p><p class="lesson-next"> 下一课：<a href="/llm/ak-multi-backend/">多后端移植</a></p><!----></nav><div style="position:relative;"><div><h1 id="autotuning-实践" tabindex="-1">autotuning 实践 <a class="header-anchor" href="#autotuning-实践" aria-label="Permalink to &quot;autotuning 实践&quot;">​</a></h1><div class="epigraph"><p>调参表是一份合同：形状桶是条款，缓存键是签名；漏一条，运行时就会拿错配置还理直气壮。</p><footer>—— 据 Tillet et al., Triton, 2019；内核自动调优与 vLLM 实现口径整理</footer></div><p><a href="/llm/ak-benchmark-methodology">上一课</a>立了测量的规矩。本课把测量变成搜索：autotuning 实践。<a href="/llm/kernel-autotuning">内核自动调优</a>定过「tile 与占用率是离散搜索、按形状桶离线调、热路径查表」的原则；本课落到注意力内核的完整实践：搜什么、什么时候搜、缓存什么、拿错了怎么办。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>注意力内核的配置空间不小：<code>BLOCK_M</code>、<code>BLOCK_N</code>、<code>num_warps</code>、<code>num_stages</code>、沿 KV 的切段数、量化开关，组合上百。每个形状的最优不同：解码与前填的最优配置常差数倍，第一单元预算表里的每一个自由度都是搜索维。麻烦在时机：在线逐形状 JIT 调优会把所有候选配置全跑一遍，首个撞到新形状的请求付出整个搜索的延迟——服务里不可接受；离线又搜不全：部署形状永远比基准网格多。缺口是一份「离线尽量搜全、在线兜底不卡顿」的合同。</p><p><span class="marginnote">术语翻译：tile 就是把大矩阵切成小块、一小块一小块地算，<code>BLOCK_M</code>/<code>BLOCK_N</code> 决定每块多大；<code>num_warps</code> 是给一块派多少个线程束干活，<code>num_stages</code> 是流水线提前搬运几层数据。块太大装不进片上小仓库，太小则搬运太频繁——好值取决于矩阵形状，所以只能搜，不能拍脑袋定死。</span></p><h3 id="搜索目标跟着部署目标走" tabindex="-1">搜索目标跟着部署目标走 <a class="header-anchor" href="#搜索目标跟着部署目标走" aria-label="Permalink to &quot;搜索目标跟着部署目标走&quot;">​</a></h3><p>解码核按延迟调，前填核按吞吐调，同一个内核在两个目标下可以选出不同赢家。搜索时若目标与部署错位，表里的名次就是另一个问题的答案。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>两级方案。第一级，离线：按上一课的协议扫形状网格乘配置空间，计时加数值验收，把每格的最优配置落成表。第二级，在线：缓存键取（形状桶、dtype、布局、因果与否、分页与否、\(n_q\) 桶——投机会把它从 1 变 \(\gamma+1\)），命中查表，未命中回退到安全默认配置并异步补搜、回填表格。服务启动与图捕获阶段按预期形状预热，让真实请求永远不做第一个付学费的人。验收除时间外带占用率与 spill 计数：防止选出「快但贴着预算边缘」的脆弱配置——换个 batch 就溢出的赢家不值得要。</p><p><span class="marginnote">直觉类比：两级方案像餐厅备菜。开餐前（离线）按预估订单把常见菜配好；来了没备过的菜（缓存未命中），先按标准做法稳稳出一份（安全默认），同时让后厨研究最优做法写进菜谱（异步补搜回填）——客人从不需要站在灶台前等试验。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么缓存键要这么长，逐条看漏一条的后果。形状漏了：相邻形状拿到别人的 tile，慢但不错。dtype 漏了：INT8 的配置喂给 FP8 内核，指令路径不同，轻则慢重则错。因果或树掩码漏了：掩码图不是键的一部分，动态稀疏内核可能拿到上一张图的块索引——读错块，输出错且静默。\(n_q\) 漏了：投机把解码形状变成短而宽，q=1 的最优 tile 对 \(n_q=5\) 常常劣化数倍。错法两型：全形状一份「通用最优」——各形状平均劣化、甜点之外全面失守；或者搜索时频率没锁、剖析器开着——上一课的每条规矩在搜索里都要重申一遍，因为搜索就是几百次基准。</p><div class="mermaid"></div><p><span class="marginnote">Triton 的 <code>@autotune</code> 常扫 8–32 组配置、每组 warmup 加重复计时；推理引擎在启动与 CUDA 图捕获前预热候选形状——生产里首 token 延迟尖刺，多半是某个形状漏进了「运行时现搜」的名单。</span></p><p>表的维护是机制的后半段。配置表随硬件换代作废：额度表变了（第 3 课）、原语变了（第 13 课），名次就变了，表要随版本重出。频率与功耗漂移让离线名次抖动，关键场景以在线实测复核；表格本身要有版本号与硬件指纹，回滚时整表回滚。autotune 修不了算法错误：掩码写错的内核，搜出来的只会是「稳定地错」——正确性验收在前，时间搜索在后，次序不能反。</p><p><span class="marginnote">为什么重要：配置表过期不会报错，只会悄悄变慢或溢出。所以换 GPU 型号、升内核版本时，要把配置表当成和模型权重一样的资产——重新生成、带版本号发布、能整表回滚，而不是拿旧表凑合着跑。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课谈的是单内核、单设备的配置搜索；跨请求的调度级参数（批大小、配额）是服务课程的题。跨后端的配置表各出各的、验收口径统一，归到多后端一课。搜索开销本身（离线扫网格的机时）是工程预算的一部分：空间 sampled 而不是穷举，靠第一单元的账本先砍掉必输的候选——预算表不过关的配置不进搜索。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>配置搜索分两级：离线按网格搜全、落表；在线查表、未命中走安全默认并异步补搜。</li><li>缓存键至少含形状桶、dtype、布局、掩码与 \(n_q\)；漏任何一条都可能静默拿错配置。</li><li>搜索目标与部署目标一致：解码按延迟、前填按吞吐，别用别人的考题选你的答案。</li><li>验收带占用率与 spill 计数，不选贴着预算边缘的脆弱赢家。</li><li>表随硬件与版本重出，带指纹与版本号；正确性验收先于时间搜索。</li><li>出处：Tillet et al., <em>Triton</em>, MAPL 2019；据 Triton autotune 与 vLLM 预热实现整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 工程化<!--]--><!----></p><p class="lesson-progress">第 12 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ak-multi-backend/">多后端移植</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/ak-benchmark-methodology/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">内核基准测试方法论</span><span class="lesson-card-meta">注意力内核工程 · 工程化<!--[--> · 第 11 / 14 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ak-multi-backend/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">多后端移植</span><span class="lesson-card-meta">注意力内核工程 · 工程化<!--[--> · 第 13 / 14 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

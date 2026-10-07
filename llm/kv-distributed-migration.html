@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>分布式 KV 与迁移 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_kv-distributed-migration.md.lmQ8S3IH.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 KV 管理与压缩<!--[--> · 单元 系统交互<!--]--><!----></p><p class="lesson-progress">第 10 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/kv-speculative-interaction/">KV 与投机解码</a></p><p class="lesson-next"> 下一课：<a href="/llm/kv-measurement-pitfalls/">KV 测量的坑</a></p><!----></nav><div style="position:relative;"><div><h1 id="分布式-kv-与迁移" tabindex="-1">分布式 KV 与迁移 <a class="header-anchor" href="#分布式-kv-与迁移" aria-label="Permalink to &quot;分布式 KV 与迁移&quot;">​</a></h1><div class="epigraph"><p>迁移的幸运在于 KV 只追加不改写：已写的历史天生是只读快照，要协调的只有正在生长的尾部。</p><footer>—— 据 Zhong et al., DistServe, 2024 与 Patel et al., Splitwise, 2023 的分离式服务实践整理</footer></div><p><a href="/llm/kv-speculative-interaction">上一课</a>管住了一台副本内的写入与回滚。集群把问题放大一个维度：<a href="/llm/pd-disaggregation">PD 分离</a>要求预填实例把 KV 交给解码实例；<a href="/llm/scale-down-kv">缩容</a>要求正在生成的请求换地方；<a href="/llm/kv-prefix-cache">前缀缓存</a>想被路由送到对的副本。传输与带宽的账已各自写过，本课写迁移的一致性：迁移期间谁在写、块表怎么重定向、失败算谁的。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>迁移撕开了第一课的所有权：一页两个候选主人。三件事会出错。<strong>双写</strong>：源端继续 decode 追加，目标端也开始写，同一逻辑位置的键出现两个版本。<strong>丢失</strong>：源端在确认送达前释放了页，传输失败后这条请求既不能续算也无处重算。<strong>分裂</strong>：引用计数两半——前缀页在源端被别的请求共享着，迁移请求的那份引用挂到对端后，谁负责这页的生死？叠加的约束是时间：迁移期间请求的 decode 要不要停？停，是用户可见的停顿；不停，就要回答双写。</p><p><span class="marginnote">直觉类比：迁移像给一本正在记账的账本换柜子——两个人同时往同一页记账（双写）、旧账本提前烧了新账本还没送到（丢失）、其中一页还是全家共用的底账（共享前缀的引用计数）。任何一件出岔子，账就对不上了。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>冻结–拷贝–切换</strong>。最简单的正确协议：源端在步边界冻结该请求（停止追加），快照块表，传页，对端按清单重建块表与引用计数，路由切走，源端释放。正确性来自「写权移交是原子的」：任何时刻最多一个写者，世代号（块表版本）保证旧路由的迟到更新被拒。代价是停顿等于传输时间。</p><p><strong>增量迁移</strong>。利用 KV 的追加-only 性质砍停顿：历史页只读，可以先流式传；源端继续 decode，只把新追加的尾部增量传过去，最后在尾部做一次小窗口冻结切换。<a href="/llm/pd-kv-transfer">PD 分离</a>是它的极限情形：预填结束时 KV 定型，源端再无追加，一次传完即切换。增量窗口越小，最后的切换停顿越接近毫秒级。</p><p><strong>失败语义</strong>。切换确认前，源端仍是负责人；超时未确认，就丢弃对端半成品、源端续跑或整体重排（丢 KV 重 prefill）。这条兜底要提前定价：重算成本 = 该请求的 prefill 报价，传输失败的期望损失 = 传输失败率 × 重算成本——值不值得迁移，先过这道算术。路由侧从源头减少迁移：<a href="/llm/kv-aware-routing">缓存感知路由</a>把请求送到已有前缀的副本，<a href="/llm/kv-rdma-fetch">RDMA 拉取</a>把跨机读取做成对端主动取，而不是源端推。</p><p><span class="marginnote">为什么先算失败账：设迁移失败率 1%、重算一条长前缀要 4 秒 GPU 时间，那一万次迁移的期望损失就是约 100 次重算 ≈ 400 GPU 秒——可能比迁移本身省下的时间还多。这道算术不过关，协议再优雅也不该上线。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>一致性归根到底还是所有权：迁移协议本质上是把「写权 + 引用」这对状态从源端原子搬到对端，块表世代号是搬运的载体。KV 的追加-only 是这份工作比一般有状态服务友好的根源——历史不可变，传输天然是流式的，需要协商的只有尾部一小段。这也解释了为什么<a href="/llm/kv-tiered-storage">分层存储</a>与迁移能共用一套块接口：换介质、换副本、换机，动的都是「页的住所与主人」，不是页的内容。</p><p><span class="marginnote">术语翻译：世代号（generation）就是块表的「版本号」，每次变更就加一。旧路由拿着第 7 版的地址来写，源端一看现在已是第 8 版，直接拒收——迟到的更新不需要复杂的锁，一次数字比对就挡住了。</span></p><p><span class="marginnote">量级感受：8B 模型 FP16 的 KV 是 128 KiB/token，1K token 历史约 128 MiB，100 Gbps 网线约 10 ms；一条 32K 请求全量约 4 GiB，约三分之一秒。增量迁移把切换停顿压到尾部那一小段——全量传输的账只付给带宽，不付给停顿。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>同构假设很脆：两端 TP 度、精度、块大小不同，就要重切片与重量化，成本从「拷贝」涨成「重算一级」，多数工程选择不迁、改用重排。<a href="/llm/kv-lifecycle-ownership">引用计数</a>跨引擎不可移植，清单在对端重建时要连带前缀共享的间接引用，漏一条就是提前释放。缩容一次性触发大量迁移会形成迁移风暴，挤占与正常 decode 同一张网；分级排水比一步到位稳。最后，KV 是用户数据：跨信任域传输与驻留要走与提示正文同级的隔离与合规，别因为是缓存就绕过。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>迁移协调的是「写权 + 引用」的原子移交；追加-only 让历史传输天然流式。</li><li>冻结–拷贝–切换最简单正确；增量迁移把停顿压到尾部小窗口。</li><li>失败兜底定价：重算成本 × 失败率是迁移可行性的第一道算术。</li><li>路由与拉取从源头减少迁移；同构（TP/精度/块大小）是便宜迁移的前提。</li><li>KV 是用户数据，跨域驻留按提示正文的合规级别处理。</li><li>出处：Zhong et al., DistServe, 2024；Patel et al., Splitwise, 2023；存储层次据本仓库分层 KV、PD 传输课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 KV 管理与压缩<!--[--> · 单元 系统交互<!--]--><!----></p><p class="lesson-progress">第 10 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/kv-measurement-pitfalls/">KV 测量的坑</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/kv-speculative-interaction/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">KV 与投机解码</span><span class="lesson-card-meta">KV 管理与压缩 · 系统交互<!--[--> · 第 9 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/kv-measurement-pitfalls/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">KV 测量的坑</span><span class="lesson-card-meta">KV 管理与压缩 · 系统交互<!--[--> · 第 11 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

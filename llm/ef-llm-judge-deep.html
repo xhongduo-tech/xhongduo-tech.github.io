@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LLM-as-judge 的深化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ef-llm-judge-deep.md.BzU7ahfn.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 评测前沿方法<!--[--> · 单元 方法深化<!--]--><!----></p><p class="lesson-progress">第 1 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ade-map/">对齐数据工程收束</a></p><p class="lesson-next"> 下一课：<a href="/llm/ef-arena-methodology/">竞技场方法学</a></p><!----></nav><div style="position:relative;"><div><h1 id="llm-as-judge-的深化" tabindex="-1">LLM-as-judge 的深化 <a class="header-anchor" href="#llm-as-judge-的深化" aria-label="Permalink to &quot;LLM-as-judge 的深化&quot;">​</a></h1><div class="epigraph"><p>换序与控长只是让法官不作弊；把法官当仪器深化，是让它可标定：准则可操作、判决可拆解、一致率对人有交代。</p><footer>—— 据 Zheng 等 2023、Zhu 等 JudgeLM 2023、Kim 等 Prometheus 2023、Li 等 Auto-J 2023 整理</footer></div><p><a href="/llm/ade-map">上一课</a>把对齐数据工程收在一条主线上：定义写成锚，锚经数据变成边界，策略把边界放大成行为；数据的版本管理决定行为的漂移。边界立好、策略放大之后，行为的量法仍未解决：法官仍是一只被审计过的黑盒——<a href="/llm/llm-judge-bias">偏差课</a>给了换序、控长、双族对照这些最低工程，<a href="/llm/mt-bench">MT-Bench</a>把法官当误差的显微镜。本课是「评测前沿方法」的第一课，写法官本身的深化：把「哪条更好」拆成可判定的准则、改造判决结构、训练与集成法官、对人标定。后课的竞技场、组合与训练协同都默认法官已经是标定过的仪器。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>未深化的法官只有一个输出：胜者或一个 1–10 分。它把事实、服从、文风、安全压成一次直觉判断，偏差无处归因：长回答赢了，不知赢在信息量还是排版；分数差零点几，不知是模型差还是法官抖。要优化的团队还会对法官直接做梯度上升——<a href="/llm/llm-judge-reward">裁判作奖励</a>已警告这会被 PPO 放大。<span class="marginnote">「对法官做梯度上升」就是把法官的打分当训练目标去优化被评的模型。风险在于法官自己也是语言模型、自带偏好：被评模型会学着专挑法官爱看的样子写（更长、更多列表、语气更自信），而不是真的变好——分数涨了，质量没涨。</span>缺口不是再补一条偏差清单，而是把判决变成<strong>可归因、可标定、可复算</strong>的测量。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>准则操作化</strong>是第一步：把「更好」写成几条可独立判定的命题——事实是否与参考一致、是否覆盖任务的每个子要求、是否执行了格式约束、是否引入了要求之外的伤害。每条准则单独输出「满足 / 不满足 / 无法判定」加一句证据，再聚合。这与 <a href="/llm/ifeval">IFEval</a> 同源：能程序判定的不交给语言直觉，法官只接程序判不了的部分。<strong>判决结构</strong>上，先让法官写证据再下结论，或对两答先各自评分再比较，避免把比较当第一反应；<strong>自采样</strong>取多次判决的多数，压随机抖动——但只压方差，不纠系统偏差。<strong>标定</strong>用人金标：留一批人与法官同判的样本，报一致率与 Cohen \(\kappa\)，<span class="marginnote">Cohen \(\kappa\) 可以这样读：从一致率里扣掉「纯属碰巧的一致」再归一。假如两人闭着眼乱判也能对上 50%，那表面 80% 的一致率其实只值 \(\kappa\approx 0.6\)。经验门槛：\(\kappa\) 超过 0.8 算高度一致，0.4–0.6 算中等，低于 0.4 的法官不能上岗。</span>分歧样本送人仲裁并回流标定集。<strong>微调法官</strong>（Prometheus 一类）用公开的 rubric 与反馈语料把评分行为固化进权重；<strong>法官集成</strong>让不同家族的法官各判一遍，分歧即升级。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>拆准则为什么有效：整体判断让法官同时做事实核对与文风偏好，注意力摊薄后系统性先验（长、列表、自信）占便宜；逐准则判定缩小了每个子任务的输入空间，先验能施加的面也随之变小。准则的本质是操作定义——「有帮助」没法判，「是否答了用户问的两个问题」可以判。拆分还带来可归因性：输在事实准则与输在格式准则，后续动作完全不同。</p><p>集成为什么降方差不纠偏差：若两个法官的错误独立，多数投票按误差概率衰减；若错误同源（都偏爱长答案、都出自近亲家族），投票只是把同一票抄三遍。所以集成的第一设计变量是<strong>家族与提示的异质性</strong>，不是数量。微调法官把一致性买在前面：权重固化后提示与温度的抖动变小，但它冻结了某个训练分布的审美，语料与产品换代时必须再标定，不能永续。</p><div class="mermaid"></div><p><span class="marginnote">Prometheus 把 rubric 与人写反馈做成微调语料，用开源模型当法官，作者报告其与人评的一致率接近当时的 GPT-4。可复现性换到了，代价是评分尺度从此绑定那个训练分布。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>深化不修复无效的 rubric：准则若本身在量文风（「结构清晰」），拆得再细也是偏差的放大器。优化方会读你的准则清单并逐条拟合——Goodhart 在准则层面照样成立，门禁用的 rubric 要留盲层。<span class="marginnote">为什么 rubric 要留盲层：门禁准则一旦公开，优化方会逐条拟合——你要求「包含三步解释」，回答里就长出三步凑数的废话。留一两把不公开的卷子，才分得清「真变好」与「学会应试」，道理同考试院不公布全部题库。</span>成本也翻倍：逐准则加自采样，一次判决的前向是朴素法官的十倍量级，这笔预算要进组合课的账。最后，一致率高不等于测对了构念：法官与人可以在「都偏爱长答案」上一致；效度要靠准则与声明的对表，不是一致率单独能给的。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>法官深化的方向：准则操作化、判决结构化、对人标定；换序控长只是前提不是深化。</li><li>程序可判定的子集先行，法官只接直觉判不了的部分。</li><li>集成降方差靠异质性；微调法官固化尺度，换代要再标定。</li><li>一致率 \(\kappa\) 是标定证据，不是效度证据；构念对表另行声明。</li><li>出处：Zheng 等 2023（MT-Bench 与法官偏差）；Zhu 等 JudgeLM 2023；Kim 等 Prometheus 2023；Li 等 Auto-J 2023，按本课程整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 评测前沿方法<!--[--> · 单元 方法深化<!--]--><!----></p><p class="lesson-progress">第 1 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ef-arena-methodology/">竞技场方法学</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/ade-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">对齐数据工程收束</span><span class="lesson-card-meta">对齐数据工程 · 质量与配比<!--[--> · 第 9 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ef-arena-methodology/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">竞技场方法学</span><span class="lesson-card-meta">评测前沿方法 · 方法深化<!--[--> · 第 2 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

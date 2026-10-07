@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>工具变量的深化：异质依从 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_pe-iv-heterogeneous-compliers.md.BKjl8v2R.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 政策评估深化<!--[--> · 单元 设计<!--]--><!----></p><p class="lesson-progress">第 5 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/econ/pe-rdd-deep/">断点回归的加深</a></p><p class="lesson-next"> 下一课：<a href="/econ/pe-rct-design-analysis/">RCT 的设计与分析</a></p><!----></nav><div style="position:relative;"><div><h1 id="工具变量的深化-异质依从" tabindex="-1">工具变量的深化：异质依从 <a class="header-anchor" href="#工具变量的深化-异质依从" aria-label="Permalink to &quot;工具变量的深化：异质依从&quot;">​</a></h1><div class="epigraph"><p>IV 回答的不是「处理的效果」，而是「工具撬动的那条边际上，依从者的效果」；换一个工具，就换了一个问题。</p><footer>—— Imbens and Angrist, Econometrica 1994；Angrist, Imbens and Rubin, JASA 1996；Heckman and Vytlacil, Econometrica 2005</footer></div><p><a href="/econ/pe-rdd-deep">上一课</a>把门槛上的证据钉牢，模糊断点只留了一句接口：门槛 IV 估计的是门槛邻域内依从者的效应。本课展开这个接口。主干<a href="/econ/iv-weak-instruments">工具变量与弱工具</a>钉了相关与排除、弱工具偏向 OLS；那里先用了常数 \(\beta\)。本课在效应异质下把 IV 的估计对象拆开：谁在依从、Wald 比认得谁、以及这个数字能回答什么政策问题。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>让潜在处理状态随工具取值：\(D_i(z)\) 是「若工具定为 \(z\)，个体 \(i\) 是否被处理」。按 \(D_i(1)\) 与 \(D_i(0)\) 把人口劈成四层：两边都处理的 always-takers、两边都不处理的 never-takers、只在工具向上时处理的 compliers、反向的 defiers。<strong>单调性</strong> \(D_i(1)\ge D_i(0)\) 排除 defiers 后，Wald 比 \(\mathrm{Cov}(Z,Y)/\mathrm{Cov}(Z,D)\) 识别的恰是依从者的平均处理效应（Imbens–Angrist 的 LATE）。这带来三个必须直面的问题。其一，LATE 是<strong>工具特定的</strong>：出生季度撬动的是「多读几个月书」的边际学生，距离大学的边际很远；换一个工具，撬动另一批人，数字不同。其二，排除在异质下读法更苛刻：Angrist–Imbens–Rubin 的假设结构要求工具对每层潜结果的作用只经处理状态传导，恰可识别时它仍不可检验。其三，依从者不可观测——你不知道谁被工具移动了——但他们的协变量画像可以恢复（Abadie 2003），这是 LATE 从一个数字变成一个群体的唯一途径。</p><p><span class="marginnote">直觉类比：把工具想成一张随机发放的优惠券。发不发都会买的是 always-takers，发了也不买的是 never-takers，见券才买的是 compliers，见券偏不买的是 defiers（被单调性排除）。IV 能度量的只有第三种人——券带来的销量变化全部发生在他们身上，前两种人对券毫无反应，数据里没有他们的效应信息。</span></p><p><span class="marginnote">Angrist–Krueger 的出生季度工具至今是好例子：它识别的只对「因义务教育约束多读了书」的人。对无论如何要读完高中的 never-takers，数据里没有任何关于他们的信息——份额小，则 Wald 比虽准，覆盖的人极少。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>报 LATE 时同时报四件：第一阶段（工具撬动处理率的幅度）、依从者份额（第一阶段本身就是它的估计）、依从者的协变量画像（Abadie 加权恢复）、以及工具的制度含义（它模拟的是哪种政策扩张）。<span class="marginnote">数字实例：若奖学金使大学入学率从 50% 涨到 58%，第一阶段就是 8 个百分点——Wald 比的分母是 0.08，被撬动的依从者约占人口的 8%。其余 92% 的人（always- 与 never-takers）对奖学金毫无反应；这个 LATE 估计得再准，也只替这 8% 的人说话。</span>视角再升一层：Heckman–Vytlacil 的<strong>边际处理效应</strong>曲线 \(MTE(u)\) 按不可观测的进入意愿排开效应，IV 估计量是这条曲线在工具决定的区间上加权；工具不同，权重不同——这就是「换工具换问题」的正式说法。单侧不依从（对照组拿不到处理）时没有单调性问题，encouragement 设计最干净；fuzzy RDD 是同一语言：估计对象是门槛邻域内 compliers 的效应，恰好把上一课的接口接上。弱工具的纪律不变：分母近零时 Wald 比连依从者效应都保不住，先过<a href="/econ/iv-weak-instruments">弱工具诊断</a>。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是分层消去。Wald 比的分子 \(\mathrm{Cov}(Z,Y)\) 里，always-takers 与 never-takers 的处理状态不随工具变，其结果变异被分母消去，剩下的分子只装着依从者的 \(Y(1)-Y(0)\)；分母装着依从者份额。IV 于是不是「更聪明的回归」，是把识别范围<strong>收缩</strong>到能被工具移动的那群人。政策含义随之改变：若目标政策改变的依从边际与工具不同（比如全国扩招撬动的是另一段入学分布），LATE 不能直接搬——搬的对象是 MTE 曲线的形状与依从者画像，不是单个数字。</p><p>不这么做会错在哪：把 LATE 当 ATE 报，等于用边际学生的教育回报回答全人口的平均回报；不报第一阶段幅度，读者无法知道这个数覆盖了多少人、是谁。</p><p><span class="marginnote">常见误区：初学者容易把 IV 结果写成「教育的回报率是 X%」。严格写法必须带限定语——「对被出生季度约束撬动的那部分边际学生」。这一步如果省了，后面拿这个数字去预测「全国扩招」的效果时，等于假设扩招撬动的也是同一批边际人，政策外推从结论句就开始错。</span></p><div class="mermaid"></div><p>上图回答的问题是 Wald 比凭什么「恰好」只剩依从者：分层图（上表）画出人口怎么被劈成四层，这张画出消去机制——两层不随工具动的人在分子分母里同步出现、相消，分子分母各留下一半 Wald 比，识别不是运气，是消去法的代数结果。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不做 MTE 的结构估计与政策外推测度，那要更重的模型假设；一般均衡与市场规模效应不进 LATE 语言。多值处理、连续工具的 LATE 定义只标接口。排除约束在恰可识别下依然不可检验，本课给出的只是画像与机制故事的可信度清单，不是检验。弱工具与异质同时出现时，名义置信区间最先失效，纪律沿主干口径。</p><p>后课默认：IV 的结论句写「对依从者」，不写「对所有人」；下一课从设计源头处理依从——随机化实验的 ITT 与 TOT。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>单调性排除 defiers 后，Wald 比识别依从者的平均效应。</li><li>LATE 工具特定；正式说法是 MTE 曲线上不同工具的不同加权。</li><li>依从者份额就是第一阶段；画像用 Abadie 加权恢复。</li><li>政策外搬运的是曲线与画像，不是单个 LATE。</li><li>出处：Imbens and Angrist, <em>Econometrica</em> 1994；Angrist, Imbens and Rubin, <em>JASA</em> 1996；Abadie, <em>J. Econometrics</em> 2003；Heckman and Vytlacil, <em>Econometrica</em> 2005。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 政策评估深化<!--[--> · 单元 设计<!--]--><!----></p><p class="lesson-progress">第 5 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/pe-rct-design-analysis/">RCT 的设计与分析</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/econ/pe-rdd-deep/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">断点回归的加深</span><span class="lesson-card-meta">政策评估深化 · 设计<!--[--> · 第 4 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/econ/pe-rct-design-analysis/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">RCT 的设计与分析</span><span class="lesson-card-meta">政策评估深化 · 推断与综合<!--[--> · 第 6 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

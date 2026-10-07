@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>信号构建：从直觉到可计算量 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_signal-construction-sandbox.md.CXZ_jzBf.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 从问题到组合<!--[--> · 单元 假设与数据<!--]--><!--[--> · 课序 信号<!--]--></p><p class="lesson-progress">第 4 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/quant/data-acquisition-audit/">数据获取与审计</a></p><p class="lesson-next"> 下一课：<a href="/quant/single-signal-eval/">单信号评估：IC、换手与成本会师</a></p><!----></nav><div style="position:relative;"><div><h1 id="信号构建-从直觉到可计算量" tabindex="-1">信号构建：从直觉到可计算量 <a class="header-anchor" href="#信号构建-从直觉到可计算量" aria-label="Permalink to &quot;信号构建：从直觉到可计算量&quot;">​</a></h1><div class="epigraph"><p>一个直觉只有在你能写出它的相反情形时，才值得变成一行代码。</p><footer>—— 据 Jegadeesh and Titman (1993) 的动量设计与 Sloan (1996) 的应计构造口径整理</footer></div><p><a href="/quant/data-acquisition-audit">上一课</a>用五项审计把原始数据收拾成两枚时间戳齐全、宇宙完整的分析面板。本课把立项时那句经济直觉翻译成一个可计算的量：先定义式，再变换，再中性化，最后在沙盒里做单变量健康检查——健康检查不碰收益，只看信号自己。截面变换与中性化的工具在<a href="/quant/cs-rank-features">特征：滞后、截面 rank</a>、<a href="/quant/industry-neutral">行业中性</a>诸课备好，本课各用一次。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>直觉到定义式是错得最多的一跳。「盈利质量差的公司未来收益低」听起来完整，落到代码里立刻分裂成十几个版本：应计用总资产还是收入标准化（<a href="/quant/accruals-anomaly">应计异常</a>）？预期盈利用季节随机游走还是分析师一致预期？极端值截不截？行业要不要剔？每个版本都是一个假说，而不是同一假说的实现。区别在于：这些选择是否在注册文档里被声明（上一课的合同），以及每个选择是否改变了你度量的对象（本课的问题）。变换不是中性装饰：rank 扔掉幅度信息，z-score 被极端值牵着走，中性化直接改写问题——「盈利意外」与「剔除行业动量后的盈利意外」是两个假设。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>四步，每步一个工件。<strong>定义式</strong>：写出方向与分母。本单元案例取 \(SUE_{i,q}=\left(E_{i,q}-E^{\mathrm{exp}}_{i,q}\right)/\sigma_i\)，预期项用季节随机游走带漂移，标准差只用可得历史——时点纪律从定义式就开始。<strong>变换</strong>：重尾财务量先缩尾再截面 rank 或 z-score；rank 对重尾与单位选择稳健，代价是扔掉幅度。选哪个取决于假设需要次序还是幅度，不是哪个 IC 高。<strong>中性化</strong>：行业与市值中性，或在 <a href="/quant/fama-macbeth">Fama-MacBeth 回归</a>里把已知因子作控制变量；中性化是问题的一部分，必须在注册文档里，不是评估阶段的旋钮。<strong>沙盒健康检查</strong>：不碰收益，只看五样——随时间的覆盖率曲线、截面离散度、信号自相关（它预示换手）、与市值和行业的秩相关、上下半样本的符号稳定性。检查不过，回到定义式，不许直接去翻收益。</p><p><span class="marginnote">SUE（标准化盈利意外）就是用「实际盈余减去预期盈余，再除以这只股票自己的历史盈余波动」的手段来回答「这次惊喜有多大」。除以波动是为了横向可比：盈余多出 1 亿元，对市值百亿的公司是家常便饭，对市值五亿的公司就是大事件。</span></p><p><span class="marginnote">Jegadeesh 与 Titman 的动量取「过去 12 个月、跳过最近 1 个月」：跳过的那一段是买卖价差弹跳造成的短期反转，不属于动量假设。信号定义里的每一项都要能说出是为什么——哪一项是在给微观结构噪声让路。</span></p><p><span class="marginnote">缩尾（winsorize）就是把极端值拉回分位点：比如把低于 1% 分位、高于 99% 分位的信号值分别改成分位点上的取值。盈余意外这类重尾财务量里，一家公司的一次并购可以让它的取值是其余股票的几十倍；不缩尾就做 z-score，均值和标准差全被这一只票拽偏，整张截面的分数跟着失真。</span></p><h3 id="健康检查清单的位置" tabindex="-1">健康检查清单的位置 <a class="header-anchor" href="#健康检查清单的位置" aria-label="Permalink to &quot;健康检查清单的位置&quot;">​</a></h3><div class="mermaid"></div><p><span class="marginnote">rank 变换可以类比成比赛只记名次不记成绩：冠军领先 0.01 秒还是 10 秒，榜单上一视同仁。极端值因此伤不到排名，代价是「赢了多少」的幅度信息被扔掉——z-score 正好相反，保留幅度但会被极端值牵着走，所以才要先缩尾。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>健康检查为什么能不碰收益就拦住大半错误：覆盖断崖说明定义式在某个时代不可计算（分母不稳或审计漏项）；截面离散度塌缩说明信号在大多数股票上没有区分度，IC 的分母会吃掉一切；自相关的过高过低直接圈定换手与持有期的可行域；与已知因子的秩相关揭示「新信号」是不是市值或动量的马甲；上下半样本符号翻转是最便宜的可证伪性预演——注册文档里的拒绝条件在这里先小规模兑现一次。方向与符号约定在代码里一次性冻结（<a href="/quant/xalpha-hypothesis-code">XAlpha：假设到代码</a>的口径）：多空写反是沙盒里最便宜也最贵的事故——便宜因为查得出，贵因为查不出时它伪装成反向 alpha。</p><div class="mermaid"></div><p><span class="marginnote">IC（信息系数）衡量信号好坏：拿「信号今天给股票排的名次」和「下期收益的实际名次」算相关系数，越接近 1 越准。「分母吃掉一切」的意思是：若信号在大多数股票上取值几乎相同，名次基本靠抽签，IC 无论正负都只是噪声——离散度检查就是在提前排掉这种情况。</span></p><p><span class="marginnote">自相关可以理解成「信号本月的取值和它上月取值的相似程度」。初学者容易以为换手率是下单以后才考虑的事——实际上定义式和变换一旦定下，信号翻新的速度就定了：自相关 0.9 的信号一个月几乎不变，可以低频调仓；自相关接近 0 的信号每周都在重排名次，交易成本会跟着换手一起爆炸。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>沙盒纪律是单变量的：交互项与机器学习组合属于后面的建模课，<a href="/quant/regularized-linear-alpha">正则线性模型</a>一类方法不改变本课义务——每个输入仍要过同样的定义式与检查。变换与中性化的每一步选择都要回注册文档对账：沙盒里顺手多试的每种变体都是一次试验，计入 N。最后，健康检查全绿不等于信号有效，它只说明这个量「可以进入评估」；值不值钱由评估课的 IC、换手与成本会师回答。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>直觉到定义式是最大的自由度跳变：方向、分母、预期模型都要在注册里声明。</li><li>变换与中性化改变度量的对象，是假设的一部分，不是评估阶段的旋钮。</li><li>沙盒健康检查不碰收益：覆盖、离散、自相关、相关结构、符号稳定。</li><li>每个未注册的变体计一次试验；符号约定在代码里冻结。</li><li>出处：Jegadeesh and Titman (1993) 的跳月设计动机；Sloan (1996) 的应计构造；截面变换见站内 rank 与中性化诸课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 从问题到组合<!--[--> · 单元 假设与数据<!--]--><!--[--> · 课序 信号<!--]--></p><p class="lesson-progress">第 4 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/single-signal-eval/">单信号评估：IC、换手与成本会师</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/data-acquisition-audit/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">数据获取与审计</span><span class="lesson-card-meta">从问题到组合 · 假设与数据 · 起点<!--[--> · 第 3 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/single-signal-eval/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">单信号评估：IC、换手与成本会师</span><span class="lesson-card-meta">从问题到组合 · 假设与数据 · 信号<!--[--> · 第 5 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

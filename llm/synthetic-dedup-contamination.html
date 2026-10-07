@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>合成数据的去重与污染 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_synthetic-dedup-contamination.md.BqVHwwpr.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 分类与质量控制<!--]--><!----></p><p class="lesson-progress">第 4 / 16 课</p><p class="lesson-prereq"> 先修：<a href="/llm/synthetic-quality-filter/">质量过滤：打分器与一致性</a></p><p class="lesson-next"> 下一课：<a href="/llm/synthetic-math-pipeline/">数学数据的合成</a></p><!----></nav><div style="position:relative;"><div><h1 id="合成数据的去重与污染" tabindex="-1">合成数据的去重与污染 <a class="header-anchor" href="#合成数据的去重与污染" aria-label="Permalink to &quot;合成数据的去重与污染&quot;">​</a></h1><div class="epigraph"><p>合成管线里，去重不是清洗，是生成环内的一步：挡不住重复的生成器，会在几轮之内把题池唱成同一首歌。</p><footer>—— 据 Lee 等 2021 去重实证；Shumailov 等 2024 坍缩实证整理</footer></div><p><a href="/llm/synthetic-quality-filter">上一课</a>的关卡拦的是「坏样本」，本课拦的是「重复与泄漏」。字面与近重复去重在 <a href="/llm/minhash-dedup">MinHash / 精确去重</a>与<a href="/llm/semdedup">语义去重</a>已讲，评测去污染的流水线在<a href="/llm/decontamination-pipeline">去污染流水线</a>已立。本课写合成数据特有的三件事：模板共因让常规去重失效；污染入口从「爬到评测题」变成「教师会出评测题」；重复在闭环里是坍缩的燃料。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>合成的重复有一种常规管线看不见的形态：同一模板批量生成一千道题，表面字词全不同，模板层完全相同。n-gram 与 MinHash 在字面层工作，抓不住这种「换皮不换骨」；语义去重能抓一部分，但同时带来把「同题不同解」误删的风险。污染的入口则有两扇：教师预训练时见过基准题，生成时会不自觉地复刻其结构与数值；更糟的是操作性问题——为了让评测分好看，直接把基准题型喂给出题器。两扇门通向同一个结局：训练分与评测分双双上涨，泛化没动。<span class="marginnote">直觉类比：「换皮不换骨」像同一张卷子换封面印一千次——字面上没有两页相同，n-gram 自然抓不到，但考的是同一道题。学生刷一千遍同一题型，看着什么都会，换个数字就露馅；模板指纹就是掀开封面去看卷子的结构。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>去重四层，逐层收紧。精确哈希消灭字节级复制；MinHash 加 LSH 估计 Jaccard 抓近重复；嵌入空间语义去重抓释义级重复；再加一层模板指纹——抽取指令的骨架（句式结构、槽位类型、答案形态），在骨架层去重，专治模板共因。同一道数学题保留多条解法是资产不是重复，所以骨架比对要允许答案与解法字段带差异度预算，这是合成管线与网页管线在去重上最实质的分歧。</p><p>污染扫描三件套。与基准的字面与近字面重叠检测：n-gram 加嵌入近邻双通道。金丝雀：往训练池投放带标记的合成样本，评测时检查是否被背诵——它同时审计生成器与数据管理链路。生成器隔离审计：训练集与评测集的生成器、模板库、种子是否共享；共享即视为系统性污染嫌疑，不必逐条找证据。三件套的结论与<a href="/llm/eval-contamination">训练-评测污染检测</a>的语料审计口径合并使用。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>重复不是中性填充。<a href="/llm/model-collapse-empirics">模型坍缩的实证</a>的机制里，递归训练的损害正是从高频模式被反复强化开始的：模板共因若不去，等价于把训练分布往几个模板峰上压，坍缩的先兆——尾部丢失、熵收缩——会提前出现。重复还放大隐私面：语言模型对重复串的背诵概率显著更高，合成批次若夹带种子里的个人信息，重复会让它从「可提取」变成「必然吐出」。污染的机制则更隐蔽：它是过拟合到评测生成过程的学习——模型不需要学会任务，只需要学会「这类生成器会出什么」，模板正则性就是全部答案。这也是为什么去污染课强调语料审计是一等证据：成员推断只能补刀，不能洗白。</p><div class="mermaid"></div><p><span class="marginnote">为什么重要：语言模型对重复出现的字符串背诵概率显著更高——一个出现上百次的手机号几乎必然被记住、被吐出。合成批次若夹带种子里的个人信息又不去重，等于把隐私数据复制一百遍再喂给模型；Kandpal 等 2022 把去重与泄露率直接挂钩就是这个道理。</span></p><p><span class="marginnote">Lee 等 2021 的口径：对 C4 去重后训练效率提升，训练集中可被背诵的测试串大幅减少；Kandpal 等 2022 进一步把去重与隐私泄露率挂钩。合成管线照单全收这两条，只多加一条：模板层也要去。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>四层去重的阈值都是精度与覆盖的权衡：语义层阈值松了删资产（多解法、多表述），紧了留近重复。模板指纹的抽取本身可能过拟合到某种题式，把真正不同的任务误判为同模板——骨架层去重要抽样人审。污染扫描对释义级污染的召回有限，金丝雀只能证明被测链路干净，不能证明没投放过的路径干净。评测集若也来自合成（本课程后面有专课），隔离审计要升级到生成器级：n-gram 重叠合格不等于同源风险解除。<span class="marginnote">常见误区：初学者容易以为去重阈值越紧越好。语义层收得过紧，会把「同一道题的多种解法」「同一事实的多种表述」当重复删掉——这些恰是训练资产。所以骨架比对要给解法字段留差异度预算，并辅以抽样人审。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>去重四层：精确、MinHash、语义、模板指纹；合成特有的是模板共因。</li><li>同题多解是资产，骨架去重要带差异度预算。</li><li>污染两扇门：教师复刻基准与操作性出题；生成器隔离是结构性防线。</li><li>重复是坍缩与背诵的燃料，去重是生成环内步骤，不是事后清洗。</li><li>金丝雀与语料审计是一等证据，成员推断只补刀。</li><li>出处：Lee 等 2021；Kandpal 等 2022；Shumailov 等 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 分类与质量控制<!--]--><!----></p><p class="lesson-progress">第 4 / 16 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/synthetic-math-pipeline/">数学数据的合成</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/synthetic-quality-filter/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">质量过滤：打分器与一致性</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 分类与质量控制<!--[--> · 第 3 / 16 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/synthetic-math-pipeline/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">数学数据的合成</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 域合成<!--[--> · 第 5 / 16 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

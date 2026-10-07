@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>虚表与动态分派 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_vtable-dispatch.md.CqtbJhjP.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 类型、优化与运行时<!--[--> · 单元 运行时与虚拟机<!--]--><!--[--> · 课序 语言特性落地<!--]--></p><p class="lesson-progress">第 102 / 110 课</p><p class="lesson-prereq"> 先修：<a href="/cs/trampolining/">蹦床与尾递归</a></p><p class="lesson-next"> 下一课：<a href="/cs/reflection-metadata/">反射与元数据</a></p><!----></nav><div style="position:relative;"><div><h1 id="虚表与动态分派" tabindex="-1">虚表与动态分派 <a class="header-anchor" href="#虚表与动态分派" aria-label="Permalink to &quot;虚表与动态分派&quot;">​</a></h1><div class="epigraph"><p>对象头指向方法表；调用 `p-&gt;f()` 变成 `p-&gt;vptr[i](p)`。单继承表简单，多继承与接口要 thunk 或 Itanium 式偏移。</p><footer>—— 据 Ellis and Stroustrup, The Annotated C++ Reference Manual；Itanium C++ ABI；对照[内联缓存](/cs/inline-caching) 与[类型类](/cs/typeclass-dictionary) 整理</footer></div><p>上一课<a href="/cs/trampolining">蹦床</a>是函数式一侧的控制流。本课转到 OOP 的动态分派：缺口是 <strong>vtable</strong> 的布局——调用 <code>p-&gt;f()</code> 如何变成查表跳转。反射留下一课。主干类型课讲过编译期的 overload；这里是运行时的表。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>静态重载在编译期按静态类型选定；虚函数要看接收者的运行时类型。C++ 式实现：每类一张表，虚方法按声明序占槽，对象头藏一个 vptr 指向本类表，<code>p-&gt;f()</code> 编译成 <code>p-&gt;vptr[i](p)</code>。缺口是两件事：槽位索引的兼容（子类沿用父类槽位），与 this 指针的调整；IC 状态机是动态语言的事，不在本课。单继承最简单：子类表是父类表的前缀兼容扩展。多继承：对象里有多个子对象、多个 vptr，经第二个基类的指针调用时 this 要从对象头平移到对应子对象，编译器放一个 thunk 先调指针再跳方法。接口调用：另起一张接口表或 Itanium 式间接表。</p><h3 id="虚表不是类型类字典的复制粘贴" tabindex="-1">虚表不是类型类字典的复制粘贴 <a class="header-anchor" href="#虚表不是类型类字典的复制粘贴" aria-label="Permalink to &quot;虚表不是类型类字典的复制粘贴&quot;">​</a></h3><p>与<a href="/cs/typeclass-dictionary">类型类</a>对照：字典通常在调用处构造传递，静态可知；vtable 挂在对象上，为的是支持编译期未知的新子类——开放世界。IC（内联缓存）则把虚调用投机成直跳，靠观察到的类型分布赌一把。</p><p><span class="marginnote">ARM C++ / Itanium ABI。Stroustrup。本课 C++ 模型；Java 接口表类似。不写 COM 全部。</span></p><p><span class="marginnote">「thunk」翻译成大白话：编译器悄悄塞进调用路径的一段小垫片。它不做业务逻辑，只干一件事——把 this 指针从子对象位置平移回对象头，让方法体以为自己收到的是完整对象。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>前端三件事：每个虚方法分一个槽位，构造函数写 vptr，调用点编译成取表加间接跳。优化侧叫去虚：类层次分析（CHA）证明只有一个实现，或运行时已知具体类型，就直调甚至内联。JIT 用 CHA 必须记录依赖——赌了「没有别的子类」——类加载破坏假设时回退去优化。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：64 位机器上单继承对象只要 8 字节存一个 vptr；虚表本身每类一份、与对象个数无关——一百万个对象也共享同一张表。初学者容易以为每个对象都背着自己的方法表，实际上背的只是一个指向表的指针。</span></p><p>与<a href="/cs/calling-convention-impl">调用约定</a>衔接：this 是隐式第一参数，thunk 改的就是它。与 GC 的交界：vptr 不是用户字段，但 GC 扫对象要认得它，让它跟着对象搬移。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>多重继承的菱形再加虚基类，偏移要查运行期结构，复杂度再上一档。工程红线：不要手填 vptr 当「安全加固」——伪造或篡改 vptr 正是漏洞利用的常见跳板。Swift/Rust 的 trait 对象是另一布局：胖指针 {data, vtable} 把表从对象头挪进指针，对象不再背表——正对照类型类字典的位置选择。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：以为 JIT 用类层次分析（CHA）去虚后就一劳永逸。CHA 赌的是「没有别的子类」——运行时一旦加载新子类，所有依赖该假设的直调与内联都要回退重编，这正是去优化机制存在的理由。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写反射。后课默认：开放世界的方法分派用 vtable，闭世界可整体静态化。下一课反射与元数据。</p><p>也不把虚表类比成数据库视图——它是代码布局，不是数据抽象。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>虚调用 = 对象 vptr 查表取槽，this 作隐式参数。</li><li>多继承跨基类调用要偏移 thunk 调整 this。</li><li>去虚与 IC 把动态分派压回静态调用。</li><li>出处：Itanium C++ ABI；Ellis and Stroustrup；对照 Hölzle IC。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 类型、优化与运行时<!--[--> · 单元 运行时与虚拟机<!--]--><!--[--> · 课序 语言特性落地<!--]--></p><p class="lesson-progress">第 102 / 110 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/reflection-metadata/">反射与元数据</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/trampolining/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">蹦床与尾递归</span><span class="lesson-card-meta">类型、优化与运行时 · 运行时与虚拟机 · 语言特性落地<!--[--> · 第 101 / 110 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/reflection-metadata/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">反射与元数据</span><span class="lesson-card-meta">类型、优化与运行时 · 运行时与虚拟机 · 语言特性落地<!--[--> · 第 103 / 110 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

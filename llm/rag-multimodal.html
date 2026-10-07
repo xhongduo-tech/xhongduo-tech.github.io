@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多模态 RAG | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rag-multimodal.md.C4GgSU1q.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 RAG 系统深入<!--[--> · 单元 语义与生产<!--]--><!----></p><p class="lesson-progress">第 8 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rag-structured-data/">结构化数据的 RAG</a></p><p class="lesson-next"> 下一课：<a href="/llm/RAG-eval-triangle/">评测：RAG 三角</a></p><!----></nav><div style="position:relative;"><div><h1 id="多模态-rag" tabindex="-1">多模态 RAG <a class="header-anchor" href="#多模态-rag" aria-label="Permalink to &quot;多模态 RAG&quot;">​</a></h1><div class="epigraph"><p>答案住在图里时，caption 是翻译，嵌入是罗盘，页面渲染是原件；翻译会丢数，罗盘找得着但读不了，原件最贵也最忠实。</p><footer>—— Radford 等 CLIP 的双塔口径；Faysse 等 ColPali 的视觉文档检索路线</footer></div><p><a href="/llm/rag-structured-data">上一课</a>把表格与关系库接进路由。语料的另一大类是视觉：扫描件、图表、幻灯片、带版面的 PDF。第一课说过「切分修不了烂抽取」，在多模态这里抽取本身就是问题——两栏排版、表格嵌图、图注分离，解析器输出的常是乱码与孤儿图。本课写视觉对象怎么进索引、怎么被引用：caption 化、跨模态嵌入、页面级视觉检索三条路线的选择与代价。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>默认管线把 PDF 拍成纯文本，图表要么丢失要么变成残句；检索根本看不见这些对象，生成器自然也引用不了。三条路线各有代价：caption 化用 VLM 描述图像再把描述当文本索引——图表可被文本查询命中，但描述是「翻译」，精确数值与坐标刻度被概率化；跨模态嵌入用 CLIP 式双塔把图块与文本查询放进同一余弦空间（<a href="/llm/multimodal-embeddings">多模态嵌入</a>的口径）——找得着图，但向量读不了图；页面级视觉检索把整页渲染成图，查询与页面版面块做晚交互匹配（ColPali 路线）——绕过解析整条链，索引与匹配都贵。选择困难在于：答案到底住在哪。</p><p><span class="marginnote">术语翻译：跨模态嵌入就是把图和句子投进同一个「相似度空间」——文字「上涨的红色折线」和含红色折线的图，向量会离得近，所以能用文字搜图。但它只负责「找得像」，图里数字是多少、轴代表什么，向量一概不知道，读图是生成阶段 VLM 的事。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>按「答案住在哪」选路线。答案在正文文本，图只是装饰：纯文本管线足够，别为它付视觉税。答案在图表的视觉结构（趋势、形状、布局）：caption 会丢、单向量抓不住，选跨模态或页面级。答案在图文对应（「图 3 那条曲线说明什么」）：引用要能指回页面区域，页面级检索或「caption 化 + 原图锚点」都行，但引用粒度必须是区域不是整页。caption 化管线的工程纪律：让 VLM 输出结构化描述（图表类型、轴、关键数值、结论），数值走校验回环——关键数值 OCR 或回读原图比对，不一致丢弃；描述与原文位置一起索引，引用才能落回原页。图文混排的块定义扩成「文本跨度或页面区域」，第一课的金标跨度协议照用，只是标注对象多了一类。</p><p><span class="marginnote">数字实例：索引体积差距有多大——文本路线一段 500 词只需 1 个向量；页面级视觉检索一页要为版面上的每个块存几十到上千个向量。十万页文档按后者索引，存储与匹配开销直接涨几个数量级，这就是「降维打击烂 PDF」要交的学费，也是按域路由的价值所在。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>caption 化为什么有损却常值：VLM 的描述把图接入文本查询的词汇空间，可与文本块融合排序、共享重排；损失在数值——概率化的「约 34%」在下游就是错误引用，所以数值校验回环不是可选项。跨模态嵌入为什么找得着读不了：双塔对齐的是「查询短语与图像区域」的绑定关系，判定相关可以，支撑答案不行，命中后仍需 VLM 读图生成。页面级检索为什么规避了解析：它把「解析–切分–嵌入」整条链换成「渲染–匹配」，对烂 PDF 是降维打击；代价是每页多向量、索引体积涨一个量级、专用匹配器与推理服务。三条路线不是互斥：正文走文本、图表走 caption、版面敏感域走页面级，路由按域与问题类型分，与上一课的意图路由同一套纪律。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：初学者容易以为「上了多模态模型就一步到位」。实际上检索与读图是两种能力：嵌入模型决定「找不找得到那张图」，VLM 决定「读得对不对」。检索没命中，再强的 VLM 也无图可读；检索命中了、VLM 读错数，就成了带引用的幻觉——两段要分开评测。</span></p><p><span class="marginnote">图表问答里最常见的静默失败：描述里写「约增长三成」，原图是 41%——判官看描述打分是高分，看原图是错。验收多模态 RAG 必须让评审判官看见原图，而不是只看 caption。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>多模态嵌入与 VLM 早融合是两种系统，检索对绑定、生成对读图，别让一个组件干两件事。图像进索引前过隐私与版权筛，可写索引的注入面在投毒防御课的口径下同样适用，图不是法外之地。视频是多一条时间轴的问题，镜头切分与帧采样另成体系，本课不展开。视觉解析质量低到一定程度，先修 OCR 与版面模型再谈路线——它与文本侧同一条边界：管线修不了上游的烂输入。检索之外，视觉 token 的上下文预算与生成侧服务见多模态推理服务的课。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>按答案住址选路线：正文文本、图表结构、版面对应，各走各的管线。</li><li>caption 化有损但接入词汇空间；数值必须校验回环，不然就是错误引用。</li><li>跨模态嵌入管找不管读；命中后读图交给 VLM。</li><li>页面级视觉检索绕过解析链，代价是索引体积与专用服务。</li><li>图文混排的金标跨度扩成「文本跨度或页面区域」，评测判官要看原图。</li><li>出处：Radford 等 CLIP；Faysse 等 ColPali；据多模态检索工程实践整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 RAG 系统深入<!--[--> · 单元 语义与生产<!--]--><!----></p><p class="lesson-progress">第 8 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/RAG-eval-triangle/">评测：RAG 三角</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/rag-structured-data/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">结构化数据的 RAG</span><span class="lesson-card-meta">RAG 系统深入 · 语义与生产<!--[--> · 第 7 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/RAG-eval-triangle/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">评测：RAG 三角</span><span class="lesson-card-meta">RAG 系统深入 · 语义与生产<!--[--> · 第 9 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

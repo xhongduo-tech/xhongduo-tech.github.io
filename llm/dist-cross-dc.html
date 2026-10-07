@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>跨数据中心训练 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_dist-cross-dc.md.DeImimMo.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 分布式训练深入<!--[--> · 单元 通信与扩展<!--]--><!----></p><p class="lesson-progress">第 7 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/dist-heterogeneous-parallel/">异构并行</a></p><p class="lesson-next"> 下一课：<a href="/llm/dist-fault-elastic/">容错与弹性训练</a></p><!----></nav><div style="position:relative;"><div><h1 id="跨数据中心训练" tabindex="-1">跨数据中心训练 <a class="header-anchor" href="#跨数据中心训练" aria-label="Permalink to &quot;跨数据中心训练&quot;">​</a></h1><div class="epigraph"><p>同步 SGD 假设带宽免费；跨数据中心的墙上，一步全局归约的账单比一步计算贵出几个量级。</p><footer>—— 据 McMahan 等 2017 与 Douillard 等 2023 整理</footer></div><p><a href="/llm/dist-heterogeneous-parallel">上一课</a>在集群内部按能力配比；跨数据中心时，「集群内部」这个前提本身没了：数据中心之间的广域带宽通常比 DC 内低一到两个数量级，延迟高两个量级以上，且常按字节计费。本课写跨 DC 训练：什么动机值得付这笔钱，通信结构要怎么改，代价是什么。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>把同步 SGD 原样搬到广域上，每步的全局归约段支配 step time：跨 DC 段的延迟与带宽让所有重叠技巧失效，因为归约本身就是被等待的消费方。</p><p><span class="marginnote">全局归约（all-reduce）就是把所有卡各自手里的梯度相加，再让每张卡都拿到同一份总和的通信操作。跨 DC 时这一步要走广域网，正是整个训练里最贵的一段。</span>但真实动机常常不是「网不够快」：单个 DC 租不满整机柜、想合并两地的空闲算力、或为容灾把训练摊在两地。动机不同，答案不同——这正是本课要先分类的原因。混淆动机的典型错误：为容灾把训练摊开，却继续做每步同步，结果吞吐掉一个量级，容灾也没得到（训练在一个 DC 掉线时照样全局停摆）。</p><h3 id="三种结构" tabindex="-1">三种结构 <a class="header-anchor" href="#三种结构" aria-label="Permalink to &quot;三种结构&quot;">​</a></h3><p>按通信频率从高到低排。第一种，分区放置：训练逻辑上仍是一个同步作业，但放置时把高频通信（TP、PP 段间）全部锁进 DC 内，跨 DC 只承担 DP 归约中能层次化、能稀疏化的部分——DC 内先归约，跨 DC 走每 DC 一份的体积。这是改动最小的一种，也只在跨 DC 带宽不太差时可行。第二种，局部更新：每个 DC 内跑多步局部 SGD，隔一段外层步才跨 DC 平均一次参数；联邦平均与 DiLoCo 是这条线的两个锚点，差别在局部步数与传输的 delta 形态（低秩、稀疏或量化压缩）。第三种，异步聚合：参数服务器或去中心化的周期性平均，彻底放弃同步语义，用陈旧梯度换带宽。</p><p><span class="marginnote">局部 \(H\) 步再平均，等价于外层步作用在 \(H\) 步梯度的加权组合上；局部步数越大越省通信，但外层步的「真实方向」偏差随 \(H\) 与各 DC 数据异构度涨。\(H\) 是用收敛税买带宽的汇率，不是免费旋钮。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>选型的决策序：先问动机。若只是想要更多卡，先算一笔账——跨 DC 归约的每字节成本加吞吐损失，对比「再租半个 DC」的差价，多数时候后者赢；若确要跨 DC（算力只在两地、或容灾硬需求），按带宽预算选结构：带宽尚可走分区放置，带宽紧张走局部更新，两地长期不稳走异步聚合。局部更新路线要定三件事：局部步数 \(H\)、传输的 delta 形态、以及聚合时的权重（按各 DC 的 token 量加权，不按台数）。容灾诉求单独处理：检查点跨 DC 异步复制（口径同检查点课），掉线方退出后其余 DC 走降级步，而不是全组等待。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>用 \(\alpha\)-\(\beta\) 模型读 WAN：延迟项 \(\alpha\) 是几十毫秒量级，任何「多次小交换」的结构在广域上都被延迟项杀死，所以跨 DC 结构一律要求「大而少」的交换——层次化到每 DC 一份、外层步拉长、delta 压缩，都是在把交换变大变少。局部更新的收敛税来自两处：局部方向的漂移（各 DC 数据分布不同则更疼）与外层步的等效学习率偏移，补偿手段是把外层步的学习率与聚合权重一起调，并用小规模两地实验标定 \(H\)。异步聚合把税变成陈旧度：参数版本差随网络抖动漂，动量与归一化统计对陈旧度的敏感度比同步 SGD 高，监控要盯版本差分布而不是平均吞吐。</p><div class="mermaid"></div><p><span class="marginnote">拿 7B 模型算笔账：梯度按 fp16 存约 14 GB。若每个 DC 里的 8 张卡各自直接跨广域交换，量级冲到上百 GB；层次化成「DC 内先归约、每 DC 只传一份」后，跨广域每步只走这 14 GB。</span></p><p><span class="marginnote">初学者容易以为异步聚合只是「慢一点的同步」，实际上它改写了优化问题本身：聚合进来的梯度可能是几步之前的旧版本，动量与归一化统计都会被陈旧度带偏，所以监控要盯「参数版本差的分布」，而不是平均吞吐。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写联邦学习的隐私协议与非 IID 统计理论，那是另一门课的域；也不给任何「某公司跨 DC 训练了 X 万卡」的具体数字——公开可考的大规模预训练仍以单 DC 为主，跨 DC 同步训练是前沿而非默认配置。分区放置的 DC 内映射按上一课处理；跨 DC 的检查点与丢失窗口口径归容错课。判定收尾：跨 DC 训练值得做，只在「动机成立且结构选对」同时满足时成立。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>跨 DC 的墙是带宽与延迟的量级差；先问动机，再选结构，不混淆容灾与扩容。</li><li>三种结构：分区放置（高频通信锁 DC 内）、局部更新（\(H\) 步加压缩 delta）、异步聚合（放弃同步语义）。</li><li>广域上交换要大而少：层次化到每 DC 一份、外层步拉长都是同一原则。</li><li>\(H\) 与陈旧度是用收敛税买带宽的汇率，按两地小规模实验标定。</li><li>出处：McMahan 等，Communication-Efficient Learning of Deep Networks（FedAvg），2017；Douillard 等，DiLoCo，2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 分布式训练深入<!--[--> · 单元 通信与扩展<!--]--><!----></p><p class="lesson-progress">第 7 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/dist-fault-elastic/">容错与弹性训练</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/dist-heterogeneous-parallel/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">异构并行</span><span class="lesson-card-meta">分布式训练深入 · 通信与扩展<!--[--> · 第 6 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/dist-fault-elastic/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">容错与弹性训练</span><span class="lesson-card-meta">分布式训练深入 · 健康与调试<!--[--> · 第 8 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

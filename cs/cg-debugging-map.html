@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>优化器的调试与收束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_cg-debugging-map.md.Og3usLXt.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 编译器后端深化<!--[--> · 单元 链接与运行<!--]--><!----></p><p class="lesson-progress">第 8 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/cg-mlir-intuition/">MLIR 的结构直觉</a></p><p class="lesson-next"> 下一课：<a href="/cs/stream-model/">流处理模型</a></p><!----></nav><div style="position:relative;"><div><h1 id="优化器的调试与收束" tabindex="-1">优化器的调试与收束 <a class="header-anchor" href="#优化器的调试与收束" aria-label="Permalink to &quot;优化器的调试与收束&quot;">​</a></h1><div class="epigraph"><p>编译器的 bug 与别处不同：它不坏在一个功能上，而坏在一条翻译上——你证明不了它对，就只能逼它在最小的例子里错给你看。</p><footer>—— 据 Yang et al., PLDI, 2011；Necula, PLDI, 2000 整理</footer></div><p><a href="/cs/cg-mlir-intuition">上一课</a>把多层 IR 的翻译装进同一个框架，本课程到此收束。收束课做两件事：给整条优化管线一份调试协议——从「好像不对」走到「某个 pass 的某次改写」；再把八课收成一张能带走的清单。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>优化器的病分两类，诊断路径完全不同。错译（miscompile）：源程序语义被改了——结果错、崩溃、断言炸；难在「语义等价」没有运行时表针，错误往往在离案发几千个 pass 之外显形。漏优化（missed optimization）：程序没错但慢了；难在「机会丢在哪一步」没有天然的观测点。共同敌人是相位顺序：每个 pass 都按自己看到的 IR 做局部正确的决定，组合起来互相挡路——<a href="/cs/peephole">窥孔</a>能收的残差、分配逼出的溢出、成本模型的错判，都长得像「编译器坏了」。还有一类假病：源代码踩了 UB，优化把 UB 推导成出人意料的行为——那不是 bug，<a href="/cs/compcert-correctness">CompCert 的边界</a>讲过：UB 不在正确性定理内。</p><p><span class="marginnote">常见误区：初学者遇到「加了 -O2 就出错」多半先骂编译器，实际上最常见的病因是源代码踩了未定义行为——比如有符号整数溢出或越界读。优化器只是把 UB 的后果沿着它敢做的变换推到了离案发很远的地方，正确性定理从来没担保过 UB 程序。</span></p><h3 id="从报告到案发现场" tabindex="-1">从报告到案发现场 <a class="header-anchor" href="#从报告到案发现场" aria-label="Permalink to &quot;从报告到案发现场&quot;">​</a></h3><p>协议四步。复现：固定编译器版本与命令行，钉死目标与优化级别。化简：用 C-Reduce 这类化简器把上万行的输入缩到几十行，前提是守住一个性质谓词（还错译、还崩溃）——化简的本质是在保持病灶的前提下删代码。二分：在 pass 序列上定位第一个让 IR 语义改变的 pass——<code>-print-after-all</code> 逐段看，<code>-start-after</code> 与 <code>-stop-after</code> 缩小窗口；IR verifier 只查结构良构，语义等价要靠翻译验证工具或人工对照。回归：化简后的用例进测试集，这是最便宜的回归资产。</p><p><span class="marginnote">术语翻译：性质谓词就是一段「病情仍在」的自动判定脚本——比如「编译产物跑完仍然崩溃」或「输出仍然含错误答案」。化简器每删一块代码前都跑一遍它，返回真才敢删；没有它，删着删着病灶就被删没了，缩出来的小用例反而不复现。</span></p><p><span class="marginnote">Csmith 的论文报了 325 个先前未知的 GCC/LLVM bug；随机程序动辄上万行，没有化简器就没有人读报告。差分测试回答「哪里错」，化简器把「哪里错」缩成「哪三行错」——两件工具是配套的。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>漏优化的诊断靠「期待与实际的差」：先写下这一层 IR 应该长什么样——循环该融合、访存该合并、该走 <a href="/cs/cg-simd-autovec">SIMD</a>——再用 pass 之间的 diff 找机会在哪一步消失。常见案由有三：别名太保守，<a href="/cs/alias-analysis">别名分析</a>给不出证明，版本化也没开；成本模型判负，收益估小了，向量化或内联沉默放弃；相位挡路，前一个 pass 把模式弄散了，后一个 pass 认不出来。三者的修法是同一句：让信息活到用它的那一刻。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>八课收成一句：每一层都在「信息丢掉之前」做决定。<a href="/cs/cg-register-allocation-deep">分配</a>在物理寄存器定名之前算代价表；<a href="/cs/cg-instruction-selection">选择</a>在中端结构还在时做覆盖；<a href="/cs/cg-instruction-scheduling">调度</a>在依赖图还是纯真依赖时抢自由度；<a href="/cs/cg-simd-autovec">向量化</a>在标量代码还看得见循环时打包；<a href="/cs/cg-linker-deep">链接</a>在地址定下的最后一刻做回收、折叠与松弛；<a href="/cs/cg-jit-deep">JIT</a>把这一切搬进运行时，用守卫与去优化为「信息可能错」兜底；<a href="/cs/cg-mlir-intuition">MLIR</a>把「层级」本身变成可编程的，让结构晚一点丢。调试协议是这句总纲的逆用：错了，先找信息在哪一步丢的。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课程不覆盖前端——解析与类型检查各有先修课——也不进入形式化验证的深处，CompCert 一课给过入口，全程序的翻译验证仍是开放问题。硬件自己的优化（乱序、预取、宏融合）在编译器可见性之外影响性能：调度器给过延迟表，表之外的事不归编译器管。附录——论文、引擎版本、ISA 手册——不插进主干，按各课随课标注取用。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>病分两类：错译找第一个改坏语义的 pass，漏优化找机会消失的那一步。</li><li>化简保性质谓词，二分靠 pass 级 diff，语义判定靠翻译验证或人工。</li><li>相位顺序是共同敌人，UB 是最常见的假病。</li><li>八课一句总纲：每一层都在信息丢掉之前做决定。</li><li>出处：Yang et al., 2011（Csmith）；Regehr et al., 2012（C-Reduce）；Necula, 2000；Lopes et al., 2015（Alive）；Leroy, 2009（CompCert）。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 编译器后端深化<!--[--> · 单元 链接与运行<!--]--><!----></p><p class="lesson-progress">第 8 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/stream-model/">流处理模型</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/cg-mlir-intuition/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">MLIR 的结构直觉</span><span class="lesson-card-meta">编译器后端深化 · 链接与运行<!--[--> · 第 7 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/stream-model/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">流处理模型</span><span class="lesson-card-meta">流处理 · 语义<!--[--> · 第 1 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Agent 轨迹合成 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_synthetic-agent-traj.md.B5MFEOGq.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 域合成<!--]--><!----></p><p class="lesson-progress">第 8 / 16 课</p><p class="lesson-prereq"> 先修：<a href="/llm/synthetic-multiturn/">多轮对话合成</a></p><p class="lesson-next"> 下一课：<a href="/llm/synthetic-difficulty-curriculum/">难度分级与课程合成</a></p><!----></nav><div style="position:relative;"><div><h1 id="agent-轨迹合成" tabindex="-1">Agent 轨迹合成 <a class="header-anchor" href="#agent-轨迹合成" aria-label="Permalink to &quot;Agent 轨迹合成&quot;">​</a></h1><div class="epigraph"><p>轨迹合成的铁律：观测必须来自环境返回，不能来自模型的想象——脑补出来的观测，会教出一个相信幻觉的策略。</p><footer>—— 据 Schick 等 Toolformer；Gulcehre 等 ReST；Zeng 等 AgentTuning 整理</footer></div><p><a href="/llm/synthetic-multiturn">上一课</a>让用户模拟器第一次把「环境」引进了合成；本课把环境换成可执行系统：工具、沙箱、任务与结局。Agent 轨迹是一条「思考—行动—观测」序列，它的合成质量几乎完全由环境侧决定，模型侧反而自由。<a href="/llm/tool-sandbox">工具沙箱</a>与 <a href="/llm/tool-call-sft">function calling 训练</a>已立基建，本课写数据线：任务从哪来、轨迹怎么采、结局怎么判、什么该剪掉。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>轨迹合成的缺口在任务侧与观测侧。任务侧：工具组合空间指数大，从工具文档自动造任务（「用这三个 API 完成某事」）命中率低，多数生成任务要么不可解要么无判据——任务有效率是这条线的第一瓶颈。观测侧最大的陷阱是「脑补观测」：让教师模型一口气写完整条轨迹（包括工具返回），生成便宜且通顺，但观测是想象——模型从此学会在真实运行里也想象工具输出，错误在多步之后爆炸。结局侧：以任务成功过滤轨迹给了强真值，但纯成功过滤会把分布压向「易任务加保守策略」，失败信息全部丢弃。<span class="marginnote">术语翻译：「轨迹」就是一次任务从头到尾的逐步记录——模型想了什么（思考）、做了什么（调用哪个工具、什么参数）、环境回了什么（观测），像行车记录仪的完整录像，而不是只记起点和终点。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>四段线。任务段：以环境能力为纲造任务——枚举工具与参数组合，按组合模板生成任务描述与初始状态，成功率试采定难度，不可解或无判据的任务在源头淘汰；<a href="/llm/toolformer">Toolformer</a>式的自监督（用「插入调用是否降低未来损失」筛调用点）适合无明确任务的工具熟悉数据。采集段：策略在沙箱里真跑，观测取环境返回原文，超时与异常原样保留——它们本身就是训练信号；<a href="/llm/rft-data-loop">RFT 数据循环</a>的「采样、过滤、回灌」是骨架。结局段：成功按可判定的终态判（文件存在、测试通过、答案核对），不靠模型自评；失败轨迹不整条丢弃，剪出「错误步加恢复步」的对子入库。整形段：剪冗余重试与循环步，保留「探索—失败—调整—成功」的结构——这正是多步能力的学习对象。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>结局过滤的机制价值与代码域一致——程序级拦截率撑起放量；它的新增代价是选择压力：只留成功轨迹时，训练分布向策略已会的区域收缩，探索行为被系统性淘汰。剪「失败加恢复」对子是直接的解法：保留失败的信息，去掉失败的噪声。环境与真实工具的差距是本课版本的 sim-to-real：沙箱里的 API 无限耐心、无并发、无限额，模型学到的调用习惯——不等结果、不重试、忽略限流——在真实环境里全部失灵；缓解不是造完美环境，而是在环境里显式注入这些「不配合」：限速、部分失败、格式漂移。任务有效率的瓶颈没有银弹：模板命中率随任务复杂度骤降，复杂任务的合成通常退回「真实种子加教师扩展」，纯自动造复杂任务仍是开放问题。</p><div class="mermaid"></div><p><span class="marginnote">sim-to-real 的直觉类比：沙箱像永远配合的陪练——秒回、不超时、从不限流；模型学出的「发了调用就有结果」习惯，在真实 API 的限速、超时、格式漂移面前全部失灵。解法不是造完美环境，而是故意让陪练不配合。</span></p><p><span class="marginnote">Toolformer 的筛选信号是「调用点插入后，未来 token 的损失是否下降」——不需要环境真值就能找到值得调工具的位置。有沙箱之后的成功率过滤更强，但两种信号覆盖不同：前者找「哪里该调」，后者判「最后成没成」。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>结局判据只覆盖可形式化的任务；「用户体验好」这类终态无法程序判定，轨迹质量退回裁判与人审。采集成本随步数与环境调用次数放大，复杂任务的轨迹单条成本可能超过一次训练迭代，配比时要算账。轨迹数据的时效性强：工具 API 改版后，旧轨迹教的是过时接口，任务库要带环境版本号，随环境升级重采。本课只写单 agent 单任务的合成，多 agent 协作与环境编排是相邻课程的议题。<span class="marginnote">为什么重要：不带环境版本号时，API 从 v1 升到 v2 后旧轨迹还在教 v1 的参数名，模型持续输出已废弃的调用格式——这种退化在平均分里几乎看不出来，要用「格式有效率」单独监控才暴露。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>任务从工具组合造，源头淘汰不可解无判据；任务有效率是第一瓶颈。</li><li>观测必须取环境返回原文，脑补轨迹整条拒绝。</li><li>成功轨迹入库，失败剪成错误-恢复对；纯成功过滤收缩探索分布。</li><li>环境要主动注入不配合：限速、部分失败、格式漂移，防 sim-to-real 失灵。</li><li>任务库带环境版本号，API 改版重采。</li><li>出处：Schick 等 Toolformer 2023；Gulcehre 等 ReST 2023；Zeng 等 AgentTuning 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 域合成<!--]--><!----></p><p class="lesson-progress">第 8 / 16 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/synthetic-difficulty-curriculum/">难度分级与课程合成</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/synthetic-multiturn/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">多轮对话合成</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 域合成<!--[--> · 第 7 / 16 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/synthetic-difficulty-curriculum/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">难度分级与课程合成</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 域合成<!--[--> · 第 9 / 16 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

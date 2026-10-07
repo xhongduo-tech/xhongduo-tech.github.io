@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LoRA 生命周期管理 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_continual-lora-lifecycle.md.5rqgaojY.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 在线与持续学习<!--[--> · 单元 语言模型的持续学习<!--]--><!----></p><p class="lesson-progress">第 4 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/continual-replay-buffer/">回放缓冲与经验回放</a></p><p class="lesson-next"> 下一课：<a href="/llm/continual-model-merge/">模型合并作为持续学习</a></p><!----></nav><div style="position:relative;"><div><h1 id="lora-生命周期管理" tabindex="-1">LoRA 生命周期管理 <a class="header-anchor" href="#lora-生命周期管理" aria-label="Permalink to &quot;LoRA 生命周期管理&quot;">​</a></h1><div class="epigraph"><p>冻结基座等于宣布：旧能力不需要保护，因为它从未被触碰；持续学习从改写权重变成管理模块的版本。</p><footer>—— 据 Hu 等 2021（LoRA）与 Biderman 等 2024 整理</footer></div><p><a href="/llm/continual-replay-buffer">上一课</a>把旧梯度混回批次，保护发生在数据侧； LoRA 把保护移进结构侧：基座全程冻结，只训低秩增量 \(\Delta W=BA\)。主干<a href="/llm/lora">LoRA</a>一课讲过它的参数效率，<a href="/llm/multi-lora-serving">多 LoRA 服务</a>讲过部署形态；本课把它当持续学习的载体，写一个适配器从候选到退役的完整生命周期，以及生命周期里每个门该拦什么。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>生产环要的是「经常更新、不翻车」。全参微调每次更新都重写所有权重，<a href="/llm/continual-forgetting-mechanism">第一课</a>的三条通路全开；LoRA 把扰动限制在每层 \(r\) 维子空间里，基座函数被结构性地保持——适配器一摘，模型精确回到原样。新的问题随之而来：适配器越攒越多，何时合进基座、何时下线；滚动更新同一个适配器时，遗忘没有消失，只是搬进了增量子空间内部。</p><p><span class="marginnote">「绑死基座版本」指适配器必须记下自己是在哪个基座快照上训的：增量 \(\Delta W=BA\) 只有加回那个原权重，形状与含义才成立。基座一升级，增量等于失去了「被减数」，必须重验甚至重训——这是适配器版本管理里最容易翻车的细节。</span></p><h3 id="生命周期的状态机" tabindex="-1">生命周期的状态机 <a class="header-anchor" href="#生命周期的状态机" aria-label="Permalink to &quot;生命周期的状态机&quot;">​</a></h3><p>候选态：训练完成、绑死基座版本与训练配方，未评测不进流量。灰度态：经<a href="/llm/adapter-hot-swap">适配器热更新</a>挂小流量，按任务成绩与延迟门限观察。在役态：全量路由，路由错误率是健康指标。退役态：合并、归档或删除，归档必须带数据配方，否则只剩一个不能再生的二进制。每次迁移都要有判据，判据来自<a href="/llm/forgetting-metrics">遗忘的度量</a>同款协议：新任务达标，旧能力探针不出带宽。</p><p><span class="marginnote">Biderman 等 2024 的结论是双向的：相同步数与数据下，LoRA 比全参微调学得少，也忘得少。选型因此不是「LoRA 是否更优」，而是当前任务需要多少可塑性——重行为的任务适配器够用，重要识或风格重写往往推不动。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>更新策略先于训练细节。按域分片：每个业务域一个适配器，互相隔离，遗忘被限制在域内；代价是路由复杂，跨域请求要决定挂几个。滚动更新：整个流共用一个适配器，周期性重训，操作最简单，遗忘风险全在增量内部，必须配上<a href="/llm/continual-replay-buffer">上一课</a>的回放——基座冻结挡大破坏，回放挡增量内部的小漂移。</p><p>合入是生命周期里最重的一道门：把在役适配器并进基座，省掉路由开销，但这版基座从此承载该域的行为，回滚粒度变粗。<a href="/llm/lora-merge-conflict">LoRA 合并与冲突</a>的判据——秩冲突与方向干涉——就是这道门的验收项。动基座之前先问：这个域未来一个月还会频繁更新吗。</p><div class="mermaid"></div><p><span class="marginnote">用数字感受 \(r\) 的省参程度：一个 \(4096\times4096\) 的权重矩阵约有 1677 万个参数；取 \(r=8\) 时，LoRA 只训 \(4096\times8+8\times4096\approx6.5\) 万个，不到原矩阵的 0.4%。代价是更新被限制在 8 维子空间里，能装下的行为变化相应变少。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>低秩约束为什么抗遗忘：\(\Delta W\) 的秩不超过 \(r\)，参数移动被压进子空间，基座函数在其余方向精确不动；遗忘只能通过子空间与旧功能方向的交叠发生。\(r\) 因此是可塑性旋钮：太小学不动，太大逼近全参、把遗忘请回来，<a href="/llm/adalora">AdaLoRA</a>式的按重要性分配秩是这条轴上的自动化尝试。</p><p>隔离为什么便宜：多个适配器并存时，各域行为物理上不共享权重，串扰只可能发生在路由层——没挂上的域连被破坏的通道都没有。代价是复杂度挪到服务侧：适配器与基座的版本配对必须显式管理，基座一升级，所有适配器重验兼容，这是最易省略也最常出事故的一步。</p><div class="mermaid"></div><p><span class="marginnote">初学者容易把「基座冻结」当成「不会遗忘」的保证。它挡住的只是适配器之外的权重变化；同一个适配器滚动更新时，新旧 \(\Delta W\) 在同一个子空间里互相覆盖，遗忘照常发生——只是范围变小，不是消失，探针与回放一样不能省。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>适配器方案的两个上限要说清。一是可塑性上限：重要识、大规模风格或知识注入，低秩增量常常装不下，Biderman 等的「学得少」就是这半句；硬塞的结果是探针通过但任务质量平庸。二是基座上限：适配器不会让基座变聪明，世界知识过期时，该动的是基座与预训练配比，不是再加一层增量。另外，隔离不是免费的遗忘豁免——滚动更新同一适配器时，子空间内部的漂移照旧发生，回放与探针一个都不能省。</p><p>最后，别把生命周期管理做成纸面流程：每个状态迁移的判据要能自动执行，灰度要能自动回滚。流程写在文档里而判据不在流水线里，等于没有流程。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>冻结基座把遗忘问题转化为模块管理问题：旧能力结构性保持，摘下适配器即精确还原。</li><li>生命周期是状态机：候选、灰度、在役、退役，每次迁移挂着自动执行的判据。</li><li>更新策略二选一：按域分片换隔离，滚动更新省事但必须配回放。</li><li>\(r\) 是可塑性旋钮；LoRA 学得少也忘得少，按任务需要的可塑性选型。</li><li>合并是单向门：并入基座前用秩冲突与方向干涉验收，并考虑该域的更新频率。</li><li>出处：Hu 等 2021（LoRA）；Biderman 等 2024（LoRA Learns Less and Forgets Less）；Rebuffi 等 2017 的多任务适配谱系。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 在线与持续学习<!--[--> · 单元 语言模型的持续学习<!--]--><!----></p><p class="lesson-progress">第 4 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/continual-model-merge/">模型合并作为持续学习</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/continual-replay-buffer/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">回放缓冲与经验回放</span><span class="lesson-card-meta">在线与持续学习 · 基础机制<!--[--> · 第 3 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/continual-model-merge/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">模型合并作为持续学习</span><span class="lesson-card-meta">在线与持续学习 · 语言模型的持续学习<!--[--> · 第 5 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

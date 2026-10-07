@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>随机贴现因子的深化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_apt-sdf-deep.md.DjYikD7G.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 资产定价理论深化<!--[--> · 单元 理论<!--]--><!----></p><p class="lesson-progress">第 2 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/econ/apt-continuous-time/">连续时间资产定价</a></p><p class="lesson-next"> 下一课：<a href="/econ/apt-heterogeneous-beliefs/">异质信念与交易</a></p><!----></nav><div style="position:relative;"><div><h1 id="随机贴现因子的深化" tabindex="-1">随机贴现因子的深化 <a class="header-anchor" href="#随机贴现因子的深化" aria-label="Permalink to &quot;随机贴现因子的深化&quot;">​</a></h1><div class="epigraph"><p>所有定价模型共享同一句语法 $E[mR]=1$；模型之间的争论，从来不是要不要核，而是核在哪些状态弯曲、弯多少，以及这两问有没有独立证据。</p><footer>—— 据 Cochrane, *Asset Pricing*, 2005；Hansen and Jagannathan, *JPE* 1991 整理</footer></div><p><a href="/econ/apt-continuous-time">上一课</a>把定价收成核的随机微分方程与一行协方差开价，并给跳跃立了账。本课把这个对象推到整个课程的中枢：不进新市场，只问给定任意候选因子或模型——它作为核 \(m\) 的一种参数化，必须过哪几道关。离散侧的地基是<a href="/econ/stochastic-discount-factor">随机贴现因子</a>与<a href="/econ/state-price-sdf-bridge">状态价格到 SDF</a>的恒等式 \(1=E_t[m_{t+1}R_{t+1}]\)；本课补的是存在性与唯一性之间、约束与识别之间那些没讲透的层次。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一个恒等式不足以成为理论，缺口分三层。存在层：无套利保证存在正的 \(m\)（<a href="/econ/ftap">资产定价基本定理</a>），但那是「存在」，不是「这一个」——市场不完备时 \(m\) 不唯一（<a href="/econ/incomplete-market-pricing-bounds">不完全市场的定价界</a>），许多候选同定价而含义不同，把「能定价」读成「解释了」就记错账。约束层：\(m\) 的均值被无风险利率钉死，波动被可实现的最大夏普比率钉死，越界的模型不必讨论。识别层：\(m\) 不可观测，「因子显著」究竟是核的性质还是投影的性质，需要一套与参数化无关的度量。</p><p><span class="marginnote">数字口径：年无风险利率 4% 意味着 \(E(m)\approx 1/1.04\approx 0.96\)；市场夏普比率 0.4 到 0.5 要求 \(\sigma(m)\ge 0.38\)。CRRA 下 \(\sigma(m)/E(m)\approx\gamma\,\sigma(\Delta c)\)，而消费年波动只有 1.5% 上下，\(\gamma\) 就得推到 25 以上——股权溢价之谜的全部语法就这三行算术。</span></p><p><span class="marginnote">「\(E[mR]=1\)」翻译成白话：把未来各状态下的收益，各乘一个「该状态的折现权重」\(m\) 再求平均，必须恰好等于今天的一元。\(m\) 大的状态就是「钱最值钱」的坏年景——能在坏年景里依然兑现的收益，才配得上高价格；模型之争全在 \(m\) 的形状。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>三步走。第一，矩条件：把 \(1=E[mR]\) 沿时间向前展开，得到 \(p_t=E_t\big[\sum_{s\ge 1}m_{t+1}\cdots m_{t+s}D_{t+s}\big]\)，<a href="/econ/present-value-identity">现值恒等式</a>与 <a href="/econ/campbell-shiller-decomposition">Campbell–Shiller 分解</a>都是它的展开式；<a href="/econ/lucas-tree">Lucas 树</a>与<a href="/econ/ccapm">消费 CAPM</a> 则把 \(m\) 钉在边际效用上。第二，界：\(\sigma(m)/E(m)\) 不得小于任何可实现收益的夏普比率（Hansen–Jagannathan 1991），这是与参数化无关的<a href="/econ/hansen-jagannathan">可行域</a>；条件信息会松动无条件界（Hansen–Richard 1987），报告时必须写清用的是哪种口径。第三，参数化：因子模型就是 \(m=a-b&#39;f\) 的具体选择，<a href="/econ/capm-theory">CAPM 理论</a>取 \(f\) 为市场收益，宏观模型取消费增长；估计用 <a href="/econ/gmm-econ">GMM</a> 的矩条件，距离用核到可行集的 Hansen–Jagannathan 距离。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>界为什么能当普遍记分板：它把「模型好不好」翻译成「隐含核的均值—波动对落在可行域内还是外」，<a href="/econ/equity-premium-puzzle">股权溢价之谜</a>与<a href="/econ/risk-free-rate-puzzle">无风险利率之谜</a>由此变成边注里那三行算术，不再依赖具体效用函数。模仿组合机制让界可操作：任意 \(m\) 投影到收益空间得到最小方差模仿组合，距离与资产集的选取共同决定结论。非唯一性则解释了本课程的推进方式：既然许多 \(m\) 同样定价，理论竞争就不在「能不能定价」，而在「弯曲发生在哪些状态、要多少风险承担、有没有定价之外的证据」——后面三课（分歧、流动性、尾部）各自给出一种弯曲方式，再后一课把弯曲者搬进主体。</p><p>上一张图画候选核的审查流程；这一张拆记分板本身：两个可观测对象如何把均值—波动平面切成可行域，候选一落点便知生死。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：HJ 距离像「落榜距离」——把候选核投影到真实收益空间里最好的模仿组合上，量一量它离可行集还差多远；距离越短，候选越像真的。因为它与具体效用函数无关，不同门派的模型才能放在同一张记分板上比。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>HJ 界是无条件的：条件口径的放松足以救活一些在无条件检验里出局的模型，也能冤枉合格的，两种口径混用是这条路线最常见的自欺。非唯一性意味着「通过检验」只是必要条件：与消费无关的 \(m\) 也能定价，机制解释需要横截面之外的证据。GMM 的加权矩阵、模仿组合的资产集都会移动结论，这些自由度得登记在案——上一课程那套规范三件套在本课程照常生效。</p><p><span class="marginnote">常见误区：以为「通过 HJ 界」就等于模型被证实。界只是必要条件——与消费毫无关系的 \(m\) 也可能落在可行域内；过了界，机制之争才刚开场，还需要定价之外的独立证据（预期数据、微观账户、期权分布）来分胜负。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>全部定价模型共享 \(1=E[mR]\)；分歧只在核的弯曲位置与幅度。</li><li>完备给出唯一核，不完备只给区间；把「能定价」当「解释了」是第一类错误。</li><li>Hansen–Jagannathan 界把模型竞争翻译成均值—波动对的可行性；条件与无条件口径必须分开报。</li><li>因子模型是 \(m\) 的参数化；通过检验是必要条件，机制之争从本课之后才开场。</li><li>出处：Hansen and Jagannathan, <em>JPE</em> 1991；Hansen and Richard, <em>Econometrica</em> 1987；Cochrane, <em>Asset Pricing</em>, 2005。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 资产定价理论深化<!--[--> · 单元 理论<!--]--><!----></p><p class="lesson-progress">第 2 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/apt-heterogeneous-beliefs/">异质信念与交易</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/econ/apt-continuous-time/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">连续时间资产定价</span><span class="lesson-card-meta">资产定价理论深化 · 理论<!--[--> · 第 1 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/econ/apt-heterogeneous-beliefs/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">异质信念与交易</span><span class="lesson-card-meta">资产定价理论深化 · 理论<!--[--> · 第 3 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

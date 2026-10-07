@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>再平衡策略学 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_pf-rebalancing.md.DslSNiDp.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 组合构建深化<!--[--> · 单元 策略维度<!--]--><!----></p><p class="lesson-progress">第 4 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/quant/pf-blackbox-optimizers/">黑盒优化器在组合里的使用</a></p><p class="lesson-next"> 下一课：<a href="/quant/pf-tax-aware/">税负敏感的组合</a></p><!----></nav><div style="position:relative;"><div><h1 id="再平衡策略学" tabindex="-1">再平衡策略学 <a class="header-anchor" href="#再平衡策略学" aria-label="Permalink to &quot;再平衡策略学&quot;">​</a></h1><div class="epigraph"><p>再平衡不是维护费，是一张卖出波动率的保单：震荡市里它持续收租，单边市里它把凸性赔付出去。</p><footer>—— 据 Perold and Sharpe, Dynamic Strategies for Asset Allocation, Financial Analysts Journal, 1988；Constantinides, Journal of Economic Theory, 1986 整理</footer></div><p><a href="/quant/pf-blackbox-optimizers">上一课</a>把非凸目标的求解收口：先凸化外围，黑盒只碰真正的核，搜索次数进台账。到此为止，优化器每期输出一个目标权重；缺口是目标点之间的路——何时动、动多少、动的时候付什么。本课进入策略维度，把再平衡当作政策来设计与评估。主干课的<a href="/quant/rebalance-rules">再平衡规则</a>已写日历、阈值与禁交易带的机制，<a href="/quant/rb-rebalance">风险预算再平衡</a>写了贡献空间的监控；本课不重复规则清单，写的是把这些规则当作一个联合设计问题来选。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>目标权重每期重算，把它实现成持仓却是一套独立政策：按日历推回、按带宽触发、推到带边还是完全复位、部分调整还是一次到位。<span class="marginnote">带宽就是允许权重漂移的容忍区间。数字实例：目标股债各 50%、带宽 ±5%——股票上涨使占比到 56% 时触发再平衡，卖股买债拉回目标；带内不动是为了省交易费，带外必须动是为了不让风险漂走，宽与窄是在这两笔账之间讨价。</span>政策选错错在哪：带太紧，佣金、冲击与<a href="/quant/turnover-penalty">换手惩罚</a>把 alpha 吃光；带太松，风险漂移——波动翻倍而仓位未动，政策目标早已落空。更根本地，再平衡本身有收益结构：恒定混合是卖赢买输，在均值回复的震荡市里持续收获<a href="/quant/rebalancing-premium">再平衡溢价</a>，在单边趋势市里把凸性赔付出去（Perold 与 Sharpe 1988 的经典对照）。把它当中性维护费，就会在趋势行情里把亏损归咎于「运气」，而那笔亏损是政策自带的负债。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>方法是把再平衡参数化成一个政策对象：触发、复位方式与成本核写在一起联合设计，三个设计资源——动态规划的无交易区、部分调整的速度公式、风险预算的推回对象——各回答问题的一段。评估永远带成本核做净额比较：带宽的宽严在净收益与风险漂移之间讨价，不在样本内夏普里挑最亮的那根。</p><h3 id="政策的参数化" tabindex="-1">政策的参数化 <a class="header-anchor" href="#政策的参数化" aria-label="Permalink to &quot;政策的参数化&quot;">​</a></h3><p>把再平衡政策写成一个对象：\((\tau,\delta,\kappa)\)——触发（日历 \(\tau\) 或带宽 \(\delta\)）、复位方式（推到带边或完全复位）、成本核 \(\kappa\)（佣金、冲击与税）。三个方向的设计资源：其一，动态规划的语言把「何时动」写成带费用的最优停时，比例成本下的无交易区是自由边界问题（Constantinides 1986；<a href="/quant/dynamic-programming-rebalance">动态规划与再平衡</a>）；其二，Gârleanu 与 Pedersen（2013，见 <a href="/quant/garleanu-pedersen">Gârleanu–Pedersen 动态交易</a>）把复位方式写成部分调整：\(w_{t+1}-w_t=\kappa\,(w_t^{\ast}-w_t)\)，调整速度由信号可预测性与成本之比决定——目标与路径合并成一个策略；<span class="marginnote">部分调整公式里的 \(\kappa\) 就是「每期把现有偏离修掉几成」：\(\kappa=0.5\) 表示偏离 4% 时本期只修 2%，剩下慢慢来；\(\kappa=1\) 是一次复位。信号越持久、成本越高，最优 \(\kappa\) 越小——修得太快等于为噪音付全额手续费。</span>其三，风险预算的场合，推回的对象是欧拉贡献而不是名义权重（<a href="/quant/rb-rebalance">风险预算再平衡</a>），两套带宽不能混用。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>凸性的价格是这门课的核心会计。恒定混合在每次偏离后卖强买弱，等价于持续向市场卖出趋势保险；<a href="/quant/cppi-tipp">组合保险 CPPI / TIPP</a> 是它的镜像——买凸性的一方在趋势市获利、在震荡市被磨损。所以「再平衡有溢价」不是免费午餐的承诺，是波动与均值回复的报酬，且符号随体制翻转。为什么带宽是政策而非细节：两只基金持有同样的目标权重、不同的带，收益分布可以差出一个风格；带还决定了与其它规则的拥挤——当大量纪律化资金共享相似的日历与带宽时，执行时点聚集，成本自我抬高（<a href="/quant/index-rebalance-arb">指数调仓套利</a>写的是同一机制的指数版）。带宽与波动目标的交互也在此：波动上升时目标仓位下降，若带太松，降仓被延迟到风险已经兑现之后——<a href="/quant/vol-targeting">波动目标</a>的风险控制就被再平衡政策抵消了一半。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：以为「再平衡有溢价」是稳定的超额收益。它赚的其实是波动与均值回复的钱：先深跌后反弹的 V 型市里持续收租；而单边趋势市里恒定混合一直卖涨买跌，显著跑输不动的组合——溢价的符号随体制翻转，不是免费午餐。</span></p><p><span class="marginnote">比例交易成本下，最优无交易区宽度按成本的立方根缩放（Davis–Norman 1990 的自由边界）：成本减半，带宽只收窄到约 \(2^{-1/3}\approx 0.79\)——带宽对成本不敏感的直觉，常常让人把带设得太紧。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重写日历/阈值机制的条目（<a href="/quant/rebalance-rules">再平衡规则</a>），不重推风险预算的监控量（<a href="/quant/rb-rebalance">风险预算再平衡</a>），不展开动态规划的完整形式（<a href="/quant/dynamic-programming-rebalance">动态规划与再平衡</a>）。信号半衰期与持有期的匹配在<a href="/quant/factor-decay-turnover">因子衰减与换手</a>，那是目标权重的生产端；本课只管目标之后的路。税的维度进入成本核之后完全改变政策形状——无交易区会变得不对称，这是下一课的对象。政策回测若不带真实摩擦与税，得出的「最优带」只是另一个样本内最优。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>再平衡是政策不是维护：触发、复位方式、成本核三件联合设计，收益结构自带凸性敞口。</li><li>再平衡溢价是波动收割，趋势市中符号翻转；把它当免费午餐会误配带宽。</li><li>无交易区宽度按成本立方根缩放；部分调整把目标与路径合并成一个策略。</li><li>带宽决定与波动目标、风险预算及其它纪律化资金的交互，是风格变量。</li><li>出处：Perold &amp; Sharpe, <em>FAJ</em>, 1988；Constantinides, <em>JET</em>, 1986；Gârleanu &amp; Pedersen, <em>RFS</em>, 2013；Davis &amp; Norman, <em>Mathematical Finance</em>, 1990。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 组合构建深化<!--[--> · 单元 策略维度<!--]--><!----></p><p class="lesson-progress">第 4 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/pf-tax-aware/">税负敏感的组合</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/pf-blackbox-optimizers/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">黑盒优化器在组合里的使用</span><span class="lesson-card-meta">组合构建深化 · 数值与优化<!--[--> · 第 3 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/pf-tax-aware/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">税负敏感的组合</span><span class="lesson-card-meta">组合构建深化 · 策略维度<!--[--> · 第 5 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

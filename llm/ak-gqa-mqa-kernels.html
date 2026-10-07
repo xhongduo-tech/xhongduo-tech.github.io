@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>GQA 与 MQA 的内核差异 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ak-gqa-mqa-kernels.md.e3JUvs2s.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 变体的内核<!--]--><!----></p><p class="lesson-progress">第 4 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ak-smem-register-budget/">shared memory 与寄存器预算</a></p><p class="lesson-next"> 下一课：<a href="/llm/ak-paged-kv-kernel/">分页 KV 的内核接口</a></p><!----></nav><div style="position:relative;"><div><h1 id="gqa-与-mqa-的内核差异" tabindex="-1">GQA 与 MQA 的内核差异 <a class="header-anchor" href="#gqa-与-mqa-的内核差异" aria-label="Permalink to &quot;GQA 与 MQA 的内核差异&quot;">​</a></h1><div class="epigraph"><p>少几套 KV 头省下的字节，要靠内核里真正被复用才兑现；结构省了、内核照旧，账就落空。</p><footer>—— 据 Shazeer, 2019；Ainslie et al., 2023 整理</footer></div><p><a href="/llm/ak-smem-register-budget">上一课</a>把片上预算钉住，基础机制三课收束。本课进入变体的内核单元，第一个变体动的是头这一维。<a href="/llm/gqa">GQA</a> 与 <a href="/llm/mqa">MQA</a> 在结构课里定过 \(h_{kv}\) 的谱系：\(h_{kv}=h_q\) 即 MHA，\(h_{kv}=1\) 即 MQA，中间是分组共享。本课只站在内核这一侧问：\(h_q\) 个查询头共享 \(h_{kv}\) 套键值，这层共享在核内怎么落地，才把省下的字节真的兑成时间。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>结构把 KV 字节除以 \(h_q/h_{kv}\)，那是缓存容量的账；带宽的账要内核来结。若每查询头仍按 MHA 代码独立去读「自己的」K 和 V，同一段 KV 就要从 HBM 被搬 \(h_q/h_{kv}\) 遍，带宽一分未省；若在模型层把 KV 沿头维展开成 \(h_q\) 份再喂旧内核，容量与带宽双双回到原点，还多占了显存。共享必须在加载路径上发生一次、被用足 \(h_q/h_{kv}\) 次，账才算平。</p><p><span class="marginnote">术语翻译：\(h_q\) 是查询头的个数，\(h_{kv}\) 是键值头的个数，\(h_q/h_{kv}\) 就是「几个查询头共用一套键值」，也叫组大小。Llama-2-70B 是 64 个查询头配 8 套键值——每组 8 个查询头，排队用同一份 K、V。</span></p><h3 id="共享发生在哪一层" tabindex="-1">共享发生在哪一层 <a class="header-anchor" href="#共享发生在哪一层" aria-label="Permalink to &quot;共享发生在哪一层&quot;">​</a></h3><p>候选层级有三个：HBM 之后、L2 之中、SRAM 之内。L2 是芯片级共享，多个块读同一段 KV 有机会命中，但调度不保证同时驻留，复用是概率性的；SRAM 里的复用是确定性的——载一次、用足，这恰好是上一课预算表腾出来的地方。</p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>内核侧两个动作。第一，头映射：网格按查询头展开，第 \(i\) 个查询头对应 KV 组 \(g=\lfloor i/(h_q/h_{kv})\rfloor\)；载入第 \(g\) 套 K、V 进 smem 一次，组内 \(h_q/h_{kv}\) 个查询头循环复用，输出各写各的。第二，解码的极端情形：\(h_{kv}=1\) 时整套 KV 与批内所有请求、所有头共享，加载可以沿批与头合并，跨请求共享前缀还能级联成一段公共读加各请求的私有读，见 <a href="/llm/flashinfer">FlashInfer 内核库</a>的级联口径。前填侧的账不同：FLOPs 仍按 \(h_q\) 算，几乎不减，省在写出 KV 与缓存容量上。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么这个循环买得起带宽账：解码一步的 KV 读量从 \(h_q\) 套降到 \(h_{kv}\) 套，每字节被组内循环用足；KV 读正是<a href="/llm/arithmetic-intensity-decode">解码的算术强度</a>里压垮小 batch 的那本账，把它除以 8，decode 的每步时间近似也除以 8。组内循环的代价是 smem 里多驻一份 K、V——上一课的双缓冲与 tile 权衡在这里直接接上：\(d\) 与 \(B_c\) 不变，份额够了，占用率不掉。</p><p><span class="marginnote">数字实例：batch=32 的解码步，MHA（\(h_q=64\)）每步要读 \(32\times64\) 套 KV，GQA（\(h_{kv}=8\)）只读 \(32\times8\) 套——读量正好除以 8。解码是「读得多、算得少」的活，小 batch 下读量砍八倍，每步时间就近似快八倍。</span></p><p>错法有两种，都在生产代码里常见。其一，内核不支持组映射，于是给每个 KV 组起一个独立内核调用、组内头串行：共享退化为时间上的先后读，HBM 字节数回到 MHA。其二，用张量展开假装共享：<code>expand</code> 出 \(h_q\) 份视图再广播——若下游内核按视图具象化，显存与带宽立刻翻回；视图必须活到加载指令那一层才作数。</p><p><span class="marginnote">初学者容易以为「<code>expand</code> 一下就算共享了」——它只是造出一张「看起来有 64 份」的账面视图，内存里仍是那一份。可只要下游内核真按 64 份去读，或实现把视图物化成真拷贝，省下的字节就全赔回去。共享要落在加载指令那一层才算数。</span></p><p><span class="marginnote">Llama-2-70B 取 \(h_q=64\)、\(h_{kv}=8\)：解码每步 KV 字节相对 MHA 除以 8。这笔账是内核里那段组内循环买来的，不是结构自己买来的——同样的权重，配一个不识组的内核，一分钱都省不下。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>组内是硬共享，池化加短训转 GQA 的质量代价与 \(h_{kv}\) 的甜点选择是结构课的题目；<a href="/llm/ainslie-gqa">GQA 论文</a>与 <a href="/llm/shazeer-mqa">MQA 论文</a>的口径本课不重复。张量并行要求 \(h_{kv}\) 可被切分整除，那是分片布局问题，落点在并行课程。跨请求共享 KV 的地址问题——页表与引用计数——是下一课的主题：本课的共享发生在头之间，下一课发生在请求之间。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>结构省的是 KV 字节与容量，带宽的账由内核的组映射与 smem 复用来结。</li><li>头映射 \(g=\lfloor i/(h_q/h_{kv})\rfloor\)：K、V 按组载入一次，组内循环用足。</li><li>MQA 的 \(h_{kv}=1\) 把共享推到批与请求级，解锁级联与合并加载。</li><li>展开视图不等于共享：必须活到加载路径，否则显存带宽双双翻回。</li><li>前填侧几乎不省 FLOPs，省的是 KV 写出与缓存。</li><li>出处：Shazeer, <em>Fast Transformer Decoding</em>, 2019；Ainslie et al., <em>GQA</em>, 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 变体的内核<!--]--><!----></p><p class="lesson-progress">第 4 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ak-paged-kv-kernel/">分页 KV 的内核接口</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/ak-smem-register-budget/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">shared memory 与寄存器预算</span><span class="lesson-card-meta">注意力内核工程 · 基础机制<!--[--> · 第 3 / 14 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ak-paged-kv-kernel/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">分页 KV 的内核接口</span><span class="lesson-card-meta">注意力内核工程 · 变体的内核<!--[--> · 第 5 / 14 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

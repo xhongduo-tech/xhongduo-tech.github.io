@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>位置外推的服务语义 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_lc-extrapolation-serving.md.DSKM7OEP.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 长上下文系统工程<!--[--> · 单元 服务语义<!--]--><!----></p><p class="lesson-progress">第 5 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/llm/lc-retrieval-hybrid-serving/">检索与长上下文混合服务</a></p><p class="lesson-next"> 下一课：<a href="/llm/lc-longoutput-streaming/">长输出的流式稳定</a></p><!----></nav><div style="position:relative;"><div><h1 id="位置外推的服务语义" tabindex="-1">位置外推的服务语义 <a class="header-anchor" href="#位置外推的服务语义" aria-label="Permalink to &quot;位置外推的服务语义&quot;">​</a></h1><div class="epigraph"><p>延窗方法改的是位置到相位的映射；映射一变，同一串 KV 的含义就变。所以外推不是模型开关，是服务契约。</p><footer>—— 据 Su et al., RoPE（2021/2024）与 Peng et al., YaRN, 2023 整理</footer></div><p><a href="/llm/lc-retrieval-hybrid-serving">上一课</a>把通读与检索装进同一个服务。本课处理窗口声明本身的语义：模型出厂的<a href="/llm/rope-frequency">位置方案</a>是属性，运行时把窗口从 32K 拉到 128K 的外推配置是服务参数。<a href="/llm/yarn">YaRN</a> 一族给了延窗的方法，<a href="/llm/long-context-eval">位置外推评测</a>给了「有效窗口」的测法；本课把两者变成服务的 API 语义——配置归谁、超窗怎么办、缓存怎么跟着变。方法本身不重讲。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>「支持 128K」在 API 上至少有三种含义：能前向不崩、针测全绿、任务质量不掉——<a href="/llm/long-context-eval">评测课</a>已证明三者不同。服务若只透传一个窗口数，调用方必然把第一种当第三种用，投诉发生在第 90K token 处。另一头是配置的运行时性：同一份权重，YaRN 表开与不开是两个模型；两套配置还可能混跑在同一引擎里。滑窗模型更把「窗口外」定义为丢弃而非放不下（<a href="/llm/sliding-window-attention">滑窗课</a>、<a href="/llm/attention-sink">汇点课</a>）。语义不清的服务会安静地做错三件事：复用旧配置写下的缓存、把降质输出当正常返回、把被窗口丢掉的字节报成「已处理」。</p><p><span class="marginnote">数字实例：一个 32K 训练窗的模型，YaRN 缩放因子设 4，名义窗口就是 \(32\mathrm{K}\times4=128\mathrm{K}\)——但「不崩」与「好用」隔着两档：无续训外推通常针测及格、任务质量在窗中部就开始掉；接少量目标长度续训才到第二档。API 文档里「支持 128K」必须写清是哪一档，否则调用方在第 90K token 处的投诉是必然事件。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>三条契约。其一，位置配置逐请求化：缩放因子、注意力温度校正、外推表作为请求参数进核，无配置则用训练默认；发布文档写明当前档位——无微调外推与目标长度上的少量续训（YaRN 的经验是续训更稳）是两个质量档，不能混称「支持」。其二，超窗行为三分支，由服务声明其一：拒绝（请求期报错，附当前有效窗口值）、截断（显式裁剪并给<a href="/llm/stop-sequences">结束语义</a>里的 finish 标注）、降质放行（响应带警告元数据）。静默不在选项里。其三，缓存键加版本：位置配置版本必须进<a href="/llm/prefix-caching">前缀缓存键</a>——外推表换版等于换模型；滑窗模型再加一条：淘汰语义（保汇点、保最近窗）作为缓存与驱逐的硬约束传下去。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>配置为什么必须进缓存键而不是只进请求：KV 是「前缀内容 × 位置映射」的确定函数，映射变了，同一页 KV 的相位整体平移。混合命中比全不命中更糟——它不报错，只是把 A 模型的 KV 喂给 B 模型，答案悄悄变差。这也是外推配置要版本化发布的原因：本课程工程化单元的评测门禁，其基线与线上配置必须同版，否则回归测试测的是另一个模型。位置家族之间还有「软硬」之别：RoPE 系有可调的缩放表，<a href="/llm/alibi">ALiBi</a> 系的外推边界出厂即定——前者的窗口声明是协商项，后者接近硬约束，契约要按家族写。</p><p><span class="marginnote">易错点：YaRN 开与关是两个模型。缓存键漏掉位置配置版本时，命中照常发生、不崩、不报错——旧 KV 在新映射下读出的注意力分布整体失真，症状是「长文档答案质量随机波动」，极难归因到缓存。</span></p><div class="mermaid"></div><p><span class="marginnote">直觉类比：KV 页像按某版地图画的坐标——位置映射就是坐标系。换外推配置等于换了一套经纬网，旧坐标直接抄到新地图上，点会落在错误的地方；最麻烦的是系统不会报「坐标不匹配」，只会安静地把你导航到错的位置。缓存键加版本号，就是给每张地图标注它的坐标系。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写外推方法本身（<a href="/llm/rope-frequency">频率与基数</a>、YaRN、<a href="/llm/longrope">LongRoPE</a> 已立），不写有效窗口的测法（评测课已立）；服务能承诺的是「按声明的档位与分支执行」，不能承诺延窗不掉点——那是续训档的事。混跑多配置的引擎还要防一类实现错：核的 per-request 参数与<a href="/llm/cuda-graph">图捕获</a>的静态假设可能冲突，动态 shape 路径要单独验证后再放量。最后，服务计量的「已处理字节数」必须区分「进了窗口」与「被窗口丢掉」——滑窗模型上这两者不是同一个数。</p><p><span class="marginnote">常见误区：初学者容易以为「外推是个免费开关，拉一下窗口就变大，顶多快慢有别」。实际上缩放表改的是位置到相位的映射，权重从未见过新的相位范围——没续训就拉满，等于让一个只见过 32K 文档的模型硬读 128K：不崩，但检索、多跳、长文摘要的质量静默下滑。把延窗当质量中性的开关，是最常见的「已处理≠处理好了」。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>位置方案是模型属性，外推配置是服务参数；「支持 128K」必须声明档位与质量含义。</li><li>超窗三分支：拒绝、显式截断、降质放行带警告；静默不在选项里。</li><li>位置配置版本进缓存键；换表等于换模型，混用命中不报错但答案失真。</li><li>滑窗模型的窗口外是丢弃：淘汰要保汇点，「已处理」要区分进窗与丢窗。</li><li>出处：Su et al., RoPE（2021/2024）；Peng et al., YaRN（2023）；Xiao et al., Attention Sinks（2023）；测法口径见本仓库位置外推评测课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 长上下文系统工程<!--[--> · 单元 服务语义<!--]--><!----></p><p class="lesson-progress">第 5 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/lc-longoutput-streaming/">长输出的流式稳定</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/lc-retrieval-hybrid-serving/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">检索与长上下文混合服务</span><span class="lesson-card-meta">长上下文系统工程 · 服务语义<!--[--> · 第 4 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/lc-longoutput-streaming/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">长输出的流式稳定</span><span class="lesson-card-meta">长上下文系统工程 · 服务语义<!--[--> · 第 6 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

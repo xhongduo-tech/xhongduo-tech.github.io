@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>流动性风险计量 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_rk-liquidity-measurement.md.EUVmmooY.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 风险体系深化<!--[--> · 单元 计量<!--]--><!----></p><p class="lesson-progress">第 2 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/rk-market-system/">市场风险体系</a></p><p class="lesson-next"> 下一课：<a href="/quant/rk-counterparty-system/">对手方风险体系</a></p><!----></nav><div style="position:relative;"><div><h1 id="流动性风险计量" tabindex="-1">流动性风险计量 <a class="header-anchor" href="#流动性风险计量" aria-label="Permalink to &quot;流动性风险计量&quot;">​</a></h1><div class="epigraph"><p>流动性风险有两张面孔：想把仓位换成现金时的市场，和想按时拿到现金时的资金；把两张脸当成一张的机构，在两次危机里各错一次。</p><footer>—— 据 Brunnermeier and Pedersen, *Review of Economic Studies*, 2009；BCBS, *Basel III: The Liquidity Coverage Ratio and liquidity risk monitoring tools*, 2013 整理</footer></div><p><a href="/quant/rk-market-system">上一课</a>把市场风险装进六环流水线：快照、映射、情景、重估、分位数、回测，并规定例外要按环归因。留下一处缺口：整条流水线按中间价计损益，变现成本没有入场。本课把流动性拆成两条线分别计量——市场侧的「退出要花多少」，资金侧的「现金接得上吗」——再讨论两条线如何互相放大。后课默认已经读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>中间价 VaR 隐含一个假设：头寸可按标记价退出。市场侧的缺口分两层：外生价差——任何人都付的成本；内生冲击——仓越大，退出把价格压得越低，成本随自己变。资金侧的缺口是现金流错配：保证金追缴、抵押品补足、负债展期都有自己的日程，账面盈利的机构照样死于付不出现金。错法各有典型：用半价差给大仓位计成本，漏掉的主导项是冲击与变现时间；用市场侧指标管资金链，1998 年那种「资产没问题、融资断了」的死法完全不在视野里；反过来只盯现金流，2008 年「能变现的资产突然折价三成」又数不出来。</p><p><span class="marginnote">术语翻译：外生价差是「任何人来卖都要付」的买卖价差，像超市的标价；内生冲击是「你自己卖太多把价砸下去」的部分，像往小池塘里连续倒水——水位被自己的动作改变。小仓位可以只算前者，大仓位的主导项一定是后者。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>市场侧分三档。小仓位按 <a href="/quant/liquidity-adjusted-var">流动性调整 VaR</a> 的口径，把外生价差成本加到中间价 VaR 上；更一致的做法是在每条情景里用可成交价定义损失，三种 VaR 算法都适用。大仓位的主导项换成变现计划：按 <a href="/quant/almgren-chriss">Almgren–Chriss 最优执行</a>的框架，用冲击系数与风险厌恶解出变现时间表，成本是「冲击成本与持有风险的折中」，把这条成本曲线的分位数记作流动性的仓位数额。截面代理用 <a href="/quant/amihud-illiquidity">Amihud 非流动性</a>或价差时间序列做日常监测，债券侧有<a href="/quant/bond-liquidity-trace">债券流动性与 TRACE</a> 的成交口径。资金侧同样分层：现金流梯级表把未来每日的 contractual 流入流出排队，压力参数给出日缺口；监管口径 LCR 要求优质流动性资产覆盖三十天压力净流出，NSFR 要求一年期稳定资金对上所需稳定资金。</p><div class="mermaid"></div><p><span class="marginnote">巴塞尔 III 的 LCR 分子是优质流动性资产（一级不打折、二级占比受限），分母是三十天压力情景下的净流出，要求比率 \(\ge 100\%\)；压力参数按负债类别给流失率、按衍生品状态给抵押品追加。对非银行机构它是类比不是义务，但「三十天现金梯级」的思路通用。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>两条线通过抵押品耦合：价格下跌触发追加保证金，机构被迫变现资产，变现冲击压低价格，再触发更多追缴——<a href="/quant/rc-collateral-funding">抵押品与资金链</a>讲的螺旋在计量上表现为外生与内生项同时恶化。这解释了内生 LVaR 的一个数学后果：变现成本随仓位增长，破坏正齐次性，把加仓的资本收费写成线性会低估集中度。它也决定了退出假设必须统一：监管的流动性期限与内部的 LVaR 用同一套变现时间与冲击参数，否则限额说「三天能走」，资本说「十天才走得完」，两套口径各自合法、合起来失效。</p><p><span class="marginnote">数字实例：某银行 30 天压力净流出预计 80 亿，手持一级优质流动性资产 90 亿，LCR=90/80=112.5%，达标。若市场下跌触发 20 亿保证金追缴用现金支付，分子只剩 70 亿，比率跌到 87.5%——账面盈利一分没少，现金梯级先断了。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>外生加项忽略价差与市场的正依赖，把加法当近似可以、当上界不行——那是 <a href="/quant/liquidity-adjusted-var">流动性调整 VaR</a> 课的结论，本课沿用。Amihud 类指标是截面代理，回答「市场贵不贵」，回答不了「我这仓退得出吗」。LCR 与 NSFR 是银行监管口径，基金与自营没有对应义务，但现金流梯级与抵押品驱动的思路必须自己搭。压力参数（流失率、追缴幅度）取自监管校准时是下限，本机构客户结构更挤提时应上调——参数错误是下一类计量课题的入口。</p><p><span class="marginnote">常见误区：把 LCR 达标当成「不会缺钱」。LCR 只看 30 天，压力参数还是监管校准的下限；客户结构更挤提、或 30 天之外藏着悬崖式到期，它都看不见。监管比率是及格线，不是资金风险的全貌。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>流动性计量分市场侧（退出的成本）与资金侧（现金的日程），指标不可互换。</li><li>小仓位用价差加项，大仓位的主导项是冲击与变现时间，用执行框架定退出计划。</li><li>内生成本随仓位增长，破坏正齐次性；集中度收费不能线性外推。</li><li>退出假设要在监管口径与内部口径间统一，否则限额与资本各说各话。</li><li>出处：Bangia, Diebold, Schuermann and Stroughair, 1999；Almgren and Chriss, 2000；Brunnermeier and Pedersen, <em>Review of Economic Studies</em>, 2009；BCBS LCR/NSFR 标准，2013。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 风险体系深化<!--[--> · 单元 计量<!--]--><!----></p><p class="lesson-progress">第 2 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/rk-counterparty-system/">对手方风险体系</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/rk-market-system/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">市场风险体系</span><span class="lesson-card-meta">风险体系深化 · 计量<!--[--> · 第 1 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/rk-counterparty-system/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">对手方风险体系</span><span class="lesson-card-meta">风险体系深化 · 计量<!--[--> · 第 3 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

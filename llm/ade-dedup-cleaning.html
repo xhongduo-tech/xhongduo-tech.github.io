@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>对齐数据的去重与清洗 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ade-dedup-cleaning.md.DxvouPQV.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 对齐数据工程<!--[--> · 单元 质量与配比<!--]--><!----></p><p class="lesson-progress">第 5 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ade-constitutional-data/">constitutional 数据的生产</a></p><p class="lesson-next"> 下一课：<a href="/llm/ade-safety-helpful-mix/">安全与有用数据的配比</a></p><!----></nav><div style="position:relative;"><div><h1 id="对齐数据的去重与清洗" tabindex="-1">对齐数据的去重与清洗 <a class="header-anchor" href="#对齐数据的去重与清洗" aria-label="Permalink to &quot;对齐数据的去重与清洗&quot;">​</a></h1><div class="epigraph"><p>预训练去重防背诵，对齐数据去重防边界悄悄偏移；清洗丢掉的每一类样本，都是一次无声的再配比。</p><footer>—— 据 Lee et al., 2021、Kandpal et al., 2022 与本课程口径整理</footer></div><p><a href="/llm/ade-constitutional-data">上一课</a>把原则变成可编程的生产线，产量不再是瓶颈；产量上来，脏东西一起上来。本课写对齐数据自己的去重与清洗——工具与预训练清洗、合成数据清洗同族（<a href="/llm/synthetic-dedup-contamination">合成数据的去重与污染</a>给过四层去重），但目标不同：防的不是背诵，是边界偏移与验证失真。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>三种对齐特有的失效。其一，近重复提示抬高持有集读数：真实日志里用户反复问同一件事，语义近邻横跨训练与持有两侧，验证准确率量到的有一部分是记忆。其二，同簇过密拖偏边界：一个意图簇里数百条近似对，等于给该簇加权数百倍，RM 的容量先拟合它，长尾边界让位。其三，清洗规则与边界打架：毒性提示要不要删？删了，模型从未见过「必须拒绝的题面长什么样」，拒绝边界外移，漏拒与越权一起出问题；隐私清洗要剥的是个人信息，不是危害类别。标签噪声另算：低一致率的对子静默丢弃，丢弃分布不均匀，又是一次再配比。<span class="marginnote">术语先翻译：「持有集」就是刻意留出、不参与训练、专供考试的题库。麻烦在&quot;近邻泄漏&quot;：题库里的题和练习册里的题长得几乎一样（用户换了个说法问同一件事），考出来的高分掺了背诵的水分——验证指标看着漂亮，线上能力却没那么好。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>分层处理。去重在提示侧与响应侧分开做：精确、MinHash、语义三层照搬，但「同一提示多响应」是资产不是重复——同一 \(x\) 下的多个 \(y\) 正是偏好对比的信息量；去重的对象是提示簇，簇内保留按差异度预算抽样，与合成侧骨架去重同一招。清洗分三类记账：隐私剥离（PII、联系方式）照删；毒性提示保留，过政策映射后入库——它们是拒绝边界的定义样本；越权对照对（红队课的疫苗）显式保护，任何清洗规则不得顺手删掉它们。噪声处理不静默：低一致率对子走仲裁或降权（<a href="/llm/annotation-agreement">标注一致性与仲裁</a>的口径），丢弃必须记账——丢弃分布写进数据卡，与保留分布并排。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>去重目标为什么不同：预训练的重复经似然损失放大成背诵；对齐数据的重复经对比损失放大成「最便宜可分特征在高频簇上的拟合」——重复给簇加权，加权把 RM 的判别边界拉向该簇的局部特征。持有集失真的机制是近邻泄漏：去重阈值就是泄漏检测的阈值，两端要用同一把尺。清洗即再配比的机制，合成课说过一遍，这里再钉一次：每条丢弃规则作用于分布的不均匀子集，删完分布就变了——所以要看被保留集合的意图分布相对原分布移动了多少，不看删了多少条（<a href="/llm/synthetic-quality-filter">质量过滤：打分器与一致性</a>「过滤即重加权」的口径）。</p><div class="mermaid"></div><p><span class="marginnote">数字感受一下&quot;加权&quot;：某常用意图簇有 500 条近似对，而某个长尾意图只有 5 条——仅凭条数，前者在训练里的话语权就是后者的 100 倍。RM 参数有限，先学会的分界自然是那条被重复 100 次的边界，长尾意图的&quot;对错线&quot;被挤到没人管的角落，评测一覆盖长尾就露馅。</span></p><p><span class="marginnote">最容易错手的一条规则：「删掉所有含敏感词的提示」。它删掉的恰好是拒绝边界最需要的定义样本——删完之后安全分数好看（没题可错），线上漏拒率上涨。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>去重不解决标注噪声，那是仲裁的题；语义去重的阈值是超参，错删边界对子的代价高于留几条重复。清洗规则要按「特征」审查而不按「内容」审查：按长度删、按格式删都会变成隐性配比。上游与下游的接口在下一课：清洗守的是单条质量与簇密度，配比守的是池与格子的形状——本课交付的是一份带丢弃记账的干净池，不是一份配平的池。<span class="marginnote">常见误区：把&quot;干净&quot;理解成&quot;删得越狠越好&quot;。对齐数据里删错的代价不对称——多留几条重复只是浪费一点容量，错删一条定义拒绝边界的毒性提示或越权对照对，就是悄悄挪了一次安全边界。所以阈值要偏保守，宁可疑而保留，记账后再审。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>对齐去重防的是边界偏移与持有集失真，不是背诵；去重在提示簇层做，同题多响应是资产。</li><li>清洗分三类：隐私照删，毒性提示保留（它们定义拒绝边界），对照对显式保护。</li><li>噪声不静默丢弃：仲裁或降权，丢弃分布与保留分布并排写进数据卡。</li><li>清洗即再配比：看保留集合的分布移动，不看删除条数。</li><li>出处：Lee et al., 2021；Kandpal et al., 2022；四层去重与过滤口径见合成数据课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 对齐数据工程<!--[--> · 单元 质量与配比<!--]--><!----></p><p class="lesson-progress">第 5 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ade-safety-helpful-mix/">安全与有用数据的配比</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/ade-constitutional-data/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">constitutional 数据的生产</span><span class="lesson-card-meta">对齐数据工程 · 数据构建<!--[--> · 第 4 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ade-safety-helpful-mix/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">安全与有用数据的配比</span><span class="lesson-card-meta">对齐数据工程 · 质量与配比<!--[--> · 第 6 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

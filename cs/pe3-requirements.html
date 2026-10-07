@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>性能需求的工程化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_pe3-requirements.md.C8VbFyNN.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 性能工程案例<!--[--> · 单元 方法<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/emb-case-map/">嵌入式案例与收束</a></p><p class="lesson-next"> 下一课：<a href="/cs/pe3-benchmark-pitfalls/">基准设计的陷阱</a></p><!----></nav><div style="position:relative;"><div><h1 id="性能需求的工程化" tabindex="-1">性能需求的工程化 <a class="header-anchor" href="#性能需求的工程化" aria-label="Permalink to &quot;性能需求的工程化&quot;">​</a></h1><div class="epigraph"><p>没有数字的性能要求不是需求，是愿望；愿望不占用预算，也不接受验收。</p><footer>—— 据 Beyer 等，Site Reliability Engineering，2016，第 3-4 章的 SLO 口径整理</footer></div><p><a href="/cs/emb-case-map">上一课</a>把嵌入式课程收在三条骨架上：预算按最坏情况记账，信任从独立域出发，承诺都要留下可核查的证据。本课程「性能工程案例」把同一套纪律搬回通用服务，第一课先处理最常被含糊掉的一环：把「系统要快一点」翻译成可以记账、可以核验的工程需求。这是本课程的第一课，后面七课——基准、微基准、回归、容量、长尾、成本、收束——都默认你已经读完本课：没有这里定下的数字与判据，后面的一切测量都没有结论可言。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>「快一点」不可施工。它没有测量对象，没有通过标准，也没有失效时的处置。缺口因此不是优化技术，而是先把承诺变成四个可回答的问题：对<strong>谁</strong>的什么操作快（SLI）；快到<strong>多少</strong>（SLO）；在<strong>什么负载</strong>下（负载模型）；<strong>谁信</strong>（验收协议）。<a href="/cs/obs-slo-engineering">SLO 工程</a>已经给过 SLI 与错误预算的机制，本课不再重讲定义，只解决它们在性能需求里如何落账：性能需求不是一份文档，而是后面每一次测量都要回头对表的判据。不这么做会错在哪：没有判据的团队会把任何一次基准跑赢当成「性能做完了」，等到大促当天才第一次见到真实负载。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>第一步，从用户旅程取 SLI。性能的 SLI 几乎总是成对出现：延迟（一个请求多久返回）与吞吐（一秒能接多少请求），外加资源价格（每请求耗多少毫核、多少字节）。只定 QPS 不定延迟，等于允许用无限延迟换吞吐；只定延迟不定吞吐，等于允许用无限机器换延迟。</p><p>第二步，延迟一律报分位数，不报平均。p99 是一百个请求里最慢的一个；它防的是「平均值漂亮、长尾伤人」的假达标。吞吐与延迟必须<strong>在同一张压测里同时读出</strong>：单独宣称的任何一方都是半张收据。</p><p>第三步，负载模型是需求的一部分。同一服务在均匀小请求下和在突发大请求下是两个系统：请求大小分布、读写比、到达过程（平稳还是突发）、缓存命中率，都得写进需求。换负载模型换结论，这不是测量误差，是换了题目。</p><p><span class="marginnote">「负载模型」翻译成大白话：它是一份「流量画像」——用户通常发多大的请求、读多写少还是写多读少、请求是匀速来还是一阵一阵地挤、缓存平时能挡掉多少。就像健身房测心肺要规定跑步机的速度和坡度，没有画像的压测，测的是谁都不知道的另一种生活。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>分位数为什么不可替代：请求延迟是重尾分布，平均数可能落在分布里没有任何请求的位置上；p99 却一定对应真实体验的上沿。吞吐与延迟为什么必须成对：压测可以永远把系统压在轻载区刷出好延迟，成对读数才能暴露你所在的工作点。负载模型为什么属于需求：它决定后面的基准设计与容量计算；负载写错，后面每一步都精确地测着一个不存在的系统。</p><p>预算让需求有了花法。<a href="/cs/obs-slo-engineering">SLO 工程</a>的错误预算 \(1-\mathrm{SLO}\) 是可以花的钱：留百分之多少给发布回归、多少给实验、多少给成本优化，本课程后面四类案例——回归、容量、长尾、成本——做的都是花这笔预算的账。<a href="/cs/tail-at-scale">长尾规模</a>则解释了为什么预算要花在分位上：扇出服务里用户等待由最慢分位决定，均值达标换不来体验达标。</p><p><span class="marginnote">p99=200 ms 的直觉账：它是比率不是全员承诺——日请求量 \(10^8\) 的服务，p99 之外的慢请求每天仍有 \(10^6\) 个。分位数选多严，就是在决定把多大的慢人群算进「达标」。</span></p><div class="mermaid"></div><p>这张图回答的问题是：为什么平均数会「说谎」？请求延迟是重尾分布——绝大多数请求很快，极少数慢请求把均值轻轻托起，却把个别用户的体验砸穿。平均值 45 ms 可以和「1% 的请求要等 2 秒」并存，而 p99 把这 1% 摆上台面。报哪个数，决定了长尾问题是「不存在」还是「可治理」。</p><p><span class="marginnote">数字实例（错误预算）：SLO 定「p99 ≤ 300 ms 的请求占 99%」，错误预算就是 1%。一个月 3 亿个请求，允许 300 万个超标——这就是可以花掉的钱：发版冒一次烟花 50 万，灰度实验花 100 万，花超了就冻结发布修稳定性，而不是继续叠功能。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>需求只承诺可测的东西。「用 Redis」「上 K8s」是实现，不是需求；把实现写进需求，等于在看见问题之前锁死了解法。SLO 不是 SLA：SLO 是内部目标与预算，SLA 是对外违约条款，后者永远比前者松。数字要可证伪：验收协议必须写明环境、数据、加压方式、样本量与判读规则，否则任何人都能让任何系统「达标」一次。本课程不做的是从第一性原理推导延迟模型——那是主干课排队与体系结构的事，这里只把已知的机制钉进需求格式。</p><p><span class="marginnote">常见误区：以为 SLO 定得越严越好，「全部 100% 达标」显得最有诚意。实际上 100% 意味着零错误预算——一次正常的发版、一次机器重启都在违约，团队从此不敢发布、不敢实验。SLO 的价值恰恰在那可花的 1%：留出犯错的额度，换取可以持续演进的服务。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>性能需求四件套：SLI（谁的操作）、SLO（分位数与吞吐成对）、负载模型、验收协议，缺一不可施工。</li><li>平均数在重尾分布上会落在无人经历的位置；性能承诺报分位，不报均值。</li><li>错误预算让 SLO 从目标变成可花的钱，后续案例都在花这笔预算。</li><li>负载模型属于需求本身：负载写错，等于换了题目再精确作答。</li><li>出处：Beyer 等，<em>Site Reliability Engineering</em>，2016，第 3-4 章；Dean 与 Barroso，<em>The Tail at Scale</em>，CACM 2013；据本课四件套口径整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 性能工程案例<!--[--> · 单元 方法<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/pe3-benchmark-pitfalls/">基准设计的陷阱</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/emb-case-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">嵌入式案例与收束</span><span class="lesson-card-meta">嵌入式系统 · 系统与生产<!--[--> · 第 10 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/pe3-benchmark-pitfalls/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">基准设计的陷阱</span><span class="lesson-card-meta">性能工程案例 · 方法<!--[--> · 第 2 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

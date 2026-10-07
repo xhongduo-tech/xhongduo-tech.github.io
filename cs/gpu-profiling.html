@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>性能计数与 profiling | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_gpu-profiling.md.C3MWHMH8.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 GPU 编程深入<!--[--> · 单元 张量核与工具<!--]--><!----></p><p class="lesson-progress">第 7 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/cs/gpu-cutlass-intuition/">CUTLASS 的结构直觉</a></p><p class="lesson-next"> 下一课：<a href="/cs/gpu-debugging/">GPU 调试</a></p><!----></nav><div style="position:relative;"><div><h1 id="性能计数与-profiling" tabindex="-1">性能计数与 profiling <a class="header-anchor" href="#性能计数与-profiling" aria-label="Permalink to &quot;性能计数与 profiling&quot;">​</a></h1><div class="epigraph"><p>profile 不回答「慢不慢」，回答「慢在哪一层」；把猜测的树剪成有证据的一条路，是计数器唯一的用途。</p><footer>—— 据 Nsight Compute 文档；Williams, Waterman and Patterson, CACM, 2009（roofline）整理</footer></div><p><a href="/cs/gpu-cutlass-intuition">上一课</a>给了「应该快」的模型：前六课都是先算账再写码。缺口反过来——内核已经在跑，账却对不上：带宽没到屋顶、占用率够却不快、张量核利用率个位数。本栏的 <a href="/cs/roofline-model">roofline</a> 给过强度与两面墙的框架；大模型栏的<a href="/llm/ak-benchmark-methodology">内核基准测试方法论</a>定了计时与比较的规矩，<a href="/llm/cuda-occupancy">Warp / CTA / 占用率</a>说过以 NCU 的实现占用与 stall 原因为准。本课写 Nsight Compute 的计数器体系：从指标读数到诊断动作的固定路径。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>「慢」的原因是一棵树：算强度低？合并没有做？bank 冲突？流水没叠上？喂料断了？靠猜加试，每层两个候选就是指数级的组合。更麻烦的是直觉在这台机器上系统性失灵——第一课到第五课的每笔账都可能同时出错，人脑排不出优先级。缺口是把「为什么慢」从开放式猜测变成一次读数：哪几个计数器先看、读数怎么翻译成动作、什么时候该怀疑读数本身。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>NCU 的三段读法有固定顺序。第一段 Speed of Light：计算与存储各自达到峰值的百分比——两个数字直接告诉你靠哪面墙，是 roofline 的运行时形态。<span class="marginnote">Speed of Light（光速）是 profiler 界的行话，不是物理光速：它把内核耗时和「理论最理想值」做比，得到还能快多少的百分比，相当于每次 profile 先免费送你一张 roofline 图。</span>第二段 Memory Workload Analysis 对访存的账：DRAM 吞吐、L2 命中率、扇区利用率——最后一项正是第二课合并判据的运行时读数，低于八成先查 stride。<span class="marginnote">扇区是显存读写的最小单位，一个 32 字节。数字实例：一个 warp 读 32 个连续 float 共 128 字节，正好凑满 4 个扇区，利用率 100%；若 32 个线程各跳到 4 KB 开外的地址，同样 128 字节有效数据要动用 32 个扇区，利用率跌到 12.5%——带宽有七成八白白搬了用不上的字节。</span>第三段 Warp State Statistics 看 stall 分布：long scoreboard 排头是访存依赖（查合并与层次），barrier 排头是同步等待（查发散的 <code>__syncthreads</code> 与双缓冲配对），wait 排头是定长指令依赖（查 ILP），not selected 排头说明调度器饱和——这时加占用率无用。计时本身沿用<a href="/llm/ak-benchmark-methodology">基准方法论</a>的规矩：锁频、冲 L2、warmup 后取分布而非单值，<code>cudaEvent</code> 或 NVTX 圈段。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>读数从哪来，决定它可信到什么程度。SM 内有硬件计数单元：每个调度器记发射与活跃，访存单元记事务与扇区；stall 原因靠周期采样归因——在每个发射口记下「此刻 warp 为什么没发」，聚合成分布。所以 stall 表是统计近似，不是逐指令事实：读数与账本冲突时，先怀疑采样窗口与归因口径，再怀疑账本。<span class="marginnote">「重放」是 NCU 出数的底层手段：计数器硬件数量有限，一次采集装不下所有指标，profiler 就把同一个内核反复执行几十遍、每遍换一组计数器，最后拼成一份报告。所以它必须自己锁频、控缓存才能保证几十遍跑的是「同一种慢」，这也是它的数字不能当线上延迟的根因。</span></p><div class="mermaid"></div></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 GPU 编程深入<!--[--> · 单元 张量核与工具<!--]--><!----></p><p class="lesson-progress">第 7 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/gpu-debugging/">GPU 调试</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/gpu-cutlass-intuition/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">CUTLASS 的结构直觉</span><span class="lesson-card-meta">GPU 编程深入 · 张量核与工具<!--[--> · 第 6 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/gpu-debugging/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">GPU 调试</span><span class="lesson-card-meta">GPU 编程深入 · 张量核与工具<!--[--> · 第 8 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

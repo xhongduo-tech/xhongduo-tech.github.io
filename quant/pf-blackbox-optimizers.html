@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>黑盒优化器在组合里的使用 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_pf-blackbox-optimizers.md.Id3a_oUj.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 组合构建深化<!--[--> · 单元 数值与优化<!--]--><!----></p><p class="lesson-progress">第 3 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/quant/pf-regularized/">正则化组合</a></p><p class="lesson-next"> 下一课：<a href="/quant/pf-rebalancing/">再平衡策略学</a></p><!----></nav><div style="position:relative;"><div><h1 id="黑盒优化器在组合里的使用" tabindex="-1">黑盒优化器在组合里的使用 <a class="header-anchor" href="#黑盒优化器在组合里的使用" aria-label="Permalink to &quot;黑盒优化器在组合里的使用&quot;">​</a></h1><div class="epigraph"><p>梯度是优化器的坦白书：没有它，每一次「更优」都只是一次未经检验的声明。</p><footer>—— 据 Hansen and Ostermeier, Evolutionary Computation, 2001（CMA-ES）；Jones, Schonlau and Welch, Journal of Global Optimization, 1998 整理</footer></div><p><a href="/quant/pf-regularized">上一课</a>把不信任写进目标函数：\(\ell_1\)、\(\ell_2\)、收缩与约束当正则，全部在凸的世界里兑现。缺口在边界之外：最多持有五十只（基数约束）、手数取整、固定佣金台阶、必须用历史情景原样计算的路径目标——这些把问题推出凸集，<a href="/quant/cvar-opt">CVaR 优化</a>的线性规划也救不了带整数与台阶的版本。梯度缺席，本课写黑盒优化器在组合里的用法与纪律：什么时候值得用、怎么验收、怎么不被它过拟合。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>黑盒指只能查询输入输出、拿不到导数的优化器：遗传算法、模拟退火、CMA-ES、贝叶斯优化。<span class="marginnote">「黑盒」就是只许喂参数、只报分数、看不到内部导数的优化器。直觉类比：凸优化像带着等高线地图和坡度表登山，每一步都知道哪边更陡；黑盒则像蒙眼下山谷找最低点，只能反复试「往这边挪一分，海拔升了还是降了」。</span>组合语境的诱惑特别大，因为目标函数现成——就是回测器。把回测器当适应度函数去搜权重，等价于把多重检验机器接在权重空间的每一根轴上。错法清单：把搜出的参数当发现；种子一换结果大变，报告的却是单一最好的那一次；两千次评估的搜索史被忘掉，<a href="/quant/harvey-liu-zhu">Harvey-Liu-Zhu 多重检验</a>的折价没有记进任何台账；以及更隐蔽的——凸化其实可行，只是写约束的人懒得想。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>方法是给黑盒搜索立一套先于运行的纪律：能凸化的外围全部凸化，把搜索空间缩到真正非凸的核；评估预算与种子方案在开跑前钉死，跑完不追加；验收只认多种子的解分布与凸基线的间隙，搜索次数按多重检验口径折价入账。三件套的顺序不可换：先缩空间，再谈预算，最后谈验收。</p><h3 id="纪律三件套" tabindex="-1">纪律三件套 <a class="header-anchor" href="#纪律三件套" aria-label="Permalink to &quot;纪律三件套&quot;">​</a></h3><p>第一件，先凸化再黑盒。基数用 \(\ell_1\) 松弛加投影，或连续解取整后做局部修复；固定成本拆成两阶段（先定持仓、再定交易批次）；路径类目标若能写成情景上的凸形式就退回上一课。凸化把搜索空间缩小一寸，过拟合的表面积就小一寸——只有真正凸不动的核才交给黑盒。第二件，管理评估预算。组合黑盒的每次评估都是一次回测，昂贵且缓慢；贝叶斯优化用代理模型与采集函数挑下一次评估的点（Jones 等 1998 的高效全局优化是原型），CMA-ES 适合中等维度的连续核，遗传算法对付离散与混合变量。<span class="marginnote">「代理模型」就是用便宜的猜想来代替昂贵的真跑：先用少量真实回测拟合一个近似曲面，再让采集函数猜「哪个点最值得下一次真跑」。数字实例：预算 500 次回测，贝叶斯优化可能花 30 次建代理、470 次挑点，省下的既是算力，也是会被记进台账的检验次数。</span>预算要事先钉死，跑完不许追加——追加预算就是追加检验次数。第三件，验收协议。报告多种子的解分布而不是单点；与凸松弛解比较，得到最优性间隙的经验感受；搜索次数进台账，按 <a href="/quant/deflated-sharpe">Deflated Sharpe</a> 与<a href="/quant/backtest-overfitting">过拟合次数与试错</a>的口径折价。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>黑盒在组合里比在超参里更危险，原因在评估数据的重复使用：调学习率的搜索消耗的是验证集的一次机会，组合黑盒却常在同一个历史窗口里反复评估——验证信息被成千次透支，样本内最优与样本外表现的相关性随评估次数衰减，<a href="/quant/pbo">Probability of Backtest Overfitting</a> 与 <a href="/quant/cscv">CSCV 组合对称交叉验证</a>正是给这类搜索做尸检的工具。种子敏感性与上一课的平坦谷底同源：非凸目标的多解集合比凸问题大得多，种子决定停在哪一个坑里；报告单点解等于把一片解集伪装成唯一真值。为什么贝叶斯优化值得优先考虑：代理模型显式携带不确定性，采集函数在「利用已知好区」与「探索未知区」之间做权衡，评估次数省下的同时，每一步选择都有记录可审计——这对台账纪律是加分而不是负担。</p><div class="mermaid"></div><p><span class="marginnote">「种子」是随机算法的起点编号。常见误区：只报告种子里运气最好的那一次。实际上换十颗种子得到十个不同的解，说明目标函数坑多、单点解不可信；把十次结果的分布（均值与区间）写进报告，才算对读者诚实。</span></p><p><span class="marginnote">台账口径：一次两千次评估的黑盒搜索，等价于对「这套框架能赚钱」做了两千次隐式检验；报告的 \(t\) 统计量要按搜索次数重算，折价后的显著性才是可以拿去投委会的数字。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写具体算法的实现细节：CMA-ES 的自适应协方差、采集函数的族谱各有专文；执行层母单拆分与日内路径是 <a href="/quant/almgren-chriss">Almgren-Chriss</a> 课序的对象，与这里的仓位层黑盒分属两层。黑盒不是凸优化的替代品：凸可得时用黑盒是纪律问题，不是能力问题；它也不是过拟合的豁免——恰恰相反，搜索越自由，<a href="/quant/white-reality-check">White Reality Check</a> 这类数据挖掘校正越必要。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>黑盒只在没有梯度可用的核上使用：基数、取整、固定成本、路径目标；外围先凸化，缩小搜索空间。</li><li>评估预算事先钉死；贝叶斯优化用代理省评估，CMA-ES 适合连续核。</li><li>验收靠多种子分布与凸基线间隙，不靠单一最好解；种子敏感性提示多解集合很大。</li><li>搜索次数进多重检验台账，按折价口径重算显著性。</li><li>出处：Hansen &amp; Ostermeier, <em>Evolutionary Computation</em>, 2001；Jones, Schonlau &amp; Welch, <em>Journal of Global Optimization</em>, 1998；折价口径据 backtest-overfitting 一课整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 组合构建深化<!--[--> · 单元 数值与优化<!--]--><!----></p><p class="lesson-progress">第 3 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/pf-rebalancing/">再平衡策略学</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/pf-regularized/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">正则化组合</span><span class="lesson-card-meta">组合构建深化 · 数值与优化<!--[--> · 第 2 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/pf-rebalancing/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">再平衡策略学</span><span class="lesson-card-meta">组合构建深化 · 策略维度<!--[--> · 第 4 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

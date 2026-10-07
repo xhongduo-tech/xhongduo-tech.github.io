@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ABR 自适应码率 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_abr-streaming.md.BOL0bT-M.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 从链路到应用协议<!--[--> · 单元 应用进阶<!--]--><!--[--> · 课序 实时与分发<!--]--></p><p class="lesson-progress">第 97 / 112 课</p><p class="lesson-prereq"> 先修：<a href="/cs/dash-hls/">DASH / HLS</a></p><p class="lesson-next"> 下一课：<a href="/cs/cdn-cache-hierarchy/">CDN 缓存层次与失效</a></p><!----></nav><div style="position:relative;"><div><h1 id="abr-自适应码率" tabindex="-1">ABR 自适应码率 <a class="header-anchor" href="#abr-自适应码率" aria-label="Permalink to &quot;ABR 自适应码率&quot;">​</a></h1><div class="epigraph"><p>播放器根据吞吐估计与缓冲水位在阶梯码率间切换，逼近瞬时可用带宽，避免卡顿或无谓的 4K。</p><footer>—— 据 Huang et al. 缓冲基 ABR；DASH/HLS 实践；Kurose 多媒体节整理</footer></div><p><a href="/cs/dash-hls">DASH/HLS</a> 提供阶梯。<a href="/cs/mimo-rate-adaptation">速率自适应</a> 在 Wi‑Fi PHY。<a href="/cs/dash-hls">上一课</a> 留下选哪一档。缺口是 <strong>ABR 控制</strong>：吞吐估计、缓冲、振荡。本课不把 CDN 层次写完。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>可用带宽随 Wi‑Fi、蜂窝、同屋流变化。固定高码率则再缓冲；固定低则浪费 \(C\)。ABR：测最近分片吞吐，看缓冲秒数，选下一表示。过敏则码率振荡（视觉差），过钝则卡。与 TCP CC 叠：ABR 在应用，CUBIC 在运输，双环。BBR 下估计更稳或仍抖，取决于实现。</p><p>不要把 ABR 写成 5G 切片保证。</p><p><span class="marginnote">缓冲基（BBA）等算法。本课不点名商业播放器。</span></p><p><span class="marginnote">数字实例：阶梯码率常见如 240p 约 0.4 Mbps、720p 约 3 Mbps、1080p 约 6 Mbps。网络实际只有 4 Mbps 却锁 1080p，每秒就欠 2 Mbps，缓冲几十秒后耗尽必然卡顿；自动降到 720p 反而能一秒不断。</span></p><p><span class="marginnote">直觉类比：TCP 拥塞控制在运输层「探路有多宽」，ABR 在应用层「看路况决定开多快」——两个环叠着转。若 ABR 对吞吐的每次抖动都立刻反应，就会像新手司机一样忽快忽慢（码率振荡），所以估计必须滤波。</span></p><h3 id="应用层跟踪可用带宽" tabindex="-1">应用层跟踪可用带宽 <a class="header-anchor" href="#应用层跟踪可用带宽" aria-label="Permalink to &quot;应用层跟踪可用带宽&quot;">​</a></h3><p>与 TCP/BBR 双环，要滤波防振荡。令牌桶边缘限速会表现为「网慢」。清单缺中间档则跳变。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对照：基于吞吐 / 基于缓冲 / 混合。画：下片 → 估 BW → 选档。与令牌桶：边缘限速会让 ABR 降档，表现为「网很慢」。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>CDN 不同 POP 吞吐不同，切换 POP 像路径变。ECN 膨胀影响估计。QUIC 迁移换路要重新估计。无线 TCP 误码让吞吐锯齿，ABR 应滤波。与 WFQ：隔离后估计更干净。</p><p>安全：恶意慢片可诱骗降档，点名。</p><p>第一张图画的是选档吃哪两路输入；这张图回答第二个问题：同样的输入下，缓冲水位落在哪个区间，决策就完全不同——这就是缓冲基算法的核心逻辑。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：初学者容易以为 ABR 的目标是「尽量播最高清」。实际目标是卡顿与画质的折中——一次三秒的转圈缓冲，比全程 720p 难受得多。若阶梯清单里缺了中间档位，控制算法再好也只能在 0.4 和 6 Mbps 之间大幅跳变。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不引入强化学习 ABR 的全部。CDN 缓存层次与失效是下一课。后课默认：ABR 是应用层对可用带宽的阶梯跟踪。</p><p>清单若缺中间档，控制再好也跳变。</p><p>下一课<a href="/cs/cdn-cache-hierarchy">CDN 缓存层次与失效</a>。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>吞吐与缓冲驱动选档。</li><li>与 TCP/BBR 形成双环，要滤波。</li><li>目标是卡顿与质量折中，不是峰值码率。</li><li>后课只引用本课钉死的对象，不从该领域总问题重开。</li><li>出处：ABR 文献；DASH/HLS 实践。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 从链路到应用协议<!--[--> · 单元 应用进阶<!--]--><!--[--> · 课序 实时与分发<!--]--></p><p class="lesson-progress">第 97 / 112 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/cdn-cache-hierarchy/">CDN 缓存层次与失效</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/dash-hls/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">DASH / HLS</span><span class="lesson-card-meta">从链路到应用协议 · 应用进阶 · 实时与分发<!--[--> · 第 96 / 112 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/cdn-cache-hierarchy/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">CDN 缓存层次与失效</span><span class="lesson-card-meta">从链路到应用协议 · 应用进阶 · 实时与分发<!--[--> · 第 98 / 112 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

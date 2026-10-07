@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vLLM 架构走读 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_fw-vllm-walkthrough.md.DepDC5Jj.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 推理框架源码走读<!--[--> · 单元 主流框架<!--]--><!----></p><p class="lesson-progress">第 1 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/llm/eco-map/">开源生态收束</a></p><p class="lesson-next"> 下一课：<a href="/llm/fw-sglang-walkthrough/">SGLang 走读</a></p><!----></nav><div style="position:relative;"><div><h1 id="vllm-架构走读" tabindex="-1">vLLM 架构走读 <a class="header-anchor" href="#vllm-架构走读" aria-label="Permalink to &quot;vLLM 架构走读&quot;">​</a></h1><div class="epigraph"><p>读源码不是逐行背诵，是找到那几个被所有路径读写的数据结构——它们定下系统能做什么、改起来要付多少代价。</p><footer>—— 据 vLLM 仓库结构与 Kwon 等，SOSP 2023 整理</footer></div><p><a href="/llm/eco-map">上一课</a>把开源生态与发布工程收束在发布物那一面：许可、版本、复现报告回答「交付了什么」。深钻层最后一程从交付面转进源码面：推理框架的代码长什么样、为什么长成那样。本课程第一课走读 vLLM。概念层已经写过：<a href="/llm/vllm-architecture">架构四件套</a>是 SOSP 论文口径，<a href="/llm/vllm-v1">V1 架构</a>写了 V0 到 V1 的演进，本课进仓库，讲目录分层与关键数据结构，以仓库当时状态为准，不逐行引用。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>论文给了「中央调度 + 分页 KV + worker」的骨架，打开仓库却先撞上两个落差。其一，仓库不是按论文图组织的：入口、引擎、调度、执行、平台各占一层目录，还有论文里没有的 OpenAI 兼容服务、插件与平台抽象。其二，V0 与 V1 并存过：同一个概念（调度器、KV 管理）在两代里类名与位置都不同，随手搜类名会搜到两套答案。走读要回答的是：哪些层是脊梁、哪些是皮肉，一步迭代在数据结构上留下什么脚印。</p><h3 id="分层怎么读" tabindex="-1">分层怎么读 <a class="header-anchor" href="#分层怎么读" aria-label="Permalink to &quot;分层怎么读&quot;">​</a></h3><p>入口层收两种调用：离线的 <code>LLM</code> 与在线的 API 服务，后者把 OpenAI 兼容协议翻译成内部请求。引擎层是分水岭：V1 把引擎核心 EngineCore 与前端 AsyncLLM 拆成两个进程，中间走消息队列；前端只做分词、流式编排与请求生命周期，核心进程单线程跑调度与执行。调度层产出一步的全部指令；KV 层管块池与块表；执行层是 worker 与模型运行器，注意力后端做成可插拔类族；最底是平台抽象与各硬件插件。判断某一改动落在哪层，先问它改的是「决策」还是「执行」。</p><p><span class="marginnote">「分页 KV」翻译一下：操作系统把内存切成固定大小的页、按页分配，程序不必拿到一整段连续内存；PagedAttention 把这套思路搬进推理，KV 显存切成固定小块（block）按需记账。好处是请求间几乎不留碎片，显存利用率从三成多抬到九成上下。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>走读的固定动作是<strong>沿一步迭代走</strong>。请求进入后先变成请求对象；调度器每步把可运行请求收拢，产出一个调度输出——V0 里是围绕 SequenceGroup 的调度输出，V1 里是围绕 Request 的 ScheduledRequests——内容包括本步运行谁、每个序列的块表、新 token 写进哪些空槽。KV 侧，V1 的 KVCacheManager 持有块池与每请求块表，V0 的对应物是 BlockSpaceManager；名字换了，「逻辑块号到物理块号」这张映射没换。执行侧，ModelRunner 把调度输出变成张量批，调用注意力后端做一次前向，把采样后的 token 交还核心进程，输出再经前端流给客户端。</p><div class="mermaid"></div><p><span class="marginnote">SequenceGroup 是 V0 走读时最容易被误读的结构：一个请求在束搜索或并行采样下展开成多条序列，调度与抢占以「组」为单位记账。V1 把这条折叠进 Request 的子状态，读旧代码先认组，读新代码先认请求。</span></p><p><span class="marginnote">给个数感受块表省下的显存：块大小 16 token 时，一条 3000 token 的序列占 188 个块，最后一块只用 8 个槽、空 8 个，碎片不足 3%；老式连续预留若按最大长度 4096 预留，则白占 1096 个槽位。逻辑块号到物理块号这张映射，就是把「用多少占多少」写进数据结构。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>这套分层的因果链是「策略便宜、执行昂贵」。调度、块表更新、抢占决策都发生在 CPU 的核心进程里，且 V1 让它单线程：一步一个调度输出，没有锁竞争，也没有第二个作者能在半步插手。GPU worker 不做策略，只按收到的块表执行；这使注意力核不依赖调度方式，也使调度器重写不必碰模型代码——V0 到 V1 重写了调度器、KV 管理器与采样器，模型实现与 CUDA 核却整层复用，就是分层买来的自由。数据结构即接口：调度输出是每步指令的全集，看懂它，等于看懂这一步 GPU 会做什么。</p><div class="mermaid"></div><p><span class="marginnote">初学者容易以为核心进程「单线程」是性能妥协，其实正相反：一步只产出一个调度输出，没有锁竞争、没有并发改状态的收尾成本，CPU 决策又远快于 GPU 一步前向，瓶颈根本不在决策侧。多线程调度在这里只会引入竞态，换不来吞吐。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>目录名、类名、进程模型都随版本漂移，本课给的是读法：先找入口，再找「一步的产出物」，顺数据结构走到核；具体名字以仓库当时状态为准。也不要把仓库结构当成论文架构图的一比一还原：服务、插件、平台抽象是工程需要，论文没写。PagedAttention 的页内寻址与调度器迭代节奏已各有一课，本课不重算；多卡时每张卡一个 worker、单一调度器对齐所有卡这一条，从论文到仓库都成立。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>vLLM 仓库按入口、引擎、调度、KV、执行、平台分层；脊梁是「核心进程单线程决策，worker 只执行」。</li><li>走读的锚点是每步的调度输出：V0 围绕 SequenceGroup，V1 围绕 Request 与 ScheduledRequests。</li><li>KV 侧不变量是逻辑块到物理块的块表；V1 的 KVCacheManager 与 V0 的 BlockSpaceManager 同构。</li><li>V0 到 V1 的重写只动调度与 KV 层，模型与核复用，验证了分层的价值。</li><li>读法不绑定版本：找入口、找一步的产出物、沿数据结构走到核；名字以仓库当时状态为准。</li><li>出处：vLLM 仓库（vllm-project/vllm）与 Kwon et al., <em>Efficient Memory Management for LLM Serving with PagedAttention</em>, SOSP 2023，按源码结构整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 推理框架源码走读<!--[--> · 单元 主流框架<!--]--><!----></p><p class="lesson-progress">第 1 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/fw-sglang-walkthrough/">SGLang 走读</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/eco-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">开源生态收束</span><span class="lesson-card-meta">开源生态与发布工程 · 发布<!--[--> · 第 8 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/fw-sglang-walkthrough/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">SGLang 走读</span><span class="lesson-card-meta">推理框架源码走读 · 主流框架<!--[--> · 第 2 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

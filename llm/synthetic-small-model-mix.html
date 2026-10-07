@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>小模型的数据配比 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_synthetic-small-model-mix.md.zSHf4mx7.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 配方与验证<!--]--><!----></p><p class="lesson-progress">第 11 / 16 课</p><p class="lesson-prereq"> 先修：<a href="/llm/synthetic-diversity-metrics/">多样性的度量与覆盖</a></p><p class="lesson-next"> 下一课：<a href="/llm/synthetic-eval-sets/">合成评测集的构造</a></p><!----></nav><div style="position:relative;"><div><h1 id="小模型的数据配比" tabindex="-1">小模型的数据配比 <a class="header-anchor" href="#小模型的数据配比" aria-label="Permalink to &quot;小模型的数据配比&quot;">​</a></h1><div class="epigraph"><p>小模型不是缩一号的大模型：容量更小，对坏样本更不宽容，对好配方更敏感——配比在小模型上是一等决策。</p><footer>—— 据 Mukherjee 等 Orca；Gunasekar 等 Textbooks；Abdin 等 Phi-3 整理</footer></div><p><a href="/llm/synthetic-diversity-metrics">上一课</a>定下覆盖怎么量；本课回答配比问题：合成与真实、各能力域之间，份额怎么分。这件事在小模型上被推到极端——<a href="/llm/synthetic-pretrain">合成数据在预训练中的位置</a>讲过合成是补丁不是主食，<a href="/llm/textbook-synthetic">教科书式合成</a>给过「高密度合成是有硬上限的调料」的结论。小模型让这些结论的每一个词都更重：它既没有容量吸收坏样本，也没有冗余稀释好配方。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>小模型的配比与<a href="/llm/data-mixture-laws">配比定律与领域配比</a>的大模型图景有两处结构性不同。其一，噪声敏感度：大模型有容量装下噪声样本，损失被平均掉；小模型的每一分容量都要花在刀刃上，质量过滤的档位必须更紧——大模型配比里能容忍的合成占比，直接搬到小模型常常失败。其二，风格吸收：小模型更容易学表面模式，合成数据的教师风格会被更深地烙进去，多教师、去风格化在小模型上不是可选优化。矛盾在于：小模型恰恰是蒸馏与合成的最大受益者——<a href="/llm/reasoning-distill-small">推理蒸馏到小模型</a>证明过滤后的长链能把小模型推过原本的规模线。收益与风险同源，配比就是在这对矛盾里找平衡点。<span class="marginnote">小模型对噪声敏感可以类比小背包：大背包随手塞，混进几件坏东西不碍事；小背包每一寸都要精挑，塞进一件废品就得挤掉一件有用的。配比在小模型上是一等决策，根源就是背包太小。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>配比按三个粒度定。能力域粒度：验证强的域（数学、代码）合成占比可以高——拦截率撑得住；开放域占比压低并以真实锚点兜底，沿用预训练侧「有源改写优于无源生成」的口径。阶段粒度：占比是训练阶段的函数——中期可以把高密度合成抬高（学技能），末段用真实数据退火（对齐分布）；倒序会让模型先学坏再难改。<span class="marginnote">「末段真实退火」可以翻译成：训练快收尾时把数据换回真实分布，让模型最后学的是真实世界的语言。若倒过来——先用真实再用合成收尾——模型交卷时满口教师风格，反而不像见过真实文本。</span>教师粒度：单教师的份额设上限，配比表按教师版本记账；教师升级时旧份额不自动顺延——教师换了，它那部分数据要重过滤。</p><p>规模是配比的隐藏维度：用小代理扫出来的最优配比不能直接平移到目标规模，<a href="/llm/proxy-model-experiments">小模型代理实验</a>的假阳性口径（数据制度不同）在合成数据上尤其常见——代理模型学合成的效率与目标模型不同构，方向性结论至少要在两个规模各验一遍。<span class="marginnote">初学者容易以为小模型上扫出的最优配比能直接搬到目标规模。代理模型学合成数据的效率与目标模型不同构：小代理觉得划算的配方，大模型可能根本不需要——这是数据制度不同造成的假阳性，不是调参手气问题。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>小模型放大「合成更好学」的偏差：高密度合成去噪充分、密度均匀，训练损失与开发集都更好看，但合成分布与真实分布的缝隙在日志里不可见——这正是预训练侧「合成往往更好学，日志会骗人」的结论。小模型把这口陷阱挖得更深，因为它的容量不足以在外部保留真实分布的对照，所以小模型评测里真实探针的权重必须更高：日志选型、探针定案。蒸馏配比的特殊性在于教师链已经替你做了一层质量与难度过滤，蒸馏数据与自合成数据不是同一类资产——前者继承教师分布的偏置，后者叠加本模型的偏置，两类份额要分开记账，混在「合成」一个桶里会互相掩盖各自的上限。</p><p><span class="marginnote">DeepSeek-R1 的蒸馏系列是配比第一性的例证：约八十万条过滤后的教师长链直接 SFT，小模型推理大幅越线，全程无需 RL。第一步永远是把教师与过滤器选对，其次才是调百分比。</span></p><div class="mermaid"></div><p><span class="marginnote">这张图回答的问题是：蒸馏桶与自合成桶的偏置从哪来。蒸馏数据的质量闸在教师侧，偏置也是教师的；自合成数据的偏置来自学生自己——它的错误会被自己的过滤器放行。两类资产混记在「合成」一个桶里，各自的上限就互相掩盖了。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>配比结论的时效以教师与基座的换代为界：基座换版，旧配比的最优点整体作废，能继承的只有结构——域份额的相对次序与阶段形状。验证弱域的合成占比没有安全上界公式，只有探针增量这一个裁判。蒸馏数据的许可与教师条款是配比之外的闸门，本课程后面有专课；此处只立规矩：配比表里每一份都要能回答「从哪来、谁生成、凭什么能用」。小模型的多轮与 agent 能力配比本课不展开——它们的上限更多卡在任务与环境，不在数据百分比。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>小模型对噪声更不宽容、对风格吸收更深：过滤更紧、教师份额记账。</li><li>配比三粒度：能力域、训练阶段、教师版本；末段真实退火。</li><li>合成更好学会骗日志：真实探针权重必须更高。</li><li>蒸馏数据与自合成数据分开记账，偏置来源不同。</li><li>代理扫配比要跨两个规模验方向，防制度差假阳性。</li><li>出处：Mukherjee 等 Orca 2023；Gunasekar 等 2023；Abdin 等 Phi-3 2024；DeepSeek-AI R1 2025。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 配方与验证<!--]--><!----></p><p class="lesson-progress">第 11 / 16 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/synthetic-eval-sets/">合成评测集的构造</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/synthetic-diversity-metrics/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">多样性的度量与覆盖</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 配方与验证<!--[--> · 第 10 / 16 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/synthetic-eval-sets/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">合成评测集的构造</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 配方与验证<!--[--> · 第 12 / 16 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

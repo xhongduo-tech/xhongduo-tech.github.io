@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>逐层与逐头的敏感度 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_kv-layerwise-sensitivity.md.CbzTpEF0.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 KV 管理与压缩<!--[--> · 单元 压缩<!--]--><!----></p><p class="lesson-progress">第 5 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/kv-quant-int8-int4/">KV 量化：INT8 与 INT4</a></p><p class="lesson-next"> 下一课：<a href="/llm/kv-eviction-heuristics/">驱逐策略与启发式</a></p><!----></nav><div style="position:relative;"><div><h1 id="逐层与逐头的敏感度" tabindex="-1">逐层与逐头的敏感度 <a class="header-anchor" href="#逐层与逐头的敏感度" aria-label="Permalink to &quot;逐层与逐头的敏感度&quot;">​</a></h1><div class="epigraph"><p>误差预算在网络深度上不是均匀货币：同样一比特花在第一层和第三十层，买到的质量不一样。</p><footer>—— 据 Liu et al., KIVI, ICML 2024 的逐层量化敏感性观察；配额视角见 Cai et al., PyramidKV, 2024</footer></div><p><a href="/llm/kv-quant-int8-int4">上一课</a>把所有层、所有头一视同仁地压到同一档。缺口是：误差预算在深度与头之间的分布不均匀——同样的 4-bit，有的层几乎无感，有的层掉点；同样的驱逐配额，有的头是检索主干，有的头全程陪跑。统一策略把预算花在无感处，把刀落在要害处。本课写敏感度怎么量出来、预算怎么按层按头重排。量化轴与头数的结构权衡各有先课，不重写。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>统一策略隐含「各层各头同质」。两条证据反对它。量化侧：KIVI 在流行模型上观察到第一层对低比特最敏感，同样操作在中间层几乎免费。驱逐侧：注意力角色沿深度分化——浅层的注意力弥散在整个上下文上，深层则集中到少数锚点，信息像通过漏斗收窄；<a href="/llm/attention-head-roles">头角色</a>也早已分化，归纳头与检索头承载长程复制，负头的分布近乎均匀。对浅层驱逐、对检索头量化，都是在最不耐受的位置下刀。</p><p>敏感度还随负载变：检索型任务把要害押在少数长程头上，闲聊负载几乎测不出差别。所以敏感度不是模型的一个常数，而是「模型 × 任务」的性质，测量必须带着目标负载做。</p><p><span class="marginnote">直觉类比：把误差预算想成装修预算——统一策略像每个房间花一样的钱，结果在储藏间铺了大理石，却给承重墙用了劣质水泥。按敏感度重排预算，就是把材料挪到承重的地方，总花费不变、房子更稳。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>量出来</strong>。对每层每头做受控消融：单独把该层量化到目标比特、或单独纳入驱逐集，在针检索与长文档任务上量 delta，困惑度只做粗筛。廉价的代理是注意力的集中度（分数熵）：弥散的层/头对扰动耐受，尖峰的对扰动敏感，可先按熵排序再做精确消融。扫描离线做一次，部署时查表。</p><p><span class="marginnote">术语翻译：受控消融就是一次只动一个开关——单独把某一层的缓存压到 4-bit，或单独把它划进驱逐集，其余一切不变，再量任务分数掉了多少。掉得多，说明这一处敏感；一次动多个开关，就说不清掉点是谁的锅。</span></p><p><strong>用出来</strong>。两条再分配的轴。精度轴：敏感层保 FP8/FP16，其余打 INT4，平均比特不变、掉点显著收窄。配额轴：驱逐预算按层重排——浅层多留、深层少留，与漏斗形状一致；同一层内，检索头与汇点位置禁逐，负头先逐。<a href="/llm/h2o-kv">H2O</a> 的累积分数可以当逐头的驱逐判据，但它不分层；把分数与层位联用，才接近「预算花在刀刃上」。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>层间不均的机制在信息流：早期层处理局部的词序与句法，需要「看得宽」，注意力熵高、可删的少；深层做语义聚合，只对少量锚点打分，砍掉无人看的位置损失很小。金字塔式的配额（浅层厚、深层薄）就是这个形状的直接翻译。量化敏感度同构：第一层的键承担了「定位自己在哪」的基础功能，通道异常最深，压它等于动摇配分函数。</p><p>头维的机制在角色分工：归纳头负责把当前 token 链接到早前出现的位置，是上下文学习载体的那批头，丢了它们的键，少样本能力先崩；负头只做均匀背景，是天然的压缩对象。GQA 之后头维只剩 \(h_{kv}\) 个独立键值组，一切按头策略必须以 KV 头为单位执行，粒度先被结构钉死——这是 <a href="/llm/kv-head-tradeoff">KV 头数权衡</a> 给出的约束，不是实现选择。</p><p><span class="marginnote">数字实例：GQA 把 32 个查询头共享到 \(h_{kv}=8\) 个 KV 组后，「按头定精度」的可操作对象就从 32 掉到 8——想给某个查询头单独保 FP16，也只能连同共享这一组键值的兄弟头一起保。说「策略粒度被结构钉死」，指的就是这种想动一处、必动一组的情况。</span></p><div class="mermaid"></div><p><span class="marginnote">敏感度表要在「模型 × 负载」两维上建档：同一次扫描给出的排序，搬到检索型负载上可能整体重排。换了主力任务不改表，等于拿着旧地图开车。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>混精度把缓存切成多种粒度，核必须支持逐块不同比特，前缀缓存的<a href="/llm/kv-prefix-cache">指纹</a>要把「哪层哪头什么精度」一并编进键，否则跨请求共享会命中到不一致的页。逐层驱逐与滑窗、sink 配方叠加时，禁逐区要取并集，别让两条策略互相拆台。离线扫描有分布漂移：模型升级、提示模板大改之后敏感度排序会变，表要随版本重扫。最后，别把「深层不敏感」推到极端——最深几层直接接输出分布，残差里的值误差会放大，压缩方案通常给首末层单独留档。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>敏感度是「模型 × 任务」性质：用受控消融加注意力熵代理量出来，离线扫描、部署查表。</li><li>精度轴与配额轴都可以按层按头重排；金字塔分配与信息漏斗形状一致。</li><li>浅层最怕量化与驱逐；检索头、归纳头与汇点位置禁逐，负头先压。</li><li>GQA 把头策略的粒度钉在 KV 头上；混精度进缓存指纹。</li><li>首末层单独留档；表随模型与负载版本重扫。</li><li>出处：Liu et al., KIVI, ICML 2024（逐层敏感性）；Cai et al., PyramidKV, 2024（按层配额）；头角色口径据本仓库既有课程。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 KV 管理与压缩<!--[--> · 单元 压缩<!--]--><!----></p><p class="lesson-progress">第 5 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/kv-eviction-heuristics/">驱逐策略与启发式</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/kv-quant-int8-int4/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">KV 量化：INT8 与 INT4</span><span class="lesson-card-meta">KV 管理与压缩 · 压缩<!--[--> · 第 4 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/kv-eviction-heuristics/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">驱逐策略与启发式</span><span class="lesson-card-meta">KV 管理与压缩 · 压缩<!--[--> · 第 6 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

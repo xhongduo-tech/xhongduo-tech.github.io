@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>离策略与重要性采样 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_off-policy-importance-rl.md.Dis8lUg7.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 强化学习基础<!--[--> · 单元 无模型学习<!--]--><!--[--> · 课序 预测与控制<!--]--></p><p class="lesson-progress">第 10 / 22 课</p><p class="lesson-prereq"> 先修：<a href="/llm/sarsa-q-learning/">SARSA 与 Q 学习</a></p><p class="lesson-next"> 下一课：<a href="/llm/deadly-triad/">致命三要素</a></p><!----></nav><div style="position:relative;"><div><h1 id="离策略与重要性采样" tabindex="-1">离策略与重要性采样 <a class="header-anchor" href="#离策略与重要性采样" aria-label="Permalink to &quot;离策略与重要性采样&quot;">​</a></h1><div class="epigraph"><p>拿别人的轨迹评自己的策略，概率比率的连乘就是汇率；汇率连乘一千次，方差先于偏差爆炸。</p><footer>—— 据 Sutton &amp; Barto, 2018, §5.5；Precup, Sutton &amp; Singh, ICML 2000 整理</footer></div><p><a href="/llm/sarsa-q-learning">上一课</a>的离策略只到目标为止：Q 学习对 max 自举，数据仍由自己的行为策略生成。真正的离策略数据更彻底——重放的旧轨迹、人类演示、以及 LLM 训练里旧版本模型产出的 rollout——行为策略 \(\mu\) 与被评估的策略 \(\pi\) 不是同一个。缺口：不同分布下的直接平均估的是 \(v_\mu\)，不是 \(v_\pi\)。本课写重要性采样的校正，并钉住它的病根：方差随回合长度乘性增长。LLM 栏已有工程课<a href="/llm/truncated-importance-sampling">截断重要性采样</a>回答「截多少、截谁」；本课给它的统计骨架。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>数据按 \(\mu\) 采样，想要 \(v_\pi\)。轨迹在两个策略下的似然不同，校正系数是似然比</p> \[\rho(\tau)=\frac{\Pr_\pi(\tau)}{\Pr_\mu(\tau)}=\prod_{k}\frac{\pi(a_k\mid s_k)}{\mu(a_k\mid s_k)} . \]<p>马尔可夫性让转移概率逐项相消，只剩动作比率——状态分布的偏移，全部由「这条动作序列在 \(\pi\) 下本来就常见还是罕见」承担。校正之后做加权平均才是 \(v_\pi\) 的估计；不加权，平均里混着 \(\mu\) 的访问频率，策略一换答案就错。</p><p><span class="marginnote">术语翻译：行为策略 \(\mu\) 是「实际出门采数据的那个人」，目标策略 \(\pi\) 是「你想评估的那套决策规则」。重要性采样就是给 \(\mu\) 的每条轨迹乘一个似然比「汇率」，把「\(\mu\) 世界的平均回报」换算成「\(\pi\) 世界的平均回报」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>普通重要性采样：\(v_\pi(s)\approx\frac{1}{N}\sum_i \rho^{(i)}G^{(i)}\)，其中 \(\rho^{(i)}\) 从 \(s\) 首次出现累乘到回合末。加权（自归一化）版本 \(\sum_i\rho^{(i)}G^{(i)}\big/\sum_i\rho^{(i)}\) 有偏，但把比率的共同尺度消掉，方差通常更小。逐步（per-decision）版本（Precup 等 2000）把比率拆开，每个时步只用截至该步的累乘比率与对应奖励配对，方差进一步降。实现的底线只有一条：连乘必须搬到对数域做加法，回指数前再截断。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>方差病根在二阶矩。每步比率的期望是 1，二阶矩不是：\(\mathbb{E}[\rho_k^2]\ge\big(\mathbb{E}[\rho_k]\big)^2=1\)，而连乘把二阶矩也连乘——估计方差随回合长度乘性增长。数字口径：每步比率若只是 1.01，\(1.01^{1000}\approx2.1\times10^4\)；若每步 0.99，一千步后只剩 \(4\times10^{-5}\)，有效样本条数坍缩到近零。这不是实现瑕疵，是估计量本身的性质：无偏与低方差在长回合上不可兼得，只能以偏置换方差。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：连乘比率像连续兑换一千次货币——每次汇率哪怕只偏 1%，一千次后要么翻两万倍、要么只剩十万分之四。估计的「运气复利」就是这么支配方差的，所以截断不是工程偷懒，是对付复利的唯一办法。</span></p><p><span class="marginnote">半精度浮点的上界约 \(6.5\times10^4\)：一千步、每步 1.01 的连乘已贴近上溢，每步 1.02 就冲到 \(4\times10^8\)。对数域累加不是优化，是正确性。</span></p><p>与 Q 学习的分工要说清：Q 学习绕开重要性采样，是因为它不估 \(v_\pi\)，直接对 \(q_*\) 自举；只要任务是「评估一个具体策略」或「校正控制方法的训练分布」，这类校正绕不开。LLM 的对照：一条几千 token 的完成，序列级比率是几千个 token 比率的连乘，不截断则方差在回合长度上指数回来；截断阈值、行为策略 logprob 的缓存、以及「截校正权重还是截近端代理」的取舍，<a href="/llm/truncated-importance-sampling">截断重要性采样</a>已按现场写成工程课，本课负责说明那些工程为何不是可选项。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>支撑条件不可协商：若某动作 \(\pi(a\mid s)\gt0\) 而 \(\mu(a\mid s)=0\)，比率无定义（分母为零，这样的动作根本采不到），该区域的 \(v_\pi\) 原则上不可估——没采过的东西没有数据，这是可辨识性而非技术细节。加权版本与逐步版本各自牺牲一点无偏性或一致性换方差，报结果时要写清用的是哪一种。马尔可夫性承担了转移项相消：部分可观测或状态定义不一致时，相消不成立，校正自带缺口。最后，回合越长、离得越远，纯重要性采样越像理论工具；活下来的是它的截断与近似变体——这句就是通往 LLM 栏工程课的桥。</p><p><span class="marginnote">常见误区：以为「无偏」就一定更好。普通 IS 无偏，但方差大到长回合上根本不可用；加权（自归一化）与逐步版本各自牺牲一点无偏性或一致性换方差。报实验时写清用的是哪一种估计量，比执着于无偏标签更实在。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>离策略评估靠轨迹似然比校正分布差；马尔可夫性使转移项相消，只剩动作比率。</li><li>普通 IS 无偏而方差最差；加权与逐步版本以偏置换方差。</li><li>方差随回合长度乘性增长；\(\mu\) 覆盖 \(\pi\) 的支撑是可辨识前提。</li><li>长序列上对数域累加与截断是正确性要求，不是优化偏好。</li><li>LLM 栏的工程课承接本课：阈值、缓存与截法的现场取舍。</li><li>出处：Sutton &amp; Barto 2018 §5.5；Precup, Sutton &amp; Singh, ICML 2000。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 强化学习基础<!--[--> · 单元 无模型学习<!--]--><!--[--> · 课序 预测与控制<!--]--></p><p class="lesson-progress">第 10 / 22 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/deadly-triad/">致命三要素</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/sarsa-q-learning/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">SARSA 与 Q 学习</span><span class="lesson-card-meta">强化学习基础 · 无模型学习 · 预测与控制<!--[--> · 第 9 / 22 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/deadly-triad/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">致命三要素</span><span class="lesson-card-meta">强化学习基础 · 无模型学习 · 预测与控制<!--[--> · 第 11 / 22 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

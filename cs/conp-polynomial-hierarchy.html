@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>coNP 与多项式层级 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_conp-polynomial-hierarchy.md.BvBtXAAa.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 复杂性<!--]--><!--[--> · 课序 时间与空间<!--]--></p><p class="lesson-progress">第 24 / 66 课</p><p class="lesson-prereq"> 先修：<a href="/cs/cook-levin/">Cook–Levin 定理</a></p><p class="lesson-next"> 下一课：<a href="/cs/bpp-randomized-class/">BPP 与随机复杂类</a></p><!----></nav><div style="position:relative;"><div><h1 id="conp-与多项式层级" tabindex="-1">coNP 与多项式层级 <a class="header-anchor" href="#conp-与多项式层级" aria-label="Permalink to &quot;coNP 与多项式层级&quot;">​</a></h1><div class="epigraph"><p>coNP 是 NP 语言的补；多项式层级用交替的多项式长量词给 NP、coNP 搭楼，PH 落在 PSPACE 里。</p><footer>—— 据 Stockmeyer；Garey and Johnson；Arora and Barak 整理</footer></div><p>上一课<a href="/cs/cook-levin">Cook–Levin</a> 把 NP 钉在「存在短证书」。缺口是<strong>否实例</strong>的短证，以及更多量词。coNP：\(\overline L\in\mathrm{NP}\)。TAUTOLOGY、UNSAT 是 coNP 完全候选。多项式层级 \(\Sigma_k^p,\Pi_k^p\)：交替 \(\exists\forall\) 各多项式长。\(\mathrm{NP}=\Sigma_1^p\)，\(\mathrm{coNP}=\Pi_1^p\)。\(\mathrm{PH}\subseteq\mathrm{PSPACE}\)。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>「无哈密顿回路」不像有短 Yes 证书。若 \(NP=\mathrm{coNP}\)，层级会塌。若任一 \(\Sigma_k^p\) 完全问题落到下一层，PH 塌缩。本课不裁决塌缩，只给量词形状。\(\Pi_2\) 例：\(\forall\) 对手策略 \(\exists\) 我的应对（某些博弈的短局）。TQBF 不限制量词个数，故在 PSPACE 而不必在 PH 的固定层。</p><p>主干只谈 \(P\) vs \(NP\)。本课把第三轴 coNP 插上，避免把「难」全写成 NPC。</p><h3 id="conp-不是「补算法」" tabindex="-1">coNP 不是「补算法」 <a class="header-anchor" href="#conp-不是「补算法」" aria-label="Permalink to &quot;coNP 不是「补算法」&quot;">​</a></h3><p>\(P\) 对补封闭：把是/否翻转。NP 未知。证书对 Yes 短，不自动给 No 短证。UNSAT 的短证若存在且易验，则 \(NP=\mathrm{coNP}\) 一类结论，未被证明。<span class="marginnote">可以把 NP 想成「看一眼答案就能快速确认对」的题——比如数独递来一张填好的表。coNP 则是「看一眼『无解证明』就能快速确认无解」的题。答案纸短，不等于无解证明也短；这两样是否一样短，正是没解开的谜。</span></p><p><span class="marginnote">Stockmeyer 的多项式层级。Garey–Johnson 讨论 coNP。Arora–Barak 第 5 章。本课不引入预言机塌缩的全部相对化。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>写 \(\Sigma_2^p\)：存在多项式 \(u\)，对所有多项式 \(v\)，某 P 谓词 \(R(x,u,v)\)。指出 PH 的完全问题（带 \(k\) 个量词的 3SAT 变体）点名即可。画包含图：\(P\subseteq NP\cap coNP\subseteq NP\subseteq PH\subseteq PSPACE\)。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>量词个数对应交替图灵机的交替次数。Savitch 把空间非确定平方掉，管不到量词交替的时间类。若 \(P=NP\) 则 PH \(=P\)。故「只证了 NP 完全」之后，层级问题仍然在。</p><p>不要把 coNP 完全当成「比 NPC 更难」：它们是不同方向的完全，未知谁包含谁。<span class="marginnote">初学者容易以为 coNP 完全「比 NP 完全更难」，实际上两个方向只是证书对象不同（一个给 No 实例的短证，一个给 Yes 实例的短证），谁包含谁是开放问题；已知的只有 \(P\subseteq NP\cap\mathrm{coNP}\)。</span></p><p>若 \(NP=\mathrm{coNP}\)，则 PH 塌到第二层以下（实际上到 \(NP\)）。\(\Sigma_2\) 完全问题的脸谱是「存在电路使某 SAT 公式恰有某种计数性质」一类，本课不列清单。交替图灵机的交替次数对应层数；PSPACE 允许多项式次交替，故 TQBF 不必停在固定 \(k\)。</p><p><span class="marginnote">「PH 塌缩」翻译成白话：这栋楼本设计成一层比一层强，若发现某层的问题其实能在更低一层解掉，上面所有层也一并压平——楼梯突然只剩几级。「塌缩」不是坏事，是「复杂度比想象中低」的表述。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不证 Toda 定理，不引入 \(\mathrm{PH}\subseteq P^{\#P}\)。不把 \(\Sigma_2\) 电路下界提前。后课默认：Yes 短证是 NP，No 短证是 coNP；更多交替是 PH。下一课硬币：BPP。</p><p>量词个数固定的层级与 PSPACE 的「任意多项式个量词」之间仍可能有缝。\(P=NP\) 会把整栋 PH 压成 \(P\)。不要把 coNP 完全说成「比 NPC 更难」——方向不同。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>coNP = NP 的补类；UNSAT 是典型对象。</li><li>PH 是多项式长交替量词；\(PH\subseteq PSPACE\)。</li><li>塌缩开放；\(P=NP\) 会把整栋楼压扁。</li><li>出处：Stockmeyer；Garey and Johnson；Arora and Barak。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 复杂性<!--]--><!--[--> · 课序 时间与空间<!--]--></p><p class="lesson-progress">第 24 / 66 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/bpp-randomized-class/">BPP 与随机复杂类</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/cook-levin/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">Cook–Levin 定理</span><span class="lesson-card-meta">计算理论 · 复杂性 · 时间与空间<!--[--> · 第 23 / 66 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/bpp-randomized-class/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">BPP 与随机复杂类</span><span class="lesson-card-meta">计算理论 · 复杂性 · 时间与空间<!--[--> · 第 25 / 66 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

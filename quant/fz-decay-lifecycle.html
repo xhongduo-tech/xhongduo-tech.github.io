@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>因子衰减与生命周期 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_fz-decay-lifecycle.md.-r3JJJPT.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 因子研究深化<!--[--> · 单元 方法论<!--]--><!----></p><p class="lesson-progress">第 4 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/quant/fz-crowding-metrics/">因子拥挤的度量</a></p><p class="lesson-next"> 下一课：<a href="/quant/fz-taxonomy/">因子分类学</a></p><!----></nav><div style="position:relative;"><div><h1 id="因子衰减与生命周期" tabindex="-1">因子衰减与生命周期 <a class="header-anchor" href="#因子衰减与生命周期" aria-label="Permalink to &quot;因子衰减与生命周期&quot;">​</a></h1><div class="epigraph"><p>因子像资产一样有生命周期：发现、发表、采用、拥挤、衰减。衰减几乎必然，死亡很少；把「降了一半」读成「已经归零」，是把尾部风险溢价白白送人。</p><footer>—— 据 McLean &amp; Pontiff, Journal of Finance, 2016；Harvey, Liu &amp; Zhu, Review of Financial Studies, 2016 整理</footer></div><p><a href="/quant/fz-crowding-metrics">上一课</a>把拥挤写成状态量；把状态量放上时间轴，就是生命周期。<a href="/quant/factor-decay-turnover">换手与衰减</a>讲过持有期维度的信号衰减；本课把「衰减」本身作为研究对象：怎么测、归因于什么原因、对应什么动作。核心是把一个常被滥用的词变成可估计的量，并把「衰减了多少」与「死了没有」分开。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>因子溢价不是常数，但「这段回撤是衰减」是一种无法证伪的叙事：回撤既可能是套利资本进入压薄溢价，可能是异象本来就是数据挖掘，也可能只是体制暂时不利，或者干脆就是噪声。四种解释对应四种动作——减仓、剔除、条件化、扛住——混着谈就只剩一种动作：情绪化地进出。缺口因此有两个：把衰减变成可估计的量（幅度与速度），以及把估计出的衰减归因到原因上。发表是文献里少有的可定位事件，让第二个缺口有了干净的识别点。</p><h3 id="测量" tabindex="-1">测量 <a class="header-anchor" href="#测量" aria-label="Permalink to &quot;测量&quot;">​</a></h3><p><span class="marginnote">McLean &amp; Pontiff (2016, JF) 对 97 个学术异象的组合收益做了样本内外与发表前后的对比：样本外收益约低 26%，发表后约低 58%。衰减显著但远非归零；残余部分与放弃交易后的尾部风险并存——动量发表数十年后仍有<a href="/quant/momentum-crash">崩盘</a>。</span></p><p>测量从三个口径展开。滚动口径：滚动 IC 与多空收益均值，估半衰期——把溢价写成 \(\mu_t=\mu_\infty+(\mu_0-\mu_\infty)\,e^{-t/\tau}\)，\(\tau\) 是衰减速度的尺度；样本短时只能给区间，不要点估计。事件口径：以论文发表（或策略进入大机构）为事件点做前后对比，这是 McLean–Pontiff 的做法，识别最干净，但每个因子只有一次事件。体制口径：按状态（波动、信用价差）分块的子样本均值，回答「溢价是死了，还是在另一个状态下活着」。三个口径合起来，才够支撑归因。</p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>归因是治理动作的入口。</p><p><span class="marginnote">「半衰期」的数字实例：把溢价写成 \(\mu_t=\mu_\infty+(\mu_0-\mu_\infty)\,e^{-t/\tau}\)，取 \(\tau=3\) 年，意味着 3 年后剩余差距只剩 \(e^{-1}\approx 37\%\)，6 年后约 \(14\%\)。注意衰减的是「当前水平到长期水平的距离」，不是溢价本身归零——初学者常把 \(\tau\) 误解成「\(\tau\) 年后因子死亡」。</span>套利进入型衰减：溢价被采用资本压薄但不必消失，动作是降仓留残余，并接上一课的拥挤状态量作为降仓节奏的参考。数据挖掘暴露型：若衰减曲线与「纯属挑出来的噪声」一致——样本内 t 很高、样本外直接消失——动作是把因子移出账本并写进失败清单，这正是 <a href="/quant/pbo">PBO</a> 与 <a href="/quant/cscv">CSCV</a> 在事前要拦的。体制依赖型：溢价均值随状态切换，动作不是放弃而是条件化，把它交给本课程的条件化专课。噪声型：估计区间内与「没变」相容，动作是什么都不做，维持判据。四种动作写进<a href="/quant/strategy-lifecycle">策略生命周期</a>与<a href="/quant/research-postmortem">复盘</a>的台账，衰减估计才从分析变成流程。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么发表本身会压溢价？发表消除了信息不对称：原本只有论文作者知道的预测关系变成公共知识，套利资本进入，直到边际收益等于交易与资金成本。</p><p><span class="marginnote">可以把它想象成藏宝图公开：最早按图寻宝的人挖走浅层宝藏，后人蜂拥而至把容易挖的部分挖完；但最深的矿层因开采成本太高，始终无人问津。残余溢价就是留给愿意承担「深处风险」的人的补偿——这正解释了为什么衰减机制预测衰减不彻底。</span></p><div class="mermaid"></div><p>这个机制预测衰减主要发生在「可交易、容量够」的异象上，对执行成本高的异象衰减慢——证据与之一致。同时机制预测衰减不彻底：成本让套利停在半路，残余溢价是对继续持有者的尾部风险补偿。所以衰减检测要同时看一阶矩与二阶矩：均值下移是衰减，方差抬升是风险重组——后者恰恰是组合边际贡献计算里要重新定价的东西。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>半衰期估计对窗口与频率极其敏感，\(\tau\) 不能外推成承诺；测到衰减不等于能择时，因子层面的择时收益是另一个命题（见<a href="/quant/factor-timing-feasibility">因子择时的可行性</a>）。</p><p><span class="marginnote">常见误区：把「发表后收益低 58%」读成「因子已死」。剩下 42% 的溢价仍在，且方差可能抬升；把「降了一半」读成「归零」，等于把仍在支付的尾部风险补偿白白送人。另外，换一个估计窗口，\(\tau\) 可能差出一倍——它只能给区间，不能给点承诺。</span>容量上限的估计（<a href="/quant/capacity-participation">参与率</a>、<a href="/quant/live-capacity-estimate">实盘容量</a>）是衰减的前置约束，但不是本课内容。最后一条诚实边界：发表后衰减的识别依赖「发表时间可定位」的学术异象；自营因子的生命周期没有公开事件点，只能靠内部台账记录首次上仓位的时点——把制度化的「发表」自己建起来。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>衰减要拆成测量与归因：滚动半衰期、发表事件对比、分体制子样本三个口径。</li><li>归因四分：套利进入、数据挖掘暴露、体制依赖、噪声；对应降仓、剔除、条件化、不动。</li><li>发表后衰减的机制是套利资本进入，预测衰减不彻底，残余是尾部风险补偿。</li><li>均值下移与方差抬升要分开读：前者是衰减，后者是风险重组。</li><li>出处：McLean &amp; Pontiff, <em>JF</em>, 2016；Harvey, Liu &amp; Zhu, <em>RFS</em>, 2016。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 因子研究深化<!--[--> · 单元 方法论<!--]--><!----></p><p class="lesson-progress">第 4 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/fz-taxonomy/">因子分类学</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/fz-crowding-metrics/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">因子拥挤的度量</span><span class="lesson-card-meta">因子研究深化 · 方法论<!--[--> · 第 3 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/fz-taxonomy/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">因子分类学</span><span class="lesson-card-meta">因子研究深化 · 方法论<!--[--> · 第 5 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

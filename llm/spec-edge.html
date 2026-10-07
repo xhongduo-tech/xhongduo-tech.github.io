@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>边缘端的投机 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_spec-edge.md.g3NOYSSc.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 投机解码深化<!--[--> · 单元 系统交互<!--]--><!----></p><p class="lesson-progress">第 6 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/spec-batching-interaction/">投机与批处理的交互</a></p><p class="lesson-next"> 下一课：<a href="/llm/spec-longoutput/">长输出场景的投机</a></p><!----></nav><div style="position:relative;"><div><h1 id="边缘端的投机" tabindex="-1">边缘端的投机 <a class="header-anchor" href="#边缘端的投机" aria-label="Permalink to &quot;边缘端的投机&quot;">​</a></h1><div class="epigraph"><p>服务器上投机在捡空闲算力，边缘上没有空闲算力可捡——能捡的只剩内存带宽和电池。</p><footer>—— 据 Leviathan et al., 2023 的成本比框架对端侧资源的重算整理</footer></div><p><a href="/llm/spec-batching-interaction">上一课</a>把批量这根轴走完：服务端批量填满算力后投机退场。边缘端是这条逻辑的极值——batch=1 是常态而非低载工况，而且连「稍胖的前向」都不便宜。本端的<a href="/llm/on-device-speculative">端侧投机解码</a>写过设备–云分工：草稿在端、校验在云。本课写另一条路：投机整个发生在端上，目标、草稿、校验都不出设备。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>端侧的资源约束把服务器的两笔账重写。第一笔是成本比 \(c_q/c_p\)：服务器上目标模型卡在带宽墙、算力大量闲置，校验前向近乎免费，草稿只要「更快」就赚；端上目标本身就是几 B 参数的小模型，草稿要么更小、要么零权重，两者挤同一条内存带宽，\(c_q\) 的相对占比高得多。第二笔是容量：手机与笔记本上，权重量化后目标已占几个 GB，一份独立草稿模型的常驻内存可能直接出局；KV 峰值还要为草稿位置多留 \((1+\gamma)\) 的余量，而端侧 KV 预算本就贴着上限编。第三笔是能耗：每个被接受 token 的焦耳数才是端上的「延迟」，草稿前向的白算直接烧电池。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>按「草稿多便宜」排一条端侧谱系。<strong>零权重草稿</strong>：n-gram / 提示内复制——编辑、改写、抄写型任务里，输出大量重复提示或自身已生成的文本，复制式草稿接受率极高且不占内存、不花前向，是端侧的第一选择（检索式候选见 <a href="/llm/rest-spec">REST</a>）。<strong>自投机头</strong>：在量化目标上挂一个多 token 头或单层草稿，权重代价几十 MB 量级，词表按构造对齐，这是<a href="/llm/spec-self-draft-medusa">自投机与多 token 头</a>与<a href="/llm/spec-eagle-family">特征级草稿</a>在端上的落点；特征挂钩要求目标导出中间层，端侧推理栈要支持。<strong>同族小模型</strong>：最后才考虑，内存与热身成本都要立项。<strong>校验的形状</strong>：端侧加速器多按静态 shape 编译，\(\gamma\) 可变会触发重编译；把 \(\gamma+1\) 个位置补齐成固定形状、短请求掩码早退，比动态 shape 便宜。</p><p><span class="marginnote">术语翻译：「静态 shape 编译」是加速器在编译期把张量尺寸钉死来换执行效率；\(\gamma\) 一变、尺寸就变，整套核要重新编译（毫秒到秒级）。所以端侧宁可把 \(\gamma+1\) 个位置统一补齐成固定形状，没草稿的位置用掩码跳过——「补座位」比「每次重排桌」便宜。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>端上投机的机制核心仍是那条不变式：加速 = 接受长度 ÷ 一轮成本比，变的只是成本怎么算。服务器的带宽墙让「一轮成本」近似等于一次目标步；端上「一轮成本」= 草稿前向的带宽与能耗 + 校验的增量。零权重草稿把第一项压到近零，于是即便目标只有 3–8B，接受长度 2–3 也直接兑现为约一半的步数——这解释了为什么复制式草稿在端侧的地位远高于服务器：服务器的草稿预算买得起学习型模型，端侧最稀缺的恰是那份预算。能耗账同理：生成 \(\tau\) 个 token 的一轮，权重读取次数从 \(\tau\) 次目标前向降到约 \(1+\tau/(\gamma+1)\) 次，电池省的是这一截；但草稿若要独立模型常驻，内存驻留本身的功耗与换页就把账吃回去。</p><p><span class="marginnote">量级感受：8B 目标 4-bit 权重约 4–5 GB，同族 0.5–1B 草稿还要再加约 0.3–0.7 GB 与一份 KV——在 8–12 GB 可用内存的手机上，这份常驻就是「出局」二字的含义；单层自投机头几十 MB，才挤得进来。</span></p><p><span class="marginnote">数字实例：\(\gamma=3\)、平均每轮接受 \(\tau=3\) 个 token 时，一轮的目标前向当量从 3 次降到约 \(1+3/4=1.75\) 次（摊到每个 token 约合 0.58 次），权重读取省约四成——电池省的就是这一截。但若为这份 \(\tau=3\) 常驻一个独立草稿模型，驻留功耗与换页会把省下的吃回去。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>热节流让 \(c_q/c_p\) 随时间漂：连续生成几分钟后峰值频率下降，离线测的成本比在真机上会失真，账要按稳态温度重算。接受率也漂：端上流量高度个人化，桶统计的样本比服务端更稀，上一课的在线选择在端上退化为「任务识别 + 两三档预设」。无损声明不变，但端上常配贪心或低温采样，「无损」与「逐 token 相同」的区分更要写清。设备–云分工与纯端投机不是二选一：敏感前缀留在端上投机，长重算段走<a href="/llm/on-device-speculative">端侧投机解码</a>的云校验，按隐私与资费切分。</p><p><span class="marginnote">直觉类比：手机连跑几分钟大模型后变卡，不是错觉——芯片过热会主动降频自保。实验室里机器冰凉时测出的成本比，拿到发烫的真机上会偏乐观，所以端侧的加速比要按「跑热之后」的稳态频率重新算一遍。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>端侧 batch=1 是常态且无空闲算力：成本比、内存容量、能耗三笔账一起重写投机立项。</li><li>谱系按草稿便宜程度排：n-gram 复制零权重居首，自投机头次之，独立小模型最后。</li><li>零权重草稿在端侧价值最高：服务器买得起学习型草稿，端侧最缺的正是这份预算。</li><li>校验按固定 \(\gamma+1\) 形状补齐，掩码早退，避免加速器动态 shape 重编译。</li><li>能耗省在「每接受 token 的目标前向次数」；热节流与个人化流量要求按稳态重测成本比。</li><li>出处：Leviathan et al., ICML 2023；Cai et al., <em>Medusa</em>, ICML 2024；据本仓库端侧与投机课序整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 投机解码深化<!--[--> · 单元 系统交互<!--]--><!----></p><p class="lesson-progress">第 6 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/spec-longoutput/">长输出场景的投机</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/spec-batching-interaction/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">投机与批处理的交互</span><span class="lesson-card-meta">投机解码深化 · 系统交互<!--[--> · 第 5 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/spec-longoutput/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">长输出场景的投机</span><span class="lesson-card-meta">投机解码深化 · 系统交互<!--[--> · 第 7 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>长上下文的显存曲线 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_long-context-memory-curve.md.TvquLK51.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 性能会计与编译<!--[--> · 单元 性能会计<!--]--><!--[--> · 课序 算清楚再优化<!--]--></p><p class="lesson-progress">第 6 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/llm/serving-cost-model/">服务成本模型</a></p><p class="lesson-next"> 下一课：<a href="/llm/torch-compile-inductor/">torch.compile 与 Inductor</a></p><!----></nav><div style="position:relative;"><div><h1 id="长上下文的显存曲线" tabindex="-1">长上下文的显存曲线 <a class="header-anchor" href="#长上下文的显存曲线" aria-label="Permalink to &quot;长上下文的显存曲线&quot;">​</a></h1><div class="epigraph"><p>上下文从 4K 走到 128K，KV 线性胀，注意力时间超线性胀；能「塞进去」与「还能按 SLA 吐词」是两条曲线。</p><footer>—— KV 线性见 Pope et al., 2022；分页减碎片见 Kwon et al., vLLM, SOSP 2023；精确注意力仍二次见 Dao et al., FlashAttention, NeurIPS 2022</footer></div><p><a href="/llm/serving-cost-model">上一课</a>的 \(C_{\mathrm{tok}}\) 还像一个点。本课把它拉成 \(n\) 的函数：容量、带宽、二次计算三条曲线不同时拐弯。长上下文产品只报「支持 128K」是容量声明；TPOT 与成本必须沿 \(n\) 再画一遍。<a href="/llm/paged-attention">分页注意力</a>让你不必按 128K 预留，但正在用的字节仍按<a href="/llm/kv-cache-size-math">容量公式</a>走。本单元「算清楚再优化」到此收束，下一单元才进编译器与内核。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(n\) 增大时：（1）KV 线性，容量墙先打中并发；（2）每步读 KV 线性，带宽墙上 TPOT 涨；（3）prefill 注意力 \(\Theta(n^2)\)，TTFT 涨得更陡。三条墙的交点不同。<span class="marginnote">术语翻译：TTFT 是「首 token 时间」——按下回车到第一个字蹦出来的延迟，主要由读完全部输入的 prefill 决定；TPOT 是「每 token 时间」——之后每个字平均要等多久，也就是吐词速度。产品体验是两者之和：TTFT 决定『卡不卡』，TPOT 决定『打字机快不快』。</span>只优化其中一条（例如只开分页）会在另一条上失败：请求能进，首 token 要数秒，或能进且 TTFT 可接受，但 \(N=8\) 投票立刻 OOM。缺口是把曲线画全，而不是再解释一次 FlashAttention 的 IO。</p><p>前缀缓存、会话复用把「名义 \(n\)」与「新算的 \(n\)」拆开：命中时 TTFT 掉下来，KV 容量仍按会话峰值占用。成本模型必须用占用，不是用「新算 FLOPs」。</p><p><span class="marginnote">FA 使 HBM 上不出现 \(n\times n\) 的 \(A\)，训练激活墙缓解；推理 decode 的 KV 墙还在。长上下文 decode 的时间墙是读 KV + 权重，不是写 \(A\)。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对部署画三张图，横轴 \(n\)：最大并发 \(B_{\max}(n)\approx \mathrm{HBM}_{\mathrm{free}}/\mathrm{KV}(1)\)；decode TPOT \((W+\mathrm{KV}(n))/B_{\mathrm{HBM}}\)；prefill 时间用实测或 \(\Theta(n^2 d)\) 加线性 GEMM。SLA 取三者的可行域交集。<span class="marginnote">数字实例：一个 32 层、8 个 KV 头、head 维 128 的 7B 级模型，fp16 下每 token 的 KV 约 \(2\times32\times8\times128\times2\,\text{B}=128\) KB；一条 128k 的会话就是约 16 GB——24 GB 的卡塞满一条会话就没余量了，并发从根上被掐死。</span>GQA/MLA/KV 量化把曲线（1）（2）下移；稀疏或线性注意力才改（3）的阶，那是架构课，不是本课开关。</p><p>布局：<a href="/llm/kv-layout">HND</a> 在长 \(n\) 的 decode 上更利于扫序列；预填充仍可能 BSHD。长上下文服务更值得在写入缓存时转成 HND。FlashDecoding 在 \(B\times h\) 不够时切 KV，否则长 \(n\) 喂不进带宽。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>可行域随量化与并行度变。张量并行按头切 KV，每卡 KV 除以 TP，但权重也切，通信下一单元再写。多样本在生成段把（1）（2）乘 \(N\)，长思维链等于把 \(n\) 再拉长：同一条曲线上走得更远。这是为什么「开思考」比「开 128K 文档」更容易先撞墙——生成段不可用前缀缓存摊掉。每个优化开关各管一段曲线：</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要用 4K 的 TPOT 乘 \(32\) 当 128K 的 TPOT：权重项不随 \(n\) 放大那么多，线性外推会错。<span class="marginnote">为什么重要：decode 每步时间 \(\approx\)（权重 \(+\) KV）除以带宽。权重是几十 GB 的大头、不随 \(n\) 变；KV 只是小头在涨。所以 4K→128K 时 TPOT 涨得多、但没有 32 倍那么恐怖；反着用也错——以为 4K 时 TPOT 达标、128K 就一定达标，容量与 prefill 两条曲线会先把你拦下。</span>不要把能跑通的最大 \(n\) 当默认提示长度。本单元之后，优化转向 <em>如何让核与编译器逼近这些公式已经允许的屋顶</em>，而不是再改会计恒等式。</p><p>出处：Pope et al., 2022；Kwon et al., SOSP 2023；Dao et al., NeurIPS 2022。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>长上下文是三条曲线：容量线性、decode 带宽线性、prefill 超线性。</li><li>分页减预留，不减占用；前缀缓存减计算，不减占用。</li><li>SLA 取可行域；投票与思维链走生成段，更易撞墙。</li><li>布局与 FlashDecoding 影响能否贴近带宽公式。</li><li>会计到此够用；下一课 torch.compile。</li><li>出处：Pope et al., 2022；Kwon et al., 2023；Dao et al., 2022。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 性能会计与编译<!--[--> · 单元 性能会计<!--]--><!--[--> · 课序 算清楚再优化<!--]--></p><p class="lesson-progress">第 6 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/torch-compile-inductor/">torch.compile 与 Inductor</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/serving-cost-model/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">服务成本模型</span><span class="lesson-card-meta">性能会计与编译 · 性能会计 · 算清楚再优化<!--[--> · 第 5 / 25 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/torch-compile-inductor/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">torch.compile 与 Inductor</span><span class="lesson-card-meta">性能会计与编译 · 编译与内核 · 引擎里的细节<!--[--> · 第 7 / 25 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

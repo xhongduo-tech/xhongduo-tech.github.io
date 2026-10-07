@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LDPC 与 Turbo 直觉 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.511386d4.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_ldpc-turbo.md.D-8d3OOz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 信息与编码<!--]--><!--[--> · 课序 信源与信道<!--]--></p><p class="lesson-progress">第 40 / 66 课</p><p class="lesson-prereq"> 先修：<a href="/cs/convolutional-viterbi/">卷积码与 Viterbi</a></p><p class="lesson-next"> 下一课：<a href="/cs/rate-distortion/">率失真</a></p><!----></nav><div style="position:relative;"><div><h1 id="ldpc-与-turbo-直觉" tabindex="-1">LDPC 与 Turbo 直觉 <a class="header-anchor" href="#ldpc-与-turbo-直觉" aria-label="Permalink to &quot;LDPC 与 Turbo 直觉&quot;">​</a></h1><div class="epigraph"><p>稀疏校验图上的迭代消息传递，以及交织的两个卷积码互相当先验：实践中逼近 Shannon 容量，证明却是密度演化与经验。</p><footer>—— 据 Gallager, 1963；Berrou, Glavieux and Thitimajshima, 1993；Richardson and Urbanke 整理</footer></div><p>上一课<a href="/cs/convolutional-viterbi">卷积与 Viterbi</a> 的状态随记忆指数涨，离容量远。缺口是<strong>近容量码</strong>：LDPC（稀疏 \(H\)）与 Turbo（并行级联卷积）。本课直觉：因子图、迭代、门限；不写 5G 标准。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Gallager：校验矩阵稀疏，每个校验含少数变量。译码：在 Tanner 图上传递「这比特是 0/1 的似然」，迭代。环短会骗过迭代，随机大图以高概率好。Turbo：两个系统卷积码，中间交织；解码器交换外信息。二者都不是代数最小距离设计的主路，而是统计物理式的阈值：\(E_b/N_0\) 高于门限则错误瀑布下降。</p><p>对照 Hamming/RS：那里 \(d_{\min}\) 精确；这里瀑布 + 错误平层（平层由小重量码字造成）。</p><h3 id="迭代不是最大似然" tabindex="-1">迭代不是最大似然 <a class="header-anchor" href="#迭代不是最大似然" aria-label="Permalink to &quot;迭代不是最大似然&quot;">​</a></h3><p>Viterbi 在网格上 ML。LDPC 的 BP 在有环图上只是近似。容量附近 ML 不可行（码太长），迭代是工程最优。</p><p><span class="marginnote">Gallager 1963 被忽视，1990s 复活。Berrou et al. 1993 Turbo。Richardson–Urbanke 密度演化。MacKay 的现代编码观点。PCP 的「局部校验」不是本课的信道译码。</span></p><p><span class="marginnote">直觉类比：Tanner 图上的迭代像陪审团合议——每个比特节点是一位证人，先按信道观察给出自己的置信度；每个校验节点是一个交叉质证小组，发现「你们几个的说法加起来矛盾」就把修正意见发回去；证人参考意见更新自己的置信度，几轮后达成共识。短环则是几个小组互相小圈子循环背书，合议被带偏。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>画一张小 Tanner 图：变量圆、校验方。描述一次迭代。点名：码长 \(10^4\) 量级才显近容量，短码仍可用 RS。不要把深度学习译码当定义。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Shannon 随机码不可实现；LDPC/Turbo 是可描述的伪随机码，译码多项式（相对块长）。容量课的存在性至此有构造性近似。外码仍常用 RS 去平层。</p><p><span class="marginnote">数字实例：典型 LDPC 的校验矩阵每列只有 3 到 6 个 1——一个 10000 比特的码字，每个校验方程只牵扯几个比特。图上邻居数是常数，一次迭代总代价 \(O(n)\)；若 H 不稀疏，一个校验连所有比特，迭代一步就是 \(O(n^2)\)，长码根本跑不动。</span></p><p><span class="marginnote">常见误区：初学者看 LDPC 的性能曲线，以为信噪比再抬高错误率就能无限下降。实际上曲线会在 \(10^{-6}\) 到 \(10^{-9}\) 附近突然变平（错误平层），元凶是少量小重量码字——所以深空与存储系统常在 LDPC 外面再套一层 RS 代数码把平层压下去。</span></p><div class="mermaid"></div><p>这张图回答的问题：一次「迭代消息传递」内部消息怎么流、何时停。变量节点收信、校验节点质证、再汇总，循环到全部校验满足或轮数用尽——这与上图「设计层面的构造链」互补，是运行层面的译码循环。</p><p>与单向函数无关：这里的「随机」是码设计，不是密码学困难。</p><p>密度演化在树状展开上追踪消息分布，预测门限。有环则分析是近似。极化码（Arikan）用另一条可证达容量的构造，5G 控制信道用过，本课点名。平层：增大最小距离或外接 RS 可压。短码场景代数码仍常胜。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不推密度演化积分，不写 5G NR 的基图。不引入极化码（Arikan）全文，点名：另一条达容量路线。后课默认：近容量实用码 = 稀疏图迭代。下一课允许失真：率失真。</p><p>近容量来自长码上的统计门限，不是精确 \(d_{\min}\) 设计。BP 有环时非 ML。与 PCP 的「局部校验」同形不同题：这里是信道噪声，那里是证明系统。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>LDPC：稀疏校验 + 迭代 BP；Turbo：交织卷积互译。</li><li>逼近 \(C\)，代价是长码、平层、非 ML。</li><li>与代数码分工：统计门限 vs \(d_{\min}\)。</li><li>出处：Gallager, 1963；Berrou et al., 1993；Richardson and Urbanke。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 信息与编码<!--]--><!--[--> · 课序 信源与信道<!--]--></p><p class="lesson-progress">第 40 / 66 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/rate-distortion/">率失真</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/convolutional-viterbi/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">卷积码与 Viterbi</span><span class="lesson-card-meta">计算理论 · 信息与编码 · 信源与信道<!--[--> · 第 39 / 66 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/rate-distortion/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">率失真</span><span class="lesson-card-meta">计算理论 · 信息与编码 · 信源与信道<!--[--> · 第 41 / 66 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>
