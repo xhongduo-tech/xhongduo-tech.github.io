@@ -51,7 +51,7 @@ flowchart TD
 
 <span class="marginnote">try_to_unmap 就是用「反查每条 pte 并改写」的手段来做「解除映射但不丢数据」的事：匿名页的 pte 改成 swap 项，文件页的 pte 改成文件偏移项，下次访问再从对应来源装回。</span>
 
-<span class="marginnote">数字实例：一个被 fork 出 100 个子进程仍共享的 COW 页，rmap 链上挂着 100 条 pte；回收这一页就要改写 100 条表项并触发 100 次 TLB 失效。共享者越多，回收越贵——这就是 rmap 的代价所在。</span>
+<span class="marginnote">数字实例：一个被 fork 出 100 个子进程仍共享的 COW 页，父进程与 100 个子进程各挂一条 pte，rmap 链上共 1+100=101 条；回收这一页就要改写 101 条表项并触发 101 次 TLB 失效。共享者越多，回收越贵——这就是 rmap 的代价所在。</span>
 
 fork 复杂度与 rmap 锁是可伸缩痛点，实现用锁分段。
 

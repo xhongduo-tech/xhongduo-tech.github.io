@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-堆溢出、UAF：指针仍指向可写框。MTE：16 字节粒度标签，指针上位或专用字段带 tag，逻辑与物理标签比较。缺口：内核 `kasan` 硬件模式、用户 `PR_SET_TAGGED_ADDR`、与 [malloc](/cs/malloc-implementation) 必须在释放时换标签。本课不把 Intel LAM 的全部等价物写完。
+堆溢出、UAF：指针仍指向可写框。MTE：16 字节粒度标签，指针上位或专用字段带 tag，逻辑与物理标签比较。缺口：内核 `kasan` 硬件模式、用户 `PR_SET_TAGGED_ADDR_CTRL`、与 [malloc](/cs/malloc-implementation) 必须在释放时换标签。本课不把 Intel LAM 的全部等价物写完。
 
 <span class="marginnote">术语翻译：UAF（use-after-free，释放后使用）就是内存已经还给分配器、旧指针却还在读写——读写实际落在「别人的数据」上。MTE 的对策是 free 时换掉内存标签，悬垂指针带着旧标签一来就对不上，当场报错。</span>
 

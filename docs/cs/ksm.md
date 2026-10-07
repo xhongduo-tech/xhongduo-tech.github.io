@@ -19,7 +19,7 @@ section: cs
 
 <span class="marginnote">全零页可走 zero page，不必 KSM。稳定树与不稳定树是实现分法。教学对象是「内容相等 ⇒ 可共享直到写」。</span>
 
-<span class="marginnote">数字实例：一页 4 KB。把 200 台同镜像虚拟机里 1000 个内容相同的页并到同一页框，直接省下 $1000\times4\,\text{KB}\approx4$ MB 内存；代价是 ksmd 每轮要读完 pages_to_scan 个页做哈希与 memcmp，扫描越快省得越多、CPU 税也越重。</span>
+<span class="marginnote">数字实例：一页 4 KB。把 200 台同镜像虚拟机里 1000 个内容相同的页并到同一页框，直接省下 $(1000-1)\times4\,\text{KB}\approx4$ MB 内存；代价是 ksmd 每轮要读完 pages_to_scan 个页做哈希与 memcmp，扫描越快省得越多、CPU 税也越重。</span>
 
 ## 方法
 
