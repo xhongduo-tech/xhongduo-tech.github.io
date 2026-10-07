@@ -17,7 +17,7 @@ section: cs
 
 严格提交：每次扩大匿名区都扣减「剩余可保证页」（RAM+swap−已提交）。稀疏堆、巨大稀疏数组会立刻失败，尽管工作集很小。宽松提交：几乎总成功，把风险推到缺页与 OOM。启发式：看空闲与可回收文件页，允许一定倍率。缺口不是 CLOCK，而是用户接口何时返回 ENOMEM，何时把失败藏到稍后的故障。
 
-<span class="marginnote">数字实例：机器 16 GB 内存加 8 GB swap，宽松策略下进程 A、B 各 malloc 12 GB 也能同时成功——承诺合计 24 GB 超过物理总量；只要两者实际各只写 2 GB 就相安无事，谁先写满谁触发清算。</span>
+<span class="marginnote">数字实例：机器 16 GB 内存加 8 GB swap，可保证总量 24 GB；宽松策略下进程 A、B 各 malloc 16 GB 也能同时成功——承诺合计 32 GB 超过总量；只要两者实际各只写 2 GB 就相安无事，谁先写满谁触发清算。</span>
 
 <span class="marginnote">常见误区：初学者容易把 malloc 返回非 NULL 当「内存已到手」。宽松策略下它只表示记账通过；真正的考验在第一次写每一页的时刻——分配成功与物理到位是两件事。</span>
 
@@ -45,7 +45,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  M["malloc 12 GB，宽松策略"] --> OK["VMA 记账成功，立刻返回"]
+  M["malloc 16 GB，宽松策略"] --> OK["VMA 记账成功，立刻返回"]
   OK --> TOUCH["程序逐页写入"]
   TOUCH --> PF["每次首写触发缺页，领一个真帧"]
   PF --> Q{"帧还领得到吗?"}
