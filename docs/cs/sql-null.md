@@ -19,7 +19,7 @@ section: cs
 
 <span class="marginnote">Date 主张避免 NULL。主干承认 SQL 有它，并用三值把坑钉死：`x = x` 在 x 为 NULL 时不是真；`UNIQUE` 对多 NULL 的行为按标准版本而异。</span>
 
-<span class="marginnote">直觉类比：NULL 是「考卷没交」，不是「0 分」。问「他及格了吗」答案不是「否」而是「无从判断」——所以 `age \gt 18` 与 `NOT (age \gt 18)` 在 age 缺失时都留不下该行，缺value的记录两头都进不去。</span>
+<span class="marginnote">直觉类比：NULL 是「考卷没交」，不是「0 分」。问「他及格了吗」答案不是「否」而是「无从判断」——所以 `age \gt 18` 与 `NOT (age \gt 18)` 在 age 缺失时都留不下该行，缺值的记录两头都进不去。</span>
 
 ## 方法
 

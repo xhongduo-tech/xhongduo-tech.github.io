@@ -65,5 +65,5 @@ flowchart TD
 
 - 计划已在；本课只给树上可加的 I/O/CPU 估计。
 - 统计与独立假设会错，选错树不等于查错结果。
-- 逻辑改写下一课才动树的形状。
+- 逻辑改写后课才动树的形状。
 - 出处：Selinger et al., 1979；Ramakrishnan and Gehrke；Garcia-Molina, Ullman and Widom。

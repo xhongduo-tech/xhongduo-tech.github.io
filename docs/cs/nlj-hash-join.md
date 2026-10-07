@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Blasgen and Eswaran；Ramakrishnan and Gehrke 对 NLJ 与哈希连接的整理</footer>
 </div>
 
-[上一课](/cs/join-algorithms)声明逻辑连接只有一种含义、物理有三种形状。本课不重写 ⋈ 的定义。缺口是前两种算子：块嵌套循环如何用缓冲池，哈希连接如何在内存不够时分区。排序归并下一课。NULL 不当成匹配键，[上一课三值](/cs/sql-null) 已钉。
+[上一课](/cs/join-algorithms)声明逻辑连接只有一种含义、物理有三种形状。本课不重写 ⋈ 的定义。缺口是前两种算子：块嵌套循环如何用缓冲池，哈希连接如何在内存不够时分区。排序归并下一课。NULL 不当成匹配键，[空值与三值逻辑](/cs/sql-null) 已钉。
 
 ## 问题
 
