@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 RFC 2131, Dynamic Host Configuration Protocol；RFC 3022, Traditional IP Network Address Translator 整理</footer>
 </div>
 
-[上一课](/cs/icmp)假定主机已有地址。[IP 编址](/cs/icmp)要每接口一个 IP；手工配置不能规模化，IPv4 公网地址也不够每人一台。缺口是两件配套：**DHCP 租约**与 **NAT 复用**。本课不把 IPv6 地址空间当已解决。
+[上一课](/cs/icmp)假定主机已有地址。[IP 编址](/cs/ip-subnet)要每接口一个 IP；手工配置不能规模化，IPv4 公网地址也不够每人一台。缺口是两件配套：**DHCP 租约**与 **NAT 复用**。本课不把 IPv6 地址空间当已解决。
 
 ## 问题
 
