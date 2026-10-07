@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Comer, The Ubiquitous B-Tree, CSUR 1979；对照[B 树与外存](/cs/btree-external)</footer>
 </div>
 
-[上一课](/cs/heap-cluster)区分了堆与聚簇。本课不重讲空闲空间图。[B 树与外存](/cs/heap-cluster)已经给出多路平衡查找树为何适合分页。缺口是：数据库里实际用的是 **B+ 树**——数据（或 rid）只在叶上，内节点是分隔键，叶用兄弟指针支持范围扫描。
+[上一课](/cs/heap-cluster)区分了堆与聚簇。本课不重讲空闲空间图。[B 树与外存](/cs/btree-external)已经给出多路平衡查找树为何适合分页。缺口是：数据库里实际用的是 **B+ 树**——数据（或 rid）只在叶上，内节点是分隔键，叶用兄弟指针支持范围扫描。
 
 ## 问题
 
