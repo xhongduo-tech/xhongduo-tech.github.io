@@ -7,7 +7,7 @@ section: cs
 # 写屏障与卡表
 
 <div class="epigraph">
-<p>分代或增量 GC 不能每次扫描全堆。写屏障在指针写入时记录「脏」：老→幼的引用进记忆集，卡表用一字节标记一页有写。</p>
+<p>分代或增量 GC 不能每次扫描全堆。写屏障在指针写入时记录「脏」：老→幼的引用进记忆集，卡表用一字节标记一卡有写。</p>
 <footer>—— 据 Ungar, Generation Scavenging；Wilson and Moher；Jones 手册；HotSpot 卡表实践整理</footer>
 </div>
 

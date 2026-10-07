@@ -17,7 +17,7 @@ section: cs
 
 优化想把 load 提出循环；另一线程在写。无模型则要么禁止优化要么允许乱看。JMM/C++11：原子与锁建立 happens-before。缺口是**编译器合同**，不是硬件 MESI 细节。
 
-Data race：冲突访问、至少一个写、无排序。C++：UB。Java：不崩型，但值可撕（除 long/double 特殊）——仍几乎不可写。
+Data race：冲突访问、至少一个写、无排序。C++：UB。Java：不崩型，但值可撕仅限非 volatile 的 long/double——仍几乎不可写。
 
 <span class="marginnote">术语翻译：happens-before 就是跨线程的「可见性承诺」——它说的不是钟表时间上的先后，而是「如果 A happens-before B，A 写过的数据 B 必须能读到」。两个访问只要谁也不向谁做这种承诺、其中还有写，就是 data race。</span>
 
