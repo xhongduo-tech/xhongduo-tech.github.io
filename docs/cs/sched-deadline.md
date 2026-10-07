@@ -8,7 +8,7 @@ section: cs
 
 <div class="epigraph">
 <p>SCHED_DEADLINE 实现 CBS：任务申报运行时、周期与截止，内核保证在截止前给够预算，否则节流。</p>
-<footer>—— 据 Linux sched-deadline 文档；Abeni 与 Buttazzo 对 CBS 的论述；POSIX sporatic server 直觉</footer>
+<footer>—— 据 Linux sched-deadline 文档；Abeni 与 Buttazzo 对 CBS 的论述；POSIX sporadic server 直觉</footer>
 </div>
 
 [EEVDF](/cs/eevdf) 是尽力公平。[异构](/cs/heterogeneous-core-sched) 是容量。硬实时要 **带宽隔离**。缺口是 deadline 调度类：全局 EDF + CBS，不是用户写一个定时器循环。
