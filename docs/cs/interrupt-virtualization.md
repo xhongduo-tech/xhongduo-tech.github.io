@@ -44,9 +44,9 @@ flowchart TD
   P --> NV{"NV 指向的宿主向量?"}
   NV -->|"有效"| WFS["检查客户 vCPU 的 ON 位"]
   WFS --> WAK["唤醒/通知目标 pCPU"]
-  WAK --> G["客户在非根模式取中断"]
+  WAK --> G["客户在非根模式取中断，硬件搬 PIR 并清 ON"]
   NV -->|"无效"| EXIT["退回 VM-exit 注入"]
-  G --> EOI["虚拟 EOI 清 ON"]
+  G --> EOI["虚拟 EOI 后续投 PIR 中下一条"]
 ```
 
 <span class="marginnote">数字实例：一次 VM-exit 加上重新进入大约花 1–2 微秒。一张每秒打 10 万个中断的网卡，若每个中断都走退出注入，仅上下文进出就要吃掉约 0.1–0.2 秒的 CPU 时间（10 万 × 1.5 微秒 ≈ 15%），posted 把这笔开销几乎清零。</span>

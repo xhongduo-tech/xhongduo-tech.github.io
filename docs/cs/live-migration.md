@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-precopoy：循环拷脏，直到脏率可接受，downtime 拷 vCPU。postcopy：先切，缺页从源拉。缺口：设备状态、[SR-IOV](/cs/sriov-passthrough) 几乎不能迁；与 [NFS](/cs/nfs-semantics) 上的磁盘。本课不把 RDMA 迁移实现写完。
+precopy：循环拷脏，直到脏率可接受，downtime 拷 vCPU。postcopy：先切，缺页从源拉。缺口：设备状态、[SR-IOV](/cs/sriov-passthrough) 几乎不能迁；与 [NFS](/cs/nfs-semantics) 上的磁盘。本课不把 RDMA 迁移实现写完。
 
 <span class="marginnote">术语翻译：脏页就是「拷过去之后又被客户机改写过的页」——目标上那份立刻过期，只能下一轮重拷。预拷的全部技巧，就是让这个集合一轮比一轮小，直到一轮就能拷完。</span>
 
