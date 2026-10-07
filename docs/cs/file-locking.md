@@ -17,7 +17,7 @@ section: cs
 
 两个编辑器写同一文件，页缓存共帧，内容交错。锁提供劝告：`F_WRLCK` 互斥，`F_RDLCK` 共享。POSIX 记录锁历史上与进程绑定：关任意 fd 可能释放该进程对该 inode 的全部锁——这是著名陷阱。Linux OFD 锁跟打开文件描述走，更接近「这个 fd」。强制锁（mandatory）需挂载选项与模式位，今日少用。缺口：锁等待、死锁检测（部分内核做）、NFS 上的 NLM/v4 lock。
 
-<span class="marginnote">`LOCK_EX` 的 flock 与 fcntl 锁在 Linux 上曾不互通，后有统一。教学上把它们当成可能分裂的名字空间，查清再混用。</span>
+<span class="marginnote">`LOCK_EX` 的 flock 与 fcntl 锁的历史方向是先通后分：2.0 前 flock 由 C 库用 fcntl 模拟、两套互通；Linux 2.0 起 flock 独立成系统调用，本地文件系统上互不阻挡（NFS 上 2.6.12 后 flock 按 fcntl 全文件锁模拟，又重新互动）。教学上把它们当成可能分裂的名字空间，查清再混用。</span>
 
 <span class="marginnote">劝告锁（advisory lock）就是「只约束自愿检查它的程序」的锁：内核不会替你拦截不查锁的直接写入，好比门上贴「请先敲门」的告示而不上锁。所以它只在互相协作的进程之间有效，绕过锁的程序照样能写。</span>
 

@@ -19,7 +19,7 @@ section: cs
 
 <span class="marginnote">字符设备按字节流；块设备按块，可走页缓存（缓冲 I/O）。裸盘 `O_DIRECT` 是后课。本课不把 NVMe 多队列写完。</span>
 
-<span class="marginnote">数字实例：`ls -l /dev/sda` 输出里的「8, 0」就是主、次设备号。Linux 里主号 8 固定分给 sd（SCSI/SATA 磁盘）驱动，次号 0 是整盘、15 是第 16 个分区。主次号不是随便编的，内核靠这对数字查表找到驱动。</span>
+<span class="marginnote">数字实例：`ls -l /dev/sda` 输出里的「8, 0」就是主、次设备号。Linux 里主号 8 固定分给 sd（SCSI/SATA 磁盘）驱动，次号 0 是整盘、1–15 对应第 1–15 个分区——一块盘占 16 个次号，下一块盘 sdb 从次号 16 起算。主次号不是随便编的，内核靠这对数字查表找到驱动。</span>
 
 <span class="marginnote">直觉类比：主次号像公司电话总机——主号决定转接哪个部门（哪个驱动），次号是部门里的分机号（该驱动管的第几个设备实例）。同一芯片上的两个串口，往往主号相同、次号不同。</span>
 
