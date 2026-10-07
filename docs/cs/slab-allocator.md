@@ -45,8 +45,8 @@ slab 把「页」变成「类型化内存」，让 VFS 与网络协议栈的热�
 
 ```mermaid
 flowchart TD
-  A["cache 建好：常驻半满/满/空三列 slab"] --> B["alloc：从本 CPU 满列取空闲槽"]
-  B --> C{"满列有槽?"}
+  A["cache 建好：常驻半满/满/空三列 slab"] --> B["alloc：从本 CPU 半满列取空闲槽"]
+  B --> C{"半满列有槽?"}
   C -- 有 --> D["O(1) 直接给<br>不跑构造（已初始化过）"]
   C -- 无 --> E["问 buddy 要新页<br>新对象才跑一次构造"]
   D --> F["free：对象放回空闲槽<br>页仍留在 cache 里"]

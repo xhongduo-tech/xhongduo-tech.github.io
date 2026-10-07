@@ -52,7 +52,7 @@ flowchart TD
 
 <span class="marginnote">直觉类比：页缓存像把常用书复印一份摆在桌上——read、mmap、再次 read 看的都是同一份复印件（同一帧）。干净页是「复印件与原书一致」，扔了随时再印；脏页是「复印件上写了批注」，必须先抄回原书才能扔。</span>
 
-<span class="marginnote">常见误区：初学者容易把页缓存当 CPU 缓存的小兄弟。CPU 缓存缺失是纳秒级，页缓存缺失是毫秒级磁盘 I/O——差五个数量级；数据库才因此自管缓冲池，甚至用 O_DIRECT 整个绕开它。</span>
+<span class="marginnote">常见误区：初学者容易把页缓存当 CPU 缓存的小兄弟。CPU 缓存缺失是纳秒级，页缓存缺失是毫秒级磁盘 I/O——差六个数量级；数据库才因此自管缓冲池，甚至用 O_DIRECT 整个绕开它。</span>
 
 ## 边界
 

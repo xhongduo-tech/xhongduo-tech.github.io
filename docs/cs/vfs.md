@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Kleiman, Vnodes: An Architecture for Multiple File System Types in Sun UNIX, 1986；Linux VFS 文档的整理</footer>
 </div>
 
-[上一课](/cs/hard-symlink)把块请求送进一种设备。[文件作为字节流](/cs/file-bytestream)与 [inode](/cs/inode-dir) 却可能落在 ext4、NFS、tmpfs、proc 上。若 `read` 里写满每种 FS 的分支，内核无法扩展。缺口是**虚拟文件系统**：公共对象与函数指针，底下才是真正布局。
+[上一课](/cs/hard-symlink)把两种链接收成语义。[文件作为字节流](/cs/file-bytestream)与 [inode](/cs/inode-dir) 却可能落在 ext4、NFS、tmpfs、proc 上。若 `read` 里写满每种 FS 的分支，内核无法扩展。缺口是**虚拟文件系统**：公共对象与函数指针，底下才是真正布局。
 
 ## 问题
 
@@ -41,15 +41,15 @@ VFS 让「一切皆文件」可实现：设备节点、管道、后来的套接�
 
 与数据库栏无关：这里没有关系代数。不要把 VFS 写成查询计划。
 
-<span class="marginnote">数字实例：`open("/mnt/nfs/a.txt")` 的路径解析若 dentry 缓存全冷，VFS 要逐级调 `lookup`——`a.txt` 这一级落在 NFS 超级块上，一次 `lookup` 就是一次网络往返（毫秒级）；同一文件在 ext4 上则是一次（或零次，若缓存命中）磁盘元数据读（百微秒级）。同一个 VFS 调用，后端成本差了三个量级。</span>
+<span class="marginnote">数字实例：`open("/mnt/nfs/a.txt")` 的路径解析若 dentry 缓存全冷，VFS 要逐级调 `lookup`——`a.txt` 这一级落在 NFS 超级块上，一次 `lookup` 就是一次网络往返（毫秒级）；同一文件在 ext4 上则是一次（或零次，若缓存命中）磁盘元数据读（百微秒级）。同一个 VFS 调用，后端成本差了一个量级。</span>
 
 ## 边界
 
-本课不引入 FUSE 的全部用户态协议，不把命名空间与绑定挂载的容器语义写完。也不保证所有 FS 支持同一套扩展属性。下一课要问：具体设备如何把块搬进内存——可编程 I/O 与 DMA。
+本课不引入 FUSE 的全部用户态协议，不把命名空间与绑定挂载的容器语义写完。也不保证所有 FS 支持同一套扩展属性。后课要问：具体设备如何把块搬进内存——可编程 I/O 与 DMA。
 
 文件锁（`flock`/`fcntl`）也走 VFS，具体 FS 可以忽略或实现；本课不把强制锁当默认。
 
-后课默认：文件操作经 VFS 分发。字节如何从控制器进帧，下一课 I/O 与 DMA。
+后课默认：文件操作经 VFS 分发。字节如何从控制器进帧，后课 I/O 与 DMA。
 
 ```mermaid
 flowchart TD

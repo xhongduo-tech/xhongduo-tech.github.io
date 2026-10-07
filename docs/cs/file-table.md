@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Bach, The Design of the UNIX Operating System；Ritchie and Thompson 的整理</footer>
 </div>
 
-[上一课](/cs/file-bytestream)把文件定义为字节流，并点到「偏移在打开文件对象上」。缺口是把这句话收成**三层表**：进程描述符表、系统打开文件表、inode（下一课才展开）。`dup`、`fork`、`close` 的语义全由「谁指向谁」决定，而不是再解释 `read` 拷贝字节。
+[上一课](/cs/file-bytestream)把文件定义为字节流，并点到「偏移在打开文件对象上」。缺口是把这句话收成**三层表**：进程描述符表、系统打开文件表、inode（后课才展开）。`dup`、`fork`、`close` 的语义全由「谁指向谁」决定，而不是再解释 `read` 拷贝字节。
 
 ## 问题
 
@@ -56,7 +56,7 @@ flowchart TD
 
 ## 边界
 
-本课不引入 POSIX 的 `dup3` 全部细节。不把 Windows HANDLE 表当对照考纲。inode 与目录内容下一课才是持久结构；本课允许说「file 指向一个编号对象」。路径如何变成该对象，再下一课查找。
+本课不引入 POSIX 的 `dup3` 全部细节。不把 Windows HANDLE 表当对照考纲。inode 与目录内容后课才是持久结构；本课允许说「file 指向一个编号对象」。路径如何变成该对象，同样留给后课查找。
 
 后课默认：fd 与偏移的共享规则已定。名字查找的缓存，下一课 dentry。
 
