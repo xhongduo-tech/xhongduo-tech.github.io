@@ -68,6 +68,6 @@ flowchart LR
 ## 小结
 
 - GLR：LR 表 + 冲突分叉 + 栈合并。
-- 输出森林；消二义在语义，不在表的 `%left`  alone。
+- 输出森林；消二义在语义，不在表的 `%left`。
 - 近 LR 时便宜，真二义时换空间。
 - 出处：Tomita, 1986；bison GLR；对照 Earley, 1970。

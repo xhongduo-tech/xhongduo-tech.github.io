@@ -25,7 +25,7 @@ section: cs
 
 <span class="marginnote">术语翻译：「shift/reduce 冲突」就是分析器在同一个状态里拿到同一个记号时，既可以选择把它压栈继续读（移进），也可以选择把栈顶几个符号折成一个非终结符（归约）——两条路都合法，工具必须替你选一条。</span>
 
-<span class="marginnote"> Johnson 的 yacc 服务 Unix C 编译器。GNU bison 兼容并扩展（`%glr-parser` 点名，下一课才讲 GLR）。龙书 4.8–4.9 节把生成器当 LALR 的落地。</span> 
+<span class="marginnote"> Johnson 的 yacc 服务 Unix C 编译器。GNU bison 兼容并扩展（`%glr-parser` 点名，后课才讲 GLR）。龙书 4.8–4.9 节把生成器当 LALR 的落地。</span> 
 
 ## 方法
 

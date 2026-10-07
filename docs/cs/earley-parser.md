@@ -7,7 +7,7 @@ section: cs
 # Earley 解析
 
 <div class="epigraph">
-<p>每一输入位置一张项集：预测、扫描、完成三步推进；任意 CFG 可在立方时间内判定成员，无二义时接近线性。</p>
+<p>每一输入位置一张项集：预测、扫描、完成三步推进；任意 CFG 可在立方时间内判定成员，无二义时降到平方。</p>
 <footer>—— 据 Earley, An Efficient Context-Free Parsing Algorithm, 1970；龙书对一般 CFG 分析的对照整理</footer>
 </div>
 

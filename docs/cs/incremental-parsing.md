@@ -8,7 +8,7 @@ section: cs
 
 <div class="epigraph">
 <p>源文本改了一处，分析树只重算受影响的区间；编辑器要的是毫秒级更新，不是整文件再跑一遍 yyparse。</p>
-<footer>—— 据 Wagner and Graham, Incremental Analysis of Real Programming Languages, 1998；tree-sitter 设计文档整理</footer>
+<footer>—— 据 Wagner and Graham, Incremental Analysis of Real Programming Languages, 1997；tree-sitter 设计文档整理</footer>
 </div>
 
 上一课[错误恢复](/cs/parse-error-recovery)让整文件分析可以带着诊断走完。编辑会话里每次击键都全量 LALR 太贵。缺口是**增量**：把旧树与编辑区间对齐，复用未改子树。tree-sitter 用 GLR 方言与显式树，是这一课的工程锚点，不是唯一理论。本课不重写 GLR 分叉。
@@ -25,7 +25,7 @@ section: cs
 
 宏、C 预处理器、依赖头文件会使「没改的区间」语义变。tree-sitter 默认按文件、按语言文法，不跑 cpp。真正编译器的增量要另做依赖图——本课只钉语法树增量。
 
-<span class="marginnote">Wagner–Graham 1998（PLDI）讨论真实语言的增量分析。tree-sitter 公开设计：GLR、显式冲突、增量。本课不把 Language Server 协议当文法理论。</span>
+<span class="marginnote">Wagner–Graham 1997（PLDI）讨论真实语言的增量分析。tree-sitter 公开设计：GLR、显式冲突、增量。本课不把 Language Server 协议当文法理论。</span>
 
 ## 方法
 
@@ -74,4 +74,4 @@ flowchart TD
 - 增量：脏区间再分析，未改子树复用。
 - tree-sitter：GLR 树 + 错误节点，服务编辑器。
 - 预处理器与跨文件语义不在复用假设里。
-- 出处：Wagner and Graham, 1998；tree-sitter 文档；对照 Tomita GLR。
+- 出处：Wagner and Graham, 1997；tree-sitter 文档；对照 Tomita GLR。
