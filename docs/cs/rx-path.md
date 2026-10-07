@@ -41,7 +41,7 @@ flowchart TD
 
 RX 路径是「把 DMA 来的字节变成进程可读缓冲」的编译结果：每层剥头，最后是 socket buffer。性能问题几乎都是：几次缓存未命中、几次锁、是否跨 NUMA。不要写成七层 OSI 教材重开——对象是 Linux 函数链。
 
-<span class="marginnote">数字实例：假设接收队列上限 1000 个 skb，`sk_data_ready` 唤醒的进程正被调度器压住 5 毫秒没跑；10 Gbps 链路每毫秒约 8000 个 1500 字节的包涌向同一个 socket——5 毫秒就是约 4 万个包，队列只装得下 1000，其余全在这里丢。丢包不总在网卡，也可能在协议栈最末端。</span>
+<span class="marginnote">数字实例：假设接收队列上限 1000 个 skb，`sk_data_ready` 唤醒的进程正被调度器压住 5 毫秒没跑；10 Gbps 链路每毫秒约 800 个 1500 字节的包涌向同一个 socket——5 毫秒就是约 4000 个包，队列只装得下 1000，其余全在这里丢。丢包不总在网卡，也可能在协议栈最末端。</span>
 
 ```mermaid
 flowchart TD
