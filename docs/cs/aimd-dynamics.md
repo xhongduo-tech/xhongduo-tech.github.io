@@ -55,7 +55,7 @@ flowchart TD
   H --> S
 ```
 
-<span class="marginnote">数字实例：cwnd 为 40 KB（约 20 个 1460 字节的 MSS）时丢包，减半后只剩 10 个 MSS；之后每 RTT 只加回 1 个，爬回 20 个要 10 个 RTT。「涨得慢、砍得快」正是网速测试里锯齿波形的来源。</span>
+<span class="marginnote">数字实例：cwnd 为约 29 KB（20 个 1460 字节的 MSS）时丢包，减半后只剩 10 个 MSS；之后每 RTT 只加回 1 个，爬回 20 个要 10 个 RTT。「涨得慢、砍得快」正是网速测试里锯齿波形的来源。</span>
 
 与交换机 VOQ 匹配对照：一个在端，一个在跳；都在分配 $C$。
 
