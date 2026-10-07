@@ -11,7 +11,7 @@ section: cs
 <footer>—— 对照[死锁四个条件](/cs/deadlock-coffman)；Gray and Reuter 对等待图的整理</footer>
 </div>
 
-[上一课](/cs/isolation-levels)让事务为隔离而持锁或等待版本冲突。本课不重列异常名。[Coffman 四条件](/cs/isolation-levels)已在操作系统课钉过。缺口是：数据库的锁是数据项上的、可升级、可超时，等待图在锁管理器里，而不是进程对设备。库通常**检测并牺牲**，很少靠银行家算法预防。
+[上一课](/cs/isolation-levels)让事务为隔离而持锁或等待版本冲突。本课不重列异常名。[Coffman 四条件](/cs/deadlock-coffman)已在操作系统课钉过。缺口是：数据库的锁是数据项上的、可升级、可超时，等待图在锁管理器里，而不是进程对设备。库通常**检测并牺牲**，很少靠银行家算法预防。
 
 ## 问题
 
