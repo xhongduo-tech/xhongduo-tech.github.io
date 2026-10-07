@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Stevens and Rago, Advanced Programming in the UNIX Environment；POSIX 对 signal 的整理</footer>
 </div>
 
-[上一课](/cs/iommu)把期限任务与分时对照完毕。设备 IRQ 走内核下半部；用户线程还缺一种**针对自己的异步通知**：子进程退出、终端键、闹钟、非法内存。缺口不是再调度一次，而是内核向进程投递一种编号事件——信号。
+[上一课](/cs/iommu)把设备 DMA 的翻译与隔离收口完毕。设备 IRQ 走内核下半部；用户线程还缺一种**针对自己的异步通知**：子进程退出、终端键、闹钟、非法内存。缺口不是再调度一次，而是内核向进程投递一种编号事件——信号。
 
 ## 问题
 
@@ -21,7 +21,7 @@ section: cs
 
 <span class="marginnote">默认动作可以是终止、核心转储、停止或忽略。`SIGKILL` 与 `SIGSTOP` 不能捕获，以免进程拒绝被内核回收。</span>
 
-<span class="marginnote">术语翻译：信号本质是「内核往进程的账本上记一个编号」。进程醒来时翻账本：$\mathrm{SIGCHLD}$（14 号左右，子进程走了）、$\mathrm{SIGALRM}$（闹钟响了）……每个编号对应三种态度之一——忽略、跑处理函数、或取默认动作。</span>
+<span class="marginnote">术语翻译：信号本质是「内核往进程的账本上记一个编号」。进程醒来时翻账本：$\mathrm{SIGCHLD}$（Linux x86 上是 17 号，编号随平台，子进程走了）、$\mathrm{SIGALRM}$（闹钟响了）……每个编号对应三种态度之一——忽略、跑处理函数、或取默认动作。</span>
 
 <span class="marginnote">常见误区：初学者容易把信号想象成一条随时插队执行的代码通道。实际上处理函数借用的是**当前正在跑的线程**的执行流——它在任意指令边界把 PC 拽走，跑完再拽回来。这正是处理函数里不敢随便动全局数据的原因：它可能在主流程改到一半时介入。</span>
 
