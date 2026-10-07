@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Allen and Cocke, A Catalogue of Optimizing Transformations；龙书 9.5；Muchnick 整理</footer>
 </div>
 
-上一课[DCE](/cs/dce-adce)删死的。缺口是**活但不随迭代变**的表达式：`t = n*4` 在 `for` 里。LICM：识别循环、找不变、外提到 preheader。主干点过循环；自然循环识别后课正式收。本课假定可识别自然循环与前置头。
+前课[DCE](/cs/dce-adce)删死的。缺口是**活但不随迭代变**的表达式：`t = n*4` 在 `for` 里。LICM：识别循环、找不变、外提到 preheader。主干点过循环；自然循环识别后课正式收。本课假定可识别自然循环与前置头。
 
 ## 问题
 

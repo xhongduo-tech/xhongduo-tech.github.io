@@ -17,7 +17,7 @@ section: cs
 
 到达定值给出「哪些写能到这里」。若全部写是 `x=3`，则读 $x$ 可改成 `3`。折叠：运算符无副作用则编译期求值。缺口是**替换的合法性**，不是再定义 CFG。
 
-必须保持[操作语义](/cs/operational-semantics)：浮点折叠受 IEEE 与后课 fast-math 约束；除零不能随便折。Option 的 `Some 3` 可折匹配，`None` 枝可变成死代码——下一课 ADCE。
+必须保持[操作语义](/cs/operational-semantics)：浮点折叠受 IEEE 与后课 fast-math 约束；除零不能随便折。Option 的 `Some 3` 可折匹配，`None` 枝可变成死代码——后课 ADCE。
 
 ### 折叠不是预处理器
 
