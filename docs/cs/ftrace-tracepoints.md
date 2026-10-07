@@ -48,7 +48,7 @@ flowchart TD
   FIRE --> WRITE["写本核 per-CPU 缓冲"]
   WRITE --> FULL{"缓冲满？"}
   FULL -- "否" --> KEEP["记录保留，等用户读"]
-  FULL -- "是" --> DROP["丢弃新事件"]
+  FULL -- "是" --> DROP["覆盖最旧事件"]
 ```
 
 <span class="marginnote">数字实例：把 buffer_size_kb 设成 4096（即每个核 4 MB），在一台 32 核机器上，环形缓冲总共占 32 × 4 MB = 128 MB 内核内存——跟踪是有账单的，核越多越贵。</span>

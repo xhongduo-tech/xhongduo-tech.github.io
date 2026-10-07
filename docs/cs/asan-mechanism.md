@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-越界读可能不立刻崩。ASan：分配多拿红区，影子（常 1/8 内存）编码 poisoned。访问：把地址映射到影子，非零则报。缺口：栈、堆、全局各有插法；use-after-free 把释放块毒化并延迟真 reuse；与 [fork](/cs/fork)、信号、[vfork] 的坑。本课不把 UBSan 的全部检查列出。
+越界读可能不立刻崩。ASan：分配多拿红区，影子（常 1/8 内存）编码 poisoned。访问：把地址映射到影子，非零则报。缺口：栈、堆、全局各有插法；use-after-free 把释放块毒化并延迟真 reuse；与 [fork](/cs/fork)、信号、vfork 的坑。本课不把 UBSan 的全部检查列出。
 
 <span class="marginnote">KASAN 是内核同构。硬件 ASan（MTE）可减少影子。生产一般不开完整 ASan，税是内存与指令。</span>
 

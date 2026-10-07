@@ -65,7 +65,7 @@ unlocked_ioctl 不再持大内核锁，驱动自己串行化。<span class="marg
 
 ## 小结
 
-- cdev 用 fops；ioctl 传结构化命令。<span class="marginnote">数字实例：命令号里那段 14 位的「大小」字段最多表示 16383 字节；`_IOW('q', 1, struct foo)` 会在编译期把 `sizeof(struct foo)` 烧进命令号。若驱动期望 32 字节而新版用户头文件变到 48 字节，按旧大小拷贝就是越界——这就是「版本不对就读越界」的具体来源。</span>
+- cdev 用 fops；ioctl 传结构化命令。<span class="marginnote">数字实例：命令号里那段 14 位的「大小」字段最多表示 16383 字节；`_IOW('q', 1, struct foo)` 会在编译期把 `sizeof(struct foo)` 烧进命令号。若拷贝大小跟着新版头文件的 48 字节走，而用户缓冲还按旧版只留 32 字节，内核就从用户缓冲越界多读 16 字节——这就是「版本不对就读越界」的具体来源。</span>
 - 必须经 copy_*_user 并做特权检查。
 - udev 热插是下一课。
 - 出处：LDD；ioctl(2)；Linux API。

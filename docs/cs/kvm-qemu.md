@@ -35,7 +35,7 @@ flowchart TD
 
 ## 机制
 
-分工让内核保持小：不管 VGA 字体，只管进入客户与页表。用户态崩不等于宿主要 oops（通常）。不要写成 virt-manager 教程。与 [seccomp]：可锁 QEMU。与 [audit](/cs/kernel-audit)：ioctl 可记。
+分工让内核保持小：不管 VGA 字体，只管进入客户与页表。用户态崩不等于宿主要 oops（通常）。不要写成 virt-manager 教程。与 [seccomp](/cs/seccomp-filter)：可锁 QEMU。与 [audit](/cs/kernel-audit)：ioctl 可记。
 
 ```mermaid
 flowchart TD

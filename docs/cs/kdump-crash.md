@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-崩溃时锁可能死、文件系统可能不可信。kexec 跳到预留的 capture kernel，旧内存只读。缺口：预留大小；加密盘；与 [watchdog]。本课不把 crash 命令当教程全文。
+崩溃时锁可能死、文件系统可能不可信。kexec 跳到预留的 capture kernel，旧内存只读。缺口：预留大小；加密盘；与 watchdog 的配合。本课不把 crash 命令当教程全文。
 
 <span class="marginnote">pstore/ramoops 是更小的紧急日志。对象是整机内存镜像，不是 coredump 用户进程——那是另一条。</span>
 
