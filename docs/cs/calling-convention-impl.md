@@ -46,7 +46,7 @@ flowchart TD
 
 ## 机制
 
-浮点与 SIMD 寄存器类独立。整数 8 个参数寄存器满则上栈。不要把 `float` 误分类到 GPR 除非 ABI 如此（某些软浮点）。
+浮点与 SIMD 寄存器类独立。整数 6 个参数寄存器满则上栈。不要把 `float` 误分类到 GPR 除非 ABI 如此（某些软浮点）。
 
 ```mermaid
 flowchart TD

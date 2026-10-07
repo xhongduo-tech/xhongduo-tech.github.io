@@ -40,7 +40,7 @@ flowchart TD
 
 <span class="marginnote">术语翻译：重定位类型就是「补数作业的填法说明」——同一道填空题（把这个符号的地址填进去），有的要求填完整地址（ABS），有的只要求填「离我多远」（PC 相对），有的要去查号台翻页再填（GOT 间接）。类型决定公式，公式决定能填几位。</span>
 
-<span class="marginnote">数字实例：PC 相对跳转用 32 位中的 21 位编码位移，可达 ±1 MB。目标函数离调用点 2 MB 时，1 字节的位移装不下，链接器就报 relocation truncated to fit——不是代码写错，是「距离超出这类填法能表达的半径」，此时要改选带更大立即数的指令序列。</span>
+<span class="marginnote">数字实例：PC 相对跳转用 32 位中的 21 位编码位移，可达 ±1 MB。目标函数离调用点 2 MB 时，±1 MB 的位移装不下，链接器就报 relocation truncated to fit——不是代码写错，是「距离超出这类填法能表达的半径」，此时要改选带更大立即数的指令序列。</span>
 
 ## 机制
 

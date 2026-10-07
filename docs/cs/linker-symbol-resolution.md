@@ -59,7 +59,7 @@ flowchart TD
 
 <span class="marginnote">为什么重要：一个成员若只被 C++ 全局对象的构造函数引用，扫描到它时未定义集合里可能还没有那个符号，成员被跳过，构造函数悄悄丢失——这时只能 `--whole-archive` 强制拉入全部成员。</span>
 
-弱符号服务内联与模板的 COMDAT，下一课 ICF 再折同码。
+弱符号服务内联与模板的 COMDAT，后课 ICF 再折同码。
 
 ## 边界
 
