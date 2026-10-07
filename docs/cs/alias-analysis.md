@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据龙书 12.4 指针别名；Muchnick；ISO C `restrict`；Wilson and Lam 对照整理</footer>
 </div>
 
-上一课[多面体](/cs/polyhedral-model)在仿射下标下精确知道数组单元。缺口是**指针**：C 的 `*p` 与 `*q`。别名分析给出 Must / May / No。主干优化默认保守 May。本课钉分类与语言规则（类型别名、`restrict`），具体 points-to 下一课。
+上一课[自然循环](/cs/natural-loops)圈出循环体，但循环里的 load/store 到底指向哪个对象还说不清。缺口是**指针**：C 的 `*p` 与 `*q`。别名分析给出 Must / May / No。主干优化默认保守 May。本课钉分类与语言规则（类型别名、`restrict`），具体 points-to 下一课。
 
 ## 问题
 

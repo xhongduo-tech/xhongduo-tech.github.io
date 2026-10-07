@@ -45,11 +45,11 @@ flowchart TD
 
 流敏感更精，代价高。上下文敏感（克隆或摘要）减过程间混淆。实用编译器常：Steensgaard 或 Andersen 的限迭代 + TBAA。
 
-同四条赋值，两个算法给出的指向集差在哪？
+同五条赋值，两个算法给出的指向集差在哪？
 
 ```mermaid
 flowchart TD
-  S1["p 指向 a，q 指向 b"] --> S2["r 复制 p，s 复制 q"]
+  S1["p 指向 a，q 指向 b"] --> S2["r 复制 p，s 复制 q，r 再复制 s"]
   S2 --> A["Andersen：r 再收下 s 的集，得 a 加 b"]
   A --> A2["p 仍只可能指向 a"]
   S2 --> B["Steensgaard：r 与 s 并成同一类"]

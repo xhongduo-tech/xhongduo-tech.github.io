@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Pettis and Hansen, Profile Guided Code Positioning；Chang, Mahlke and Hwu 内联；龙书 8.7 整理</footer>
 </div>
 
-上一课[自然循环](/cs/natural-loops)给出循环结构，但不知转几圈。缺口是**动态频率**：PGO（profile-guided optimization）。插桩或采样得边权重，第二次编译使用。本课钉工作流与偏差，不写 LTO 的全程序合并——下一课二者常一起。
+上一课[标量替换](/cs/sroa)拆完聚合，静态启发仍不知循环转几圈、哪条路径热。缺口是**动态频率**：PGO（profile-guided optimization）。插桩或采样得边权重，第二次编译使用。本课钉工作流与偏差，不写 LTO 的全程序合并——下一课二者常一起。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Cytron 等标量替换思想；LLVM SROA；Appel 对聚合的讨论整理</footer>
 </div>
 
-上一课[逃逸分析](/cs/escape-analysis)标出未逃逸对象。缺口是**拆开**：`struct {int a,b;}` 的 `p.a` 不应经过栈槽。SROA（scalar replacement of aggregates）：按偏移切成元素，能提升则变 `alloca` 上的 SSA。本课钉切分条件，不写完整 mem2reg 与 φ 插入——SSA 构造后课。
+上一课[逃逸分析](/cs/escape-analysis)标出未逃逸对象。缺口是**拆开**：`struct {int a,b;}` 的 `p.a` 不应经过栈槽。SROA（scalar replacement of aggregates）：按偏移切成元素，能提升则变 `alloca` 上的 SSA。本课钉切分条件，不写完整 mem2reg 与 φ 插入——SSA 构造课已给。
 
 ## 方法
 
@@ -56,13 +56,13 @@ flowchart TD
 
 内联后新 `alloca` 是 SROA 的主要客户——与内联顺序绑在一起。
 
-<span class="marginnote">数字实例：`struct {int a, b;}` 占 8 字节，SROA 把它切成两个 4 字节的 SSA 名。写 `s.a = 1; use(s.a)` 后传播直接把 use 换成常量 1，8 次 load/store 全部消失——这就是「让优化器看见标量」的直接收益。</span>
+<span class="marginnote">数字实例：`struct {int a, b;}` 占 8 字节，SROA 把它切成两个 4 字节的 SSA 名。写 `s.a = 1; use(s.a)` 后传播直接把 use 换成常量 1，两次 load/store 全部消失——这就是「让优化器看见标量」的直接收益。</span>
 
 <span class="marginnote">常见误区：初学者容易以为拆完就进了物理寄存器。SROA 只是把内存槽换成虚拟寄存器（SSA 名），至于这些名最终落在哪几个真实寄存器、哪些溢出到栈，是后面的寄存器分配课的事。</span>
 
 ## 边界
 
-本课不写 Cytron φ 放置。后课默认：未逃逸聚合可标量化。下一课 PRE：部分冗余，在标量 IR 上更有效。
+本课不写 Cytron φ 放置。后课默认：未逃逸聚合可标量化。PRE 一类部分冗余消除在标量 IR 上更有效。下一课[PGO](/cs/pgo)：热度告诉内联与展开往哪使劲。
 
 也不把 SROA 当对象布局 ABI 的改变（公开结构体布局仍由语言定）。
 
