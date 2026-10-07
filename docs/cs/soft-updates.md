@@ -8,7 +8,7 @@ section: cs
 
 <div class="epigraph">
 <p>软更新不写日志：它在内存里给缓冲更新排依赖，使落盘顺序永远保持「先指针后对象」或反过来的安全方向，崩溃后至多泄漏，不交叉指错。</p>
-<footer>—— 据 Ganger, McKusick, Patt et al., Soft Updates: A Technique for Eliminating Most Synchronous Writes in the Fast Filesystem, ACM TOCS 2002</footer>
+<footer>—— 据 Ganger, McKusick, Patt et al., Soft Updates: A Solution to the Metadata Update Problem in File Systems, ACM TOCS 2000</footer>
 </div>
 
 [上一课](/cs/fs-snapshots)把一致切面交给 COW 根。[日志](/cs/ext4-journal) 把更新抄到旁路。[LFS](/cs/log-structured-fs) 把盘当成日志。FFS 还可以走第三条路：**软更新**。本课是对照，不是劝你在 Linux 上启用它——Linux 主线走的是日志与 COW。
@@ -77,4 +77,4 @@ flowchart TD
 - 软更新用写序保证不交叉；崩溃至多泄漏。
 - 对照日志与 COW：旁路抄写 vs 新根 vs 依赖图。
 - fsck 的剩余工作是下一课。
-- 出处：Ganger, McKusick, Patt et al., TOCS 2002；McKusick, *The Design and Implementation of the FreeBSD Operating System*。
+- 出处：Ganger, McKusick, Patt et al., TOCS 2000；McKusick, *The Design and Implementation of the FreeBSD Operating System*。
