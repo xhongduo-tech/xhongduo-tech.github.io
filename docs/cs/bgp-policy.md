@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Rekhter, Li and Hares, RFC 4271；Kurose and Ross 对客户–对等–提供者的整理</footer>
 </div>
 
-[上一课](/cs/bgp-intuition)已经说：BGP 通告路径与属性，不是域内最短路。本课不重讲「为什么不用全球 Dijkstra」。缺口是决策顺序：本地偏好、AS 路径长度、MED、来源、IGP 到下一跳——以及**进出口政策**如何过滤前缀。本课不把 UDP 端口提前。
+[上一课](/cs/bgp-intuition)已经说：BGP 通告路径与属性，不是域内最短路。本课不重讲「为什么不用全球 Dijkstra」。缺口是决策顺序：本地偏好、AS 路径长度、来源、MED、IGP 到下一跳——以及**进出口政策**如何过滤前缀。本课不把 UDP 端口提前。
 
 ## 问题
 

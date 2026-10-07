@@ -52,7 +52,7 @@ flowchart TD
 
 ## 边界
 
-本课不引入 XCP 一类路由器协助协议当主干，不把内核开关当教材命令。应用层名字如何映射到 IP，下一课 DNS。
+本课不引入 XCP 一类路由器协助协议当主干，不把内核开关当教材命令。应用层名字如何映射到 IP，后课 DNS。
 
 <span class="marginnote">常见误区：初学者容易以为 BBR 是一套新传输协议。它仍跑在普通 TCP 或 QUIC 之上，序号、确认、重传一字不改；换的只是「什么时候发多少」——pacing 节奏与窗口大小，字节流合同还是原来那份。</span>
 
@@ -62,5 +62,5 @@ flowchart TD
 
 - BBR 用带宽与最小 RTT 建模，对照 Reno/Cubic 的丢包 AIMD。
 - 可靠性合同不变。
-- 名字解析下一课 DNS。
+- 名字解析后课 DNS。
 - 出处：Cardwell 等, *ACM Queue* 2016；对照 RFC 5681；Kurose and Ross。

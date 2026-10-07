@@ -30,7 +30,7 @@ flowchart TD
   SB --> REX["只重发空洞"]
 ```
 
-<span class="marginnote">数字实例：发 8 段、第 3 段丢了，累计 ACK 只能停在 2。没有 SACK 时发送方常把第 2 段之后的 6 段全部重发；有 SACK 就只补 1 段——重传量从 6 段降到 1 段。</span>
+<span class="marginnote">数字实例：发 8 段、第 3 段丢了，累计 ACK 只能停在 3（前缀只确认到第 2 段）。没有 SACK 时发送方常把第 2 段之后的 6 段全部重发；有 SACK 就只补 1 段——重传量从 6 段降到 1 段。</span>
 
 ## 机制
 

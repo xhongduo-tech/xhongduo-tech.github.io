@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Mockapetris, RFC 1034, Domain Names — Concepts and Facilities, 1987 整理</footer>
 </div>
 
-[上一课](/cs/quic-contrast)与 TCP 都假定目的是 IP。[DHCP](/cs/quic-contrast) 交出的「DNS 服务器」还没有被使用。人不能记前缀表。缺口是 **DNS**：层次名字到记录（A/AAAA 等）。本课不把 HTTP 方法写完。
+[上一课](/cs/quic-contrast)与 TCP 都假定目的是 IP。[DHCP](/cs/dhcp-nat) 交出的「DNS 服务器」还没有被使用。人不能记前缀表。缺口是 **DNS**：层次名字到记录（A/AAAA 等）。本课不把 HTTP 方法写完。
 
 ## 问题
 
@@ -59,11 +59,11 @@ flowchart TD
 
 ## 边界
 
-本课不引入 DoH/DoT 的全部部署。不把 mDNS 局域网发现当全球 DNS。也不把 ENUM 电话映射写进主干。得到地址之后，应用层如何取文档，下一课 HTTP。
+本课不引入 DoH/DoT 的全部部署。不把 mDNS 局域网发现当全球 DNS。也不把 ENUM 电话映射写进主干。解析路径的递归与迭代，下一课拆；得到地址之后，应用层如何取文档，后课 HTTP。
 
 根与 TLD 的响应是转介不是最终答案；若把转介当 A 记录，客户端会连错。存根解析器不应自己从根走完全程，除非它就是递归器。
 
-后课默认：主机名可解析为 IP。文档的方法、头、状态码，下一课 HTTP。
+后课默认：主机名可解析为 IP。解析的递归与迭代，下一课；文档的方法、头、状态码，后课 HTTP。
 
 ## 小结
 
