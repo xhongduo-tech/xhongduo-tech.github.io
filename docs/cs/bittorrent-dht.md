@@ -8,7 +8,7 @@ section: cs
 
 <div class="epigraph">
 <p>文件切成块，对等方互传；tracker 或 DHT 负责发现邻居。稀有块优先，使复制在群体里展开，而不是一台源打满 $C$。</p>
-<footer>—— 据 Cohen, The BitTorrent Protocol；RFC 9529 等 DHT 实践；Kademlia 对照整理</footer>
+<footer>—— 据 Cohen, The BitTorrent Protocol；BEP 5 等 DHT 实践；Kademlia 对照整理</footer>
 </div>
 
 [FTP](/cs/ftp-passive) 是中心源。[上一课](/cs/ftp-passive) 结束该课序。缺口是 **P2P 分发**：swarm、片、DHT。本课不把 WebRTC 写完。
