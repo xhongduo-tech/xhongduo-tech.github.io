@@ -19,7 +19,7 @@ CFS 的目标是份额 $w_i/\sum w$，不是固定优先级抢占。用户不能
 
 <span class="marginnote">nice +19 不是停止运行；可运行集合里若只有它，它仍得全部 CPU。权重是相对的。</span>
 
-<span class="marginnote">数字实例：Linux 权重表里 nice 0 对应 1024，每差一档权重乘约 1.25——nice 0 对 nice +5 的权重比约 $3121:1024$，即同一段时间里前者摊到约 75%、后者约 25% 的 CPU。</span>
+<span class="marginnote">数字实例：Linux 权重表里 nice 0 对应 1024，每差一档权重乘约 1.25——nice 0 对 nice +5 的权重比约 $1024:335$，即同一段时间里前者摊到约 75%、后者约 25% 的 CPU。</span>
 
 ## 方法
 
@@ -44,8 +44,8 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  T1["任务 A：nice 0，权重 1024"] --> SUM["总权重约 4145"]
-  T2["任务 B：nice +5，权重约 3121"] --> SUM
+  T1["任务 A：nice 0，权重 1024"] --> SUM["总权重约 1359"]
+  T2["任务 B：nice +5，权重约 335"] --> SUM
   SUM --> SA["A 摊到约 75% CPU"]
   SUM --> SB["B 摊到约 25% CPU"]
   CH["把 A 也调到 nice +5"] --> EQ["两权重相同 ⇒ 各拿 50%"]

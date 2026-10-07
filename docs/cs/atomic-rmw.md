@@ -19,7 +19,7 @@ section: cs
 
 <span class="marginnote">RMW 通常对同一 cache 行上锁（MESI 的 M），他核要等行转手。这就是自旋锁缓存行乒乓的来源。</span>
 
-<span class="marginnote">数字实例：5 个线程各给引用计数加 1，若读改写被切开，两个线程可能同时读到 6、各自写回 7，最终得 7 而不是 10。计数少了就提前释放，正好砸向还在使用的对象——use-after-free 的一种生成方式就这么朴素。</span>
+<span class="marginnote">数字实例：5 个线程各给引用计数加 1，若读改写被切开，两个线程可能同时读到 6、各自写回 7，最终得 9 而不是 10。计数少了就提前释放，正好砸向还在使用的对象——use-after-free 的一种生成方式就这么朴素。</span>
 
 ## 方法
 
