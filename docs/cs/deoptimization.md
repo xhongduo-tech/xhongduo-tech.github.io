@@ -50,7 +50,7 @@ flowchart TD
 flowchart TD
   INT["解释执行：收集类型 profile"] --> HOT["热点：JIT 编译并内联"]
   HOT --> RUN["运行投机代码：守卫在场"]
-  HOT -->|"假设一直成立"| OK["持续快速执行"]
+  RUN -->|"假设一直成立"| OK["持续快速执行"]
   RUN -->|"守卫失败"| DEOPT["去优化：按映射表重建解释器状态"]
   DEOPT --> INT2["解释器继续，profile 更新"]
   INT2 --> RECOMP["再编译：收敛假设或放弃优化"]
