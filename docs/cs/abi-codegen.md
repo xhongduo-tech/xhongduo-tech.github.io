@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 System V Application Binary Interface, AMD64 Architecture Processor Supplement；RISC-V ELF psABI 整理</footer>
 </div>
 
-上一课[窥孔与窥视窗](/cs/peephole)清理了函数体内的短序列。[调用约定与栈](/cs/peephole)在组成课已讲帧与返回地址；[RISC-V 整数指令](/cs/riscv-int-isa)已给出 `jal`/`jalr` 与整数寄存器名。本课不重画五级流水线。缺口是：把那些硬件事实**写成跨编译器的合同**——哪几个是参数寄存器、哪几个 callee-save、栈对齐、谁清参数区——并在序言/尾声里真正发射。
+上一课[窥孔与窥视窗](/cs/peephole)清理了函数体内的短序列。[调用约定与栈](/cs/calling-convention-stack)在组成课已讲帧与返回地址；[RISC-V 整数指令](/cs/riscv-int-isa)已给出 `jal`/`jalr` 与整数寄存器名。本课不重画五级流水线。缺口是：把那些硬件事实**写成跨编译器的合同**——哪几个是参数寄存器、哪几个 callee-save、栈对齐、谁清参数区——并在序言/尾声里真正发射。
 
 ## 问题
 

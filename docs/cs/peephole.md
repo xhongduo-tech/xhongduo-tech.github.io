@@ -23,7 +23,7 @@ section: cs
 
 活跃分析看全 CFG。窥孔不求解方程，只认有限模式。有的规则需要「下一指令不是标号目标」之类的局部控制知识，仍不是不动点框架。
 
-<span class="marginnote">McKeeman 1965 命名 peephole。龙书把窥孔放在代码生成之后。本课规则举类不列工业目录。GCC/LLVM 的 InstCombine 是 IR 层同类物。</span>
+<span class="marginnote">McKeeman 1965 命名 peephole。龙书把窥孔放在代码生成之后。本课规则举类不列工业目录。GCC/LLVM 在 IR 层有同类物，如 LLVM 的 InstCombine。</span>
 
 ## 方法
 

@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Lesk and Schmidt, Lex — A Lexical Analyzer Generator；Levine, Flex &amp; Bison；龙书第 3 章整理</footer>
 </div>
 
-上一课[word RAM](/cs/word-ram)把算法进阶收到字模型与位并行。本课起「程序语言与编译进阶」：主干已会[正则与词法](/cs/regex-lexer)、[NFA 与 DFA](/cs/nfa-dfa)、[Thompson 构造](/cs/thompson-nfa)，缺口不是再证正则等于有穷自动机，而是**生成器**——lex / flex 如何把规则文件编译成扫描函数。后课默认已经读完本课：词法规则进 `.l`，动作吐记号，冲突按最长匹配与表序消解。不重写 Transformer，不进限价簿。
+上一课[异常表](/cs/exception-table)给编译课收尾。本课起「类型、优化与运行时」：主干已会[正则与词法](/cs/regex-lexer)、[NFA 与 DFA](/cs/nfa-dfa)、[Thompson 构造](/cs/thompson-nfa)，缺口不是再证正则等于有穷自动机，而是**生成器**——lex / flex 如何把规则文件编译成扫描函数。后课默认已经读完本课：词法规则进 `.l`，动作吐记号，冲突按最长匹配与表序消解。不重写 Transformer，不进限价簿。
 
 ## 问题
 
