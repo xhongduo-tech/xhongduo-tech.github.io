@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Plummer, RFC 826, An Ethernet Address Resolution Protocol, 1982 整理</footer>
 </div>
 
-[上一课](/cs/spanning-tree)让广播域在树上看可转发。[帧与 MAC](/cs/frame-mac) 要目的硬件地址；[分层](/cs/spanning-tree)已经预告网络层会有主机号。缺口是同一链路上 **IP → MAC** 的解析。本课是 ARP（RFC 826），不把子网掩码写完。
+[上一课](/cs/spanning-tree)让广播域在树上看可转发。[帧与 MAC](/cs/frame-mac) 要目的硬件地址；[分层](/cs/layering-e2e)已经预告网络层会有主机号。缺口是同一链路上 **IP → MAC** 的解析。本课是 ARP（RFC 826），不把子网掩码写完。
 
 ## 问题
 
@@ -56,15 +56,15 @@ flowchart LR
 
 ## 边界
 
-本课不引入 NDP 选项清单，不把 InfiniBand 的 GID 解析混进来。也不把静态 ARP 当安全方案。IP 自己如何编号、何为子网，下一课；没有子网，就还不知道「是否同一链路、要不要 ARP 目的还是 ARP 网关」。
+本课不引入 NDP 选项清单，不把 InfiniBand 的 GID 解析混进来。也不把静态 ARP 当安全方案。IP 自己如何编号、何为子网，那是后面编址与子网一课的事；没有子网，就还不知道「是否同一链路、要不要 ARP 目的还是 ARP 网关」。
 
 同一 IP 被两台主机声明时，后到的应答会污染缓存。检测靠 gratuitous；本课不把防御写成配置指南。
 
-后课默认：同一链路上能把 IP 译成 MAC。哪些 IP 算同一链路，下一课编址与子网。
+后课默认：同一链路上能把 IP 译成 MAC。哪些 IP 算同一链路，是后面[编址与子网](/cs/ip-subnet)一课的缺口。
 
 ## 小结
 
 - ARP 在以太网链路上解析 IP 到 MAC（RFC 826）。
 - 缓存、广播请求、单播应答；每跳可重新解析。
-- 子网决定问谁，是下一课。
+- 子网决定问谁，是后面[编址与子网](/cs/ip-subnet)一课的缺口。
 - 出处：RFC 826；Kurose and Ross；Tanenbaum *Computer Networks*。
