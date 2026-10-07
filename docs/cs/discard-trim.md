@@ -45,9 +45,9 @@ flowchart TD
     GC1 --> WA1["白搬的页：写放大高、寿命损耗"]
   end
   subgraph YES["有 TRIM：GC 只搬有效"]
-    C1["同块：56 页已 deallocate"] --> GC2["GC 知道全是垃圾"]
+    C1["同块：56 页已 deallocate"] --> GC2["GC 知道哪 56 页是垃圾"]
     C2["有效 8 页"] --> GC2
-    GC2 --> WA2["只擦不搬，直接回收"]
+    GC2 --> WA2["只搬 8 页有效，其余擦除回收"]
   end
 ```
 

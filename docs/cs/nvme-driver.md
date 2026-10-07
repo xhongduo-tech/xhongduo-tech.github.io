@@ -19,7 +19,7 @@ section: cs
 
 <span class="marginnote">PRP 是页列表；SGL 更一般。写屏障后课才讲 FUA/NVMe flush。本课对象是队列与命令环。</span>
 
-<span class="marginnote">数字实例：每条 NVMe 命令固定 64 字节，队列以环状复用内存。一对深度 1024 的 SQ/CQ，环本身只占 1024 × 64 字节 = 64 KB，成千上万对也不到百 MB 量级，这是「每核一对」在内存上可承受的原因。</span>
+<span class="marginnote">数字实例：每条 NVMe 命令固定 64 字节，队列以环状复用内存。一对深度 1024 的 SQ/CQ，SQ 环本身只占 1024 × 64 字节 = 64 KB（CQ 条目 16 字节，更小），成千上万对也不到百 MB 量级，这是「每核一对」在内存上可承受的原因。</span>
 
 <span class="marginnote">术语翻译：PRP 就是把要传输的数据用一串 4 KB 物理页地址串起来的「页清单」，控制器按地址直接 DMA；SGL 是更一般的散布-聚集版本，允许每段长度各不相同。</span>
 
