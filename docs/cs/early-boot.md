@@ -23,7 +23,7 @@ CPU 复位时没有页表、没有驱动、没有 FS。引导加载器在实模�
 
 ## 方法
 
-固件 → bootloader（如 GRUB、UEFI）→ 跳内核入口。入口：关干扰、建临时映射、解压缩。`start_kernel`：内存、调度、时间（jiffies 来源）、驱动子系统、挂载 initramfs、启动 pid 1 前的 rest_init。失败通常 panic，因为还没有用户空间可报错。命令行可指定 `root=`。
+固件 → bootloader（如 GRUB）→ 跳内核入口。入口：关干扰、建临时映射、解压缩。`start_kernel`：内存、调度、时间（jiffies 来源）、驱动子系统、挂载 initramfs、启动 pid 1 前的 rest_init。失败通常 panic，因为还没有用户空间可报错。命令行可指定 `root=`。
 
 <span class="marginnote">为什么这一阶段出错只能 panic：此时没有用户空间、没有日志文件、常常连时钟都没接好——内核无处可报、无人可问，只能打一行 panic 信息停机。桌面机上这行字经常一闪而过，最常见的原因之一是根设备的驱动没进 initramfs。</span>
 
