@@ -61,7 +61,7 @@ flowchart TD
 
 ## 边界
 
-本课不写融合树全证明。不写电路深度。算法进阶封口：后课默认会选模型——比较、RAM、word RAM、I/O、PRAM、流、在线。下一课程从 [lex / flex](/cs/lex-flex) 起编译器生成器。
+本课不写融合树全证明。不写电路深度。算法进阶封口：后课默认会选模型——比较、RAM、word RAM、I/O、PRAM、流、在线。下一课程从[编译器通行证](/cs/compiler-passes)起程序语言与编译。
 
 ## 小结
 
