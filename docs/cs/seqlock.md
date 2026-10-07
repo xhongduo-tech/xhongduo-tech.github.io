@@ -54,7 +54,7 @@ flowchart TD
 
 ## 边界
 
-本课不把 `seqcount` 与 latch 的全部变体写完。也不能用 seqlock 保护链式结构的遍历（中间结点可能被释放）——那是 RCU 或锁。信号量下一课在已有课里；按树，seqlock 之后是[信号量](/cs/semaphore)。
+本课不把 `seqcount` 与 latch 的全部变体写完。也不能用 seqlock 保护链式结构的遍历（中间结点可能被释放）——那是 RCU 或锁。信号量是下一课；按树，seqlock 之后是[信号量](/cs/semaphore)。
 
 <span class="marginnote">常见误区：以为 seqlock 能顺带保护指针遍历链表。实际上读者可能撞上「结点刚被释放」的中间态，重试也救不回已释放的内存——保护指针结构要用锁或 RCU，seqlock 只适合几个字段的定长值对象。</span>
 
