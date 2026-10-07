@@ -59,6 +59,6 @@ flowchart TD
 ## 小结
 
 - ISA 已有环与陷入；本课命名内核为拥有机器的程序，用户态为被它中介的程序。
-- 越过边界只能走陷阱；GC 仍在用户堆上，不能改页表。
+- 越过边界只能走陷入；GC 仍在用户堆上，不能改页表。
 - 进程、系统调用、中断下半部都是后课缺口。
 - 出处：Silberschatz et al., *OSC*；Tanenbaum and Bos, *Modern Operating Systems*。

@@ -51,7 +51,7 @@ flowchart TD
 
 <span class="marginnote">常见误区：以为 libc 的 read 函数就是系统调用。read 只是包装：填寄存器、执行 syscall 指令、翻译错误码都发生在这一层；内核从头到尾不知道「read」这个名字，它只认编号。</span>
 
-参数仍可能是用户指针。ABI 只说「指针值在哪个寄存器」；指针指向的页是否可读、要不要拷贝，是[系统调用路径](/cs/syscall-path)之后、下一课之前仍未展开的缺口——本课不提前做 `copy_from_user`。
+参数仍可能是用户指针。ABI 只说「指针值在哪个寄存器」；指针指向的页是否可读、要不要拷贝，是[系统调用路径](/cs/syscall-path)之后才展开的缺口——本课不提前做 `copy_from_user`。
 
 ## 边界
 

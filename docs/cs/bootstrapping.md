@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Thompson, Reflections on Trusting Trust, 1984；Wirth 自举传统；对照 CompCert 抽取整理</footer>
 </div>
 
-上一课[Csmith](/cs/compiler-fuzzing) 测的是已得到的编译器。本课收束「程序语言与编译进阶」：缺口是**自举链**——Rust/GHC/Go 都用上一代编下一代。第一课 [lex/flex](/cs/lex-flex) 从 word RAM 转入生成器；现在回到信任基。下一课程操作系统进阶从 [FAT](/cs/fat-filesystem) 起，不在本课打开 VFS。
+上一课[Csmith](/cs/compiler-fuzzing) 测的是已得到的编译器。本课收束「类型、优化与运行时」：缺口是**自举链**——Rust/GHC/Go 都用上一代编下一代。首课 [lex/flex](/cs/lex-flex) 在异常表之后从生成器切入；现在回到信任基。下一课程操作系统从 [内核与用户态](/cs/kernel-user) 起，不在本课打开 VFS。
 
 ## 问题
 
@@ -63,7 +63,7 @@ flowchart TD
 
 ## 边界
 
-本课不写内核引导。后课默认：语言实现靠自举链；信任可被 Thompson 攻击，需多样重建。程序语言与编译进阶到此结束；下一课 [FAT](/cs/fat-filesystem)。
+本课不写内核引导。后课默认：语言实现靠自举链；信任可被 Thompson 攻击，需多样重建。「类型、优化与运行时」到此结束；下一课 [内核与用户态](/cs/kernel-user)。
 
 也不把自举当生物课。
 
