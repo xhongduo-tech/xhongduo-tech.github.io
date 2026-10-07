@@ -23,7 +23,7 @@ section: cs
 
 ## 方法
 
-子退出：进入僵尸，向父发信号（后课信号课已给出 `SIGCHLD` 直觉）。父 `wait`：若有僵尸孩子，拷退出码，释放该 PCB，返回 PID；若无则阻塞，直到有子退出或被信号打断（[重启系统调用](/cs/restart-syscall)）。`WNOHANG` 不阻塞。可指定 PID 或进程组，精确匹配是后课进程组。
+子退出：进入僵尸，向父发信号（后课信号课给出 `SIGCHLD` 直觉）。父 `wait`：若有僵尸孩子，拷退出码，释放该 PCB，返回 PID；若无则阻塞，直到有子退出或被信号打断（[重启系统调用](/cs/restart-syscall)）。`WNOHANG` 不阻塞。可指定 PID 或进程组，精确匹配是后课进程组。
 
 ```mermaid
 flowchart TD

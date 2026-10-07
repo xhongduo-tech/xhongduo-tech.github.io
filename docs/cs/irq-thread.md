@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Love, Linux Kernel Development；Silberschatz et al. 对中断处理的整理</footer>
 </div>
 
-[上一课](/cs/tasklet-workqueue)把可睡工作丢给 kworker，但硬 IRQ 与 tasklet 仍在中断/软中断上下文，优先级不归调度器管。实时路径上，一次长 tasklet 可以挡住高优先级线程。[实时调度对照](/cs/realtime-sched)已经警告 ISR 会拉长最坏执行。缺口是：让该 IRQ 的下半（甚至大部分处理）跑在**专门的中断线程**里，用调度策略而不是关中断来排队。本课只钉这个模型。
+[上一课](/cs/tasklet-workqueue)把可睡工作丢给 kworker，但硬 IRQ 与 tasklet 仍在中断/软中断上下文，优先级不归调度器管。实时路径上，一次长 tasklet 可以挡住高优先级线程。[实时调度对照](/cs/realtime-sched)将警告 ISR 会拉长最坏执行。缺口是：让该 IRQ 的下半（甚至大部分处理）跑在**专门的中断线程**里，用调度策略而不是关中断来排队。本课只钉这个模型。
 
 ## 问题
 
@@ -51,7 +51,7 @@ flowchart TD
 
 ## 边界
 
-本课不把每块驱动是否 threadirqs 的 Kconfig 写完，不保证桌面发行版默认全部线程化。优先级反转若锁在 IRQ 线程与用户实时线程之间，完整协议在同步课。也不把用户进程当成 IRQ 线程来跑驱动。
+本课不把每块驱动是否 threadirqs 的 Kconfig 写完，不保证桌面发行版默认全部线程化。优先级反转若锁在 IRQ 线程与用户实时线程之间，完整协议在调度课。也不把用户进程当成 IRQ 线程来跑驱动。
 
 <span class="marginnote">常见误区：初学者容易以为线程化后硬中断「没了」。实际上每次中断仍要进一次极短的硬上半（应答设备、唤醒线程），被消掉的是长处理主体「不可调度」这件事。</span>
 

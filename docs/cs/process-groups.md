@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Stevens and Rago, Advanced Programming in the UNIX Environment；Tanenbaum MOS 整理</footer>
 </div>
 
-[上一课](/cs/exit-reap)让单个 PCB 能干净结束。shell 的 `|` 与后台 `&` 要一次管理**多个进程**：Ctrl-C 应打到前台那一组，而不是随机一个 PID。[信号](/cs/signals)已能按 PID 投递。缺口是把 PCB 编成**进程组**与**会话**，并与控制终端挂钩。本课只钉这套作业控制对象。
+[上一课](/cs/exit-reap)让单个 PCB 能干净结束。shell 的 `|` 与后台 `&` 要一次管理**多个进程**：Ctrl-C 应打到前台那一组，而不是随机一个 PID。[信号](/cs/signals)能按 PID 投递。缺口是把 PCB 编成**进程组**与**会话**，并与控制终端挂钩。本课只钉这套作业控制对象。
 
 ## 问题
 
@@ -38,7 +38,7 @@ fork 默认继承组与会话；exec 不改。shell 在 fork 之后、exec 之�
 
 ## 机制
 
-组把信号从「一个 PCB」抬到「一个作业」。与[孤儿与 init](/cs/orphan-init)叠加：会话首领退出可能挂断终端，向该会话发 `SIGHUP`。调度器仍按线程选 CPU，不按组调度——组不是调度实体。组只影响信号投递与 tty 权限。
+组把信号从「一个 PCB」抬到「一个作业」。与[孤儿与 init](/cs/orphan-init)叠加：会话首领退出可能挂断终端，向前台进程组发 `SIGHUP`。调度器仍按线程选 CPU，不按组调度——组不是调度实体。组只影响信号投递与 tty 权限。
 
 ```mermaid
 flowchart LR
