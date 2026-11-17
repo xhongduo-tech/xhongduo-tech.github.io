@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { withMermaid } from 'vitepress-plugin-mermaid'
+import { withLazyMermaid } from './mermaid-lazy'
 
 const repository = process.env.GITHUB_REPOSITORY?.split('/')[1]
 const base = repository && !repository.endsWith('.github.io') ? `/${repository}/` : '/'
@@ -54,7 +54,7 @@ const sidebar = [
   },
 ]
 
-const config = withMermaid(
+const config = withLazyMermaid(
   defineConfig({
     base,
     lang: 'zh-CN',

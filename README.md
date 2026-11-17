@@ -27,7 +27,7 @@ npm run docs:check
 npm run docs:build
 ```
 
-构建输出在docs/.vitepress/dist。数学与Mermaid使用本地构建支持，搜索采用本地索引；不依赖站外搜索账号。
+构建输出在docs/.vitepress/dist。数学公式在构建时生成，Mermaid在包含图表的页面按需加载，搜索采用本地索引；不依赖站外搜索账号。
 
 `npm run docs:preview`用于检查构建产物；重新构建后应重启预览进程，避免旧资源索引与新产物不一致。日常修改使用`docs:dev`。
 
@@ -50,3 +50,5 @@ npm run note:new -- speculative-correctness --area inference --title "投机解�
 Pages的发布方式设为GitHub Actions。source触发测试、内容检查和构建，上传Pages artifact，再由独立deploy job部署。github-pages环境需要允许source分支部署。main仅保存本轮生成文件镜像，用于同步清除旧HTML，不承担二次构建触发职责。
 
 界面与排版遵循[设计规范](./DESIGN.md)：单栏首页、适合长文的阅读宽度，以及Source Serif 4、Inter和JetBrains Mono的字体分工。英文和icon用于辅助识别，不增加重复模块。字体在本站自托管，来源与许可证见[字体说明](./docs/public/fonts/README.md)。
+
+界面使用CSS实现轻量交互，支持减少动态效果；三款变量字体使用拉丁字符子集，保留现有字型与中文系统字体回退。维护时同时检查首页资源、图表首次加载、深浅模式与窄屏排版。

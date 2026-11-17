@@ -1,31 +1,61 @@
 @font-face {
-  font-family: 'Source Serif 4';
-  src: url('/fonts/source-serif-4/SourceSerif4Variable-Roman.woff2') format('woff2');
+  font-family: 'XHD Serif';
+  src: url('/fonts/XHDSerif-Extended.woff2') format('woff2');
   font-weight: 200 900;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0100-0130,U+0132-0151,U+0154-024F,U+0370-03FF,U+1E00-1EFF,U+2070-209F,U+20A0-20AB,U+20AD-20CF,U+2100-2112,U+2114-214F,U+2200-2211,U+2213-22FF;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/inter/InterVariable.woff2') format('woff2');
+  font-family: 'XHD Serif';
+  src: url('/fonts/XHDSerif-Latin.woff2') format('woff2');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0300-036F,U+2000-206F,U+20AC,U+2113,U+2190-21FF,U+2212,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: 'XHD Sans';
+  src: url('/fonts/XHDSans-Extended.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0100-0130,U+0132-0151,U+0154-024F,U+0370-03FF,U+1E00-1EFF,U+2070-209F,U+20A0-20AB,U+20AD-20CF,U+2100-2112,U+2114-214F,U+2200-2211,U+2213-22FF;
 }
 
 @font-face {
-  font-family: 'JetBrains Mono';
-  src: url('/fonts/jetbrains-mono/JetBrainsMonoVariable.woff2') format('woff2');
+  font-family: 'XHD Sans';
+  src: url('/fonts/XHDSans-Latin.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0300-036F,U+2000-206F,U+20AC,U+2113,U+2190-21FF,U+2212,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: 'XHD Mono';
+  src: url('/fonts/XHDMono-Extended.woff2') format('woff2');
   font-weight: 100 800;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0100-0130,U+0132-0151,U+0154-024F,U+0370-03FF,U+1E00-1EFF,U+2070-209F,U+20A0-20AB,U+20AD-20CF,U+2100-2112,U+2114-214F,U+2200-2211,U+2213-22FF;
+}
+
+@font-face {
+  font-family: 'XHD Mono';
+  src: url('/fonts/XHDMono-Latin.woff2') format('woff2');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0300-036F,U+2000-206F,U+20AC,U+2113,U+2190-21FF,U+2212,U+FEFF,U+FFFD;
 }
 
 :root {
-  --vp-font-family-base: 'Inter', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', system-ui, sans-serif;
-  --vp-font-family-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
-  --reading-serif: 'Source Serif 4', 'Songti SC', 'Noto Serif CJK SC', 'Source Han Serif SC', Georgia, serif;
+  --vp-font-family-base: 'XHD Sans', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --vp-font-family-mono: 'XHD Mono', 'SFMono-Regular', Consolas, monospace;
+  --reading-serif: 'XHD Serif', 'Songti SC', 'Noto Serif CJK SC', 'Source Han Serif SC', Georgia, serif;
   --vp-c-bg: #faf9f5;
   --vp-c-bg-alt: #f3f2ed;
   --vp-c-bg-elv: #fffefa;
@@ -53,6 +83,7 @@
   --vp-custom-block-tip-bg: #eff2e9;
   --vp-custom-block-tip-text: #384b39;
   --editorial-accent: #9a4b3e;
+  --interaction-ease: cubic-bezier(.2, .7, .2, 1);
 }
 
 .dark {
@@ -93,6 +124,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .VPNavBarMenuLink, .VPNavBarMenuGroup > button { font-size: 13px !important; }
 .VPNavBarSearch .DocSearch-Button { border: 0; border-radius: 4px; background: transparent; }
 .VPNavBarSearch .DocSearch-Button:hover { background: var(--vp-c-bg-soft); }
+.VPNavBarTitle a { transition: color 160ms ease; }
+.VPNavBarMenuLink { position: relative; }
+.VPNavBarMenuLink::after { position: absolute; right: 12px; bottom: 13px; left: 12px; height: 1px; background: var(--vp-c-brand-1); content: ''; transform: scaleX(0); transform-origin: left; transition: transform 180ms var(--interaction-ease); }
+.VPNavBarMenuLink.active::after { transform: scaleX(1); }
 
 /* Keep theme rules ahead of the lazily loaded scoped search styles. */
 body .VPLocalSearchBox .shell {
@@ -112,6 +147,8 @@ body .VPLocalSearchBox .search-input::-webkit-search-cancel-button { display: no
 body .VPLocalSearchBox .search-actions { flex: none; }
 body .VPLocalSearchBox .search-actions button { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; min-height: 36px; border-radius: 3px; }
 body .VPLocalSearchBox .search-keyboard-shortcuts { padding: 0 4px 2px; color: var(--vp-c-text-3); font-size: 12px; opacity: 1; }
+body .VPLocalSearchBox .result { min-height: 48px; border-width: 1px; border-radius: 5px; transition: border-color 140ms ease, background-color 140ms ease; }
+body .VPLocalSearchBox .result.selected { background: var(--vp-c-brand-soft); }
 
 .VPFooter { border-top: 1px solid var(--vp-c-divider) !important; padding: 26px 24px !important; background: var(--vp-c-bg); }
 .VPFooter .copyright { font-size: 12px; color: var(--vp-c-text-3); }
@@ -143,6 +180,13 @@ body .VPLocalSearchBox .search-keyboard-shortcuts { padding: 0 4px 2px; color: v
 .map-entry p { margin: 0; color: var(--vp-c-text-2); font-size: 13px; line-height: 1.9; }
 .map-arrow { color: var(--vp-c-text-3); font-family: var(--vp-font-family-mono); }
 .map-entry:hover h3, .map-entry:hover .map-arrow { color: var(--vp-c-brand-1); }
+.map-entry, .profile-focus a, .article-entry { position: relative; isolation: isolate; border-radius: 5px; }
+.map-entry::before, .profile-focus a::before, .article-entry::before { position: absolute; z-index: -1; inset: 5px -14px; border-radius: 6px; background: var(--vp-c-brand-soft); content: ''; opacity: 0; transition: opacity 180ms ease; }
+.research-icon { width: 28px; height: 28px; padding: 4px; border: 1px solid var(--vp-c-divider); border-radius: 7px; transition: color 180ms ease, border-color 180ms ease, transform 220ms var(--interaction-ease); }
+.map-arrow, .profile-arrow, .section-link > span, .profile-links span { display: inline-block; transition: transform 180ms var(--interaction-ease), color 180ms ease; }
+.map-entry h3, .map-english, .profile-focus h3 { transition: color 180ms ease; }
+.map-entry:focus-visible::before, .profile-focus a:focus-visible::before, .article-entry:focus-visible::before { opacity: 1; }
+.map-entry:focus-visible .research-icon { color: var(--vp-c-brand-1); border-color: var(--vp-c-brand-1); }
 .articles-empty { padding: 10px 0 20px; }
 .articles-empty p { margin: 0; color: var(--vp-c-text-2); font-size: 14px; line-height: 1.9; }
 .article-entry { display: block; padding: 23px 0; text-decoration: none !important; }
@@ -208,6 +252,30 @@ body .VPLocalSearchBox .search-keyboard-shortcuts { padding: 0 4px 2px; color: v
 .VPDocAsideOutline .outline-title { font-size: 12px; font-weight: 500; }
 .VPDocAsideOutline .outline-link { padding: 3px 0; font-size: 12px; line-height: 1.8; }
 .VPDocFooter .pager-link { border-radius: 4px; }
+.VPDocFooter .pager-link { transition: background-color 180ms ease, border-color 180ms ease; }
+.VPDocFooter .pager-link:hover { background: var(--vp-c-brand-soft); }
+.vp-doc div[class*='language-'] { background-color: var(--vp-code-block-bg); }
+.vp-doc div[class*='language-'] button.copy { border-radius: 4px; }
+.vp-doc .custom-block { border: 1px solid var(--vp-c-divider); }
+.VPDocAsideOutline .outline-marker { transition: top 180ms var(--interaction-ease); }
+
+@media (hover: hover) and (pointer: fine) {
+  .VPNavBarMenuLink:hover::after { transform: scaleX(1); }
+  .map-entry:hover::before, .profile-focus a:hover::before, .article-entry:hover::before { opacity: 1; }
+  .map-entry:hover .research-icon { color: var(--vp-c-brand-1); border-color: var(--vp-c-brand-1); transform: translateY(-1px); }
+  .map-entry:hover .map-arrow, .profile-focus a:hover .profile-arrow, .section-link:hover > span, .profile-links a:hover span { transform: translateX(3px); }
+  .map-entry:hover .map-english { color: var(--vp-c-text-2); }
+}
+
+/* Keep SSR text visible from the first frame; movement never delays reading. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-eyebrow > span { animation: accent-settle 480ms var(--interaction-ease) both; }
+  .research-map { animation: list-settle 380ms var(--interaction-ease); }
+  body .VPLocalSearchBox .shell { animation: search-settle 160ms var(--interaction-ease); }
+}
+@keyframes accent-settle { from { transform: scaleX(.65); transform-origin: left; } to { transform: scaleX(1); transform-origin: left; } }
+@keyframes list-settle { from { transform: translateY(5px); } to { transform: translateY(0); } }
+@keyframes search-settle { from { opacity: .96; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (min-width: 960px) {
   .VPDoc.has-aside .content-container { max-width: 700px !important; }
@@ -233,7 +301,7 @@ body .VPLocalSearchBox .search-keyboard-shortcuts { padding: 0 4px 2px; color: v
   .map-entry { grid-template-columns: minmax(0, 1fr) 16px; gap: 5px 14px; padding: 20px 0; }
   .map-entry h3 { grid-column: 1; font-size: 15px; }
   .map-label { grid-column: 1; }
-  .map-entry p { grid-column: 1; padding-left: 32px; font-size: 13px; }
+  .map-entry p { grid-column: 1; padding-left: 40px; font-size: 13px; }
   .map-arrow { grid-column: 2; grid-row: 1 / 3; align-self: center; }
   .vp-doc { font-size: 16px; }
   .vp-doc h1 { font-size: 29px; }
@@ -251,5 +319,5 @@ body .VPLocalSearchBox .search-keyboard-shortcuts { padding: 0 4px 2px; color: v
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
