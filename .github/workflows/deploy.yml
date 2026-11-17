@@ -6,12 +6,19 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: write
+      pages: read
     steps:
       - uses: actions/checkout@v4
 
@@ -28,7 +35,15 @@ jobs:
       - name: Build site
         run: npm run docs:build
 
-      - name: Publish dist to main (GitHub Pages legacy source)
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs/.vitepress/dist
+
+      - name: Replace generated main mirror
         run: |
           cd docs/.vitepress/dist
           git init -b main
@@ -38,3 +53,19 @@ jobs:
           git commit -m "deploy: $(date -u +'%Y-%m-%d %H:%M UTC')"
           git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/xhongduo-tech/xhongduo-tech.github.io.git"
           git push --force origin main
+
+  deploy:
+    needs: build-deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,6 +1,6 @@
 # 徐鸿铎的大模型研究笔记
 
-VitePress技术博客，围绕大模型原理、推理算法与服务系统、训练后训练、评测复现与实践项目组织。源码在source分支，GitHub Actions构建后发布main分支，站点为 https://xhongduo-tech.github.io/ 。
+VitePress技术博客，围绕大模型原理、推理算法与服务系统、训练后训练、评测复现与实践项目组织。源码在source分支，GitHub Actions构建后通过官方Pages artifact流程部署，同时替换main分支的生成文件镜像。站点为 https://xhongduo-tech.github.io/ 。
 
 ## 目录
 
@@ -40,3 +40,7 @@ npm run note:new -- speculative-correctness --area inference --title "投机解�
 历史Markdown页面与旧导航已移除。原始源码commit为2cfa220011800ed65c9e465d8473df4f4849e01b，Git历史保留；工作目录之外另保存了完整源码快照。当前四个推理专题均为研究提纲，三个项目均待实践，没有用提纲充作正式博文。
 
 后续内容应来自真实学习、源码追踪和实验积累，避免重新生成大量缺乏验证的词条。
+
+## GitHub发布配置
+
+Pages的发布方式设为GitHub Actions。source触发测试、内容检查和构建，上传Pages artifact，再由独立deploy job部署。github-pages环境需要允许source分支部署。main仅保存本轮生成文件镜像，用于同步清除旧HTML，不承担二次构建触发职责。

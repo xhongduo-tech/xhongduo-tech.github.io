@@ -14,7 +14,7 @@ mechanism为原理分析，source为固定commit的源码追踪，simulation为�
 
 ## 部署
 
-保留source到main的GitHub Pages链路。提交到source触发现有工作流，执行依赖安装和包含内容检查的构建，再发布生成站点。正式研究内容发布前需要作者审阅；重构不改变仓库访问范围。
+source提交触发依赖安装、写作流程测试、内容检查与构建；构建结果上传Pages artifact，由独立deploy job直接部署到GitHub Pages。Pages发布方式配置为GitHub Actions，github-pages环境允许source部署。main同步替换为当轮构建的生成文件镜像，清除旧HTML与旧搜索资产；上线不依赖该分支的推送再次触发构建。正式研究内容发布前需要作者审阅；重构不改变仓库访问范围。
 
 ## 维护
 

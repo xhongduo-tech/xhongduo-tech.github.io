@@ -1,6 +1,6 @@
 # 博客协作规范
 
-站点聚焦大模型基础、推理算法与系统、训练后训练、评测和项目。使用VitePress，源码分支source，保持现有GitHub Pages发布流程。
+站点聚焦大模型基础、推理算法与系统、训练后训练、评测和项目。使用VitePress，源码分支source，通过官方Pages artifact流程部署；main保留生成文件镜像。
 
 ## 内容与证据
 
