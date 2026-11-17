@@ -56,9 +56,9 @@ const config = withMermaid(
   defineConfig({
     base,
     lang: 'zh-CN',
-    title: '潜流',
-    titleTemplate: ':title · 潜流',
-    description: '模型、系统与未尽之问。沿着源码与实验，探索表象之下的机制。',
+    title: '迭代',
+    titleTemplate: ':title · 迭代',
+    description: '阅读、代码与实验中的思考和实践。',
     cleanUrls: true,
     lastUpdated: false,
     appearance: true,
@@ -74,7 +74,7 @@ const config = withMermaid(
       theme: { light: 'github-light', dark: 'github-dark' },
     },
     themeConfig: {
-      siteTitle: '潜流',
+      siteTitle: '迭代',
       nav: [
         { text: '文章', link: '/articles/' },
         {
@@ -139,7 +139,7 @@ const config = withMermaid(
         },
       },
       footer: {
-        copyright: '潜流',
+        copyright: '迭代',
       },
     },
   }),

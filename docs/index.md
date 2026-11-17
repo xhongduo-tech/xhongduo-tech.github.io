@@ -1,8 +1,8 @@
 ---
 layout: home
-title: 潜流
+title: 迭代
 titleTemplate: false
-description: 模型、系统与未尽之问。沿着源码与实验，探索表象之下的机制。
+description: 阅读、代码与实验中的思考和实践。
 kind: overview
 status: published
 ---
