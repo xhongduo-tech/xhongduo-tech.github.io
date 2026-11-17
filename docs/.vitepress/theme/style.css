@@ -92,6 +92,26 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .VPNavBarMenuLink, .VPNavBarMenuGroup > button { font-size: 13px !important; }
 .VPNavBarSearch .DocSearch-Button { border: 0; border-radius: 4px; background: transparent; }
 .VPNavBarSearch .DocSearch-Button:hover { background: var(--vp-c-bg-soft); }
+
+/* Keep theme rules ahead of the lazily loaded scoped search styles. */
+body .VPLocalSearchBox .shell {
+  width: min(calc(100vw - 48px), 720px);
+  padding: 14px;
+  gap: 12px;
+  background: var(--vp-c-bg-elv);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 7px;
+}
+body .VPLocalSearchBox .search-bar { min-height: 52px; padding: 0 8px; }
+body .VPLocalSearchBox .search-input { min-width: 0; flex: 1 1 0%; width: auto; min-height: 48px; font-size: 16px; }
+/* The form already supplies the focus-within border for its input. */
+body .VPLocalSearchBox .search-input:focus,
+body .VPLocalSearchBox .search-input:focus-visible { outline: none; outline-offset: 0; box-shadow: none; }
+body .VPLocalSearchBox .search-input::-webkit-search-cancel-button { display: none; }
+body .VPLocalSearchBox .search-actions { flex: none; }
+body .VPLocalSearchBox .search-actions button { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; min-height: 36px; border-radius: 3px; }
+body .VPLocalSearchBox .search-keyboard-shortcuts { padding: 0 4px 2px; color: var(--vp-c-text-3); font-size: 12px; opacity: 1; }
+
 .VPFooter { border-top: 1px solid var(--vp-c-divider) !important; padding: 26px 24px !important; background: var(--vp-c-bg); }
 .VPFooter .copyright { font-size: 12px; color: var(--vp-c-text-3); }
 .VPHome { margin-bottom: 0 !important; }
@@ -123,6 +143,27 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .article-entry h3 > span { margin-left: 6px; color: var(--vp-c-brand-1); font: 14px var(--vp-font-family-mono); }
 .article-entry p { margin: 0; color: var(--vp-c-text-2); font-size: 14px; line-height: 1.85; }
 .article-entry:hover h3 { color: var(--vp-c-brand-1); }
+
+.profile-page { max-width: 824px; margin: 0 auto; padding: 64px 32px 72px; }
+.profile-page .header-anchor { display: none; }
+.profile-header { padding-bottom: 36px; }
+.profile-overline { margin: 0 0 18px; color: var(--vp-c-text-3); font-size: 13px; line-height: 1.7; }
+.profile-header h1 { margin: 0 0 23px; font: 600 44px/1.5 var(--reading-serif); letter-spacing: -.02em; }
+.profile-bio { max-width: 700px; margin: 0; font: 17px/1.95 var(--reading-serif); }
+.profile-links { display: flex; flex-wrap: wrap; gap: 4px 28px; margin-top: 19px; }
+.profile-links a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--vp-c-brand-1); font-size: 13px; text-decoration: none; }
+.profile-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.profile-links span, .profile-arrow { font-family: var(--vp-font-family-mono); }
+.profile-section { padding: 28px 0 32px; border-top: 1px solid var(--vp-c-divider); }
+.profile-section h2 { margin: 0 0 19px; font-size: 14px; font-weight: 600; line-height: 1.8; }
+.profile-section > p { margin: 18px 0; font: 17px/1.95 var(--reading-serif); }
+.profile-focus { margin: 0; padding: 0; list-style: none; }
+.profile-focus li + li { border-top: 1px solid var(--vp-c-divider); }
+.profile-focus a { display: grid; grid-template-columns: 180px minmax(0, 1fr) 16px; align-items: baseline; gap: 22px; min-height: 80px; padding: 24px 0; text-decoration: none; }
+.profile-focus h3 { margin: 0; font-size: 14px; font-weight: 500; line-height: 1.9; }
+.profile-focus p { margin: 0; color: var(--vp-c-text-2); font-size: 14px; line-height: 1.9; }
+.profile-arrow { color: var(--vp-c-text-3); }
+.profile-focus a:hover h3, .profile-focus a:hover .profile-arrow { color: var(--vp-c-brand-1); }
 
 .page-context { margin-bottom: 24px; font-family: var(--vp-font-family-base); }
 .breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 21px; color: var(--vp-c-text-3); font-size: 12px; line-height: 1.8; }
@@ -165,6 +206,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 @media (max-width: 767px) {
+  body .VPLocalSearchBox .shell { width: 100%; height: 100dvh; max-height: 100dvh; margin: 0; padding: 12px; border: 0; border-radius: 0; }
+  body .VPLocalSearchBox .search-actions button { min-width: 44px; min-height: 44px; }
+  .profile-page { padding: 40px 24px 40px; }
+  .profile-header { padding-bottom: 26px; }
+  .profile-header h1 { font-size: 36px; }
+  .profile-bio, .profile-section > p { font-size: 16px; }
+  .profile-section { padding: 23px 0 26px; }
+  .profile-focus a { grid-template-columns: minmax(0, 1fr) 16px; gap: 5px 14px; padding: 20px 0; }
+  .profile-focus h3, .profile-focus p { grid-column: 1; }
+  .profile-arrow { grid-column: 2; grid-row: 1 / 3; align-self: center; }
   .research-home { padding: 0 24px 38px; }
   .home-intro { padding: 44px 0 38px; }
   .home-intro h1 { font-size: 32px; }

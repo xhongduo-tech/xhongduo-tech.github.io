@@ -9,7 +9,7 @@ const sidebar = [
     text: '从这里开始',
     items: [
       { text: '研究地图', link: '/' },
-      { text: '关于这些笔记', link: '/about' },
+      { text: '关于我', link: '/about' },
     ],
   },
   {
@@ -87,7 +87,7 @@ const config = withMermaid(
           ],
         },
         { text: '项目', link: '/projects/' },
-        { text: '关于', link: '/about' },
+        { text: '关于我', link: '/about' },
       ],
       sidebar,
       outline: { level: [2, 3], label: '本页目录' },
