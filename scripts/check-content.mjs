@@ -33,7 +33,7 @@ for (const page of pages) {
     if (data.status !== 'published') fail('未发表草稿应放在drafts，而不是公开docs')
     const articleDate = data.date instanceof Date ? data.date.toISOString().slice(0, 10) : String(data.date)
     if (!/^\d{4}-\d{2}-\d{2}$/.test(articleDate)) fail('文章需有YYYY-MM-DD日期')
-    if (!['foundations', 'inference', 'training', 'evaluation'].includes(data.area)) fail('文章需有有效area')
+    if (!['foundations', 'inference', 'training', 'evaluation', 'applications'].includes(data.area)) fail('文章需有有效area')
     if (!['mechanism', 'source', 'simulation', 'hardware'].includes(data.evidence)) fail('文章需说明证据层次')
     if (!/https:\/\//.test(content)) fail('文章需有直接支持主张的资料链接')
     for (const section of ['问题', '机制', '实验', '结论', '参考']) {

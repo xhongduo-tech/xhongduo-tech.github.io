@@ -4,10 +4,12 @@ import { useData, withBase } from 'vitepress'
 
 const { frontmatter, page, site } = useData()
 const categories: Record<string, { title: string; url: string }> = {
+  roadmap: { title: '完整知识地图', url: '/roadmap/' },
   foundations: { title: '模型基础', url: '/foundations/' },
   inference: { title: '推理与系统', url: '/inference/' },
   training: { title: '训练与后训练', url: '/training/' },
   evaluation: { title: '模型评测', url: '/evaluation/' },
+  applications: { title: '应用与多模态', url: '/applications/' },
   projects: { title: '项目实践', url: '/projects/' },
   writing: { title: '文章与写作', url: '/writing/' },
   articles: { title: '已发布文章', url: '/articles/' },

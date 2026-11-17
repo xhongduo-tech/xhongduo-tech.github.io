@@ -8,7 +8,7 @@ function option(name, fallback) {
 }
 const area = option('--area', 'inference')
 const title = option('--title', slug)
-if (!slug || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || !['foundations', 'inference', 'training', 'evaluation'].includes(area) || !title) {
+if (!slug || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || !['foundations', 'inference', 'training', 'evaluation', 'applications'].includes(area) || !title) {
   process.stderr.write('用法：npm run note:new -- slug --area inference --title "文章问题"\n')
   process.exit(1)
 }

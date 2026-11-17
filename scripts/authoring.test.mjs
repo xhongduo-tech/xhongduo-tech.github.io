@@ -66,11 +66,12 @@ test('hardware claims need model, hardware and raw-result metadata', async () =>
 
 test('new-note writes a private draft, refuses overwrites and path traversal', async () => {
   await fixture(async (dir) => {
-    execFileSync(process.execPath, [creator, 'mtp-check', '--title', 'MTP的一个问题'], { cwd: dir })
-    const content = await readFile(path.join(dir, 'drafts/mtp-check.md'), 'utf8')
+    execFileSync(process.execPath, [creator, 'retrieval-check', '--area', 'applications', '--title', '检索证据的一个问题'], { cwd: dir })
+    const content = await readFile(path.join(dir, 'drafts/retrieval-check.md'), 'utf8')
     assert.match(content, /status: draft/)
-    assert.match(content, /MTP的一个问题/)
-    assert.notEqual(spawnSync(process.execPath, [creator, 'mtp-check'], { cwd: dir }).status, 0)
+    assert.match(content, /area: applications/)
+    assert.match(content, /检索证据的一个问题/)
+    assert.notEqual(spawnSync(process.execPath, [creator, 'retrieval-check'], { cwd: dir }).status, 0)
     assert.notEqual(spawnSync(process.execPath, [creator, '../escape'], { cwd: dir }).status, 0)
   })
 })

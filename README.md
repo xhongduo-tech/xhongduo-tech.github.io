@@ -6,12 +6,16 @@ VitePress技术博客，围绕大模型原理、推理算法与服务系统、�
 
 首页主句为`Token · Attention · Inference`，下方说明为“记录模型、训练与推理系统的学习和实践。”。保留当前单栏文章与研究方向布局，以简洁英文标注和线性icon补充层次；导航保持文章、研究、项目和关于我四组。
 
+[完整知识地图](./docs/roadmap/index.md)按依赖连接编程数值、架构、数据/预训练、训练系统、SFT、偏好/RL、缓存解码、服务、评测与应用。各专题包含问题、机制、低成本实验、验收与第一方来源；研究提纲和项目任务书不计作已完成成果。首页“完整地图”和研究菜单提供入口。
+
 ## 目录
 
 - docs/foundations：模型、概率、张量与训练基础。
+- docs/roadmap：完整知识地图、学习依赖、阶段与证据标准。
 - docs/inference：解码、MTP、DSpark、DeepInfer及推理系统地图。
 - docs/training：数据、SFT、LoRA、偏好优化与RL路线。
 - docs/evaluation：质量、系统指标和复现规范。
+- docs/applications：检索、工具调用、Agent与多模态的小实验。
 - docs/projects：部署、微调、后训练项目任务与后续报告。
 - docs/articles：正式博文，只有article且published进入文章索引。
 - docs/writing：写作方法与文章模板。
@@ -38,6 +42,8 @@ npm run note:new -- speculative-correctness --area inference --title "投机解�
 ```
 
 草稿正文默认被Git忽略，也不进入站点。补齐内容、资料与证据，经人工核对后移到docs/articles，设置status published，再运行检查与构建。不要强制提交含私有信息的草稿：本仓库本身是公开的。正式文章需title、description、kind、status、area、evidence与date；evidence可为mechanism、source、simulation或hardware。源码文章固定commit，硬件实测另记录model、hardware和results。
+
+area支持foundations、inference、training、evaluation、applications。完整地图负责连接各领域，不另作为文章分类；主题和项目保持实际状态，不因为资料核验或任务书发布就标为完成。
 
 ## 本轮重构
 

@@ -11,28 +11,51 @@ const sidebar = [
     text: '从这里开始',
     items: [
       { text: '首页', link: '/' },
+      { text: '完整知识地图', link: '/roadmap/' },
       { text: '关于我', link: '/about' },
     ],
   },
   {
     text: '模型基础',
-    items: [{ text: '基础知识与阅读路径', link: '/foundations/' }],
+    items: [
+      { text: '基础知识与阅读路径', link: '/foundations/' },
+      { text: '编程、数学与训练机制', link: '/foundations/programming-math' },
+      { text: 'Transformer与架构演进', link: '/foundations/transformer-architectures' },
+    ],
   },
   {
     text: '推理与系统',
     items: [
       { text: '推理专题地图', link: '/inference/' },
+      { text: 'KV缓存与Attention执行', link: '/inference/kv-cache' },
+      { text: '量化与低精度', link: '/inference/quantization' },
       { text: '投机采样', link: '/inference/speculative-decoding' },
       { text: '多 Token 预测 MTP', link: '/inference/mtp' },
       { text: 'DSpark', link: '/inference/dspark' },
       { text: 'DeepInfer', link: '/inference/deepinfer' },
+      { text: '服务、调度与分布式推理', link: '/inference/serving-systems' },
     ],
   },
   {
-    text: '训练与评测',
+    text: '训练与后训练',
     items: [
-      { text: '训练与后训练', link: '/training/' },
-      { text: '模型评测', link: '/evaluation/' },
+      { text: '训练专题地图', link: '/training/' },
+      { text: '数据与预训练', link: '/training/data-pretraining' },
+      { text: '分布式训练与恢复', link: '/training/distributed-training' },
+      { text: 'SFT与参数高效适配', link: '/training/sft' },
+      { text: '偏好优化与DPO', link: '/training/preference-optimization' },
+      { text: 'RL、推理能力与蒸馏', link: '/training/rl-training' },
+    ],
+  },
+  {
+    text: '评测与应用',
+    items: [
+      { text: '评测与实验方法', link: '/evaluation/' },
+      { text: '质量与服务实验', link: '/evaluation/quality-systems' },
+      { text: '鲁棒性、安全与解释', link: '/evaluation/robustness-safety' },
+      { text: '应用主题地图', link: '/applications/' },
+      { text: 'RAG与Agent', link: '/applications/retrieval-agents' },
+      { text: '多模态机制与成本', link: '/applications/multimodal' },
     ],
   },
   {
@@ -82,10 +105,12 @@ const config = withLazyMermaid(
         {
           text: '研究',
           items: [
+            { text: '完整知识地图', link: '/roadmap/' },
             { text: '模型基础', link: '/foundations/' },
             { text: '推理与系统', link: '/inference/' },
             { text: '训练与后训练', link: '/training/' },
             { text: '评测与实验', link: '/evaluation/' },
+            { text: '应用与多模态', link: '/applications/' },
           ],
         },
         { text: '项目', link: '/projects/' },

@@ -283,6 +283,11 @@ body .VPLocalSearchBox .result.selected { background: var(--vp-c-brand-soft); }
 }
 
 @media (max-width: 767px) {
+  .knowledge-roadmap .vp-doc table { max-width: 100%; overflow-x: auto; }
+  .knowledge-roadmap .vp-doc th, .knowledge-roadmap .vp-doc td { min-width: 170px; }
+  .knowledge-roadmap .vp-doc th:first-child, .knowledge-roadmap .vp-doc td:first-child { min-width: 108px; }
+  .knowledge-roadmap .mermaid { overflow-x: auto; }
+  .knowledge-roadmap .mermaid svg { min-width: 700px; }
   body .VPLocalSearchBox .shell { width: 100%; height: 100dvh; max-height: 100dvh; margin: 0; padding: 12px; border: 0; border-radius: 0; }
   body .VPLocalSearchBox .search-actions button { min-width: 44px; min-height: 44px; }
   .profile-page { padding: 40px 24px 40px; }

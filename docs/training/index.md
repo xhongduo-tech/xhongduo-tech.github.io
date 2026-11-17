@@ -1,29 +1,49 @@
 ---
 title: 训练与后训练
-description: 把数据、目标、优化与模型能力变化对应起来。
+description: 从数据与目标，到分布式执行、监督微调、偏好优化和强化学习。
 kind: overview
 status: published
 ---
 
 # 训练与后训练
 
-这一条路线逐步建立数据、监督微调、偏好优化与强化学习的实践。每个阶段既解释目标与梯度，也检查模型变化。
+训练研究需要把数据、概率目标、参数更新、系统执行和独立评测连起来。这里以五个专题组织问题，每个专题都提供机制、源码入口和可分级验证的实验。专题是待研究的学习与实践路线，不计作已完成训练或正式博文。
 
-## 主线
+## 专题地图
 
-| 阶段 | 需要理解 | 实践与证据 |
+| 专题 | 关键问题 | 首个可验收产物 |
 | --- | --- | --- |
-| 预训练基础 | next-token目标、数据、计算预算与训练稳定性 | 小模型训练机制与数据检查 |
-| 数据与SFT | 模板、标签、loss mask、训练与保留集 | 合理基线、训练日志、错误归因 |
-| 参数高效适配 | LoRA等方法怎样改变可训练参数 | adapter训练、保存、重载与质量对照 |
-| 偏好优化 | 偏好数据、目标、参考模型与偏差 | SFT与DPO固定协议比较 |
-| RL进阶 | 采样、奖励、策略更新与奖励作弊 | 条件具备后的小规模可验证任务 |
+| [数据与预训练](/training/data-pretraining) | 数据配比、去重、污染与CPT怎样影响学习？ | 数据清单、切分与去重审计、next-token目标检查 |
+| [分布式训练与检查点](/training/distributed-training) | 模型状态如何分布，通信、激活与恢复怎样限制运行？ | 内存账本、CPU梯度对照与恢复实验 |
+| [监督微调与参数高效适配](/training/sft) | 模板、标签和LoRA/QLoRA具体改变了什么？ | token/label/mask检查、受控SFT与adapter重载 |
+| [偏好优化](/training/preference-optimization) | 成对偏好怎样转成目标，收益和偏差如何检验？ | DPO目标验证、偏好数据审计与SFT对照 |
+| [强化学习与蒸馏](/training/rl-training) | rollout、奖励、策略概率和教师信号分别怎样形成更新？ | 概率比/优势与软目标验证、奖励反例，条件具备后再训练 |
 
-SFT属于后训练，LoRA是实现适配的方式，DPO是偏好优化方法。它们按实际问题组织，不按术语数量计算项目成果。
+## 依赖与分支
 
-## 对应项目
+先补[编程与数学](/foundations/programming-math)和[Transformer结构](/foundations/transformer-architectures)，再完成数据与SFT的最小闭环。分布式训练是一条随模型规模和系统问题逐步加深的支线，不是开始小模型实验前必须建成的大集群。
 
-- [数据与监督微调](/projects/finetuning-lab)
-- [偏好优化与后训练](/projects/post-training-lab)
+SFT基线与评测稳定后，先在CPU检查偏好目标，再进入受控DPO。RL还需要策略采样、可检查的奖励、独立测试和实际资源；它是带前置条件的进阶项目，不要求把全部算法同时跑一遍。整体安排见[研究路径](/roadmap/)。
 
-资料入口：[Hugging Face LLM课程](https://huggingface.co/learn/llm-course/chapter1/1)、[PEFT LoRA](https://huggingface.co/docs/peft/main/en/conceptual_guides/lora)、[TRL DPO](https://huggingface.co/docs/trl/dpo_trainer)、[DeepSeek R1](https://github.com/deepseek-ai/DeepSeek-R1)。
+## 不同术语分别改变什么
+
+| 层次 | 例子 | 不能混同的概念 |
+| --- | --- | --- |
+| 数据与训练阶段 | 预训练、CPT、SFT | CPT是继续预训练的阶段，不自动等于指令训练 |
+| 参数适配方式 | 全参数、LoRA、QLoRA | LoRA可用于不同目标，不是与SFT并列的学习目标 |
+| 偏好与策略优化 | DPO、PPO、GRPO | 本路线的离线DPO无需在线rollout；完成DPO不等于完成在线RL |
+| 奖励设置 | RLVR、学习到的奖励模型 | RLVR强调可验证奖励，不指定唯一算法，也不等同GRPO |
+| 执行与采样 | DDP、FSDP、ZeRO、TP/PP/EP、rollout | 并行切分与优化目标是不同维度；采样本身也不是参数更新 |
+
+合成数据和蒸馏还涉及教师信号、样本选择与目标，不能仅由模型名字推断训练过程。各页通过原论文和实现分别核对这些关系。
+
+## 共用证据与项目
+
+每次实验记录数据/模板/模型版本、目标与mask、优化器、有效token数、检查点、硬件与用量。训练loss、奖励和偏好判别指标不能替代独立任务质量；同时检查长度、格式和能力退化。
+
+- [数据与监督微调实验](/projects/finetuning-lab)：形成数据、训练和保留集的真实对照。
+- [偏好优化与后训练实验](/projects/post-training-lab)：先检验偏好数据与DPO，RL按条件开展。
+- [评测与实验](/evaluation/)：共用切分、基线、结果与复现规范。
+- [推理算法与服务系统](/inference/)：连接模型更新之后的运行代价。
+
+专题中的CPU示意、源码阅读与硬件实测分别验收。资料核验日期为2026-11-16，具体版本和来源列在各页；动态文档不等于已经测试过的运行环境。

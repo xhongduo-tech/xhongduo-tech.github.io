@@ -2,6 +2,8 @@
 
 站点聚焦大模型基础、推理算法与系统、训练后训练、评测和项目。使用VitePress，源码分支source，通过官方Pages artifact流程部署；main保留生成文件镜像。
 
+完整学习体系入口为docs/roadmap，专题扩展到数据/预训练、训练系统、SFT/偏好/RL、检索/Agent与多模态。每页提供问题、前置、机制与边界、低成本实验、验收和第一方资料。新增主题保持planned；导航地图的published仅表示已发布入口，不表示学习完成。首页继续四条单栏方向，通过完整地图连接新增领域，不堆叠首页卡片。
+
 站名统一为`xuhongduo's blog`，与GitHub账户`xhongduo-tech`的拼写区分。首页主句为`Token · Attention · Inference`，下方说明为“记录模型、训练与推理系统的学习和实践。”。统一页面元数据、导航品牌、页脚与面包屑；保留首页`titleTemplate: false`、作者姓名和独立关于页。
 
 界面采用极客、专业、简约的奥卡姆风格。用户已确认当前单栏文章与研究方向布局清晰，保留它，只补充美观的英文标注与线性icon。遵循DESIGN.md，使用Source Serif 4、Inter与JetBrains Mono的字体分工。

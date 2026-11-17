@@ -25,7 +25,7 @@ import ResearchIcon from './ResearchIcon.vue'
     <section id="research-map" class="home-section" aria-labelledby="map-title">
       <div class="section-heading">
         <div><span class="section-eyebrow" lang="en">Research areas</span><h2 id="map-title">研究方向</h2></div>
-        <a class="section-link" :href="withBase('/projects/')">实验项目 <span aria-hidden="true">→</span></a>
+        <a class="section-link" :href="withBase('/roadmap/')">完整地图 <span aria-hidden="true">→</span></a>
       </div>
       <ul class="research-map">
         <li v-for="section in sections" :key="section.link">
