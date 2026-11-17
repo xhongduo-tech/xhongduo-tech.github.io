@@ -52,7 +52,7 @@ const sidebar = [
   },
 ]
 
-export default withMermaid(
+const config = withMermaid(
   defineConfig({
     base,
     lang: 'zh-CN',
@@ -65,7 +65,7 @@ export default withMermaid(
     metaChunk: true,
     head: [
       ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}favicon.svg` }],
-      ['meta', { name: 'theme-color', content: '#fbfaf7' }],
+      ['meta', { name: 'theme-color', content: '#faf9f5' }],
       ['meta', { name: 'author', content: '徐鸿铎' }],
     ],
     markdown: {
@@ -76,12 +76,17 @@ export default withMermaid(
     themeConfig: {
       siteTitle: '徐鸿铎',
       nav: [
-        { text: '基础', link: '/foundations/' },
-        { text: '推理', link: '/inference/' },
-        { text: '训练', link: '/training/' },
-        { text: '评测', link: '/evaluation/' },
-        { text: '项目', link: '/projects/' },
         { text: '文章', link: '/articles/' },
+        {
+          text: '研究',
+          items: [
+            { text: '模型基础', link: '/foundations/' },
+            { text: '推理与系统', link: '/inference/' },
+            { text: '训练与后训练', link: '/training/' },
+            { text: '评测与实验', link: '/evaluation/' },
+          ],
+        },
+        { text: '项目', link: '/projects/' },
         { text: '关于', link: '/about' },
       ],
       sidebar,
@@ -134,9 +139,20 @@ export default withMermaid(
         },
       },
       footer: {
-        message: '从原理出发，用实验与代码留下证据。',
         copyright: '徐鸿铎 · LLM Research Notes',
       },
     },
   }),
 )
+
+// Prebundle Mermaid's UMD dependencies for the development server.
+// The plugin also includes an optional debug package that this site does not use.
+config.vite ??= {}
+config.vite.optimizeDeps ??= {}
+config.vite.optimizeDeps.include = [...new Set([
+  ...(config.vite.optimizeDeps.include ?? []).filter((dependency) => dependency !== 'debug'),
+  'fastdom',
+  'fastdom/extensions/fastdom-promised.js',
+])]
+
+export default config

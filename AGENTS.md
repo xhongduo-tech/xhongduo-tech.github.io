@@ -2,6 +2,8 @@
 
 站点聚焦大模型基础、推理算法与系统、训练后训练、评测和项目。使用VitePress，源码分支source，通过官方Pages artifact流程部署；main保留生成文件镜像。
 
+界面采用极客、专业、简约的奥卡姆风格。遵循DESIGN.md，使用Source Serif 4、Inter与JetBrains Mono的字体分工，避免恢复重复卡片和装饰性模块。
+
 ## 内容与证据
 
 专题地图使用kind topic，项目任务使用kind project，文章使用kind article。未完成的专题与项目标记planned。草稿放drafts目录，不进入公开docs；正式文章经核对后才设status published。

@@ -44,3 +44,5 @@ npm run note:new -- speculative-correctness --area inference --title "投机解�
 ## GitHub发布配置
 
 Pages的发布方式设为GitHub Actions。source触发测试、内容检查和构建，上传Pages artifact，再由独立deploy job部署。github-pages环境需要允许source分支部署。main仅保存本轮生成文件镜像，用于同步清除旧HTML，不承担二次构建触发职责。
+
+界面与排版遵循[设计规范](./DESIGN.md)：极简首页、适合长文的阅读宽度，以及Source Serif 4、Inter和JetBrains Mono的字体分工。字体在本站自托管，来源与许可证见[字体说明](./docs/public/fonts/README.md)。

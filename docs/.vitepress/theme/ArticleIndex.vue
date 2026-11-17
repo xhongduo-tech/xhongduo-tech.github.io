@@ -22,10 +22,6 @@ withDefaults(defineProps<{ limit?: number }>(), { limit: 0 })
     </a>
   </div>
   <div v-else class="articles-empty">
-    <span class="empty-mark" aria-hidden="true">—</span>
-    <div>
-      <p class="empty-title">正式文章，等待第一份完整记录。</p>
-      <p>当前已发布文章为 0 篇。专题提纲与项目计划分别保留在研究地图和项目页。</p>
-    </div>
+    <p>尚无正式文章。完成的阅读与实验将在这里整理。</p>
   </div>
 </template>

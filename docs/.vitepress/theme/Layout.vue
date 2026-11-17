@@ -12,19 +12,13 @@ const isHome = computed(() => frontmatter.value.layout === 'home')
 <template>
   <DefaultTheme.Layout>
     <template #nav-bar-title-after>
-      <span class="brand-caption" aria-hidden="true">RESEARCH NOTES</span>
+      <span class="brand-caption" aria-hidden="true">/ notes</span>
     </template>
     <template #home-hero-before>
       <ResearchHome v-if="isHome" />
     </template>
     <template #doc-before>
       <PageContext />
-    </template>
-    <template #aside-outline-after>
-      <div class="reading-note">
-        <span class="reading-note-label">阅读说明</span>
-        <p>提纲与项目按实际进展更新，已发布文章另行收录。</p>
-      </div>
     </template>
   </DefaultTheme.Layout>
 </template>
