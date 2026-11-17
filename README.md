@@ -1,4 +1,4 @@
-# 徐鸿铎的大模型研究笔记
+# 潜流
 
 VitePress技术博客，围绕大模型原理、推理算法与服务系统、训练后训练、评测复现与实践项目组织。源码在source分支，GitHub Actions构建后通过官方Pages artifact流程部署，同时替换main分支的生成文件镜像。站点为 https://xhongduo-tech.github.io/ 。
 

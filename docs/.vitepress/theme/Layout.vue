@@ -11,9 +11,6 @@ const isHome = computed(() => frontmatter.value.layout === 'home')
 
 <template>
   <DefaultTheme.Layout>
-    <template #nav-bar-title-after>
-      <span class="brand-caption" aria-hidden="true">/ notes</span>
-    </template>
     <template #home-hero-before>
       <ResearchHome v-if="isHome" />
     </template>

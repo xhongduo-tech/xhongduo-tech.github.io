@@ -8,7 +8,7 @@ const sidebar = [
   {
     text: '从这里开始',
     items: [
-      { text: '研究地图', link: '/' },
+      { text: '首页', link: '/' },
       { text: '关于我', link: '/about' },
     ],
   },
@@ -56,9 +56,9 @@ const config = withMermaid(
   defineConfig({
     base,
     lang: 'zh-CN',
-    title: '徐鸿铎',
-    titleTemplate: ':title · LLM Research Notes',
-    description: '从模型机制到工程实践，记录大模型基础、推理、训练与评测的学习过程。',
+    title: '潜流',
+    titleTemplate: ':title · 潜流',
+    description: '模型、系统与未尽之问。沿着源码与实验，探索表象之下的机制。',
     cleanUrls: true,
     lastUpdated: false,
     appearance: true,
@@ -74,7 +74,7 @@ const config = withMermaid(
       theme: { light: 'github-light', dark: 'github-dark' },
     },
     themeConfig: {
-      siteTitle: '徐鸿铎',
+      siteTitle: '潜流',
       nav: [
         { text: '文章', link: '/articles/' },
         {
@@ -100,9 +100,9 @@ const config = withMermaid(
       skipToContentLabel: '跳到正文',
       notFound: {
         title: '这页笔记还没有找到',
-        quote: '可以返回研究地图，或使用搜索寻找相关主题。',
-        linkLabel: '返回研究地图',
-        linkText: '返回研究地图',
+        quote: '可以返回首页，或使用搜索寻找相关主题。',
+        linkLabel: '返回首页',
+        linkText: '返回首页',
       },
       search: {
         provider: 'local',
@@ -139,7 +139,7 @@ const config = withMermaid(
         },
       },
       footer: {
-        copyright: '徐鸿铎 · LLM Research Notes',
+        copyright: '潜流',
       },
     },
   }),

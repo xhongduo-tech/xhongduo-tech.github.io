@@ -8,8 +8,8 @@ import ArticleIndex from './ArticleIndex.vue'
 <template>
   <div class="research-home">
     <header class="home-intro">
-      <h1>大模型研究笔记</h1>
-      <p>从模型原理到推理与训练。记录源码、实验，以及对问题的理解。</p>
+      <h1>在表象之下</h1>
+      <p>模型、系统与未尽之问。</p>
     </header>
 
     <section class="home-section" aria-labelledby="writing-title">

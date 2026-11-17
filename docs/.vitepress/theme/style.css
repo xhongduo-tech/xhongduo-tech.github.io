@@ -85,10 +85,9 @@ a, button, input { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 4px; }
 
 .VPNavBar .container { max-width: 1160px; }
-.VPNavBar .title { font-size: 15px; font-weight: 600; letter-spacing: .02em; }
+.VPNavBar .title { font-family: var(--reading-serif); font-size: 19px; font-weight: 600; letter-spacing: .09em; }
 .VPNavBar .content-body, .VPNavBar:not(.home) { background: var(--vp-c-bg); }
 .VPNavBar.home { border-bottom: 1px solid var(--vp-c-divider); }
-.brand-caption { margin-left: 10px; color: var(--vp-c-text-3); font: 12px var(--vp-font-family-mono); }
 .VPNavBarMenuLink, .VPNavBarMenuGroup > button { font-size: 13px !important; }
 .VPNavBarSearch .DocSearch-Button { border: 0; border-radius: 4px; background: transparent; }
 .VPNavBarSearch .DocSearch-Button:hover { background: var(--vp-c-bg-soft); }
@@ -235,7 +234,6 @@ body .VPLocalSearchBox .search-keyboard-shortcuts { padding: 0 4px 2px; color: v
 }
 
 @media (max-width: 360px) {
-  .brand-caption { display: none; }
   .research-home { padding-left: 20px; padding-right: 20px; }
   .home-intro h1 { font-size: 29px; }
 }

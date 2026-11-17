@@ -32,7 +32,7 @@ const date = computed(() => {
 <template>
   <div class="page-context">
     <nav class="breadcrumbs" aria-label="当前位置">
-      <a :href="withBase('/')">研究地图</a>
+      <a :href="withBase('/')">潜流</a>
       <template v-if="category">
         <span class="breadcrumb-separator" aria-hidden="true">/</span>
         <a :href="withBase(category.url)">{{ category.title }}</a>

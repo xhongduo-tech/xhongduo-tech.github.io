@@ -1,7 +1,8 @@
 ---
 layout: home
-title: 徐鸿铎的大模型研究笔记
-description: 大模型原理、推理算法、训练后训练与可复现实验。
+title: 潜流
+titleTemplate: false
+description: 模型、系统与未尽之问。沿着源码与实验，探索表象之下的机制。
 kind: overview
 status: published
 ---
