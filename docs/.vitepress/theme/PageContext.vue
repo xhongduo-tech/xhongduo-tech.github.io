@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useData, withBase } from 'vitepress'
 
-const { frontmatter, page } = useData()
+const { frontmatter, page, site } = useData()
 const categories: Record<string, { title: string; url: string }> = {
   foundations: { title: '模型基础', url: '/foundations/' },
   inference: { title: '推理与系统', url: '/inference/' },
@@ -32,7 +32,7 @@ const date = computed(() => {
 <template>
   <div class="page-context">
     <nav class="breadcrumbs" aria-label="当前位置">
-      <a :href="withBase('/')">迭代</a>
+      <a :href="withBase('/')">{{ site.title }}</a>
       <template v-if="category">
         <span class="breadcrumb-separator" aria-hidden="true">/</span>
         <a :href="withBase(category.url)">{{ category.title }}</a>

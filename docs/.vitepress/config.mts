@@ -3,6 +3,8 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 
 const repository = process.env.GITHUB_REPOSITORY?.split('/')[1]
 const base = repository && !repository.endsWith('.github.io') ? `/${repository}/` : '/'
+const siteName = "xuhongduo's blog"
+const siteDescription = '记录模型、训练与推理系统的学习和实践。'
 
 const sidebar = [
   {
@@ -56,9 +58,9 @@ const config = withMermaid(
   defineConfig({
     base,
     lang: 'zh-CN',
-    title: '迭代',
-    titleTemplate: ':title · 迭代',
-    description: '阅读、代码与实验中的思考和实践。',
+    title: siteName,
+    titleTemplate: `:title · ${siteName}`,
+    description: siteDescription,
     cleanUrls: true,
     lastUpdated: false,
     appearance: true,
@@ -74,7 +76,7 @@ const config = withMermaid(
       theme: { light: 'github-light', dark: 'github-dark' },
     },
     themeConfig: {
-      siteTitle: '迭代',
+      siteTitle: siteName,
       nav: [
         { text: '文章', link: '/articles/' },
         {
@@ -139,7 +141,7 @@ const config = withMermaid(
         },
       },
       footer: {
-        copyright: '迭代',
+        copyright: siteName,
       },
     },
   }),

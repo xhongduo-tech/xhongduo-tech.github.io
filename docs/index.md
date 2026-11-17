@@ -1,8 +1,8 @@
 ---
 layout: home
-title: 迭代
+title: xuhongduo's blog
 titleTemplate: false
-description: 阅读、代码与实验中的思考和实践。
+description: 记录模型、训练与推理系统的学习和实践。
 kind: overview
 status: published
 ---

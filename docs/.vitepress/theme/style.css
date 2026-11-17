@@ -52,6 +52,7 @@
   --vp-custom-block-tip-border: #d4dbcf;
   --vp-custom-block-tip-bg: #eff2e9;
   --vp-custom-block-tip-text: #384b39;
+  --editorial-accent: #9a4b3e;
 }
 
 .dark {
@@ -76,6 +77,7 @@
   --vp-custom-block-tip-border: #3b4b32;
   --vp-custom-block-tip-bg: #273020;
   --vp-custom-block-tip-text: #c4d1b9;
+  --editorial-accent: #dfa08e;
 }
 
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
@@ -85,7 +87,7 @@ a, button, input { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 4px; }
 
 .VPNavBar .container { max-width: 1160px; }
-.VPNavBar .title { font-family: var(--reading-serif); font-size: 19px; font-weight: 600; letter-spacing: .09em; }
+.VPNavBar .title { font-family: var(--vp-font-family-base); font-size: 15px; font-weight: 550; letter-spacing: -.02em; white-space: nowrap; }
 .VPNavBar .content-body, .VPNavBar:not(.home) { background: var(--vp-c-bg); }
 .VPNavBar.home { border-bottom: 1px solid var(--vp-c-divider); }
 .VPNavBarMenuLink, .VPNavBarMenuGroup > button { font-size: 13px !important; }
@@ -118,17 +120,25 @@ body .VPLocalSearchBox .search-keyboard-shortcuts { padding: 0 4px 2px; color: v
 
 .research-home { max-width: 888px; margin: 0 auto; padding: 0 32px 64px; }
 .home-intro { padding: 72px 0 56px; }
-.home-intro h1 { margin: 0; font-family: var(--reading-serif); font-size: clamp(32px, 4vw, 44px); font-weight: 600; line-height: 1.5; letter-spacing: -.025em; }
-.home-intro > p { margin: 20px 0 0; max-width: 620px; color: var(--vp-c-text-2); font-size: 15px; line-height: 1.9; }
+.hero-eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 22px; color: var(--editorial-accent); font: 11px/1.5 var(--vp-font-family-mono); letter-spacing: .12em; }
+.hero-eyebrow > span { width: 24px; height: 1px; background: currentColor; }
+.home-intro h1 { margin: 0; font-family: var(--reading-serif); font-size: clamp(32px, 4.2vw, 48px); font-weight: 500; line-height: 1.35; letter-spacing: -.025em; }
+.hero-word { display: inline-block; }
+.hero-separator { color: var(--editorial-accent); font-weight: 400; }
+.home-description { margin: 22px 0 0; max-width: 620px; color: var(--vp-c-text-2); font-size: 15px; line-height: 1.9; }
 .home-section { border-top: 1px solid var(--vp-c-divider); padding: 27px 0 30px; }
 .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 14px; }
 .section-heading h2 { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.7; }
+.section-eyebrow { display: block; margin-bottom: 5px; color: var(--vp-c-text-3); font: 11px/1.5 var(--vp-font-family-mono); letter-spacing: .08em; text-transform: uppercase; }
 .article-count { margin-left: 7px; color: var(--vp-c-text-3); font: 12px var(--vp-font-family-mono); }
 .section-link { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--vp-c-text-3); font-size: 12px; text-decoration: none; }
 .section-link:hover { color: var(--vp-c-brand-1); }
 .research-map { margin: 0; padding: 0; list-style: none; }
 .research-map li + li { border-top: 1px solid var(--vp-c-divider); }
-.map-entry { display: grid; grid-template-columns: 155px minmax(0, 1fr) 16px; align-items: baseline; gap: 24px; min-height: 80px; padding: 25px 0; text-decoration: none; }
+.map-entry { display: grid; grid-template-columns: 214px minmax(0, 1fr) 16px; align-items: center; gap: 24px; min-height: 80px; padding: 25px 0; text-decoration: none; }
+.map-label { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.research-icon { flex: none; width: 20px; height: 20px; color: var(--vp-c-text-3); }
+.map-english { display: block; margin-bottom: 3px; color: var(--vp-c-text-3); font: 14px/1.4 var(--reading-serif); white-space: nowrap; }
 .map-entry h3 { margin: 0; font-size: 15px; font-weight: 500; line-height: 1.8; }
 .map-entry p { margin: 0; color: var(--vp-c-text-2); font-size: 13px; line-height: 1.9; }
 .map-arrow { color: var(--vp-c-text-3); font-family: var(--vp-font-family-mono); }
@@ -218,11 +228,12 @@ body .VPLocalSearchBox .search-keyboard-shortcuts { padding: 0 4px 2px; color: v
   .research-home { padding: 0 24px 38px; }
   .home-intro { padding: 44px 0 38px; }
   .home-intro h1 { font-size: 32px; }
-  .home-intro > p { margin-top: 16px; font-size: 14px; }
+  .home-description { margin-top: 16px; font-size: 14px; }
   .home-section { padding-top: 19px; padding-bottom: 24px; }
   .map-entry { grid-template-columns: minmax(0, 1fr) 16px; gap: 5px 14px; padding: 20px 0; }
   .map-entry h3 { grid-column: 1; font-size: 15px; }
-  .map-entry p { grid-column: 1; font-size: 13px; }
+  .map-label { grid-column: 1; }
+  .map-entry p { grid-column: 1; padding-left: 32px; font-size: 13px; }
   .map-arrow { grid-column: 2; grid-row: 1 / 3; align-self: center; }
   .vp-doc { font-size: 16px; }
   .vp-doc h1 { font-size: 29px; }

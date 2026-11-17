@@ -1,6 +1,10 @@
-# 迭代
+# xuhongduo's blog
 
-VitePress技术博客，围绕大模型原理、推理算法与服务系统、训练后训练、评测复现与实践项目组织。源码在source分支，GitHub Actions构建后通过官方Pages artifact流程部署，同时替换main分支的生成文件镜像。站点为 https://xhongduo-tech.github.io/ 。
+记录模型、训练与推理系统的学习和实践。
+
+VitePress技术博客，围绕大模型原理、推理算法与服务系统、训练后训练、评测复现与实践项目组织。源码在source分支，GitHub Actions构建后通过官方Pages artifact流程部署，同时替换main分支的生成文件镜像。[公开站点](https://xhongduo-tech.github.io/)的站名为`xuhongduo's blog`；站名拼写与GitHub账户`xhongduo-tech`不同。
+
+首页主句为`Token · Attention · Inference`，下方说明为“记录模型、训练与推理系统的学习和实践。”。保留当前单栏文章与研究方向布局，以简洁英文标注和线性icon补充层次；导航保持文章、研究、项目和关于我四组。
 
 ## 目录
 
@@ -45,4 +49,4 @@ npm run note:new -- speculative-correctness --area inference --title "投机解�
 
 Pages的发布方式设为GitHub Actions。source触发测试、内容检查和构建，上传Pages artifact，再由独立deploy job部署。github-pages环境需要允许source分支部署。main仅保存本轮生成文件镜像，用于同步清除旧HTML，不承担二次构建触发职责。
 
-界面与排版遵循[设计规范](./DESIGN.md)：极简首页、适合长文的阅读宽度，以及Source Serif 4、Inter和JetBrains Mono的字体分工。字体在本站自托管，来源与许可证见[字体说明](./docs/public/fonts/README.md)。
+界面与排版遵循[设计规范](./DESIGN.md)：单栏首页、适合长文的阅读宽度，以及Source Serif 4、Inter和JetBrains Mono的字体分工。英文和icon用于辅助识别，不增加重复模块。字体在本站自托管，来源与许可证见[字体说明](./docs/public/fonts/README.md)。
