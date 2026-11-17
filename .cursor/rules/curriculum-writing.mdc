@@ -1,26 +1,15 @@
 ---
-description: Posts are a curriculum, not an encyclopedia. Later lessons assume earlier ones.
-globs: docs/{llm,quant,econ,litho,cs}/*.md
+description: LLM research writing uses explicit prerequisites, source versions and evidence.
+globs: docs/**/*.md
 alwaysApply: true
 ---
 
-# 课程序列，不是词条
+# 大模型研究写作
 
-文章按知识树深度优先顺序读：课程（原分支）→ 单元（原主线）→ 课序（原技术点）→ 叶子。同一课序内严格递进；课序的第一课接上一课序的最后一课；课程的第一课接上一课程的最后一课。加深课按先修插在对应基础课之后，不整块堆在主干末尾。论文、型号、审计、前沿是附录，不插入主干。
+专题按问题和先修组织，不按词条数量堆内容。保留基础、推理、训练后训练、评测与项目的交叉联系。
 
-五栏互不吞并：大模型是 Transformer 与训练/推理；量化是金融微观结构与定价，不是权重量化；金融是微观、宏观、货币银行与公司金融，接到限价簿为止，不重写 LOB/CAPM 实证；光刻是成像与产线，不再挂在大模型附录；计算机是比特到系统栈（组成、体系结构、数据结构、编译、操作系统、网络、数据库、安全），不重写 Transformer，也不进入限价簿。
+专题提纲、草稿、已发表文章和项目各有清楚角色。草稿在drafts，未完成研究标planned，不将读资料包装成硬件复现。
 
-## 写每一课
+文章结构包括问题与先修、机制与正确性、源码路径、实验与结果、结论与局限、第一方参考资料。固定源码commit与实验版本。原理分析、CPU机制实验和真实硬件结果分开，个人成果与论文结果分开。
 
-- 「问题」写的是**上一课留下的缺口**，不是从该领域的第一性原理重讲。用链接点名先修（`[SDPA](/llm/sdpa)`），不要把先修的公式再推导一遍。
-- 第一课（如 `sdpa`、`lob-structure`、`preference-choice`、`maxwell-to-wave`、`compile-link-entry`）才允许从零铺垫；并写明后课默认已经读完本课。
-- 后课需要用到的定义，在先修课一次讲清。后课只引用、只补差。
-- 结构仍是：题记 → 定位（上一课 / 本课缺口）→ 问题 → 方法 → 机制 → 边界 → 小结。Tufte：epigraph、`marginnote`、mermaid（节点标签加引号）、中文、真实文献。
-- 不要写成「一个技术点一篇独立综述」。
-
-## 不要做的
-
-- 不要把叶子写成百科词条，每篇都从 Vaswani / Harris / Varian / Rayleigh 的总问题起笔。
-- 不要在 `index.md` 里写正文。
-- 不要发明 arXiv 编号。
-- 路径必须是树叶子的 slug：`docs/llm/<slug>.md`、`docs/quant/<slug>.md`、`docs/econ/<slug>.md`、`docs/litho/<slug>.md`、`docs/cs/<slug>.md`。
+发布前执行内容检查与构建。不要恢复已删除的旧知识树、批量词条和历史文章。

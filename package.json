@@ -4,10 +4,14 @@
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:build": "node scripts/check-content.mjs && vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "docs:check": "node scripts/check-content.mjs",
+    "note:new": "node scripts/new-note.mjs",
+    "test": "node --test scripts/*.test.mjs"
   },
   "devDependencies": {
+    "gray-matter": "^4.0.3",
     "markdown-it-mathjax3": "^4.3.2",
     "mermaid": "^11.17.2",
     "vitepress": "^1.6.3",

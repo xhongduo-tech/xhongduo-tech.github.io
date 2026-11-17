@@ -1,34 +1,42 @@
-# 徐鸿铎
+# 徐鸿铎的大模型研究笔记
 
-个人站点。VitePress + Tufte，部署于 GitHub Pages。
+VitePress技术博客，围绕大模型原理、推理算法与服务系统、训练后训练、评测复现与实践项目组织。源码在source分支，GitHub Actions构建后发布main分支，站点为 https://xhongduo-tech.github.io/ 。
 
-五栏：**大模型**、**量化**（金融微观结构与定价，不是模型权重量化）、**金融**（微观、宏观、货币银行与公司金融）、**光刻**（成像、DUV/EUV、计算光刻）、**计算机**（比特到系统栈）。按课程读：课程 → 单元 → 课序 → 课。加深课插在对应基础课之后。后课默认已经读完先修，只补上一课留下的缺口。论文与型号对照放在附录。
+## 目录
 
-金融栏接到量化栏的限价簿为止，不重讲订单簿。大模型从深度学习基础起；量化从随机分析与财务制度起；计算机从程序设计起。模型压缩、GPTQ、KV 量化等属于大模型「压缩与数值」。
+- docs/foundations：模型、概率、张量与训练基础。
+- docs/inference：解码、MTP、DSpark、DeepInfer及推理系统地图。
+- docs/training：数据、SFT、LoRA、偏好优化与RL路线。
+- docs/evaluation：质量、系统指标和复现规范。
+- docs/projects：部署、微调、后训练项目任务与后续报告。
+- docs/articles：正式博文，只有article且published进入文章索引。
+- docs/writing：写作方法与文章模板。
+- drafts：未公开草稿。
+- docs/.vitepress：配置、主题与内容索引。
 
-## 本地开发
+## 本地运行
 
-```bash
-npm install
-npm run docs:dev      # http://localhost:5173
-npm run docs:build    # 输出到 docs/.vitepress/dist
+```sh
+npm ci
+npm run docs:dev
+npm run docs:check
+npm run docs:build
 ```
 
-## 写文章
+构建输出在docs/.vitepress/dist。数学与Mermaid使用本地构建支持，搜索采用本地索引；不依赖站外搜索账号。
 
-在 `docs/llm/`、`docs/quant/`、`docs/econ/`、`docs/litho/` 或 `docs/cs/` 新建 `.md`，frontmatter：
+`npm run docs:preview`用于检查构建产物；重新构建后应重启预览进程，避免旧资源索引与新产物不一致。日常修改使用`docs:dev`。
 
-```yaml
----
-title: 标题
-date: 2026-09-03
-section: llm   # 或 quant / econ / litho / cs
----
+## 新建博文
+
+```sh
+npm run note:new -- speculative-correctness --area inference --title "投机解码的正确性"
 ```
 
-文件名用知识树叶子的 `slug`。不要把文章写进栏目的 `index.md`。后课不要把先修的公式再推导一遍；「问题」写上一课留下的缺口。
+草稿正文默认被Git忽略，也不进入站点。补齐内容、资料与证据，经人工核对后移到docs/articles，设置status published，再运行检查与构建。不要强制提交含私有信息的草稿：本仓库本身是公开的。正式文章需title、description、kind、status、area、evidence与date；evidence可为mechanism、source、simulation或hardware。源码文章固定commit，硬件实测另记录model、hardware和results。
 
-## 部署
+## 本轮重构
 
-- 源码在 `source` 分支；GitHub Actions 把 `docs/.vitepress/dist` 推到 `xhongduo-tech/xhongduo-tech.github.io` 的 `main`
-- 站点：https://xhongduo-tech.github.io/
+历史Markdown页面与旧导航已移除。原始源码commit为2cfa220011800ed65c9e465d8473df4f4849e01b，Git历史保留；工作目录之外另保存了完整源码快照。当前四个推理专题均为研究提纲，三个项目均待实践，没有用提纲充作正式博文。
+
+后续内容应来自真实学习、源码追踪和实验积累，避免重新生成大量缺乏验证的词条。

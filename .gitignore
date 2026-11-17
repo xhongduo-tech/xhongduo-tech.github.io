@@ -5,6 +5,10 @@ docs/.vitepress/cache/
 
 logs/
 
+# Draft bodies stay local until reviewed and moved into docs/articles.
+drafts/*
+!drafts/README.md
+
 # Local generation artifacts omitted from the site tree
 .cursor/*
 !.cursor/rules/
