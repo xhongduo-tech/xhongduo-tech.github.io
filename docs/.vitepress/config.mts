@@ -99,6 +99,12 @@ const config = withLazyMermaid(
     lastUpdated: false,
     appearance: true,
     metaChunk: true,
+    mermaid: {
+      fontFamily: 'var(--vp-font-family-base)',
+      theme: 'neutral',
+      securityLevel: 'strict',
+      flowchart: { nodeSpacing: 24, rankSpacing: 36, padding: 11 },
+    },
     head: [
       ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}favicon.svg` }],
       ['meta', { name: 'theme-color', content: '#faf9f5' }],

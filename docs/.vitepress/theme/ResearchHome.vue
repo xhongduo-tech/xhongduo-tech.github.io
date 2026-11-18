@@ -12,6 +12,7 @@ import ResearchIcon from './ResearchIcon.vue'
       <p class="hero-eyebrow" lang="en"><span aria-hidden="true" />LLM RESEARCH NOTES</p>
       <h1 lang="en"><span class="hero-word">Token<span class="hero-separator">&nbsp;·</span></span> <span class="hero-word">Attention<span class="hero-separator">&nbsp;·</span></span> <span class="hero-word">Inference</span></h1>
       <p class="home-description">记录模型、训练与推理系统的学习和实践。</p>
+      <a class="section-link home-start" :href="withBase('/foundations/#一次生成经过什么')">从一次生成读起 <span aria-hidden="true">→</span></a>
     </header>
 
     <section class="home-section" aria-labelledby="writing-title">
@@ -32,7 +33,7 @@ import ResearchIcon from './ResearchIcon.vue'
           <a :href="withBase(section.link)" class="map-entry">
             <div class="map-label">
               <ResearchIcon :name="section.icon" />
-              <div><span class="map-english" lang="en">{{ section.english }}</span><h3>{{ section.title }}</h3></div>
+              <div><h3>{{ section.title }}</h3><span class="map-english" lang="en">{{ section.english }}</span></div>
             </div>
             <p>{{ section.description }}</p>
             <span class="map-arrow" aria-hidden="true">→</span>

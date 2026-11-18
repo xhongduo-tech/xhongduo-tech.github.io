@@ -53,6 +53,8 @@ status: published
 
 ## 写作与发布
 
+图放在推导或实验第一次需要它的位置。流程图的箭头表示张量、数据或状态怎样传递，图注交代读图时应比较什么。数值图写明单位、样本或负载及比较条件，正文保留关键值与反例，方便读者单独核算。示例见 [整段前向与增量解码](/foundations/transformer-architectures) 与 [配对评测](/evaluation/quality-systems)。
+
 草稿放在仓库drafts目录，逐步补证据；主题入口放在专题页。只有经过核对、明确标记published的article进入文章列表。发布前运行内容检查与构建，再通过source分支的原有Pages流程发布。
 
 [文章模板](/writing/article-template) · [全部博文](/articles/)

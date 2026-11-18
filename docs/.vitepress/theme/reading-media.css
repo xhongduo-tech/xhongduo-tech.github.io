@@ -17,7 +17,7 @@
 
 .vp-doc .mermaid {
   margin-block: 26px;
-  padding: 14px 16px 18px;
+  padding: 22px 18px;
 }
 
 .vp-doc .mermaid > svg {
@@ -30,8 +30,54 @@
      A wide diagram keeps readable text instead of shrinking to phone width. */
 }
 
+.vp-doc .research-figure {
+  margin: 30px 0;
+}
+
+.vp-doc .research-figure > .mermaid {
+  margin: 0;
+}
+
+.vp-doc .research-figure > figcaption {
+  margin-top: 11px;
+  padding-inline-start: 11px;
+  border-inline-start: 2px solid var(--vp-c-border);
+  color: var(--vp-c-text-2);
+  font: 14px/1.7 var(--vp-font-family-base);
+}
+
+/* Mermaid emits per-SVG ID rules for flowchart colors. Override those paint
+   rules only; keep measured geometry, labels, shapes and theme handling. */
+.vp-doc .mermaid svg .node > :is(rect, polygon, circle, path) {
+  fill: var(--figure-node) !important;
+  stroke: var(--figure-edge) !important;
+}
+
+.vp-doc .mermaid svg .node > rect {
+  rx: 5px;
+  ry: 5px;
+}
+
+.vp-doc .mermaid svg :is(.nodeLabel, .edgeLabel) {
+  color: var(--vp-c-text-1) !important;
+}
+
+.vp-doc .mermaid svg .edgeLabel {
+  background-color: var(--vp-c-bg-alt) !important;
+}
+
+.vp-doc .mermaid svg .flowchart-link,
+.vp-doc .mermaid svg marker > path {
+  stroke: var(--figure-edge) !important;
+}
+
+.vp-doc .mermaid svg marker > path {
+  fill: var(--figure-edge) !important;
+}
+
 .vp-doc mjx-container[jax='SVG'][display='true'] {
   padding: 18px 14px;
+  border-inline-start: 2px solid var(--vp-c-border);
 }
 
 .vp-doc mjx-container[jax='SVG'][display='true'] > svg {
@@ -67,6 +113,10 @@
 }
 
 @media (max-width: 767px) {
+  .vp-doc .research-figure {
+    margin-block: 24px;
+  }
+
   .vp-doc .mermaid {
     margin-block: 22px;
     padding: 12px 12px 16px;

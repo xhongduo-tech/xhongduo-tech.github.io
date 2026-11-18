@@ -61,6 +61,79 @@ $$
 
 TP／PP／DP／EP 的具体支持见 [vLLM 并行文档](https://docs.vllm.ai/en/latest/configuration/optimization/#parallelism-strategies)；DeepInfer 的 Attention DP／balanced CP、MoE EP／EPLB 是[特定模型与系统的组合](https://github.com/deepseek-ai/DeepInfer/blob/a679bb86ce36e883a98a97733492b686e5b9a08e/README.md)，不能视为所有模型的部署模板。EPLB 是专家负载平衡机制，和入口请求路由也不是同一层。
 
+
+## 迭代级加入到底改变了什么：一张手算时间线
+
+先隔离批次组织这一因素：只模拟 decode，假设请求到达时所需 prompt KV 已就绪；最多同时执行两个请求，每步无论含一个还是两个请求都耗时 1 个单位，每个活跃请求每步产出一个 token。忽略网络、EOS 之外的截断与缓存压力。
+
+A 在 $t=0$ 到达，需要 4 个输出 token；B 在 $t=1$ 的执行步边界到达，需要 1 个。若当前 batch 完成前不能加入新请求：
+
+| 方案 | A 的输出时刻 | B 的首次／完成时刻 | B 的 TTFT | A 的完成时刻 |
+| --- | --- | --- | ---: | ---: |
+| A 完成后才接纳 B | 1、2、3、4 | 5 | $5-1=4$ | 4 |
+| 每步边界可接纳 B | 1、2、3、4 | 2 | $2-1=1$ | 4 |
+
+第二种方案在区间 $[1,2]$ 同时推进 A、B。收益来自等待时间减少，不是 B 的模型层或采样公式变了；它不需要把 A 整个请求暂停。这对应 [Orca 的 iteration-level scheduling](https://www.usenix.org/conference/osdi22/presentation/yu)所要解决的批次固定问题，但表中的成本模型是教学假设，不是 Orca 或 GPU 实测。
+
+**反向改动同样重要：** 若两个请求同批的那一步实际要 5 个单位，则 B 在 $t=6$ 才得到输出，TTFT 变成 5；A 后续在 7、8 完成剩余 token，比原来更慢。是否值得合批要由真实的执行成本曲线判断，不能只由“batch 更大”推出。
+
+### 从请求生命期看调度
+
+<figure class="research-figure">
+
+~~~mermaid
+flowchart TD
+    Q["排队"] --> P{"Prompt KV 就绪？"}
+    P -->|"否"| C["推进 Prefill chunk"]
+    C --> P
+    P -->|"是"| B["步边界组 batch"]
+    B --> E["执行／接收结果"]
+    E --> F{"结束或取消？"}
+    F -->|"否"| U["更新有效状态"]
+    U --> B
+    F -->|"是"| R["移除／释放引用"]
+~~~
+
+<figcaption>请求先满足数据就绪条件，再进入执行步；未结束的请求继续推进，结束后按生命周期释放引用。</figcaption>
+</figure>
+
+图只表达状态依赖，不是某个调度器的完整控制流，也不表示 prefill、CPU 和 GPU 必须全部串行。异步执行时，调度可以提前准备，但不能把尚未产生的数据当作已就绪输入；[KV 页的所有权与完成条件](/inference/kv-cache)继续成立。
+
+## Chunked prefill：切的是输入工作，不是请求身份
+
+设本轮总 query token 预算为 $M$，已安排的 decode 消耗为 $q$，则 prefill 可使用的预算最多为 $M-q$。它是调度容量约束，不是延迟公式：不同模型、长度和硬件下，相同 token 数可能有不同代价。
+
+例如固定 $M=8$，每轮有 3 个普通单步 decode 请求，剩余可安排 5 个 prefill token。一个尚有 11 个输入 token 待计算的请求，若每轮条件不变，至少分 5、5、1 三次推进。这改善长输入与其他请求交错的粒度，但该请求的完整前缀必须按正确位置和 mask 建立后，才具备相应生成条件。
+
+反例是始终让 $q=M$：在这个简单策略里 prefill 永远得不到预算。它暴露了准入、公平性或预算保留规则的必要性；不代表实际 vLLM 必然采用这一会饥饿的策略。
+
+可沿固定版本 [Scheduler.schedule](https://github.com/vllm-project/vllm/blob/b8b302cde434df8c9289a2b465406b47ebab1c2d/vllm/v1/core/sched/scheduler.py#L179)核对 token budget、请求进度和分配，再看[总调度预算断言](https://github.com/vllm-project/vllm/blob/b8b302cde434df8c9289a2b465406b47ebab1c2d/vllm/v1/core/sched/scheduler.py#L545)。不要把“未超过预算”当作公平性、延迟目标或状态正确性已经证明。
+
+## PD 分离的代价必须回到关键路径
+
+PD 分离允许两阶段采用不同资源与并行方案，同时引入 KV 传输、路由和独立排队。若假设传输在关键路径上串行发生，最低数据传输时间是：
+
+$$
+T_{\mathrm{transfer}}\ge
+\frac{M_{\mathrm{KV,transfer}}}{BW_{\mathrm{effective}}},
+$$
+
+还未计固定启动、同步和额外排队。一个纯教学数值是 64 MB 数据通过有效 16 GB/s 链路传输，使用十进制单位时下限为 4 ms。若分离只消除了 2 ms 的干扰，却没有把这 4 ms 隐藏到其他工作中，这个假设下就没有延迟收益。
+
+真实系统可能通过流水线、缓存命中或不同资源配置改变关键路径，所以要记录**实际传输字节、是否重叠、两侧排队和利用率**，而非机械相加所有设备耗时。不同架构的 KV 大小也不同，不能沿用一个 MHA 估算替全部模型作决策。[DistServe 的阶段配置与带宽放置](https://www.usenix.org/conference/osdi24/presentation/zhong-yinmin)是对应的一手入口。
+
+## 从现象定位瓶颈，再选对照
+
+| 观察到的限制 | 可能相关的机制 | 能否支持该解释的独立证据 |
+| --- | --- | --- |
+| 请求等待长，但设备存在可利用容量 | 迭代接纳、准入与批次组织 | 同到达序列下，排队减少且执行成本没有等量增加 |
+| 长 prefill 使 decode 出现长停顿 | chunk 粒度或 PD 组织 | 同工作负载下，分别记录 prefill 进度、ITL 和额外调度／传输成本 |
+| KV 不足导致无法接纳或重算 | 缓存布局、共享与回收 | 有效状态、占用、抢占和重算日志相互对应 |
+| 已有多设备但计算在等通信／热点 | 并行划分与路由负载 | 计算／通信时间线和负载分布支持判断，不能仅看总 GPU 利用率 |
+| 每轮产出低、目标执行串行性突出 | 投机及验证预算 | 草稿、接受长度、执行代价与缓存回退同时纳入 |
+
+这些机制不互相代替验收。消融时只改一个主要因素，保留取消、超长、突发和资源不足等负对照；若策略改善均值却恶化尾延迟或拒绝更多请求，应如实收窄结论。
+
 ## CPU 小实验：请求队列与执行时间线
 
 计划写一个标准库离散事件模拟器，使用合成的长短输入、不同输出长度和突发到达：
@@ -86,7 +159,7 @@ TP／PP／DP／EP 的具体支持见 [vLLM 并行文档](https://docs.vllm.ai/en
 
 ## 一手资料与版本
 
-核验日期：**2026-11-16**。
+资料与新增源码入口核验日期：**2026-11-17**。时间线、预算与传输数值均为教学解析，不是个人实测。
 
 - [Orca，OSDI 2022 正式论文与报告](https://www.usenix.org/conference/osdi22/presentation/yu)：iteration-level scheduling。
 - [DistServe，OSDI 2024 正式论文与报告](https://www.usenix.org/conference/osdi24/presentation/zhong-yinmin)：PD 分离、资源与通信放置、goodput。

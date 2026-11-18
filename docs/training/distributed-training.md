@@ -46,7 +46,61 @@ $$
 
 这里`N_DP`是独立数据副本数，不把TP/PP/EP进程数再次乘入。可变长度语言建模还要检查全局有效token加权，避免各rank局部均值再平均造成目标变化。
 
-## 配置与检查点格式
+## 两个rank为什么会优化出不同的目标
+
+DDP解决的是梯度同步，不会自动替用户定义“一个样本”或“一个token”的权重。设rank数为 $R$，rank $r$ 的有效token损失之和为 $S_r$、数量为 $n_r$。目标若是全局token平均，则应优化：
+
+$$
+\mathcal L_{\rm global}=\frac{\sum_r S_r}{\sum_r n_r}.
+$$
+
+在通常的DDP梯度取rank平均、没有自定义通信hook的设定下，各rank直接反传局部均值 $S_r/n_r$ 得到：
+
+$$
+\frac1R\sum_r\nabla(S_r/n_r).
+$$
+
+当有效token数不同，这与全局token平均的梯度一般不同。问题来自loss权重，而不是通信出了错。
+
+[PyTorch DDP 2.15文档的梯度说明](https://docs.pytorch.org/docs/2.15/generated/torch.nn.parallel.DistributedDataParallel.html)明确区分局部求和与梯度平均；这里在此归约语义上推导token权重，未假定框架会自动修正所有局部loss。
+
+用一个标量模型核算：每token损失为 $\tfrac12(\theta-y)^2$，在 $\theta=0$ 时，rank 0只有一个目标 $y=0$，rank 1有三个目标 $y=2$。
+
+| rank | 有效token数 | 局部平均loss | 局部平均梯度 |
+| --- | --- | --- | --- |
+| 0 | 1 | 0 | 0 |
+| 1 | 3 | 2 | -2 |
+
+局部均值再经DDP平均，梯度是 $-1$；合并四个token的参考梯度却是 $-6/4=-1.5$，全局loss为 $6/4=1.5$。这条反例也适用于只有少量assistant token的SFT批次，不能用相同序列数推定相同目标权重。
+
+一种显式参考做法是在各rank得到全局有效数 $M=\sum_r n_r$ 后，本地反传：
+
+$$
+\widetilde{\mathcal L}_r=\frac{R S_r}{M}.
+$$
+
+DDP再平均梯度，便恢复 $\nabla\mathcal L_{\rm global}$。需要核对实际框架是否已经做了相应缩放，避免重复乘除；报告用的loss也要按总损失与总token数聚合，不把本地训练标量直接当全局指标。
+
+若跨 $K$ 个microbatch累积，应先明确整个更新窗口的 $M=\sum_{r,k}n_{r,k}$，再使用同一分母聚合各 $S_{r,k}$。已经按窗口总token数归一化后，不再额外除以 $K$。只有数量和权重满足相应条件时，“每个microbatch均值再除累积步数”才与该目标一致。`no_sync`改变同步时机，不修复损失归一化；所有rank仍须匹配必要的集合通信。
+
+某个rank没有有效目标时，不能先计算空集合均值再缩放；应保持所选实现要求的有效计算图与通信协议。整个窗口的`M=0`则按所有rank一致的规则跳过更新，避免除零或只有部分rank进入同步。
+
+CPU验收先用单进程四token参考，再运行两个Gloo进程，比较梯度和一次SGD后的参数。先检查上述解析值，再把rank 1改成一个token：此时普通局部平均应恢复一致。这样可以区分代码错误、权重定义变化和浮点归约误差；不以CPU结果推断GPU网络性能。
+
+## 同一权重为什么不等于同一训练状态
+
+用带动量的SGD说明优化器状态的必要性。设下一步按以下约定更新：
+
+$$
+v_{t+1}=\mu v_t+g_{t+1},\qquad
+\theta_{t+1}=\theta_t-\eta v_{t+1}.
+$$
+
+若检查点处 $\theta_t=1$、$v_t=2$、$\mu=0.9$、$\eta=0.1$，下一批梯度恰为零，完整恢复后仍会更新到 $1-0.1\times1.8=0.82$；只加载权重并将动量重置为零，则停在 $1$。Adam还需一、二阶状态与step等；这个例子不代替具体优化器的实现公式。
+
+恢复对照的因果顺序是：相同检查点状态→相同下一批数据及随机条件→相同目标和梯度→容限内相同的下一次更新。先在固定环境里逐项比较，再考虑world size改变后的重分片与数值差异。保存成功、模型可推理、训练可继续和轨迹等价，是四种不同验收。
+
+## manifest与持久化边界
 
 一个训练manifest应记录模型/数据revision、精度、microbatch、累积步数、DP/TP/PP/EP组、分片与offload策略、拓扑和后端。不同策略的合法组合由实现验证，不能任意相乘。
 
@@ -84,6 +138,8 @@ TP与PP分别沿[官方TP教程](https://docs.pytorch.org/tutorials/intermediate
 ## 第一方资料
 
 核验日期：2026-11-16。
+
+本轮DDP归约语义复核：2026-11-17。梯度与动量数字是解析预期，CPU多进程及恢复实验均待执行。
 
 - [PyTorch DDP教程](https://docs.pytorch.org/tutorials/intermediate/ddp_tutorial.html)、[FSDP2教程](https://docs.pytorch.org/tutorials/intermediate/FSDP_tutorial.html)：执行与状态切分。
 - [ZeRO论文 v3](https://arxiv.org/abs/1910.02054v3)、[DeepSpeed ZeRO教程](https://www.deepspeed.ai/tutorials/zero/)：阶段与内存优化。

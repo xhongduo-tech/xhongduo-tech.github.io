@@ -22,16 +22,23 @@ status: published
 
 ## 一次生成经过什么
 
-自回归模型逐步给出下一个token的条件分布 $p(x_{t+1}\mid x_{\leq t})$。先理解输入怎样变成这个分布，再分别研究训练与加速方法。
+给定已有的 token 序列 $x_{\leq t}$，模型在末位置给出一组 logits，采样器据此选择 $x_{t+1}$。聊天模板通常在生成前一次性处理消息；后续每步直接追加 token ID。采样温度、截断策略或随机种子即使不改模型权重，也可能改变输出。
+
+<figure class="research-figure">
 
 ```mermaid
-flowchart LR
-  A["文本与模板"] --> B["Token IDs"]
-  B --> C["模型前向计算"]
-  C --> D["Logits与采样"]
-  D --> E["新增Token"]
-  E --> B
+flowchart TD
+  A["消息 → 模板与分词"] --> B["当前 token 序列"]
+  B --> C["模型前向 → 末位置 logits"]
+  C --> D["采样 → 新 token"]
+  D -->|"继续生成"| B
+  D -->|"到达停止条件"| E["结束"]
 ```
+
+<figcaption>生成循环只追加 token ID。带 KV 缓存时，“当前 token 序列”由已缓存的前缀状态和本步输入共同表示。</figcaption>
+</figure>
+
+用同一组 logits 做一次解析对照。两个 token 的 logits 为 $(\log 3,0)$ 时，温度 $T=1$ 给出 $(3/4,1/4)$；用 $z/T$ 计算且 $T=1/2$ 时，赔率从 $3:1$ 变成 $9:1$，概率是 $(9/10,1/10)$。在没有其他变换时，最大 logit 的位置保持，抽到第二个 token 的概率下降。模型前向和采样器可以据此分开检查。
 
 ## 学习顺序
 
