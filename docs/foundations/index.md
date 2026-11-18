@@ -31,8 +31,8 @@ flowchart TD
   A["消息 → 模板与分词"] --> B["当前 token 序列"]
   B --> C["模型前向 → 末位置 logits"]
   C --> D["采样 → 新 token"]
-  D -->|"继续生成"| B
-  D -->|"到达停止条件"| E["结束"]
+  D -->|"继续"| B
+  D -->|"停止"| E["结束"]
 ```
 
 <figcaption>生成循环只追加 token ID。带 KV 缓存时，“当前 token 序列”由已缓存的前缀状态和本步输入共同表示。</figcaption>
