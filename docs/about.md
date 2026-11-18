@@ -19,7 +19,7 @@ outline: false
   <p class="profile-bio">工作中参与大模型部署与模型管理平台开发。这里逐步整理我对模型原理、算法实现和系统实践的理解，留下阅读、代码与实验中的问题和思考。</p>
   <nav class="profile-links" aria-label="作者链接">
     <a href="https://github.com/xhongduo-tech" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-    <a href="/inference/">研究目录 <span aria-hidden="true">→</span></a>
+    <a href="/roadmap/">完整知识地图 <span aria-hidden="true">→</span></a>
   </nav>
 </header>
 

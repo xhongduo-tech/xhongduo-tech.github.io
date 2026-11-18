@@ -4,6 +4,7 @@ import Layout from './Layout.vue'
 import ArticleIndex from './ArticleIndex.vue'
 import { LazyMermaid } from './mermaid'
 import './style.css'
+import './reading-media.css'
 
 export default {
   extends: DefaultTheme,

@@ -4,6 +4,10 @@ description: 按依赖连接架构、数据、训练、推理、评测与应用�
 kind: overview
 status: published
 pageClass: knowledge-roadmap
+prev: false
+next:
+  text: 模型基础
+  link: /foundations/
 ---
 
 # 大模型知识与实践地图
@@ -12,29 +16,31 @@ pageClass: knowledge-roadmap
 
 ## 全链路与主题入口
 
-窄屏下可左右滑动宽表与依赖图，查看完整内容。
+<div class="topic-directory">
 
-| 领域 | 必须能解释的核心问题 | 专题与实验入口 |
-| --- | --- | --- |
-| 编程、数学与数值 | 张量、概率、梯度、稳定计算与程序排错怎样连接？ | [基础机制](/foundations/programming-math) |
-| 模型架构 | token怎样变成logits，位置、GQA/MLA、MoE改变了什么？ | [架构与Attention](/foundations/transformer-architectures) |
-| 数据与预训练 | 数据来源、去重、配比、标签和污染怎样影响学习？ | [数据与预训练/CPT](/training/data-pretraining) |
-| 训练系统 | 参数、梯度、优化器和激活放在哪，通信何时发生？ | [DDP/FSDP/ZeRO与并行](/training/distributed-training) |
-| 监督微调 | 模板、loss mask、数据质量与低秩更新怎样影响适配？ | [SFT、LoRA与QLoRA](/training/sft) |
-| 偏好优化 | 偏好标签、参考策略与目标怎样改变行为？ | [DPO与偏好数据](/training/preference-optimization) |
-| RL与推理能力 | 奖励、rollout、优势估计与更新怎样组成训练？ | [PPO/GRPO、RLVR与蒸馏](/training/rl-training) |
-| 内存与数值效率 | 哪些状态可缓存，低精度是否影响质量和性能？ | [KV与Attention](/inference/kv-cache) · [量化](/inference/quantization) |
-| 解码算法 | 草稿、目标验证和接受/校正怎样协作？ | [投机解码](/inference/speculative-decoding) · [MTP](/inference/mtp) · [DSpark](/inference/dspark) |
-| 服务与分布式推理 | 批处理、调度、并行和PD分离何时有收益？ | [服务系统](/inference/serving-systems) · [DeepInfer](/inference/deepinfer) |
-| 评测与实验方法 | 差异是否可信，质量、延迟、成本和失败如何同时判断？ | [质量与系统评测](/evaluation/quality-systems) |
-| 鲁棒性、安全与解释 | 扰动、拒答、外部指令与归因结论如何验证？ | [受控评测与可解释性](/evaluation/robustness-safety) |
-| 检索、Agent与多模态 | 模型、外部证据、工具和不同模态如何形成闭环？ | [RAG与Agent](/applications/retrieval-agents) · [多模态](/applications/multimodal) |
+- <strong>编程、数学与数值</strong> <span class="topic-question">张量、概率、梯度、稳定计算与程序排错怎样连接？</span> <span class="topic-links">[基础机制](/foundations/programming-math)</span>
+- <strong>模型架构</strong> <span class="topic-question">token怎样变成logits，位置、GQA/MLA、MoE改变了什么？</span> <span class="topic-links">[架构与Attention](/foundations/transformer-architectures)</span>
+- <strong>数据与预训练</strong> <span class="topic-question">数据来源、去重、配比、标签和污染怎样影响学习？</span> <span class="topic-links">[数据与预训练/CPT](/training/data-pretraining)</span>
+- <strong>训练系统</strong> <span class="topic-question">参数、梯度、优化器和激活放在哪，通信何时发生？</span> <span class="topic-links">[DDP/FSDP/ZeRO与并行](/training/distributed-training)</span>
+- <strong>监督微调</strong> <span class="topic-question">模板、loss mask、数据质量与低秩更新怎样影响适配？</span> <span class="topic-links">[SFT、LoRA与QLoRA](/training/sft)</span>
+- <strong>偏好优化</strong> <span class="topic-question">偏好标签、参考策略与目标怎样改变行为？</span> <span class="topic-links">[DPO与偏好数据](/training/preference-optimization)</span>
+- <strong>RL与推理能力</strong> <span class="topic-question">奖励、rollout、优势估计与更新怎样组成训练？</span> <span class="topic-links">[PPO/GRPO、RLVR与蒸馏](/training/rl-training)</span>
+- <strong>内存与数值效率</strong> <span class="topic-question">哪些状态可缓存，低精度是否影响质量和性能？</span> <span class="topic-links">[KV与Attention](/inference/kv-cache) · [量化](/inference/quantization)</span>
+- <strong>解码算法</strong> <span class="topic-question">草稿、目标验证和接受/校正怎样协作？</span> <span class="topic-links">[投机解码](/inference/speculative-decoding) · [MTP](/inference/mtp) · [DSpark](/inference/dspark)</span>
+- <strong>服务与分布式推理</strong> <span class="topic-question">批处理、调度、并行和PD分离何时有收益？</span> <span class="topic-links">[服务系统](/inference/serving-systems) · [DeepInfer](/inference/deepinfer)</span>
+- <strong>评测与实验方法</strong> <span class="topic-question">差异是否可信，质量、延迟、成本和失败如何同时判断？</span> <span class="topic-links">[质量与系统评测](/evaluation/quality-systems)</span>
+- <strong>鲁棒性、安全与解释</strong> <span class="topic-question">扰动、拒答、外部指令与归因结论如何验证？</span> <span class="topic-links">[受控评测与可解释性](/evaluation/robustness-safety)</span>
+- <strong>检索、Agent与多模态</strong> <span class="topic-question">模型、外部证据、工具和不同模态如何形成闭环？</span> <span class="topic-links">[RAG与Agent](/applications/retrieval-agents) · [多模态](/applications/multimodal)</span>
+
+</div>
 
 数据许可、版本、复现与安全边界贯穿各领域；不是最后才补的独立检查表。内核、编译器、稀疏架构、大规模训练与在线RL可继续专项深入，进入前先满足对应的数学、系统和实验条件。
 
 ## 学习依赖
 
 先打通“文本→token→前向→logits→生成”，同时学习张量与训练目标；再建立数据与评测基线。
+
+窄屏上可左右滑动依赖图。
 
 ```mermaid
 flowchart TD

@@ -1,0 +1,90 @@
+/* Import after the base theme. Scope to rendered document media only. */
+.vp-doc .mermaid,
+.vp-doc mjx-container[jax='SVG'][display='true'] {
+  box-sizing: border-box;
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--vp-c-text-3) var(--vp-c-bg-alt);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 5px;
+  background-color: var(--vp-c-bg-alt);
+}
+
+.vp-doc .mermaid {
+  margin-block: 26px;
+  padding: 14px 16px 18px;
+}
+
+.vp-doc .mermaid > svg {
+  display: block;
+  width: max(100%, 620px);
+  min-width: 0;
+  height: auto;
+  margin-inline: auto;
+  /* Keep Mermaid's inline max-width: it caps small diagrams at natural size.
+     A wide diagram keeps readable text instead of shrinking to phone width. */
+}
+
+.vp-doc mjx-container[jax='SVG'][display='true'] {
+  padding: 18px 14px;
+}
+
+.vp-doc mjx-container[jax='SVG'][display='true'] > svg {
+  display: block;
+  max-width: none;
+  margin-inline: auto;
+  /* The generated ex-sized width/height stay intact. A block SVG with auto
+     margins centers a short formula and starts an overflowing one at the left. */
+}
+
+.vp-doc .mermaid:focus-visible,
+.vp-doc mjx-container[jax='SVG'][display='true']:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 4px;
+  border-color: var(--vp-c-brand-1);
+}
+
+.vp-doc .mermaid::-webkit-scrollbar,
+.vp-doc mjx-container[jax='SVG'][display='true']::-webkit-scrollbar {
+  height: 7px;
+}
+
+.vp-doc .mermaid::-webkit-scrollbar-track,
+.vp-doc mjx-container[jax='SVG'][display='true']::-webkit-scrollbar-track {
+  background: var(--vp-c-bg-alt);
+}
+
+.vp-doc .mermaid::-webkit-scrollbar-thumb,
+.vp-doc mjx-container[jax='SVG'][display='true']::-webkit-scrollbar-thumb {
+  border: 2px solid var(--vp-c-bg-alt);
+  border-radius: 8px;
+  background: var(--vp-c-text-3);
+}
+
+@media (max-width: 767px) {
+  .vp-doc .mermaid {
+    margin-block: 22px;
+    padding: 12px 12px 16px;
+  }
+
+  .vp-doc mjx-container[jax='SVG'][display='true'] {
+    padding: 16px 12px;
+  }
+}
+
+@media (forced-colors: active) {
+  .vp-doc .mermaid,
+  .vp-doc mjx-container[jax='SVG'][display='true'] {
+    border-color: CanvasText;
+  }
+
+  .vp-doc .mermaid:focus-visible,
+  .vp-doc mjx-container[jax='SVG'][display='true']:focus-visible {
+    outline-color: Highlight;
+  }
+}

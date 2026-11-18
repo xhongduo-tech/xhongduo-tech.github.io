@@ -11,10 +11,12 @@ status: published
 
 ## 两条基础线
 
-| 专题 | 核心问题 | 最小验收 |
-| --- | --- | --- |
-| [编程、数学与训练机制](/foundations/programming-math) | 程序、张量、概率、梯度怎样连接？ | 解释一个真实生成程序和一次参数更新，修复形状或标签错误 |
-| [Transformer与架构演进](/foundations/transformer-architectures) | token怎样变成logits，架构怎样影响计算与缓存？ | 因果Attention对照、张量形状图、两种架构的资源假设比较 |
+<div class="topic-directory">
+
+- **[编程、数学与训练机制](/foundations/programming-math)** <span class="topic-question">程序、张量、概率和梯度怎样连接？</span> <span>解释一个真实生成程序和一次参数更新，修复形状或标签错误。</span>
+- **[Transformer与架构演进](/foundations/transformer-architectures)** <span class="topic-question">token 怎样变成 logits，架构怎样影响计算与缓存？</span> <span>完成因果 Attention 对照、张量形状图和两种架构的资源假设比较。</span>
+
+</div>
 
 学习顺序与其他领域的联系见[完整知识地图](/roadmap/)。数学随当前问题补齐；不要求先学完整门课程才开始模型实验。
 

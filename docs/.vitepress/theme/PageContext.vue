@@ -15,6 +15,9 @@ const categories: Record<string, { title: string; url: string }> = {
   articles: { title: '已发布文章', url: '/articles/' },
 }
 const category = computed(() => categories[page.value.relativePath.split('/')[0]])
+const isCategoryPage = computed(() =>
+  category.value && page.value.relativePath === `${category.value.url.slice(1)}index.md`,
+)
 const kindLabels: Record<string, string> = {
   topic: '专题提纲', project: '实践项目', overview: '专题地图', about: '关于', article: '文章',
 }
@@ -37,7 +40,8 @@ const date = computed(() => {
       <a :href="withBase('/')">{{ site.title }}</a>
       <template v-if="category">
         <span class="breadcrumb-separator" aria-hidden="true">/</span>
-        <a :href="withBase(category.url)">{{ category.title }}</a>
+        <span v-if="isCategoryPage" aria-current="page">{{ category.title }}</span>
+        <a v-else :href="withBase(category.url)">{{ category.title }}</a>
       </template>
     </nav>
     <div class="page-meta">
