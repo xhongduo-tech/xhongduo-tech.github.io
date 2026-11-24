@@ -7,7 +7,6 @@ const { lang } = useData()
 const copy = computed(() => lang.value === 'en-US' ? {
   title: 'LLM Field Notes',
   activity: 'Activity log',
-  pastYear: 'Past year',
   tags: ['Model fundamentals', 'Inference systems', 'Training & alignment', 'Evaluation & experiments'],
   links: [
     { title: 'Articles', url: '/en/articles/' },
@@ -17,7 +16,6 @@ const copy = computed(() => lang.value === 'en-US' ? {
 } : {
   title: '大模型研习录',
   activity: '更新记录',
-  pastYear: '过去一年',
   tags: ['模型原理', '推理系统', '训练与后训练', '评测与实验'],
   links: [
     { title: '文章', url: '/articles/' },
@@ -53,14 +51,7 @@ const copy = computed(() => lang.value === 'en-US' ? {
         </a>
       </nav>
       <section class="activity-archive" aria-labelledby="activity-title">
-        <div class="activity-heading">
-          <div>
-            <p class="activity-eyebrow" lang="en">ACTIVITY LOG</p>
-            <h2 id="activity-title">{{ copy.activity }}</h2>
-          </div>
-          <span>{{ copy.pastYear }}</span>
-        </div>
-        <ActivityHeatmap />
+        <ActivityHeatmap :title="copy.activity" />
       </section>
     </main>
   </div>

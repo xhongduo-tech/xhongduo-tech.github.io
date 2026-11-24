@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import { useData, withBase } from 'vitepress'
+import TopicIcon from './TopicIcon.vue'
 import { data as articles } from '../data/articles.data'
 import { domains, domainProgress } from '../data/domain-progress.mjs'
 import {
@@ -44,6 +45,17 @@ let resizeObserver: ResizeObserver | undefined
 for (const node of nodes) positions[node.id] = { x: node.x, y: node.y }
 const byId = new Map(nodes.map(node => [node.id, node]))
 const domainById = new Map(domains.map(domain => [domain.id, domain]))
+const domainLayouts = domains.map((domain, index) => {
+  const domainNodes = nodes.filter(node => node.domain === domain.id)
+  return {
+    domain,
+    index,
+    count: domainNodes.length,
+    x: (domainNodes[0]?.x || 0) - 16,
+    width: WIDTH + 32,
+    height: domainNodes.length * 88 + 30,
+  }
+})
 const selected = computed(() => byId.get(selectedId.value) || nodes[0])
 const completedCount = computed(() => Object.values(domainProgress).filter(item => item.completed).length)
 const articlesByTopic = computed(() => {
@@ -65,27 +77,39 @@ const dependents = computed(() => relations
   .map(([, target]) => byId.get(target)!)
   .filter(Boolean))
 const edges = computed(() => relations.map(([sourceId, targetId]) => {
-  const source = byId.get(sourceId)!
-  const target = byId.get(targetId)!
   const a = positions[sourceId]
   const b = positions[targetId]
   let path: string
   if (Math.abs(b.x - a.x) > 40) {
     const forward = b.x > a.x
+    const direction = forward ? 1 : -1
     const startX = a.x + (forward ? WIDTH : 0)
     const endX = b.x + (forward ? 0 : WIDTH)
     const startY = a.y + HEIGHT / 2
     const endY = b.y + HEIGHT / 2
-    const bend = Math.max(36, Math.abs(endX - startX) / 2)
-    path = `M ${startX} ${startY} C ${startX + (forward ? bend : -bend)} ${startY}, ${endX - (forward ? bend : -bend)} ${endY}, ${endX} ${endY}`
+    const midX = (startX + endX) / 2
+    if (Math.abs(endY - startY) < 1) {
+      path = `M ${startX} ${startY} H ${endX}`
+    } else {
+      const vertical = endY > startY ? 1 : -1
+      const radius = Math.min(7, Math.abs(endX - startX) / 4, Math.abs(endY - startY) / 2)
+      path = `M ${startX} ${startY} H ${midX - direction * radius} Q ${midX} ${startY} ${midX} ${startY + vertical * radius} V ${endY - vertical * radius} Q ${midX} ${endY} ${midX + direction * radius} ${endY} H ${endX}`
+    }
   } else {
     const down = b.y > a.y
+    const direction = down ? 1 : -1
     const startX = a.x + WIDTH / 2
     const endX = b.x + WIDTH / 2
     const startY = a.y + (down ? HEIGHT : 0)
     const endY = b.y + (down ? 0 : HEIGHT)
-    const bend = Math.max(20, Math.abs(endY - startY) / 2)
-    path = `M ${startX} ${startY} C ${startX} ${startY + (down ? bend : -bend)}, ${endX} ${endY - (down ? bend : -bend)}, ${endX} ${endY}`
+    if (Math.abs(endX - startX) < 1) {
+      path = `M ${startX} ${startY} V ${endY}`
+    } else {
+      const midY = (startY + endY) / 2
+      const horizontal = endX > startX ? 1 : -1
+      const radius = Math.min(7, Math.abs(endY - startY) / 4, Math.abs(endX - startX) / 2)
+      path = `M ${startX} ${startY} V ${midY - direction * radius} Q ${startX} ${midY} ${startX + horizontal * radius} ${midY} H ${endX - horizontal * radius} Q ${endX} ${midY} ${endX} ${midY + direction * radius} V ${endY}`
+    }
   }
   return {
     id: `${sourceId}-${targetId}`,
@@ -101,6 +125,34 @@ function title(node: TopicNode): string {
 function domainTitle(node: TopicNode): string {
   const domain = domainById.get(node.domain)
   return english.value ? domain?.titleEn || node.domain : domain?.title || node.domain
+}
+
+function iconFor(node: TopicNode): string {
+  const id = node.id
+  if (/linear|probability|optimization|information|scaling|statistical/.test(id)) return 'math'
+  if (/python|tokenization|tokenizer|structured/.test(id)) return 'code'
+  if (/embedding|vector|retrieval|reranking|rag/.test(id)) return 'retrieval'
+  if (/training-data|contamination/.test(id)) return 'database'
+  if (/attention|transformer|mixture|positional|normalization|multimodal/.test(id)) return 'network'
+  if (/pretraining|finetuning|preference|rlhf|rl-post|sft/.test(id)) return 'training'
+  if (/precision|quantization|kernel|cache|paged|parallel|serving|batching/.test(id)) return 'chip'
+  if (/decoding|sampling|speculative|multi-token/.test(id)) return 'decode'
+  if (/benchmark|metric|judge|evaluation|robustness|safety|guardrails|reproduction/.test(id)) return 'evaluation'
+  if (/prompt|tool|agent|memory/.test(id)) return 'agent'
+  if (/lab|experiment|simulation|ablation/.test(id)) return 'experiment'
+  return node.domain
+}
+
+function kind(node: TopicNode): string {
+  const labels: Record<string, [string, string]> = {
+    foundations: ['概念与机制', 'Concept & mechanism'],
+    training: ['训练方法', 'Training method'],
+    inference: ['推理机制与系统', 'Inference & systems'],
+    evaluation: ['评测方法', 'Evaluation method'],
+    applications: ['应用模式', 'Application pattern'],
+    projects: ['可复现实验', 'Reproducible experiment'],
+  }
+  return labels[node.domain]?.[english.value ? 1 : 0] || node.domain
 }
 
 function hasArticles(node: TopicNode): boolean {
@@ -138,10 +190,17 @@ function zoomAt(nextValue: number, center?: Point) {
 }
 
 function fitGraph() {
-  const next = clampZoom(Math.min((viewport.width - 32) / WORLD_WIDTH, (viewport.height - 64) / WORLD_HEIGHT, 1))
+  const current = nodes.map(node => positions[node.id])
+  const minX = Math.min(0, ...current.map(point => point.x))
+  const minY = Math.min(0, ...current.map(point => point.y))
+  const maxX = Math.max(WORLD_WIDTH, ...current.map(point => point.x + WIDTH))
+  const maxY = Math.max(WORLD_HEIGHT, ...current.map(point => point.y + HEIGHT))
+  const width = maxX - minX
+  const height = maxY - minY
+  const next = clampZoom(Math.min((viewport.width - 32) / width, (viewport.height - 64) / height, 1))
   zoom.value = next
-  pan.x = (viewport.width - WORLD_WIDTH * next) / 2
-  pan.y = (viewport.height - WORLD_HEIGHT * next) / 2 + 16
+  pan.x = (viewport.width - width * next) / 2 - minX * next
+  pan.y = (viewport.height - height * next) / 2 - minY * next + 16
 }
 
 function resetGraph() {
@@ -277,10 +336,15 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
 
     <div class="topic-domain-jump" role="group" :aria-label="english ? 'Focus a domain' : '定位到领域'">
       <button
-        v-for="domain in domains" :key="domain.id" type="button"
-        :aria-pressed="selected?.domain === domain.id"
-        @click="focusDomain(domain)"
-      ><i :class="{ complete: domainProgress[domain.id].completed }" />{{ english ? domain.titleEn : domain.title }}</button>
+        v-for="layout in domainLayouts" :key="layout.domain.id" type="button"
+        :aria-pressed="selected?.domain === layout.domain.id"
+        :aria-label="`${english ? layout.domain.titleEn : layout.domain.title}，${layout.count} ${english ? 'topics' : '个主题'}`"
+        @click="focusDomain(layout.domain)"
+      >
+        <span class="topic-domain-jump-icon"><TopicIcon :name="layout.domain.id" :size="19" /></span>
+        <span class="topic-domain-jump-copy"><strong>{{ english ? layout.domain.titleEn : layout.domain.title }}</strong><small>{{ layout.count }} {{ english ? 'topics' : '个主题' }}</small></span>
+        <i class="topic-domain-state" :class="{ complete: domainProgress[layout.domain.id].completed }" aria-hidden="true" />
+      </button>
     </div>
 
     <div class="topic-canvas-shell" :class="{ 'is-dragging': drag }">
@@ -301,16 +365,20 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
         <title>{{ english ? 'LLM topic dependency graph' : '大模型主题依赖图' }}</title>
         <desc>{{ english ? 'Drag the background to pan, drag nodes to rearrange, and use the wheel or buttons to zoom. Enter selects a focused topic.' : '拖拽空白处平移，拖拽节点调整布局，使用滚轮或按钮缩放。按 Enter 选中键盘聚焦的主题。' }}</desc>
         <defs>
+          <pattern id="topic-dot-grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="0.85" class="topic-grid-dot" /></pattern>
           <marker id="topic-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 8 4 0 8Z" /></marker>
         </defs>
+        <rect class="topic-canvas-background" :width="viewport.width" :height="viewport.height" fill="url(#topic-dot-grid)" />
         <g :transform="`translate(${pan.x} ${pan.y}) scale(${zoom})`">
-          <g v-for="(domain, index) in domains" :key="domain.id" class="topic-domain-label" aria-hidden="true">
-            <text :x="nodes.find(node => node.domain === domain.id)?.x" y="38">0{{ index + 1 }} / {{ english ? domain.titleEn : domain.title }}</text>
-            <line :x1="nodes.find(node => node.domain === domain.id)?.x" :x2="(nodes.find(node => node.domain === domain.id)?.x || 0) + WIDTH" y1="54" y2="54" />
+          <g v-for="layout in domainLayouts" :key="layout.domain.id" class="topic-domain-group" aria-hidden="true">
+            <rect class="topic-domain-lane" :x="layout.x" y="74" :width="layout.width" :height="layout.height" rx="10" />
+            <text class="topic-domain-label" :x="layout.x + 4" y="38">0{{ layout.index + 1 }} / {{ english ? layout.domain.titleEn : layout.domain.title }}</text>
+            <text class="topic-domain-count" :x="layout.x + layout.width - 4" y="38" text-anchor="end">{{ layout.count }}</text>
+            <line :x1="layout.x + 4" :x2="layout.x + layout.width - 4" y1="55" y2="55" />
           </g>
           <path
             v-for="edge in edges" :key="edge.id" :d="edge.path"
-            class="topic-edge" :class="{ active: edge.active }" marker-end="url(#topic-arrow)"
+            class="topic-edge" :class="{ active: edge.active }" :marker-end="edge.active ? 'url(#topic-arrow)' : undefined"
           />
           <g
             v-for="node in nodes" :key="node.id"
@@ -324,10 +392,14 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
             @keydown.enter.prevent="selectNode(node)"
             @keydown.space.prevent="selectNode(node)"
           >
-            <rect class="topic-node-box" :width="WIDTH" :height="HEIGHT" rx="6" />
-            <circle class="topic-node-status-dot" cx="16" cy="19" r="4" />
-            <text class="topic-node-title" x="28" y="23">{{ title(node) }}</text>
-            <text class="topic-node-status" x="14" y="44">{{ hasArticles(node) ? (english ? 'Published · view below' : '已发布 · 下方阅读') : (english ? 'Topic · unpublished' : '知识主题 · 待发布') }}</text>
+            <rect class="topic-node-box" :width="WIDTH" :height="HEIGHT" rx="8" />
+            <rect class="topic-node-icon-bg" x="12" y="17" width="34" height="34" rx="8" />
+            <TopicIcon class="topic-node-icon" :name="iconFor(node)" :x="20" :y="25" :size="18" />
+            <text class="topic-node-title" :class="{ 'is-long': title(node).length > 22 }" x="56" y="34">{{ title(node) }}</text>
+            <text class="topic-node-subtitle" x="56" y="53">{{ kind(node) }}</text>
+            <text class="topic-node-state" :x="WIDTH - 12" y="18" text-anchor="end">{{ hasArticles(node) ? (english ? 'Published' : '已发布') : (english ? 'Pending' : '待发布') }}</text>
+            <circle class="topic-node-port" cx="0" :cy="HEIGHT / 2" r="3" />
+            <circle class="topic-node-port" :cx="WIDTH" :cy="HEIGHT / 2" r="3" />
           </g>
         </g>
       </svg>
@@ -336,9 +408,12 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
 
     <section v-if="selected" class="topic-detail" aria-live="polite" :aria-label="english ? 'Selected topic' : '当前主题'">
       <div class="topic-detail-heading">
-        <p>{{ domainTitle(selected) }} · {{ selectedArticles.length ? (english ? 'Published' : '已发布') : (english ? 'Unpublished' : '待发布') }}</p>
-        <h3>{{ title(selected) }}</h3>
-        <span v-if="!english" lang="en">{{ selected.titleEn }}</span>
+        <span class="topic-detail-icon"><TopicIcon :name="iconFor(selected)" :size="22" /></span>
+        <div class="topic-detail-title">
+          <p>{{ domainTitle(selected) }} · {{ selectedArticles.length ? (english ? 'Published' : '已发布') : (english ? 'Unpublished' : '待发布') }}</p>
+          <h3>{{ title(selected) }}</h3>
+          <span v-if="!english" lang="en">{{ selected.titleEn }}</span>
+        </div>
       </div>
       <div class="topic-detail-relations">
         <p><strong>{{ english ? 'Prerequisites' : '直接前置' }}</strong></p>

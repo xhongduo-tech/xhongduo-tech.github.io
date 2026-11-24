@@ -143,7 +143,7 @@ onBeforeUnmount(() => document.removeEventListener('pointerdown', onOutsidePoint
       @keydown.up.prevent="openMenu"
     >
       <svg class="language-globe" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.25" /><path d="M3 10h14M10 2.75c2 2.05 3 4.47 3 7.25s-1 5.2-3 7.25c-2-2.05-3-4.47-3-7.25s1-5.2 3-7.25Z" /></svg>
-      <span>{{ triggerLabel }}</span>
+      <span class="language-trigger-label">{{ triggerLabel }}</span>
       <svg class="language-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="m3 4.5 3 3 3-3" /></svg>
     </button>
     <div

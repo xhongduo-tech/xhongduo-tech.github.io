@@ -1,20 +1,17 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
 import { data as activity } from '../data/activity.data'
 import type { ActivityDay } from '../data/activity.data'
 
-type View = 'daily' | 'weekly'
 interface ActivityWeek {
   days: ActivityDay[]
-  count: number
   startDate: string
-  endDate: string
 }
 
+defineProps<{ title: string }>()
 const { lang } = useData()
 const english = computed(() => lang.value === 'en-US')
-const view = ref<View>('daily')
 const scrollContainer = ref<HTMLElement>()
 const tooltip = ref({ visible: false, text: '', x: 0, y: 0 })
 
@@ -22,16 +19,10 @@ const weeks = computed<ActivityWeek[]>(() => {
   const groups: ActivityWeek[] = []
   for (let index = 0; index < activity.days.length; index += 7) {
     const days = activity.days.slice(index, index + 7)
-    groups.push({
-      days,
-      count: days.reduce((total, day) => total + day.count, 0),
-      startDate: days[0].date,
-      endDate: days[days.length - 1].date,
-    })
+    groups.push({ days, startDate: days[0].date })
   }
   return groups
 })
-const pastWeeks = computed(() => weeks.value.filter(week => week.days.some(day => !day.future)))
 const monthLabels = computed(() => {
   const labels: { index: number; text: string }[] = []
   weeks.value.forEach((week, index) => {
@@ -61,9 +52,6 @@ function formatDate(date: string): string {
 function dayLabel(day: ActivityDay): string {
   return `${formatDate(day.date)} · ${day.count} ${english.value ? 'commits' : '次更新'}`
 }
-function weekLabel(week: ActivityWeek): string {
-  return `${formatDate(week.startDate)} – ${formatDate(week.endDate)} · ${week.count} ${english.value ? 'commits' : '次更新'}`
-}
 function showTooltip(event: MouseEvent | FocusEvent, text: string) {
   const target = event.currentTarget as HTMLElement
   const bounds = target.getBoundingClientRect()
@@ -75,12 +63,6 @@ function showTooltip(event: MouseEvent | FocusEvent, text: string) {
   }
 }
 function hideTooltip() { tooltip.value.visible = false }
-async function setView(nextView: View) {
-  view.value = nextView
-  hideTooltip()
-  await nextTick()
-  scrollToLatest()
-}
 function scrollToLatest() {
   const container = scrollContainer.value
   if (container) container.scrollLeft = container.scrollWidth
@@ -90,19 +72,19 @@ onMounted(scrollToLatest)
 
 <template>
   <div class="activity-log">
-    <div class="activity-toolbar">
+    <div class="activity-heading">
+      <div>
+        <p class="activity-eyebrow" lang="en">ACTIVITY LOG</p>
+        <h2 id="activity-title">{{ title }}</h2>
+      </div>
       <dl class="activity-stats" :aria-label="english ? 'Repository activity' : '累计站点更新'">
         <div><dt>{{ english ? 'Commits' : '累计提交' }}</dt><dd>{{ activity.total }}<span>{{ english ? '' : '次' }}</span></dd></div>
         <div><dt>{{ english ? 'Active days' : '活跃天数' }}</dt><dd>{{ activity.activeDays }}<span>{{ english ? '' : '天' }}</span></dd></div>
       </dl>
-      <div class="activity-view-toggle" role="group" :aria-label="english ? 'Activity granularity' : '点阵时间粒度'">
-        <button type="button" :aria-pressed="view === 'daily'" @click="setView('daily')">{{ english ? 'Daily' : '每日' }}</button>
-        <button type="button" :aria-pressed="view === 'weekly'" @click="setView('weekly')">{{ english ? 'Weekly' : '每周' }}</button>
-      </div>
     </div>
 
     <div ref="scrollContainer" class="activity-scroll" @scroll.passive="hideTooltip">
-      <div v-if="view === 'daily'" class="activity-calendar">
+      <div class="activity-calendar">
         <div class="activity-months" aria-hidden="true">
           <span v-for="month in monthLabels" :key="`${month.index}-${month.text}`" :style="{ gridColumn: month.index + 1 }">{{ month.text }}</span>
         </div>
@@ -120,18 +102,6 @@ onMounted(scrollToLatest)
               @focus="!day.future && showTooltip($event, dayLabel(day))" @blur="hideTooltip"
             />
           </div>
-        </div>
-      </div>
-
-      <div v-else class="activity-weekly">
-        <div class="activity-weekly-caption" aria-hidden="true"><span>{{ english ? 'Past 52 weeks' : '过去 52 周' }}</span><span>{{ english ? 'Cell / week' : '每格 / 1 周' }}</span></div>
-        <div class="activity-week-grid" :aria-label="english ? 'Weekly repository activity for the past year' : '过去一年每周站点更新点阵图'">
-          <span
-            v-for="week in pastWeeks" :key="week.startDate" class="activity-cell" :class="[`level-${level(week.count)}`]"
-            role="img" :aria-label="weekLabel(week)" :tabindex="week.count ? 0 : undefined"
-            @mouseenter="showTooltip($event, weekLabel(week))" @mouseleave="hideTooltip"
-            @focus="showTooltip($event, weekLabel(week))" @blur="hideTooltip"
-          />
         </div>
       </div>
     </div>

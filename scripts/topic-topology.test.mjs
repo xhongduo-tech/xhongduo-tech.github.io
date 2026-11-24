@@ -36,8 +36,8 @@ test('topic nodes form a public bilingual index with unique stable IDs', () => {
 })
 
 test('topic nodes use the six fixed columns and fit the world bounds', () => {
-  assert.equal(TOPIC_NODE_WIDTH, 226)
-  assert.equal(TOPIC_NODE_HEIGHT, 58)
+  assert.equal(TOPIC_NODE_WIDTH, 240)
+  assert.equal(TOPIC_NODE_HEIGHT, 68)
   assert.equal(TOPIC_WORLD_WIDTH, 1850)
 
   for (const [domain, x] of Object.entries(DOMAIN_X)) {
@@ -45,7 +45,7 @@ test('topic nodes use the six fixed columns and fit the world bounds', () => {
     assert.ok(nodes.length > 0, `Missing domain: ${domain}`)
     nodes.forEach((node, index) => {
       assert.equal(node.x, x, `Unexpected column for ${node.id}`)
-      assert.equal(node.y, 110 + index * 78, `Unexpected row for ${node.id}`)
+      assert.equal(node.y, 110 + index * 88, `Unexpected row for ${node.id}`)
     })
   }
 

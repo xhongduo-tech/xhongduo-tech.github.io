@@ -1,5 +1,5 @@
-export const TOPIC_NODE_WIDTH = 226
-export const TOPIC_NODE_HEIGHT = 58
+export const TOPIC_NODE_WIDTH = 240
+export const TOPIC_NODE_HEIGHT = 68
 export const TOPIC_WORLD_WIDTH = 1850
 
 const DOMAIN_X = {
@@ -98,7 +98,7 @@ export const topicNodes = Object.entries(topics).flatMap(([domain, entries]) =>
     title,
     titleEn,
     x: DOMAIN_X[domain],
-    y: 110 + index * 78,
+    y: 110 + index * 88,
   })),
 )
 
