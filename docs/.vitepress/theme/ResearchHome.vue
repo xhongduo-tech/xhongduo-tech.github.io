@@ -1,45 +1,67 @@
 <script setup lang="ts">
-import { withBase } from 'vitepress'
-import { sections } from '../data/site'
-import { data as articles } from '../data/articles.data'
-import ArticleIndex from './ArticleIndex.vue'
-import ResearchIcon from './ResearchIcon.vue'
+import { computed } from 'vue'
+import { useData, withBase } from 'vitepress'
+import ActivityHeatmap from './ActivityHeatmap.vue'
+
+const { lang } = useData()
+const copy = computed(() => lang.value === 'en-US' ? {
+  title: 'LLM Field Notes',
+  activity: 'Activity log',
+  pastYear: 'Past year',
+  tags: ['Model fundamentals', 'Inference systems', 'Training & alignment', 'Evaluation & experiments'],
+  links: [
+    { title: 'Articles', url: '/en/articles/' },
+    { title: 'Projects', url: '/en/projects/' },
+    { title: 'About', url: '/en/about' },
+  ],
+} : {
+  title: '大模型研习录',
+  activity: '更新记录',
+  pastYear: '过去一年',
+  tags: ['模型原理', '推理系统', '训练与后训练', '评测与实验'],
+  links: [
+    { title: '文章', url: '/articles/' },
+    { title: '项目', url: '/projects/' },
+    { title: '关于我', url: '/about' },
+  ],
+})
 </script>
 
 <template>
-  <div class="research-home">
-    <header class="home-intro">
-      <p class="hero-eyebrow" lang="en"><span aria-hidden="true" />LLM RESEARCH NOTES</p>
-      <h1 lang="en"><span class="hero-word">Token<span class="hero-separator">&nbsp;·</span></span> <span class="hero-word">Attention<span class="hero-separator">&nbsp;·</span></span> <span class="hero-word">Inference</span></h1>
-      <p class="home-description">记录模型、训练与推理系统的学习和实践。</p>
-      <a class="section-link home-start" :href="withBase('/foundations/#一次生成经过什么')">从一次生成读起 <span aria-hidden="true">→</span></a>
-    </header>
-
-    <section class="home-section" aria-labelledby="writing-title">
-      <div class="section-heading">
-        <div><span class="section-eyebrow" lang="en">Articles</span><h2 id="writing-title">文章 <span class="article-count">{{ articles.length }}</span></h2></div>
-        <a class="section-link" :href="withBase('/articles/')">全部文章 <span aria-hidden="true">→</span></a>
-      </div>
-      <ArticleIndex :limit="5" />
-    </section>
-
-    <section id="research-map" class="home-section" aria-labelledby="map-title">
-      <div class="section-heading">
-        <div><span class="section-eyebrow" lang="en">Research areas</span><h2 id="map-title">研究方向</h2></div>
-        <a class="section-link" :href="withBase('/roadmap/')">完整地图 <span aria-hidden="true">→</span></a>
-      </div>
-      <ul class="research-map">
-        <li v-for="section in sections" :key="section.link">
-          <a :href="withBase(section.link)" class="map-entry">
-            <div class="map-label">
-              <ResearchIcon :name="section.icon" />
-              <div><h3>{{ section.title }}</h3><span class="map-english" lang="en">{{ section.english }}</span></div>
-            </div>
-            <p>{{ section.description }}</p>
-            <span class="map-arrow" aria-hidden="true">→</span>
-          </a>
+  <div class="learning-home">
+    <header class="learning-header">
+      <p class="learning-kicker" lang="en">LLM FIELD NOTES</p>
+      <h1>{{ copy.title }}</h1>
+      <ul class="learning-tags" :aria-label="lang === 'en-US' ? 'Topics' : '学习主题'">
+        <li v-for="(tag, index) in copy.tags" :key="tag">
+          <svg v-if="index === 0" viewBox="0 0 20 20" aria-hidden="true"><circle cx="5" cy="5" r="2" /><circle cx="15" cy="5" r="2" /><circle cx="10" cy="15" r="2" /><path d="m6.7 6.3 2.4 6.5m4.2-6.5-2.4 6.5M7 5h6" /></svg>
+          <svg v-else-if="index === 1" viewBox="0 0 20 20" aria-hidden="true"><path d="M11.5 2 5 11h5l-1.5 7L15 8h-5l1.5-6Z" /></svg>
+          <svg v-else-if="index === 2" viewBox="0 0 20 20" aria-hidden="true"><path d="m10 2 7 4-7 4-7-4 7-4Zm-7 8 7 4 7-4M3 14l7 4 7-4" /></svg>
+          <svg v-else viewBox="0 0 20 20" aria-hidden="true"><path d="M3 16V9m5 7V4m5 12v-5m4 5V7M2 18h16" /></svg>
+          <span>{{ tag }}</span>
         </li>
       </ul>
-    </section>
+    </header>
+
+    <main class="home-activity">
+      <nav class="home-page-nav" :aria-label="lang === 'en-US' ? 'Browse pages' : '浏览页面'">
+        <p lang="en">INDEX</p>
+        <a v-for="(link, index) in copy.links" :key="link.url" :href="withBase(link.url)">
+          <span class="home-nav-number">0{{ index + 1 }}</span>
+          <span>{{ link.title }}</span>
+          <span class="home-nav-arrow" aria-hidden="true">↗</span>
+        </a>
+      </nav>
+      <section class="activity-archive" aria-labelledby="activity-title">
+        <div class="activity-heading">
+          <div>
+            <p class="activity-eyebrow" lang="en">ACTIVITY LOG</p>
+            <h2 id="activity-title">{{ copy.activity }}</h2>
+          </div>
+          <span>{{ copy.pastYear }}</span>
+        </div>
+        <ActivityHeatmap />
+      </section>
+    </main>
   </div>
 </template>

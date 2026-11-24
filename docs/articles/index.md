@@ -1,14 +1,15 @@
 ---
-title: 博文
-description: 已完成并经过核对的技术文章。
+layout: page
+title: 文章
+description: 已发布的大模型技术文章、可拖拽的详细主题拓扑与今日学习任务。
 kind: overview
 status: published
+contentLang: zh
+translations:
+  en: /en/articles/
+sidebar: false
+aside: false
+outline: false
 ---
 
-# 博文
-
-只有明确标为已发表的文章出现在这里；研究提纲和待实践项目分别展示。
-
-<ArticleIndex />
-
-从[推理专题](/inference/)选择第一个问题，按[博文方法](/writing/)补齐机制与证据后发布。专题提纲和项目任务书分别展示，不计为已完成文章。
+<ArticlesHome />

@@ -1,62 +1,80 @@
 # xuhongduo's blog
 
-记录模型、训练与推理系统的学习和实践。
+记录大模型原理、训练、推理与评测的学习过程，用源码和实验验证理解。
 
-VitePress技术博客，围绕大模型原理、推理算法与服务系统、训练后训练、评测复现与实践项目组织。源码在source分支，GitHub Actions构建后通过官方Pages artifact流程部署，同时替换main分支的生成文件镜像。[公开站点](https://xhongduo-tech.github.io/)的站名为`xuhongduo's blog`；站名拼写与GitHub账户`xhongduo-tech`不同。
+VitePress 技术博客。源码在 `source` 分支，GitHub Actions 构建后通过官方 Pages artifact 流程部署，同时替换 `main` 分支的生成文件镜像。[公开站点](https://xhongduo-tech.github.io/)的站名为 `xuhongduo's blog`；站名拼写与 GitHub 账户 `xhongduo-tech` 不同。
 
-首页主句为`Token · Attention · Inference`，下方说明为“记录模型、训练与推理系统的学习和实践。”。保留当前单栏文章与研究方向布局，以简洁英文标注和线性icon补充层次；导航保持文章、研究、项目和关于我四组。
+## 页面结构
 
-[完整知识地图](./docs/roadmap/index.md)按依赖连接编程数值、架构、数据/预训练、训练系统、SFT、偏好/RL、缓存解码、服务、评测与应用。各专题包含问题、机制、低成本实验、验收与第一方来源；研究提纲和项目任务书不计作已完成成果。首页“完整地图”和研究菜单提供入口。
+- **首页**：主标题“大模型研习录”、带线性 icon 的主题 tag，以及“页面索引在左、年度 Git 活动点阵在右”的主体。无长描述、Git 最近提交列表或重复阅读入口。
+- **文章**：右侧提供“具体博文 / 主题拓扑”切换和今日 Todo，主内容显示对应视图；窄屏将切换放在主内容顶部、Todo 放在下方。
+- **项目**：只收录具有真实实现、可复现步骤和实验记录的项目报告；没有成果时显示空状态。
+- **关于我**：独立作者页。
 
-[深度标准](./docs/writing/index.md)要求每个方法沿同一问题贯穿推导/不变量、reference、固定源码、对照/反例及迁移排错；同页多方法分别验收。原理、源码和硬件证据区分范围，目录与阶段小实验不自动代表深入掌握。[KV专题](./docs/inference/kv-cache.md)示范如何连接这些环节，实际学习与实验仍待完成。
+顶部导航为文章、项目、关于我。其右侧依次是界面语言下拉、搜索 icon 和明暗切换。下拉提供智能、中文、English，支持方向键与 Esc；搜索保留原快捷键和弹窗。首页左侧索引是三个公开页面的短导航，不恢复旧专题侧栏。
 
-## 目录
+## 公开与私有内容
 
-- docs/foundations：模型、概率、张量与训练基础。
-- docs/roadmap：完整知识地图、学习依赖、阶段与证据标准。
-- docs/inference：解码、MTP、DSpark、DeepInfer及推理系统地图。
-- docs/training：数据、SFT、LoRA、偏好优化与RL路线。
-- docs/evaluation：质量、系统指标和复现规范。
-- docs/applications：检索、工具调用、Agent与多模态的小实验。
-- docs/projects：部署、微调、后训练项目任务与后续报告。
-- docs/articles：正式博文，只有article且published进入文章索引。
-- docs/writing：写作方法与文章模板。
-- drafts：未公开草稿。
-- docs/.vitepress：配置、主题与内容索引。
+公开 `docs` 保留上述页面、正式文章和真实项目报告。研究提纲、详细学习地图、项目任务和写作笔记位于 Git 忽略的 `drafts`，不作为公开成果。删除旧公开页面不重写 `source` 历史。
 
-## 本地运行
+文章可以声明 `prerequisites`，检查器会拒绝缺失前置、自依赖、重复依赖和循环。文章页的**主题拓扑**是公共概念依赖图，不是文章实例 DAG 或每日课程表；`prerequisites` 仍只用于真实文章之间的依赖检查。
+
+## 主题拓扑与领域点亮
+
+`docs/.vitepress/data/topic-topology.mjs` 定义 63 个双语公共知识主题和 91 条前置依赖，按六个领域分组。画布支持拖拽平移、节点拖动、滚轮与按钮缩放、全图和复位；选中主题可查看直接前置与真实关联文章。文章通过 `topicId` 关联主题，没有公开文章的节点只显示“待发布”。这些节点不代表学习进度或掌握状态，也不包含私有年度计划。
+
+`docs/.vitepress/data/domain-progress.mjs` 单独定义六个领域的验收状态：模型基础、训练与后训练、推理系统、评测与复现、应用与多模态、项目实践。
+
+只有完成该领域的人工验收后，才将对应状态改为：
+
+```js
+foundations: { completed: true, evidence: '/articles/a-real-acceptance-record' }
+```
+
+`evidence` 必须指向已发布文章或公开项目。内容检查会拒绝没有证据或证据未发布的点亮状态。发布一篇文章不自动等于掌握整个领域。
+
+## 中英文与智能模式
+
+中文页面位于根路径，英文界面页面位于 `docs/en`。页面通过 frontmatter 声明对应关系：
+
+```yaml
+contentLang: zh
+translations:
+  en: /en/articles/
+```
+
+- **中文 / EN**：保存界面语言偏好并进入对应页面。
+- **智能**：根据当前页面 `contentLang` 跟随内容语言，不自动翻译正文。
+- 没有对应译文的文章不提供虚假的语言跳转。
+
+新增公开页面时同步提供翻译路径；翻译目标必须真实存在。英文任务数据若尚未提供，Todo 正文仍保留原始计划语言，界面标签使用英文。
+
+## 今日 Todo
+
+本地完整计划在 `drafts/year-plan.json`，部署时通过 `STUDY_PLAN_JSON` Secret 提供。数据加载器只向页面返回当天任务，默认时区为 `Asia/Shanghai`。完成状态只保存在当前浏览器 `localStorage`，不是全局进度或跨设备同步。
+
+工作流在 UTC `16:15` 每日构建，约为上海时间次日 `00:15`。未配置 Secret 时构建成功，但不显示 Todo。
+
+## 本地运行与检查
 
 ```sh
 npm ci
 npm run docs:dev
+npm test
 npm run docs:check
 npm run docs:build
 ```
 
-构建输出在docs/.vitepress/dist。数学公式在构建时生成，Mermaid在包含图表的页面按需加载，搜索采用本地索引；不依赖站外搜索账号。
+`npm test` 覆盖草稿创建、文章依赖、时区与任务选择、领域图结构及公开项目元数据。`npm run docs:check` 核对公开元数据、内部链接、翻译页面、项目结果与领域验收证据。自动检查不能证明技术推理正确或本人掌握。
 
-`npm run docs:preview`用于检查构建产物；重新构建后应重启预览进程，避免旧资源索引与新产物不一致。日常修改使用`docs:dev`。
+`npm run docs:preview` 用于检查构建产物；重新构建后应重启预览。构建输出在 `docs/.vitepress/dist`。
 
-## 新建博文
+## 新建文章与项目
 
 ```sh
 npm run note:new -- speculative-correctness --area inference --title "投机解码的正确性"
 ```
 
-草稿正文默认被Git忽略，也不进入站点。补齐内容、资料与证据，经人工核对后移到docs/articles，设置status published，再运行检查与构建。不要强制提交含私有信息的草稿：本仓库本身是公开的。正式文章需title、description、kind、status、area、evidence与date；evidence可为mechanism、source、simulation或hardware。源码文章固定commit，硬件实测另记录model、hardware和results。
+草稿默认被 Git 忽略。文章经人工核对后移入 `docs/articles` 并设 `status: published`。公开项目需有 `date` 和真实 `results`，不能用任务书代替成果。不要强制提交含私有信息的草稿：本仓库是公开的。
 
-area支持foundations、inference、training、evaluation、applications。完整地图负责连接各领域，不另作为文章分类；主题和项目保持实际状态，不因为资料核验或任务书发布就标为完成。
-
-## 本轮重构
-
-历史Markdown页面与旧导航已移除。原始源码commit为2cfa220011800ed65c9e465d8473df4f4849e01b，Git历史保留；工作目录之外另保存了完整源码快照。当前四个推理专题均为研究提纲，三个项目均待实践，没有用提纲充作正式博文。
-
-后续内容应来自真实学习、源码追踪和实验积累，避免重新生成大量缺乏验证的词条。
-
-## GitHub发布配置
-
-Pages的发布方式设为GitHub Actions。source触发测试、内容检查和构建，上传Pages artifact，再由独立deploy job部署。github-pages环境需要允许source分支部署。main仅保存本轮生成文件镜像，用于同步清除旧HTML，不承担二次构建触发职责。
-
-界面与排版遵循[设计规范](./DESIGN.md)：单栏首页、适合长文的阅读宽度，以及Source Serif 4、Inter和JetBrains Mono的字体分工。英文和icon用于辅助识别，不增加重复模块。字体在本站自托管，来源与许可证见[字体说明](./docs/public/fonts/README.md)。
-
-界面使用CSS实现轻量交互，支持减少动态效果；三款变量字体使用拉丁字符子集，保留现有字型与中文系统字体回退。维护时同时检查首页资源、图表首次加载、深浅模式与窄屏排版。
+界面遵循[设计规范](./DESIGN.md)。字体来源与许可证见[字体说明](./docs/public/fonts/README.md)。维护时检查中英文、桌面与移动布局、键盘操作、搜索、Todo、拓扑、动画降级和构建产物隐私；性能结论须来自同条件测量。

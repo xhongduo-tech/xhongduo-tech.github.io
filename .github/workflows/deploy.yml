@@ -4,6 +4,9 @@ on:
   push:
     branches: [source]
   workflow_dispatch:
+  schedule:
+    # 00:15 in Asia/Shanghai; UTC has no daylight-saving adjustment.
+    - cron: '15 16 * * *'
 
 permissions:
   contents: read
@@ -21,6 +24,8 @@ jobs:
       pages: read
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -34,6 +39,8 @@ jobs:
 
       - name: Build site
         run: npm run docs:build
+        env:
+          STUDY_PLAN_JSON: ${{ secrets.STUDY_PLAN_JSON }}
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

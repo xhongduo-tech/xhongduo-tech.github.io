@@ -16,6 +16,7 @@ status: ${status}
 area: inference
 evidence: mechanism
 date: 2026-11-16
+prerequisites: []
 ${extra}---
 # 可核对的生成实验
 ## 问题与先修
@@ -64,12 +65,45 @@ test('hardware claims need model, hardware and raw-result metadata', async () =>
   })
 })
 
+test('published articles reject unknown topic map references', async () => {
+  await fixture(async (dir) => {
+    await writeFile(path.join(dir, 'docs/article.md'), article('published', 'topicId: not-a-real-topic\n'))
+    const result = check(dir)
+    assert.equal(result.status, 1)
+    assert.match(result.stderr, /未知主题: not-a-real-topic/)
+  })
+})
+
+test('published article dependencies reject missing articles, self-links and cycles', async () => {
+  await fixture(async (dir) => {
+    await writeFile(path.join(dir, 'docs/a.md'), article().replace('prerequisites: []', 'prerequisites: [/b]'))
+    await writeFile(path.join(dir, 'docs/b.md'), article().replace('prerequisites: []', 'prerequisites: [/a]'))
+    await writeFile(path.join(dir, 'docs/c.md'), article().replace('prerequisites: []', 'prerequisites: [/missing]'))
+    await writeFile(path.join(dir, 'docs/d.md'), article().replace('prerequisites: []', 'prerequisites: [/d]'))
+    const result = check(dir)
+    assert.equal(result.status, 1)
+    assert.match(result.stderr, /Missing published prerequisite|cycle|cannot depend on itself/)
+  })
+})
+
+test('public projects require results and language links require real pages', async () => {
+  await fixture(async (dir) => {
+    await mkdir(path.join(dir, 'docs/projects'), { recursive: true })
+    await writeFile(path.join(dir, 'docs/projects/demo.md'), `---\ntitle: 项目\ndescription: 测试\nkind: project\nstatus: published\ndate: 2026-11-23\ntranslations:\n  en: /en/missing\n---\n# 项目\n`)
+    const result = check(dir)
+    assert.equal(result.status, 1)
+    assert.match(result.stderr, /公开项目需有真实results记录/)
+    assert.match(result.stderr, /翻译页面不存在/)
+  })
+})
+
 test('new-note writes a private draft, refuses overwrites and path traversal', async () => {
   await fixture(async (dir) => {
     execFileSync(process.execPath, [creator, 'retrieval-check', '--area', 'applications', '--title', '检索证据的一个问题'], { cwd: dir })
     const content = await readFile(path.join(dir, 'drafts/retrieval-check.md'), 'utf8')
     assert.match(content, /status: draft/)
     assert.match(content, /area: applications/)
+    assert.match(content, /prerequisites: \[\]/)
     assert.match(content, /检索证据的一个问题/)
     assert.notEqual(spawnSync(process.execPath, [creator, 'retrieval-check'], { cwd: dir }).status, 0)
     assert.notEqual(spawnSync(process.execPath, [creator, '../escape'], { cwd: dir }).status, 0)

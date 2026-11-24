@@ -1,28 +1,39 @@
 ---
-title: 实践项目
-description: 推理与服务、监督微调和偏好优化分别验收，复用可信评测。
+layout: page
+title: 项目
+description: 具有可复现环境、对照实验和原始记录的大模型实践项目。
 kind: overview
 status: published
+contentLang: zh
+translations:
+  en: /en/projects/
+sidebar: false
+aside: false
+outline: false
 ---
 
-# 实践项目
+<div class="projects-page">
 
-三个项目分别回答一个可检验的问题，复用模型、数据版本、实验runner和评测。当前是任务书，软件、训练与实验结果尚待实现；不以网页或文档完成代替项目完成。
+<header class="articles-header">
+  <p class="articles-overline" lang="en">PROJECT REPORTS</p>
 
-| 项目 | 要深入的问题 | 计划中的证据 |
-| --- | --- | --- |
-| [推理算法与服务实验](/projects/serving-lab) | 缓存、解码与调度怎样影响质量和运行代价？ | 机制验证、真实负载、源码/故障追踪与回归 |
-| [数据与监督微调](/projects/finetuning-lab) | 数据、目标mask和低秩更新怎样改变任务表现？ | 真实SFT、adapter重载、单项消融与退化 |
-| [偏好优化与后训练](/projects/post-training-lab) | 优化学到了偏好、任务能力，还是形式偏差？ | 偏好依据、DPO训练、隔离评测与部署回归 |
+# 项目
 
-## 共用实验协议
+  <p>项目不是待办清单。只有形成真实实现、可复现步骤和实验记录后，才会在这里公开。</p>
+</header>
 
-先定义问题与评分规则，再固定合理基线；开发集用于调试选择，保留集用于预定比较。每次记录样本ID、来源/切分/hash、模型与tokenizer revision、模板、生成或训练配置、软件/硬件、种子、原始结果和失败分母。一个主要变量对应一次可解释的对照。
+<section class="projects-list" aria-labelledby="project-list-heading">
 
-资源变化同时检查质量。GPU/NPU性能只引用对应硬件实测；CPU或模拟结果用于验证机制。论文结果、参考实现与个人结果分开，不提前填写提升比例。
+## 项目报告 {#project-list-heading}
 
-## 共同验收
+  <ProjectIndex />
+</section>
 
-能够解释机制与代码，修改一项需求，定位一个未知故障，并验证结果。每项记录本人贡献、AI协作、未解决的问题和结论边界。没有提升也可以交付可信诊断。
+<section class="project-criteria" aria-labelledby="project-criteria-heading">
 
-RAG、Agent与多模态先用小实验建立认识，不自动扩展出新的平台。学习依赖与覆盖范围见[完整地图](/roadmap/)。
+## 公开标准 {#project-criteria-heading}
+
+  <p>每份报告需要回答明确的问题，给出环境版本、合理基线、原始结果、失败样例和结论边界；只有任务书或界面演示不记为完成。</p>
+</section>
+
+</div>

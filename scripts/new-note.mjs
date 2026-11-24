@@ -30,6 +30,7 @@ status: draft
 area: ${area}
 evidence: mechanism
 date: ${date}
+prerequisites: []
 ---
 
 # ${title}

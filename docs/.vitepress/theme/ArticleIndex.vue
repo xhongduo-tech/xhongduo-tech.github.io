@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { withBase } from 'vitepress'
+import { computed } from 'vue'
+import { useData, withBase } from 'vitepress'
 import { data as articles } from '../data/articles.data'
+
+const { lang } = useData()
+const english = computed(() => lang.value === 'en-US')
 
 withDefaults(defineProps<{ limit?: number }>(), { limit: 0 })
 </script>
@@ -22,6 +26,6 @@ withDefaults(defineProps<{ limit?: number }>(), { limit: 0 })
     </a>
   </div>
   <div v-else class="articles-empty">
-    <p>尚无正式文章。完成的阅读与实验将在这里整理。</p>
+    <p>{{ english ? 'No published articles yet. Reviewed learning, source-reading and experimental notes will appear here.' : '还没有正式文章；经过核对的学习、源码与实验记录会发布在这里。' }}</p>
   </div>
 </template>
