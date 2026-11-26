@@ -2,6 +2,8 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import { useData, withBase } from 'vitepress'
 import TopicIcon from './TopicIcon.vue'
+import { routeTopicEdge } from './topic-routing.mjs'
+import { buildFocusedDomainLayout } from './topic-layout.mjs'
 import { data as articles } from '../data/articles.data'
 import { domains, domainProgress } from '../data/domain-progress.mjs'
 import {
@@ -76,6 +78,8 @@ const selectedId = ref(nodes[0]?.id || '')
 const activeDomain = ref('foundations')
 const emphasis = ref(false)
 const drag = ref<DragState | null>(null)
+const draggedNodes = new Set<string>()
+const activeLayout = ref(buildFocusedDomainLayout(nodes, groups, 'foundations', 1))
 let suppressNextClick = false
 let resizeObserver: ResizeObserver | undefined
 
@@ -120,8 +124,13 @@ const overviewDomainLayouts = domains.map((domain, index) => {
   }
 })
 const visibleNodes = computed(() => activeDomain.value ? nodes.filter(node => node.domain === activeDomain.value) : [])
-const visibleGroups = computed(() => activeDomain.value ? groups.filter(group => group.domain === activeDomain.value) : [])
-const visibleDomainLayouts = computed(() => activeDomain.value ? domainLayouts.filter(layout => layout.domain.id === activeDomain.value) : overviewDomainLayouts)
+const visibleGroups = computed(() => activeDomain.value ? activeLayout.value.groups : [])
+const visibleDomainLayouts = computed(() => {
+  if (!activeDomain.value) return overviewDomainLayouts
+  const layout = domainLayouts.find(candidate => candidate.domain.id === activeDomain.value)
+  const bounds = activeLayout.value.domain
+  return layout && bounds ? [{ ...layout, ...bounds }] : []
+})
 const selected = computed(() => byId.get(selectedId.value) || nodes[0])
 const selectedGroup = computed(() => groupById.get(selected.value?.group))
 const completedCount = computed(() => Object.values(domainProgress).filter(item => item.completed).length)
@@ -147,45 +156,16 @@ const selectedOrderIndex = computed(() => orderedNodes.findIndex(node => node.id
 const previousNode = computed(() => orderedNodes[selectedOrderIndex.value - 1])
 const nextNode = computed(() => orderedNodes[selectedOrderIndex.value + 1])
 const edges = computed(() => {
-  const visible = new Set(visibleNodes.value.map(node => node.id))
-  return relations.filter(([source, target]) => visible.has(source) && visible.has(target)).map(([sourceId, targetId]) => {
-    const a = positions[sourceId]
-    const b = positions[targetId]
-    let path: string
-    if (Math.abs(b.x - a.x) > 40) {
-      const forward = b.x > a.x
-      const direction = forward ? 1 : -1
-      const startX = a.x + (forward ? WIDTH : 0)
-      const endX = b.x + (forward ? 0 : WIDTH)
-      const startY = a.y + HEIGHT / 2
-      const endY = b.y + HEIGHT / 2
-      const midX = (startX + endX) / 2
-      if (Math.abs(endY - startY) < 1) {
-        path = `M ${startX} ${startY} H ${endX}`
-      } else {
-        const vertical = endY > startY ? 1 : -1
-        const radius = Math.min(8, Math.abs(endX - startX) / 4, Math.abs(endY - startY) / 2)
-        path = `M ${startX} ${startY} H ${midX - direction * radius} Q ${midX} ${startY} ${midX} ${startY + vertical * radius} V ${endY - vertical * radius} Q ${midX} ${endY} ${midX + direction * radius} ${endY} H ${endX}`
-      }
-    } else {
-      const down = b.y > a.y
-      const direction = down ? 1 : -1
-      const startX = a.x + WIDTH / 2
-      const endX = b.x + WIDTH / 2
-      const startY = a.y + (down ? HEIGHT : 0)
-      const endY = b.y + (down ? 0 : HEIGHT)
-      if (Math.abs(endX - startX) < 1) {
-        path = `M ${startX} ${startY} V ${endY}`
-      } else {
-        const midY = (startY + endY) / 2
-        const horizontal = endX > startX ? 1 : -1
-        const radius = Math.min(8, Math.abs(endY - startY) / 4, Math.abs(endX - startX) / 2)
-        path = `M ${startX} ${startY} V ${midY - direction * radius} Q ${startX} ${midY} ${startX + horizontal * radius} ${midY} H ${endX - horizontal * radius} Q ${endX} ${midY} ${endX} ${midY + direction * radius} V ${endY}`
-      }
-    }
+  const visible = visibleNodes.value.map(node => ({ id: node.id, ...positions[node.id] }))
+  const visibleIds = new Set(visible.map(node => node.id))
+  return relations.filter(([source, target]) => visibleIds.has(source) && visibleIds.has(target)).map(([sourceId, targetId]) => {
+    const source = visible.find(node => node.id === sourceId)!
+    const target = visible.find(node => node.id === targetId)!
+    const route = routeTopicEdge(source, target, visible, WIDTH, HEIGHT)
     return {
       id: `${sourceId}-${targetId}`,
-      path,
+      path: route.path,
+      detour: route.points.length > 2,
       active: sourceId === selectedId.value || targetId === selectedId.value,
       muted: emphasis.value && sourceId !== selectedId.value && targetId !== selectedId.value,
     }
@@ -267,13 +247,27 @@ function selectNode(node: TopicNode) {
   emphasis.value = true
 }
 
+function prepareLayout(domain: string, force = false) {
+  const columns = viewport.width >= 680 ? 2 : 1
+  if (!force && activeLayout.value.id === domain && activeLayout.value.columns === columns) return
+  activeLayout.value = buildFocusedDomainLayout(nodes, groups, domain, columns)
+  for (const [id, position] of Object.entries(activeLayout.value.positions)) {
+    if (!draggedNodes.has(id)) positions[id] = { ...position }
+  }
+}
+
 function focusNode(node: TopicNode, emphasize = true) {
-  if (activeDomain.value !== node.domain) activeDomain.value = node.domain
+  if (activeDomain.value !== node.domain) {
+    activeDomain.value = node.domain
+    prepareLayout(node.domain)
+  }
   selectedId.value = node.id
   emphasis.value = emphasize
   zoom.value = Math.max(zoom.value, 0.9)
   const position = positions[node.id]
-  pan.x = viewport.width / 2 - (position.x + WIDTH / 2) * zoom.value
+  const bounds = activeLayout.value.domain
+  const centerX = bounds ? bounds.x + bounds.width / 2 : position.x + WIDTH / 2
+  pan.x = viewport.width / 2 - centerX * zoom.value
   pan.y = viewport.height * 0.3 - (position.y + HEIGHT / 2) * zoom.value
 }
 
@@ -281,6 +275,7 @@ function focusDomain(domain: (typeof domains)[number]) {
   const first = nodes.find(node => node.domain === domain.id)
   if (!first) return
   activeDomain.value = domain.id
+  prepareLayout(domain.id)
   emphasis.value = false
   selectedId.value = first.id
   nextTick(() => focusNode(first, false))
@@ -290,6 +285,7 @@ function focusGroup(group: TopicGroup) {
   const first = nodes.find(node => node.group === group.id)
   if (!first) return
   activeDomain.value = group.domain
+  prepareLayout(group.domain)
   nextTick(() => focusNode(first, false))
 }
 
@@ -329,11 +325,13 @@ function fitGraph() {
 }
 
 function resetGraph() {
+  draggedNodes.clear()
   for (const node of nodes) {
     positions[node.id].x = node.x
     positions[node.id].y = node.y
   }
   activeDomain.value = 'foundations'
+  prepareLayout('foundations', true)
   selectedId.value = nodes[0]?.id || ''
   emphasis.value = false
   zoom.value = 0.9
@@ -401,6 +399,7 @@ function endDrag(event: PointerEvent) {
   const active = drag.value
   if (!active || active.pointerId !== event.pointerId) return
   suppressNextClick = active.type === 'node' && active.moved
+  if (active.type === 'node' && active.moved && active.nodeId) draggedNodes.add(active.nodeId)
   drag.value = null
   if (svg.value?.hasPointerCapture(event.pointerId)) svg.value.releasePointerCapture(event.pointerId)
 }
@@ -441,6 +440,10 @@ onMounted(() => {
     if (!rect) return
     viewport.width = rect.width
     viewport.height = rect.height
+    if (activeDomain.value && activeLayout.value.columns !== (rect.width >= 680 ? 2 : 1)) {
+      prepareLayout(activeDomain.value, true)
+      nextTick(() => selected.value && focusNode(selected.value, emphasis.value))
+    }
   })
   resizeObserver.observe(svg.value)
 })
@@ -555,7 +558,7 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
           </g>
           <path
             v-for="edge in edges" :key="edge.id" :d="edge.path"
-            class="topic-edge" :class="{ active: edge.active && emphasis, muted: edge.muted }" :marker-end="edge.active && emphasis ? 'url(#topic-arrow)' : undefined"
+            class="topic-edge" :class="{ active: edge.active && emphasis, detour: edge.detour, muted: edge.muted }" :marker-end="edge.active && emphasis ? 'url(#topic-arrow)' : undefined"
           />
           <g
             v-for="node in visibleNodes" :key="node.id"
@@ -584,8 +587,10 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
             <text class="topic-node-subtitle" x="56" y="53">{{ english ? `${maturityLabel(node.maturity, true)} · ${prerequisitesById.get(node.id)?.length || 0} prereq · ${dependentsById.get(node.id)?.length || 0} next` : `${maturityLabel(node.maturity, true)} · 先修 ${prerequisitesById.get(node.id)?.length || 0} · 后续 ${dependentsById.get(node.id)?.length || 0}` }}</text>
             <text class="topic-node-state" :x="WIDTH - 12" y="18" text-anchor="end">{{ stepLabel(node) }}</text>
             <circle v-if="hasArticles(node)" class="topic-node-published" :cx="WIDTH - 13" :cy="HEIGHT - 12" r="3" />
-            <circle class="topic-node-port" cx="0" :cy="HEIGHT / 2" r="3" />
-            <circle class="topic-node-port" :cx="WIDTH" :cy="HEIGHT / 2" r="3" />
+            <circle class="topic-node-port" cx="0" :cy="HEIGHT / 2" r="2.5" />
+            <circle class="topic-node-port" :cx="WIDTH" :cy="HEIGHT / 2" r="2.5" />
+            <circle class="topic-node-port" :cx="WIDTH / 2" cy="0" r="2.5" />
+            <circle class="topic-node-port" :cx="WIDTH / 2" :cy="HEIGHT" r="2.5" />
           </g>
         </g>
       </svg>
