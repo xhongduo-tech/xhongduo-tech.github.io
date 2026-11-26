@@ -25,6 +25,25 @@ withDefaults(defineProps<{ name: string; size?: number }>(), { size: 20 })
     <template v-else-if="name === 'projects' || name === 'experiment'">
       <path d="M9 3h6m-5 0v6l-5.5 9.5A1.8 1.8 0 0 0 6 21h12a1.8 1.8 0 0 0 1.5-2.5L14 9V3" /><path d="M7.5 15h9M9 12h6" /><circle cx="12" cy="17.5" r=".7" />
     </template>
+    <template v-else-if="name === 'path'">
+      <rect x="3" y="3" width="6" height="6" rx="1.5" /><rect x="15" y="15" width="6" height="6" rx="1.5" /><rect x="3" y="15" width="6" height="6" rx="1.5" />
+      <path d="M9 6h5a4 4 0 0 1 4 4v5M6 9v6m3-3h6" />
+    </template>
+    <template v-else-if="name === 'reward'">
+      <circle cx="12" cy="12" r="8.5" /><circle cx="12" cy="12" r="4.5" /><path d="m10.2 12 1.2 1.2 2.6-2.8" />
+    </template>
+    <template v-else-if="name === 'shield'">
+      <path d="M12 3 20 6v5.5c0 4.8-3.2 8-8 9.5-4.8-1.5-8-4.7-8-9.5V6l8-3Z" /><path d="m8.5 12 2.2 2.2 4.8-5" />
+    </template>
+    <template v-else-if="name === 'performance'">
+      <path d="M4 17a8 8 0 1 1 16 0" /><path d="m12 13 4-4M7 17h10" /><circle cx="12" cy="13" r="1.5" />
+    </template>
+    <template v-else-if="name === 'distill'">
+      <path d="m12 3 8 4-8 4-8-4 8-4Z" /><path d="m4 12 8 4 8-4M4 17l8 4 8-4" /><path d="M18 8v6m-2-2 2 2 2-2" />
+    </template>
+    <template v-else-if="name === 'parallel'">
+      <path d="M5 3v18M12 3v18M19 3v18" /><circle cx="5" cy="8" r="2" /><circle cx="12" cy="15" r="2" /><circle cx="19" cy="9" r="2" /><path d="M7 8h3m4 7h3" />
+    </template>
     <template v-else-if="name === 'math'">
       <path d="M5 4h14l-8 8 8 8H5M5 12h5" /><path d="M4 2v20" opacity=".45" />
     </template>
